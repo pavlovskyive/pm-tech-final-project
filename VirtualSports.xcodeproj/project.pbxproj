@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */; };
 		79C3D26F260489B800ACD5E5 /* VirtualSportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D26E260489B800ACD5E5 /* VirtualSportsTests.swift */; };
 		79C3D27A260489B800ACD5E5 /* VirtualSportsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */; };
+		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
+		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
+		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 		79C3D275260489B800ACD5E5 /* VirtualSportsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualSportsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSportsUITests.swift; sourceTree = "<group>"; };
 		79C3D27B260489B800ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
+				79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +112,7 @@
 				79C3D260260489B500ACD5E5 /* Assets.xcassets */,
 				79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */,
 				79C3D265260489B500ACD5E5 /* Info.plist */,
+				79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */,
 			);
 			path = VirtualSports;
 			sourceTree = "<group>";
@@ -138,12 +145,19 @@
 				79C3D250260489A700ACD5E5 /* Sources */,
 				79C3D251260489A700ACD5E5 /* Frameworks */,
 				79C3D252260489A700ACD5E5 /* Resources */,
+				79C3D29A26048DEB00ACD5E5 /* Crashlytics */,
+				799DCC25260498F100ECBF69 /* IBLinter */,
+				799DCC262604991F00ECBF69 /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = VirtualSports;
+			packageProductDependencies = (
+				79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */,
+				79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */,
+			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +229,9 @@
 				Base,
 			);
 			mainGroup = 79C3D24B260489A700ACD5E5;
+			packageReferences = (
+				79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
+				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
 				79C3D25F260489A700ACD5E5 /* Main.storyboard in Resources */,
 			);
@@ -252,6 +270,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		799DCC25260498F100ECBF69 /* IBLinter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = IBLinter;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which iblinter >/dev/null; then\n  iblinter lint\nelse\n  echo \"warning: IBLinter not installed, download from https://github.com/IBDecodable/IBLinter\"\nfi\n";
+		};
+		799DCC262604991F00ECBF69 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+		79C3D29A26048DEB00ACD5E5 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${BUILD_DIR%Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79C3D250260489A700ACD5E5 /* Sources */ = {
@@ -437,16 +512,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = G66XPV3HVM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,14 +536,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G66XPV3HVM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -593,6 +673,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79C3D24C260489A700ACD5E5 /* Project object */;
 }
