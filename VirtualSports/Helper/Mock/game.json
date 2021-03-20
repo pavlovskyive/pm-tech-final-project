@@ -1,0 +1,27 @@
+{
+  "url":"https://vsw.betradar.com/ls/mobile/?/parimatchrgs/ru/page/vsmobile_demo",
+  "backgroundImage":"/static-content/casino/Casino/eva/backgrounds/default.png",
+  "game":{
+    "id":"bet-radar-football",
+    "provider":"bet-radar",
+    "category":[
+      "football"
+    ],
+    "translationKey":"Virtual Football League Mode",
+    "displayName":"Virtual Football League Mode",
+    "isFast":false,
+    "width":1050,
+    "height":900,
+    "styling":{
+      "gradient":"linear-gradient(225deg, #05BA58 0%, #62CF8E 100%)",
+      "categoryIcon":"football"
+    },
+    "tags":[
+      "top"
+    ],
+    "status":"ACTIVE",
+    "demoModeAvailable":true,
+    "targetChannel":"omni",
+    "availableFrom":"2021-02-01T00:00:00Z"
+  }
+}
