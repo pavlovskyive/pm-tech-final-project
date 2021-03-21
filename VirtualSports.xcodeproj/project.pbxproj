@@ -17,6 +17,11 @@
 		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
 		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
 		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
+		79C3F17B26076BC4001D2982 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3F17826076BC4001D2982 /* APIServiceMock.swift */; };
+		79C3F17C26076BC4001D2982 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 79C3F17926076BC4001D2982 /* main.json */; };
+		79C3F17D26076BC4001D2982 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = 79C3F17A26076BC4001D2982 /* game.json */; };
+		79C3F18626076C45001D2982 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3F18526076C45001D2982 /* APIService */; };
+		79C3F18C26076C5F001D2982 /* KeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3F18B26076C5F001D2982 /* KeychainWrapper */; };
 		E5D89A0D2606579D0055F978 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D89A092606579D0055F978 /* TopBar.swift */; };
 		E5D89A0E2606579D0055F978 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D89A0A2606579D0055F978 /* TopBar.xib */; };
 		E5D89A19260658C50055F978 /* UIView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D89A18260658C50055F978 /* UIView + IBDesignable.swift */; };
@@ -55,6 +60,9 @@
 		79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSportsUITests.swift; sourceTree = "<group>"; };
 		79C3D27B260489B800ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79C3F17826076BC4001D2982 /* APIServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
+		79C3F17926076BC4001D2982 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		79C3F17A26076BC4001D2982 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
 		E5D89A092606579D0055F978 /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		E5D89A0A2606579D0055F978 /* TopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
 		E5D89A18260658C50055F978 /* UIView + IBDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + IBDesignable.swift"; sourceTree = "<group>"; };
@@ -66,8 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C3F18C26076C5F001D2982 /* KeychainWrapper in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
 				79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */,
+				79C3F18626076C45001D2982 /* APIService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +121,7 @@
 		79C3D256260489A700ACD5E5 /* VirtualSports */ = {
 			isa = PBXGroup;
 			children = (
+				79C3F17626076BC4001D2982 /* Helper */,
 				E5D89A082606579D0055F978 /* TopBar */,
 				79C3D257260489A700ACD5E5 /* AppDelegate.swift */,
 				79C3D25B260489A700ACD5E5 /* ViewController.swift */,
@@ -141,6 +152,25 @@
 				79C3D27B260489B800ACD5E5 /* Info.plist */,
 			);
 			path = VirtualSportsUITests;
+			sourceTree = "<group>";
+		};
+		79C3F17626076BC4001D2982 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				79C3F17726076BC4001D2982 /* Mock */,
+			);
+			name = Helper;
+			path = TopBar/Helper;
+			sourceTree = "<group>";
+		};
+		79C3F17726076BC4001D2982 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				79C3F17826076BC4001D2982 /* APIServiceMock.swift */,
+				79C3F17926076BC4001D2982 /* main.json */,
+				79C3F17A26076BC4001D2982 /* game.json */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		E5D89A082606579D0055F978 /* TopBar */ = {
@@ -191,6 +221,8 @@
 			packageProductDependencies = (
 				79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */,
 				79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */,
+				79C3F18526076C45001D2982 /* APIService */,
+				79C3F18B26076C5F001D2982 /* KeychainWrapper */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -265,6 +297,8 @@
 			mainGroup = 79C3D24B260489A700ACD5E5;
 			packageReferences = (
 				79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				79C3F18426076C44001D2982 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
+				79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */,
 			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
@@ -282,8 +316,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C3F17C26076BC4001D2982 /* main.json in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
+				79C3F17D26076BC4001D2982 /* game.json in Resources */,
 				E5D89A0E2606579D0055F978 /* TopBar.xib in Resources */,
 				79C3D25F260489A700ACD5E5 /* Main.storyboard in Resources */,
 				E5D89A28260675060055F978 /* Assets.xcassets in Resources */,
@@ -388,6 +424,7 @@
 			files = (
 				E5D89A0D2606579D0055F978 /* TopBar.swift in Sources */,
 				E5D89A19260658C50055F978 /* UIView + IBDesignable.swift in Sources */,
+				79C3F17B26076BC4001D2982 /* APIServiceMock.swift in Sources */,
 				79C3D25C260489A700ACD5E5 /* ViewController.swift in Sources */,
 				79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
@@ -496,7 +533,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -551,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -738,6 +775,22 @@
 				minimumVersion = 7.8.1;
 			};
 		};
+		79C3F18426076C44001D2982 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pavlovskyive/virtual-sports-api-service";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+		79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pavlovskyive/keychain-wrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -750,6 +803,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		79C3F18526076C45001D2982 /* APIService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C3F18426076C44001D2982 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
+			productName = APIService;
+		};
+		79C3F18B26076C5F001D2982 /* KeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */;
+			productName = KeychainWrapper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
