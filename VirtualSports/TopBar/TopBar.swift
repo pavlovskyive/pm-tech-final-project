@@ -16,7 +16,8 @@ import UIKit
  
  First: Setup your RootVC:
  
- 1) Add TopBar as subview to root VC view and pin it to superView.top, safeArea.leading, safeArea.trailing, and fix height to 140.
+ 1) Add TopBar as subview to root VC view and pin it to superView.top, safeArea.leading,
+ safeArea.trailing, and fix height to 140.
  
  2) Make outlet from TopBarView to root VC
  
@@ -44,14 +45,14 @@ import UIKit
 
 @IBDesignable
 class TopBar: UIView {
-    
+
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var signUp: DesignableButton!
     @IBOutlet weak var signIn: DesignableButton!
     @IBOutlet weak var logOut: DesignableButton!
-    
+
     weak var delegate: TopBarDelegate?
-    
+
     var showLogOutButton = false {
         didSet {
             signIn.isHidden = !oldValue
@@ -59,42 +60,42 @@ class TopBar: UIView {
             logOut.isHidden = oldValue
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         topBarSetup()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         topBarSetup()
     }
-    
+
     private func topBarSetup() {
         loadViewFromBundle()
-        
+
         addSubview(contentView)
-        
+
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
-    
+
     private func loadViewFromBundle() {
         let bundle = Bundle(for: TopBar.self)
         bundle.loadNibNamed("TopBar", owner: self, options: nil)
     }
-    
-    //MARK:- @IBActions
+
+    // MARK: - @IBActions
     @IBAction func logoutButtonPressed(_ sender: DesignableButton) {
         delegate?.logOutButtonPressed()
     }
-    
+
     @IBAction func loginButtonPressed(_ sender: DesignableButton) {
         delegate?.signInButtonPressed()
     }
-    
+
     @IBAction func registerButtonPressed(_ sender: DesignableButton) {
         delegate?.signUpButtonPressed()
     }
-    
+
 }

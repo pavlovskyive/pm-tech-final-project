@@ -12,9 +12,9 @@ import NetworkService
 public final class APIServiceMock: APIProvider {
 
     public var networkService: NetworkProvider
-    
+
     public var config: APIConfig
-    
+
     init() {
         config = APIConfig(scheme: "https",
                            host: "mock.com",
@@ -22,5 +22,5 @@ public final class APIServiceMock: APIProvider {
                            gamePath: "/game")
         networkService = networkService()
     }
-    
+
 }

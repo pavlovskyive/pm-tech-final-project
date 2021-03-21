@@ -74,6 +74,15 @@
         }
       },
       {
+        "package": "KeychainWrapper",
+        "repositoryURL": "https://github.com/pavlovskyive/keychain-wrapper",
+        "state": {
+          "branch": null,
+          "revision": "15648a6b46114eb0de94755ce630061ca98fbff9",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "leveldb",
         "repositoryURL": "https://github.com/firebase/leveldb.git",
         "state": {
@@ -92,6 +101,15 @@
         }
       },
       {
+        "package": "NetworkService",
+        "repositoryURL": "https://github.com/pavlovskyive/network-service",
+        "state": {
+          "branch": null,
+          "revision": "84ab54fd077fa7749657fd458ebdc616157c0bed",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "Promises",
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
@@ -107,6 +125,15 @@
           "branch": null,
           "revision": "e1904bf5a5f79cb7e0ff68a427a53a93b652fcd1",
           "version": "1.15.0"
+        }
+      },
+      {
+        "package": "APIService",
+        "repositoryURL": "https://github.com/pavlovskyive/virtual-sports-api-service",
+        "state": {
+          "branch": null,
+          "revision": "750a53c048f81088ef2632c892ba8ef82d7c03cb",
+          "version": "0.1.1"
         }
       }
     ]
