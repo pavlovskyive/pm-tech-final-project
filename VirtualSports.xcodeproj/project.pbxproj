@@ -11,13 +11,16 @@
 		79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D259260489A700ACD5E5 /* SceneDelegate.swift */; };
 		79C3D25C260489A700ACD5E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D25B260489A700ACD5E5 /* ViewController.swift */; };
 		79C3D25F260489A700ACD5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D25D260489A700ACD5E5 /* Main.storyboard */; };
-		79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D260260489B500ACD5E5 /* Assets.xcassets */; };
 		79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */; };
 		79C3D26F260489B800ACD5E5 /* VirtualSportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D26E260489B800ACD5E5 /* VirtualSportsTests.swift */; };
 		79C3D27A260489B800ACD5E5 /* VirtualSportsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */; };
 		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
 		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
 		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
+		E5D89A0D2606579D0055F978 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D89A092606579D0055F978 /* TopBar.swift */; };
+		E5D89A0E2606579D0055F978 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D89A0A2606579D0055F978 /* TopBar.xib */; };
+		E5D89A19260658C50055F978 /* UIView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D89A18260658C50055F978 /* UIView + IBDesignable.swift */; };
+		E5D89A28260675060055F978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D89A27260675060055F978 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,6 @@
 		79C3D259260489A700ACD5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		79C3D25B260489A700ACD5E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79C3D25E260489A700ACD5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		79C3D260260489B500ACD5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79C3D263260489B500ACD5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79C3D265260489B500ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C3D26A260489B800ACD5E5 /* VirtualSportsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualSportsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +55,10 @@
 		79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSportsUITests.swift; sourceTree = "<group>"; };
 		79C3D27B260489B800ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5D89A092606579D0055F978 /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		E5D89A0A2606579D0055F978 /* TopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
+		E5D89A18260658C50055F978 /* UIView + IBDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + IBDesignable.swift"; sourceTree = "<group>"; };
+		E5D89A27260675060055F978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,14 +111,16 @@
 		79C3D256260489A700ACD5E5 /* VirtualSports */ = {
 			isa = PBXGroup;
 			children = (
+				E5D89A082606579D0055F978 /* TopBar */,
 				79C3D257260489A700ACD5E5 /* AppDelegate.swift */,
-				79C3D259260489A700ACD5E5 /* SceneDelegate.swift */,
 				79C3D25B260489A700ACD5E5 /* ViewController.swift */,
+				79C3D259260489A700ACD5E5 /* SceneDelegate.swift */,
 				79C3D25D260489A700ACD5E5 /* Main.storyboard */,
-				79C3D260260489B500ACD5E5 /* Assets.xcassets */,
 				79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */,
 				79C3D265260489B500ACD5E5 /* Info.plist */,
 				79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */,
+				E5D89A27260675060055F978 /* Assets.xcassets */,
+				E5D89A0B2606579D0055F978 /* Resources */,
 			);
 			path = VirtualSports;
 			sourceTree = "<group>";
@@ -135,6 +143,31 @@
 			path = VirtualSportsUITests;
 			sourceTree = "<group>";
 		};
+		E5D89A082606579D0055F978 /* TopBar */ = {
+			isa = PBXGroup;
+			children = (
+				E5D89A092606579D0055F978 /* TopBar.swift */,
+				E5D89A0A2606579D0055F978 /* TopBar.xib */,
+				E5D89A18260658C50055F978 /* UIView + IBDesignable.swift */,
+			);
+			path = TopBar;
+			sourceTree = "<group>";
+		};
+		E5D89A0B2606579D0055F978 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5D89A0C2606579D0055F978 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E5D89A0C2606579D0055F978 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +181,7 @@
 				79C3D29A26048DEB00ACD5E5 /* Crashlytics */,
 				799DCC25260498F100ECBF69 /* IBLinter */,
 				799DCC262604991F00ECBF69 /* SwiftLint */,
+				E5D899F9260656480055F978 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,8 +284,9 @@
 			files = (
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
-				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
+				E5D89A0E2606579D0055F978 /* TopBar.xib in Resources */,
 				79C3D25F260489A700ACD5E5 /* Main.storyboard in Resources */,
+				E5D89A28260675060055F978 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +361,24 @@
 			shellPath = /bin/sh;
 			shellScript = "${BUILD_DIR%Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\n";
 		};
+		E5D899F9260656480055F978 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -333,6 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D89A0D2606579D0055F978 /* TopBar.swift in Sources */,
+				E5D89A19260658C50055F978 /* UIView + IBDesignable.swift in Sources */,
 				79C3D25C260489A700ACD5E5 /* ViewController.swift in Sources */,
 				79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
