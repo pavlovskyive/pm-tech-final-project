@@ -8,9 +8,9 @@
 import UIKit
 
 @objc protocol TopBarDelegate: class {
-  @objc func signInButtonPressed()
-  @objc func logOutButtonPressed()
-  @objc func signUpButtonPressed()
+    @objc func signInButtonPressed()
+    @objc func logOutButtonPressed()
+    @objc func signUpButtonPressed()
 }
 /*
  
@@ -26,8 +26,8 @@ import UIKit
  
  
  override func viewWillAppear(_ animated: Bool) {
-     self.navigationController?.setNavigationBarHidden(true, animated: animated)
-     super.viewWillAppear(animated)
+ self.navigationController?.setNavigationBarHidden(true, animated: animated)
+ super.viewWillAppear(animated)
  }
  
  Second: In ChaildVC
@@ -36,65 +36,65 @@ import UIKit
  
  
  override func viewWillAppear(_ animated: Bool) {
-     self.navigationController?.setNavigationBarHidden(false, animated: animated)
-     super.viewWillAppear(animated)
+ self.navigationController?.setNavigationBarHidden(false, animated: animated)
+ super.viewWillAppear(animated)
  }
  
  */
 
 @IBDesignable
 class TopBar: UIView {
-  
-  @IBOutlet var contentView: UIView!
-  @IBOutlet weak var signUp: DesignableButton!
-  @IBOutlet weak var signIn: DesignableButton!
-  @IBOutlet weak var logOut: DesignableButton!
-  
-  weak var delegate: TopBarDelegate?
-  
-  var showLogOutButton = false {
-    didSet {
-      signIn.isHidden = !oldValue
-      signUp.isHidden = !oldValue
-      logOut.isHidden = oldValue
+    
+    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var signUp: DesignableButton!
+    @IBOutlet weak var signIn: DesignableButton!
+    @IBOutlet weak var logOut: DesignableButton!
+    
+    weak var delegate: TopBarDelegate?
+    
+    var showLogOutButton = false {
+        didSet {
+            signIn.isHidden = !oldValue
+            signUp.isHidden = !oldValue
+            logOut.isHidden = oldValue
+        }
     }
-  }
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    topBarSetup()
-  }
-  
-  required init?(coder: NSCoder) {
-    super.init(coder: coder)
-    topBarSetup()
-  }
-  
-  private func topBarSetup() {
-    loadViewFromBundle()
     
-    addSubview(contentView)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        topBarSetup()
+    }
     
-    contentView.frame = self.bounds
-    contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-  }
-  
-  private func loadViewFromBundle() {
-    let bundle = Bundle(for: TopBar.self)
-    bundle.loadNibNamed("TopBar", owner: self, options: nil)
-  }
-  
-  //MARK:- @IBActions
-  @IBAction func logoutButtonPressed(_ sender: DesignableButton) {
-    delegate?.logOutButtonPressed()
-  }
-  
-  @IBAction func loginButtonPressed(_ sender: DesignableButton) {
-    delegate?.signInButtonPressed()
-  }
-  
-  @IBAction func registerButtonPressed(_ sender: DesignableButton) {
-    delegate?.signUpButtonPressed()
-  }
-
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        topBarSetup()
+    }
+    
+    private func topBarSetup() {
+        loadViewFromBundle()
+        
+        addSubview(contentView)
+        
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    private func loadViewFromBundle() {
+        let bundle = Bundle(for: TopBar.self)
+        bundle.loadNibNamed("TopBar", owner: self, options: nil)
+    }
+    
+    //MARK:- @IBActions
+    @IBAction func logoutButtonPressed(_ sender: DesignableButton) {
+        delegate?.logOutButtonPressed()
+    }
+    
+    @IBAction func loginButtonPressed(_ sender: DesignableButton) {
+        delegate?.signInButtonPressed()
+    }
+    
+    @IBAction func registerButtonPressed(_ sender: DesignableButton) {
+        delegate?.signUpButtonPressed()
+    }
+    
 }

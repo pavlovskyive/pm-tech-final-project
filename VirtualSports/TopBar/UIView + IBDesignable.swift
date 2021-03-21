@@ -8,15 +8,14 @@
 import UIKit
 
 @IBDesignable
-class DesignableButton: UIButton {
-}
+class DesignableButton: UIButton {}
 
 @IBDesignable extension UIView {
-  @IBInspectable var cornerRadius: CGFloat {
-    get { return layer.cornerRadius }
-    set {
-      layer.cornerRadius = newValue
-      layer.masksToBounds = (newValue > 0)
+    @IBInspectable var cornerRadius: CGFloat {
+        get { return layer.cornerRadius }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = (newValue > 0)
+        }
     }
-  }
 }
