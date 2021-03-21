@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="VirtualSports" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1m-9e-gio">
+                    <rect key="frame" x="188.5" y="437.5" width="37" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvK-5t-gFC">
+                    <rect key="frame" x="139.5" y="773" width="135" height="29"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <state key="normal" title="GO TO LOG IN VIEW">
+                        <color key="titleColor" systemColor="systemYellowColor"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapLoginButton:" destination="-1" eventType="touchUpInside" id="Qig-Jm-C2x"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyI-6r-Rxz">
+                    <rect key="frame" x="108.5" y="703" width="197" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="GO TO REGISTRATION VIEW">
+                        <color key="titleColor" systemColor="systemYellowColor"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapRegistrationButton:" destination="-1" eventType="touchUpInside" id="f2g-zx-eMJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1S-Us-D6M">
+                    <rect key="frame" x="136" y="144" width="142" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Go to selected game">
+                        <color key="titleColor" systemColor="systemYellowColor"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapGame:" destination="-1" eventType="touchUpInside" id="4Gj-Oo-yAd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cvK-5t-gFC" secondAttribute="bottom" constant="60" id="2Al-Fe-RsJ"/>
+                <constraint firstItem="I1S-Us-D6M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kz3-WZ-PUq"/>
+                <constraint firstItem="x1m-9e-gio" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RMD-6j-RY3"/>
+                <constraint firstItem="x1m-9e-gio" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hqV-ny-WeN"/>
+                <constraint firstItem="WyI-6r-Rxz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iCP-uU-DEl"/>
+                <constraint firstItem="I1S-Us-D6M" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="idW-sW-o0K"/>
+                <constraint firstItem="cvK-5t-gFC" firstAttribute="top" secondItem="WyI-6r-Rxz" secondAttribute="bottom" constant="40" id="tSR-mm-LJT"/>
+                <constraint firstItem="cvK-5t-gFC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ysO-cj-ZGK"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="109"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

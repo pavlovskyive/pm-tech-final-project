@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D257260489A700ACD5E5 /* AppDelegate.swift */; };
 		79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D259260489A700ACD5E5 /* SceneDelegate.swift */; };
-		79C3D25C260489A700ACD5E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D25B260489A700ACD5E5 /* ViewController.swift */; };
-		79C3D25F260489A700ACD5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D25D260489A700ACD5E5 /* Main.storyboard */; };
 		79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D260260489B500ACD5E5 /* Assets.xcassets */; };
 		79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */; };
 		79C3D26F260489B800ACD5E5 /* VirtualSportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D26E260489B800ACD5E5 /* VirtualSportsTests.swift */; };
@@ -18,6 +16,24 @@
 		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
 		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
 		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
+		B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */; };
+		B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6242607C77700D831A2 /* MainCoordinator.swift */; };
+		B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */; };
+		B941F62E2607C84500D831A2 /* ViewController+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F62D2607C84500D831A2 /* ViewController+Coordinator.swift */; };
+		B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F62F2607C86C00D831A2 /* CoordinatorFactoryProtocol.swift */; };
+		B941F6322607C8A500D831A2 /* BaseViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6312607C8A500D831A2 /* BaseViewControllerProvider.swift */; };
+		B941F6342607C8C300D831A2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6332607C8C300D831A2 /* Coordinator.swift */; };
+		B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6352607C8E200D831A2 /* CoordinatorFinishOutput.swift */; };
+		B941F6382607C90500D831A2 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6372607C90500D831A2 /* Presentable.swift */; };
+		B941F63A2607C93C00D831A2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6392607C93C00D831A2 /* Router.swift */; };
+		B941F6472607CA1200D831A2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F63C2607CA1200D831A2 /* LoginViewController.xib */; };
+		B941F6482607CA1200D831A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F63D2607CA1200D831A2 /* LoginViewController.swift */; };
+		B941F6492607CA1200D831A2 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F63F2607CA1200D831A2 /* RegistrationViewController.xib */; };
+		B941F64A2607CA1200D831A2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6402607CA1200D831A2 /* RegistrationViewController.swift */; };
+		B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6422607CA1200D831A2 /* GameViewController.xib */; };
+		B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6432607CA1200D831A2 /* GameViewController.swift */; };
+		B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6452607CA1200D831A2 /* MainViewController.xib */; };
+		B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6462607CA1200D831A2 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +57,6 @@
 		79C3D254260489A700ACD5E5 /* VirtualSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C3D257260489A700ACD5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C3D259260489A700ACD5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		79C3D25B260489A700ACD5E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		79C3D25E260489A700ACD5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79C3D260260489B500ACD5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79C3D263260489B500ACD5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79C3D265260489B500ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +67,24 @@
 		79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSportsUITests.swift; sourceTree = "<group>"; };
 		79C3D27B260489B800ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		B941F6242607C77700D831A2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		B941F62D2607C84500D831A2 /* ViewController+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Coordinator.swift"; sourceTree = "<group>"; };
+		B941F62F2607C86C00D831A2 /* CoordinatorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryProtocol.swift; sourceTree = "<group>"; };
+		B941F6312607C8A500D831A2 /* BaseViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProvider.swift; sourceTree = "<group>"; };
+		B941F6332607C8C300D831A2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B941F6352607C8E200D831A2 /* CoordinatorFinishOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFinishOutput.swift; sourceTree = "<group>"; };
+		B941F6372607C90500D831A2 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		B941F6392607C93C00D831A2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B941F63C2607CA1200D831A2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		B941F63D2607CA1200D831A2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B941F63F2607CA1200D831A2 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		B941F6402607CA1200D831A2 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		B941F6422607CA1200D831A2 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		B941F6432607CA1200D831A2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B941F6452607CA1200D831A2 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		B941F6462607CA1200D831A2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +137,10 @@
 		79C3D256260489A700ACD5E5 /* VirtualSports */ = {
 			isa = PBXGroup;
 			children = (
+				B941F61F2607C69400D831A2 /* ViewControllers */,
+				B941F61E2607C67200D831A2 /* Coordinator */,
 				79C3D257260489A700ACD5E5 /* AppDelegate.swift */,
 				79C3D259260489A700ACD5E5 /* SceneDelegate.swift */,
-				79C3D25B260489A700ACD5E5 /* ViewController.swift */,
-				79C3D25D260489A700ACD5E5 /* Main.storyboard */,
 				79C3D260260489B500ACD5E5 /* Assets.xcassets */,
 				79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */,
 				79C3D265260489B500ACD5E5 /* Info.plist */,
@@ -133,6 +165,126 @@
 				79C3D27B260489B800ACD5E5 /* Info.plist */,
 			);
 			path = VirtualSportsUITests;
+			sourceTree = "<group>";
+		};
+		B941F61E2607C67200D831A2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6202607C6DE00D831A2 /* Coordinators */,
+				B941F6212607C6E900D831A2 /* BaseCoordinator */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B941F61F2607C69400D831A2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6412607CA1200D831A2 /* GameViewController */,
+				B941F63B2607CA1200D831A2 /* LoginViewController */,
+				B941F6442607CA1200D831A2 /* MainViewController */,
+				B941F63E2607CA1200D831A2 /* RegistrationViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B941F6202607C6DE00D831A2 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */,
+				B941F6242607C77700D831A2 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B941F6212607C6E900D831A2 /* BaseCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B941F62C2607C82000D831A2 /* Router */,
+				B941F62B2607C80E00D831A2 /* Protocols */,
+				B941F62A2607C7F900D831A2 /* Factory */,
+				B941F6292607C7E900D831A2 /* Extensions */,
+				B941F6282607C7D000D831A2 /* Base */,
+			);
+			path = BaseCoordinator;
+			sourceTree = "<group>";
+		};
+		B941F6282607C7D000D831A2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B941F6292607C7E900D831A2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B941F62D2607C84500D831A2 /* ViewController+Coordinator.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B941F62A2607C7F900D831A2 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				B941F62F2607C86C00D831A2 /* CoordinatorFactoryProtocol.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		B941F62B2607C80E00D831A2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6312607C8A500D831A2 /* BaseViewControllerProvider.swift */,
+				B941F6332607C8C300D831A2 /* Coordinator.swift */,
+				B941F6352607C8E200D831A2 /* CoordinatorFinishOutput.swift */,
+				B941F6372607C90500D831A2 /* Presentable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B941F62C2607C82000D831A2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6392607C93C00D831A2 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B941F63B2607CA1200D831A2 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B941F63C2607CA1200D831A2 /* LoginViewController.xib */,
+				B941F63D2607CA1200D831A2 /* LoginViewController.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		B941F63E2607CA1200D831A2 /* RegistrationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B941F63F2607CA1200D831A2 /* RegistrationViewController.xib */,
+				B941F6402607CA1200D831A2 /* RegistrationViewController.swift */,
+			);
+			path = RegistrationViewController;
+			sourceTree = "<group>";
+		};
+		B941F6412607CA1200D831A2 /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6422607CA1200D831A2 /* GameViewController.xib */,
+				B941F6432607CA1200D831A2 /* GameViewController.swift */,
+			);
+			path = GameViewController;
+			sourceTree = "<group>";
+		};
+		B941F6442607CA1200D831A2 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6452607CA1200D831A2 /* MainViewController.xib */,
+				B941F6462607CA1200D831A2 /* MainViewController.swift */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,10 +400,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B941F6492607CA1200D831A2 /* RegistrationViewController.xib in Resources */,
+				B941F6472607CA1200D831A2 /* LoginViewController.xib in Resources */,
+				B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
+				B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
-				79C3D25F260489A700ACD5E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,9 +488,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C3D25C260489A700ACD5E5 /* ViewController.swift in Sources */,
+				B941F6322607C8A500D831A2 /* BaseViewControllerProvider.swift in Sources */,
+				B941F62E2607C84500D831A2 /* ViewController+Coordinator.swift in Sources */,
+				B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */,
 				79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */,
+				B941F64A2607CA1200D831A2 /* RegistrationViewController.swift in Sources */,
+				B941F63A2607C93C00D831A2 /* Router.swift in Sources */,
+				B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */,
+				B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */,
+				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
+				B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
+				B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */,
+				B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */,
+				B941F6382607C90500D831A2 /* Presentable.swift in Sources */,
+				B941F6482607CA1200D831A2 /* LoginViewController.swift in Sources */,
+				B941F6342607C8C300D831A2 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,14 +539,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		79C3D25D260489A700ACD5E5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79C3D25E260489A700ACD5E5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -513,7 +673,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 9G6JQLYXLM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -521,7 +681,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -534,7 +694,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 9G6JQLYXLM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -542,7 +702,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
