@@ -13,12 +13,17 @@ protocol LoginViewControllerProtocol: AnyObject {
 }
 
 class LoginViewController: UIViewController, LoginViewControllerProtocol {
+
+    @IBOutlet weak var loginButton: LoginButton?
+    @IBOutlet weak var registrationButton: LoginButton?
+
     var onGoToRegistration: (() -> Void)?
     var didLogin: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loginButton?.setEnabled(false)
     }
 
     // MARK: Actions

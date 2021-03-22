@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="4iq-07-PQ1" id="4pP-wm-f6X"/>
+                <outlet property="registrationButton" destination="gPl-3h-qfT" id="WTW-CB-PQv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,47 +27,53 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWC-8c-Svz">
-                    <rect key="frame" x="113" y="773" width="188" height="29"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                    <state key="normal" title="Register user and go to root">
-                        <color key="titleColor" systemColor="systemYellowColor"/>
-                    </state>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPl-3h-qfT" customClass="LoginButton" customModule="VirtualSports" customModuleProvider="target">
+                    <rect key="frame" x="20" y="478.5" width="374" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="fMq-by-8Uo"/>
+                    </constraints>
+                    <state key="normal" title="РЕГИСТРАЦИЯ"/>
                     <connections>
-                        <action selector="didTapRegisterButton:" destination="-1" eventType="touchUpInside" id="3Ug-EP-LeV"/>
+                        <action selector="didTapRegisterButton:" destination="-1" eventType="touchUpInside" id="ahH-zI-Zvo"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePA-xu-7zg">
-                    <rect key="frame" x="150" y="703" width="114" height="30"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Go to log in view">
-                        <color key="titleColor" systemColor="systemYellowColor"/>
-                    </state>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iq-07-PQ1" customClass="LoginButton" customModule="VirtualSports" customModuleProvider="target">
+                    <rect key="frame" x="20" y="558.5" width="374" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="SZt-dY-Wes"/>
+                    </constraints>
+                    <state key="normal" title="ВХОД"/>
                     <connections>
-                        <action selector="didTapLoginButton:" destination="-1" eventType="touchUpInside" id="nro-bq-xz1"/>
+                        <action selector="didTapLoginButton:" destination="-1" eventType="touchUpInside" id="mgI-eX-58l"/>
                     </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="MWC-8c-Svz" firstAttribute="top" secondItem="ePA-xu-7zg" secondAttribute="bottom" constant="40" id="GaY-QU-JgT"/>
+                <constraint firstItem="4iq-07-PQ1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1H8-MQ-mXX"/>
+                <constraint firstItem="4iq-07-PQ1" firstAttribute="top" secondItem="gPl-3h-qfT" secondAttribute="bottom" constant="20" id="CZK-zN-eFQ"/>
                 <constraint firstItem="GOa-iy-iu0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hct-gU-Mqz"/>
-                <constraint firstItem="MWC-8c-Svz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Om7-AF-JS5"/>
-                <constraint firstItem="ePA-xu-7zg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QUF-A1-fUo"/>
+                <constraint firstItem="gPl-3h-qfT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ik8-Rz-caW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4iq-07-PQ1" secondAttribute="trailing" constant="20" id="TjO-pk-WY4"/>
                 <constraint firstItem="GOa-iy-iu0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="arm-oV-xB8"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MWC-8c-Svz" secondAttribute="bottom" constant="60" id="uXm-IM-Tgt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gPl-3h-qfT" secondAttribute="trailing" constant="20" id="nIQ-31-2KZ"/>
+                <constraint firstItem="gPl-3h-qfT" firstAttribute="top" secondItem="GOa-iy-iu0" secondAttribute="bottom" constant="20" id="tlJ-Zv-WAm"/>
             </constraints>
             <point key="canvasLocation" x="139" y="74"/>
         </view>
     </objects>
+    <designables>
+        <designable name="4iq-07-PQ1">
+            <size key="intrinsicContentSize" width="45" height="30"/>
+        </designable>
+        <designable name="gPl-3h-qfT">
+            <size key="intrinsicContentSize" width="118" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

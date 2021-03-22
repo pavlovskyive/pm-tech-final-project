@@ -19,6 +19,7 @@
 		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
 		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
 		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
+		79DC7B7A260880F00028FCA7 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC7B79260880F00028FCA7 /* LoginButton.swift */; };
 		B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */; };
 		B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6242607C77700D831A2 /* MainCoordinator.swift */; };
 		B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */; };
@@ -78,6 +79,7 @@
 		79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSportsUITests.swift; sourceTree = "<group>"; };
 		79C3D27B260489B800ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79DC7B79260880F00028FCA7 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B941F6242607C77700D831A2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				79043EEB260875DA00119FD9 /* Helper */,
 				B941F6512607E59D00D831A2 /* TopBar */,
 				B941F61F2607C69400D831A2 /* ViewControllers */,
+				79DC7B6F260880A30028FCA7 /* View */,
 				B941F61E2607C67200D831A2 /* Coordinator */,
 				79C3D257260489A700ACD5E5 /* AppDelegate.swift */,
 				79C3D259260489A700ACD5E5 /* SceneDelegate.swift */,
@@ -201,6 +204,14 @@
 				79C3D27B260489B800ACD5E5 /* Info.plist */,
 			);
 			path = VirtualSportsUITests;
+			sourceTree = "<group>";
+		};
+		79DC7B6F260880A30028FCA7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79DC7B79260880F00028FCA7 /* LoginButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B941F61E2607C67200D831A2 /* Coordinator */ = {
@@ -565,6 +576,7 @@
 				B941F62E2607C84500D831A2 /* ViewController+Coordinator.swift in Sources */,
 				B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */,
 				B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */,
+				79DC7B7A260880F00028FCA7 /* LoginButton.swift in Sources */,
 				79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */,
 				B941F64A2607CA1200D831A2 /* RegistrationViewController.swift in Sources */,
 				B941F63A2607C93C00D831A2 /* Router.swift in Sources */,
@@ -748,7 +760,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9G6JQLYXLM;
+				DEVELOPMENT_TEAM = G66XPV3HVM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -769,7 +781,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9G6JQLYXLM;
+				DEVELOPMENT_TEAM = G66XPV3HVM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
