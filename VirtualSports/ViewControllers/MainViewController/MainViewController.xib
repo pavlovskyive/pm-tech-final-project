@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
+                <outlet property="filterButtonView" destination="3dD-fo-TeB" id="Lbv-Du-yjf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1S-Us-D6M">
-                    <rect key="frame" x="136" y="144" width="142" height="30"/>
+                    <rect key="frame" x="136" y="613" width="142" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Go to selected game">
                         <color key="titleColor" systemColor="systemYellowColor"/>
@@ -56,26 +57,32 @@
                         <action selector="didTapGame:" destination="-1" eventType="touchUpInside" id="4Gj-Oo-yAd"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dD-fo-TeB" customClass="FilterButtonView" customModule="VirtualSports" customModuleProvider="target">
+                    <rect key="frame" x="16" y="60" width="382" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="4LL-kh-PE7"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.14901724459999999" green="0.14901834729999999" blue="0.14902132749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cvK-5t-gFC" secondAttribute="bottom" constant="60" id="2Al-Fe-RsJ"/>
-                <constraint firstItem="I1S-Us-D6M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kz3-WZ-PUq"/>
+                <constraint firstItem="3dD-fo-TeB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="Acl-Uf-gMT"/>
+                <constraint firstItem="WyI-6r-Rxz" firstAttribute="top" secondItem="I1S-Us-D6M" secondAttribute="bottom" constant="60" id="GdK-gd-rcy"/>
+                <constraint firstItem="I1S-Us-D6M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KIO-BJ-JxS"/>
                 <constraint firstItem="x1m-9e-gio" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RMD-6j-RY3"/>
+                <constraint firstItem="3dD-fo-TeB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ee3-u9-74Y"/>
                 <constraint firstItem="x1m-9e-gio" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hqV-ny-WeN"/>
                 <constraint firstItem="WyI-6r-Rxz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iCP-uU-DEl"/>
-                <constraint firstItem="I1S-Us-D6M" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="idW-sW-o0K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3dD-fo-TeB" secondAttribute="trailing" constant="16" id="lnD-Le-HVU"/>
                 <constraint firstItem="cvK-5t-gFC" firstAttribute="top" secondItem="WyI-6r-Rxz" secondAttribute="bottom" constant="40" id="tSR-mm-LJT"/>
                 <constraint firstItem="cvK-5t-gFC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ysO-cj-ZGK"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="109"/>
+            <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

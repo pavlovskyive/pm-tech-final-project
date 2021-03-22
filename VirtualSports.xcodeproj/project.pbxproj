@@ -42,6 +42,13 @@
 		B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6522607E59D00D831A2 /* TopBar.xib */; };
 		B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6532607E59D00D831A2 /* UIView + IBDesignable.swift */; };
 		B941F6612607E59D00D831A2 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6542607E59D00D831A2 /* TopBar.swift */; };
+		B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170642608AC850099DA82 /* FilterButtonView.swift */; };
+		B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170662608ACD70099DA82 /* FilterButtonView.xib */; };
+		B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170682608AD570099DA82 /* UIViewExtension.swift */; };
+		B9E1706F2608D3B60099DA82 /* ProviderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1706D2608D3B60099DA82 /* ProviderCollectionViewCell.swift */; };
+		B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E1706E2608D3B60099DA82 /* ProviderCollectionViewCell.xib */; };
+		B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */; };
+		B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,13 @@
 		B941F6522607E59D00D831A2 /* TopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
 		B941F6532607E59D00D831A2 /* UIView + IBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + IBDesignable.swift"; sourceTree = "<group>"; };
 		B941F6542607E59D00D831A2 /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		B9E170642608AC850099DA82 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
+		B9E170662608ACD70099DA82 /* FilterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterButtonView.xib; sourceTree = "<group>"; };
+		B9E170682608AD570099DA82 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		B9E1706D2608D3B60099DA82 /* ProviderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCollectionViewCell.swift; sourceTree = "<group>"; };
+		B9E1706E2608D3B60099DA82 /* ProviderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCollectionViewCell.xib; sourceTree = "<group>"; };
+		B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +185,7 @@
 		79C3D256260489A700ACD5E5 /* VirtualSports */ = {
 			isa = PBXGroup;
 			children = (
+				B9E170622608AC2E0099DA82 /* ReusableView */,
 				79043EEB260875DA00119FD9 /* Helper */,
 				B941F6512607E59D00D831A2 /* TopBar */,
 				B941F61F2607C69400D831A2 /* ViewControllers */,
@@ -333,6 +348,52 @@
 			path = TopBar;
 			sourceTree = "<group>";
 		};
+		B9E170622608AC2E0099DA82 /* ReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				B9E1706A2608D2890099DA82 /* Cell */,
+				B9E170632608AC4B0099DA82 /* FilterButton */,
+			);
+			path = ReusableView;
+			sourceTree = "<group>";
+		};
+		B9E170632608AC4B0099DA82 /* FilterButton */ = {
+			isa = PBXGroup;
+			children = (
+				B9E170642608AC850099DA82 /* FilterButtonView.swift */,
+				B9E170662608ACD70099DA82 /* FilterButtonView.xib */,
+				B9E170682608AD570099DA82 /* UIViewExtension.swift */,
+			);
+			path = FilterButton;
+			sourceTree = "<group>";
+		};
+		B9E1706A2608D2890099DA82 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B9E1706C2608D2A90099DA82 /* CategoryCell */,
+				B9E1706B2608D2980099DA82 /* ProviderCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B9E1706B2608D2980099DA82 /* ProviderCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9E1706D2608D3B60099DA82 /* ProviderCollectionViewCell.swift */,
+				B9E1706E2608D3B60099DA82 /* ProviderCollectionViewCell.xib */,
+			);
+			path = ProviderCell;
+			sourceTree = "<group>";
+		};
+		B9E1706C2608D2A90099DA82 /* CategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */,
+				B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */,
+			);
+			path = CategoryCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -457,8 +518,11 @@
 				B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */,
 				B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
+				B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */,
+				B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */,
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
 				B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */,
+				B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
 				79043EF2260875DA00119FD9 /* game.json in Resources */,
 			);
@@ -560,12 +624,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E1706F2608D3B60099DA82 /* ProviderCollectionViewCell.swift in Sources */,
 				B941F6322607C8A500D831A2 /* BaseViewControllerProvider.swift in Sources */,
 				B941F6612607E59D00D831A2 /* TopBar.swift in Sources */,
 				B941F62E2607C84500D831A2 /* ViewController+Coordinator.swift in Sources */,
 				B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */,
 				B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */,
 				79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */,
+				B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */,
 				B941F64A2607CA1200D831A2 /* RegistrationViewController.swift in Sources */,
 				B941F63A2607C93C00D831A2 /* Router.swift in Sources */,
 				B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */,
@@ -574,9 +640,11 @@
 				B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
 				79043EF0260875DA00119FD9 /* APIServiceMock.swift in Sources */,
+				B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */,
 				B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */,
 				B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */,
 				B941F6382607C90500D831A2 /* Presentable.swift in Sources */,
+				B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */,
 				B941F6482607CA1200D831A2 /* LoginViewController.swift in Sources */,
 				B941F6342607C8C300D831A2 /* Coordinator.swift in Sources */,
 			);
