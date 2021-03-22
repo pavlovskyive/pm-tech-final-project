@@ -19,6 +19,8 @@
 		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
 		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
 		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
+		79D1901F2608B311000D9C6D /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1901E2608B311000D9C6D /* LoginTextField.swift */; };
+		79D1902E2608E0BC000D9C6D /* AuthPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1902D2608E0BC000D9C6D /* AuthPresentable.swift */; };
 		79DC7B7A260880F00028FCA7 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC7B79260880F00028FCA7 /* LoginButton.swift */; };
 		B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */; };
 		B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6242607C77700D831A2 /* MainCoordinator.swift */; };
@@ -79,6 +81,8 @@
 		79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSportsUITests.swift; sourceTree = "<group>"; };
 		79C3D27B260489B800ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79D1901E2608B311000D9C6D /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		79D1902D2608E0BC000D9C6D /* AuthPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentable.swift; sourceTree = "<group>"; };
 		79DC7B79260880F00028FCA7 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B941F6242607C77700D831A2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -175,7 +179,7 @@
 			children = (
 				79043EEB260875DA00119FD9 /* Helper */,
 				B941F6512607E59D00D831A2 /* TopBar */,
-				B941F61F2607C69400D831A2 /* ViewControllers */,
+				B941F61F2607C69400D831A2 /* Controller */,
 				79DC7B6F260880A30028FCA7 /* View */,
 				B941F61E2607C67200D831A2 /* Coordinator */,
 				79C3D257260489A700ACD5E5 /* AppDelegate.swift */,
@@ -206,10 +210,21 @@
 			path = VirtualSportsUITests;
 			sourceTree = "<group>";
 		};
+		79D190292608E09E000D9C6D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B941F63B2607CA1200D831A2 /* LoginViewController */,
+				B941F63E2607CA1200D831A2 /* RegistrationViewController */,
+				79D1902D2608E0BC000D9C6D /* AuthPresentable.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		79DC7B6F260880A30028FCA7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				79DC7B79260880F00028FCA7 /* LoginButton.swift */,
+				79D1901E2608B311000D9C6D /* LoginTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,15 +238,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		B941F61F2607C69400D831A2 /* ViewControllers */ = {
+		B941F61F2607C69400D831A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				79D190292608E09E000D9C6D /* Auth */,
 				B941F6412607CA1200D831A2 /* GameViewController */,
-				B941F63B2607CA1200D831A2 /* LoginViewController */,
 				B941F6442607CA1200D831A2 /* MainViewController */,
-				B941F63E2607CA1200D831A2 /* RegistrationViewController */,
 			);
-			path = ViewControllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B941F6202607C6DE00D831A2 /* Coordinators */ = {
@@ -576,7 +590,9 @@
 				B941F62E2607C84500D831A2 /* ViewController+Coordinator.swift in Sources */,
 				B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */,
 				B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */,
+				79D1902E2608E0BC000D9C6D /* AuthPresentable.swift in Sources */,
 				79DC7B7A260880F00028FCA7 /* LoginButton.swift in Sources */,
+				79D1901F2608B311000D9C6D /* LoginTextField.swift in Sources */,
 				79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */,
 				B941F64A2607CA1200D831A2 /* RegistrationViewController.swift in Sources */,
 				B941F63A2607C93C00D831A2 /* Router.swift in Sources */,

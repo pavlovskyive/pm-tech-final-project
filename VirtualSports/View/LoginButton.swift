@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class LoginButton: UIButton {
+final class LoginButton: UIButton {
 
     public func setEnabled(_ isEnabled: Bool) {
         self.isEnabled = isEnabled

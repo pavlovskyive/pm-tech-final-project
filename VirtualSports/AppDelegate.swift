@@ -11,9 +11,35 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    var appCoordinator: Coordinator?
+
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+
+        if #available(iOS 13, *) {
+            // Do nothing, setup is in SceneDelegate
+        } else {
+            let window = UIWindow()
+
+            let navController = UINavigationController()
+
+            self.window = window
+            self.window?.makeKeyAndVisible()
+
+            window.rootViewController = navController
+            let rootController = window.rootViewController
+
+            if let root = rootController as? UINavigationController {
+                let router = Router(rootController: root)
+                appCoordinator = ApplicationCoordinator(router: router,
+                                                        coordinatorFactory: CoordinatorFactory())
+            }
+
+            appCoordinator?.start()
+        }
+
         return true
     }
 
