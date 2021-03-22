@@ -18,9 +18,11 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var onGoToRegistration: (() -> Void)?
     var onGoToGame: (() -> Void)?
 
+    @IBOutlet weak var filterButtonView: FilterButtonView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        filterButtonView.delegate = self
     }
 
     // MARK: Actions
@@ -35,6 +37,15 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     @IBAction func didTapRegistrationButton(_ sender: Any) {
         self.onGoToRegistration?()
+    }
+
+}
+
+extension MainViewController: FilterButtonDelegate {
+
+    func didTapFilterButton() {
+
+        print("Filter button pressed")
     }
 
 }

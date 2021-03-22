@@ -146,7 +146,7 @@ extension AuthBaseViewController: UITextFieldDelegate {
         } else {
             textField.resignFirstResponder()
         }
-        
+
         return false
     }
 

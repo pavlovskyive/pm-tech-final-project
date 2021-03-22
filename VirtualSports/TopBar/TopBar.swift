@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc protocol TopBarDelegate: class {
+@objc protocol TopBarDelegate: AnyObject {
     @objc func signInButtonPressed()
     @objc func logOutButtonPressed()
     @objc func signUpButtonPressed()
