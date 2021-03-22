@@ -19,15 +19,31 @@ protocol AuthPresentable: UIViewController {
 
 class AuthBaseViewController: UIViewController, AuthPresentable {
 
+    // MARK: - Variables
+
+    // MARK: Outlets
+
     @IBOutlet weak var scrollView: UIScrollView?
 
     @IBOutlet weak var primaryButton: LoginButton?
     @IBOutlet weak var secondaryButton: LoginButton?
     @IBOutlet weak var closeButton: UIButton?
 
+    // MARK: Completions
+
     var primaryAction: (() -> Void)?
     var secondaryAction: (() -> Void)?
     var onClose: (() -> Void)?
+
+    var onValid: (() -> Void)?
+    var onInvalid: (() -> Void)?
+
+    // MARK: Private Variables
+
+    private var additionValidations = [() -> Bool]()
+    private var textFields = [UITextField]()
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +69,12 @@ class AuthBaseViewController: UIViewController, AuthPresentable {
         unsubscribeFromAllNotifications()
     }
 
+}
+
+private extension AuthBaseViewController {
+
+    // MARK: - Actions
+
     @objc func didTapPrimaryButton(_ sender: Any) {
         primaryAction?()
     }
@@ -69,43 +91,81 @@ class AuthBaseViewController: UIViewController, AuthPresentable {
 
 extension AuthBaseViewController {
 
-    func initializeHideKeyboard() {
+    // MARK: - Validations
 
-        // Declare a Tap Gesture Recognizer which will trigger our dismissMyKeyboard() function
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                 action: #selector(dismissKeyboard))
+    func appendTextFields(_ textFields: [UITextField?]) {
 
-        // Add this tap gesture recognizer to the parent view
-        view.addGestureRecognizer(tap)
+        self.textFields = textFields.compactMap { textField in
+            textField?.delegate = self
+            textField?.addTarget(self, action: #selector(validate), for: .editingChanged)
+
+            return textField
+        }
+
+        self.textFields.enumerated().forEach { (index, textField) in
+            textField.tag = index
+        }
+
+        self.textFields.first?.becomeFirstResponder()
     }
 
-    @objc func dismissKeyboard() {
+    func appendValidation(_ validation: @escaping () -> Bool) {
+        additionValidations.append(validation)
+    }
 
-        // endEditing causes the view (or one of its embedded text fields) to resign the first responder status.
-        // In short- Dismiss the active keyboard.
-        view.endEditing(true)
+    @objc
+    private func validate() {
+
+        guard !textFields.contains(where: { $0.text?.isEmpty == true }) else {
+            onInvalid?()
+            return
+        }
+
+        guard !additionValidations.contains(where: { $0() == false }) else {
+            onInvalid?()
+            return
+        }
+
+        onValid?()
+    }
+
+    private func emptyValidation(textField: UITextField) -> Bool {
+        !(textField.text?.isEmpty ?? false)
     }
 
 }
 
 extension AuthBaseViewController: UITextFieldDelegate {
 
+    // MARK: - UITextField Delegate
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
-        // Check if there is any other text-field in the view whose tag is +1 greater than the current text-field
-        // on which the return key was pressed. If yes → then move the cursor to that next text-field.
-        // If No → Dismiss the keyboard
         if let nextField = self.view.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
         }
+        
         return false
     }
 
 }
 
-extension AuthBaseViewController {
+private extension AuthBaseViewController {
+
+    // MARK: - Keyboard Handling
+
+    func initializeHideKeyboard() {
+
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
         NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)

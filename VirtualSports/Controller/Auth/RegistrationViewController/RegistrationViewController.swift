@@ -52,16 +52,33 @@ class RegistrationViewController: AuthBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let textFields = [
+        primaryButton?.setEnabled(false)
+
+        appendTextFields([
             emailTextField,
             passwordTextField,
             confirmationTextField
-        ]
+        ])
 
-        textFields.enumerated().forEach { (index, textField) in
-            textField?.delegate = self
-            textField?.tag = index + 1
+        let equalityValidation = { [weak self] in
+            (self?.checkEquality(textFields: [self?.passwordTextField,
+                                              self?.confirmationTextField]) ?? false)
         }
+
+        appendValidation(equalityValidation)
+
+        onValid = { [weak self] in
+            self?.primaryButton?.setEnabled(true)
+        }
+
+        onInvalid = { [weak self] in
+            self?.primaryButton?.setEnabled(false)
+        }
+    }
+
+    private func checkEquality(textFields: [UITextField?]) -> Bool {
+        let inputs = textFields.compactMap({ $0?.text })
+        return inputs.dropFirst().allSatisfy({ $0 == inputs.first })
     }
 
 }

@@ -51,14 +51,19 @@ class LoginViewController: AuthBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let textFields = [
+        primaryButton?.setEnabled(false)
+
+        appendTextFields([
             emailTextField,
             passwordTextField
-        ]
+        ])
 
-        textFields.enumerated().forEach { (index, textField) in
-            textField?.delegate = self
-            textField?.tag = index + 1
+        onValid = { [weak self] in
+            self?.primaryButton?.setEnabled(true)
+        }
+
+        onInvalid = { [weak self] in
+            self?.primaryButton?.setEnabled(false)
         }
     }
 
