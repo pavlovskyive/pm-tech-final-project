@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79043EF0260875DA00119FD9 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79043EED260875DA00119FD9 /* APIServiceMock.swift */; };
+		79043EF1260875DA00119FD9 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 79043EEE260875DA00119FD9 /* main.json */; };
+		79043EF2260875DA00119FD9 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = 79043EEF260875DA00119FD9 /* game.json */; };
 		79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D257260489A700ACD5E5 /* AppDelegate.swift */; };
 		79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D259260489A700ACD5E5 /* SceneDelegate.swift */; };
 		79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D260260489B500ACD5E5 /* Assets.xcassets */; };
@@ -39,12 +42,6 @@
 		B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6522607E59D00D831A2 /* TopBar.xib */; };
 		B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6532607E59D00D831A2 /* UIView + IBDesignable.swift */; };
 		B941F6612607E59D00D831A2 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6542607E59D00D831A2 /* TopBar.swift */; };
-		B941F6622607E59D00D831A2 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6572607E59D00D831A2 /* APIServiceMock.swift */; };
-		B941F6632607E59D00D831A2 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = B941F6582607E59D00D831A2 /* main.json */; };
-		B941F6642607E59D00D831A2 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = B941F6592607E59D00D831A2 /* game.json */; };
-		B941F6652607E59D00D831A2 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F65C2607E59D00D831A2 /* APIServiceMock.swift */; };
-		B941F6662607E59D00D831A2 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = B941F65D2607E59D00D831A2 /* main.json */; };
-		B941F6672607E59D00D831A2 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = B941F65E2607E59D00D831A2 /* game.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +62,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79043EED260875DA00119FD9 /* APIServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
+		79043EEE260875DA00119FD9 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		79043EEF260875DA00119FD9 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
 		79C3D254260489A700ACD5E5 /* VirtualSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C3D257260489A700ACD5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C3D259260489A700ACD5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,12 +99,6 @@
 		B941F6522607E59D00D831A2 /* TopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
 		B941F6532607E59D00D831A2 /* UIView + IBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + IBDesignable.swift"; sourceTree = "<group>"; };
 		B941F6542607E59D00D831A2 /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
-		B941F6572607E59D00D831A2 /* APIServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
-		B941F6582607E59D00D831A2 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
-		B941F6592607E59D00D831A2 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
-		B941F65C2607E59D00D831A2 /* APIServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
-		B941F65D2607E59D00D831A2 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
-		B941F65E2607E59D00D831A2 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +130,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79043EEB260875DA00119FD9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				79043EEC260875DA00119FD9 /* Mock */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		79043EEC260875DA00119FD9 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				79043EED260875DA00119FD9 /* APIServiceMock.swift */,
+				79043EEE260875DA00119FD9 /* main.json */,
+				79043EEF260875DA00119FD9 /* game.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		79C3D24B260489A700ACD5E5 = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +171,7 @@
 		79C3D256260489A700ACD5E5 /* VirtualSports */ = {
 			isa = PBXGroup;
 			children = (
-				B941F65A2607E59D00D831A2 /* Helper */,
+				79043EEB260875DA00119FD9 /* Helper */,
 				B941F6512607E59D00D831A2 /* TopBar */,
 				B941F61F2607C69400D831A2 /* ViewControllers */,
 				B941F61E2607C67200D831A2 /* Coordinator */,
@@ -317,45 +329,8 @@
 				B941F6522607E59D00D831A2 /* TopBar.xib */,
 				B941F6532607E59D00D831A2 /* UIView + IBDesignable.swift */,
 				B941F6542607E59D00D831A2 /* TopBar.swift */,
-				B941F6552607E59D00D831A2 /* Helper */,
 			);
 			path = TopBar;
-			sourceTree = "<group>";
-		};
-		B941F6552607E59D00D831A2 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				B941F6562607E59D00D831A2 /* Mock */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		B941F6562607E59D00D831A2 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				B941F6572607E59D00D831A2 /* APIServiceMock.swift */,
-				B941F6582607E59D00D831A2 /* main.json */,
-				B941F6592607E59D00D831A2 /* game.json */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
-		B941F65A2607E59D00D831A2 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				B941F65B2607E59D00D831A2 /* Mock */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		B941F65B2607E59D00D831A2 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				B941F65C2607E59D00D831A2 /* APIServiceMock.swift */,
-				B941F65D2607E59D00D831A2 /* main.json */,
-				B941F65E2607E59D00D831A2 /* game.json */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,18 +451,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B941F6632607E59D00D831A2 /* main.json in Resources */,
+				79043EF1260875DA00119FD9 /* main.json in Resources */,
 				B941F6492607CA1200D831A2 /* RegistrationViewController.xib in Resources */,
 				B941F6472607CA1200D831A2 /* LoginViewController.xib in Resources */,
 				B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */,
 				B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
-				B941F6662607E59D00D831A2 /* main.json in Resources */,
-				B941F6672607E59D00D831A2 /* game.json in Resources */,
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
 				B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
-				B941F6642607E59D00D831A2 /* game.json in Resources */,
+				79043EF2260875DA00119FD9 /* game.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,13 +568,12 @@
 				79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */,
 				B941F64A2607CA1200D831A2 /* RegistrationViewController.swift in Sources */,
 				B941F63A2607C93C00D831A2 /* Router.swift in Sources */,
-				B941F6652607E59D00D831A2 /* APIServiceMock.swift in Sources */,
 				B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */,
 				B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */,
 				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
 				B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
-				B941F6622607E59D00D831A2 /* APIServiceMock.swift in Sources */,
+				79043EF0260875DA00119FD9 /* APIServiceMock.swift in Sources */,
 				B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */,
 				B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */,
 				B941F6382607C90500D831A2 /* Presentable.swift in Sources */,
@@ -784,7 +756,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -805,7 +777,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

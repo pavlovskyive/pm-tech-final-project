@@ -133,7 +133,7 @@
   "tags":[
     {
       "id":"top",
-      "translationKey":"Top",
+      "displayName":"Top",
       "status":"ACTIVE",
       "sortOverride":[
         "bet-radar-football",
@@ -147,7 +147,7 @@
     },
     {
       "id":"all",
-      "translationKey":"All",
+      "displayName":"All",
       "status":"ACTIVE",
       "sortOverride":[
         "spribe-aviatorvs",
