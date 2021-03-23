@@ -37,43 +37,42 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         let loginViewController = LoginViewController()
 
-        loginViewController.onGoToRegistration = { [unowned self] in
-            self.showRegistrationVC()
-        }
-
-        loginViewController.didLogin = { [unowned self] in
+        loginViewController.primaryAction = { [unowned self] in
+            router.dismissModule()
             router.popToRootModule(animated: true)
         }
 
-        if self.router.isInStack(controllerType: LoginViewController.self) {
-
-            self.router.popModule()
-
-        } else {
-
-            self.router.push(loginViewController)
+        loginViewController.secondaryAction = { [unowned self] in
+            router.dismissModule()
+            showRegistrationVC()
         }
+
+        loginViewController.onClose = { [unowned self] in
+            router.dismissModule()
+        }
+
+        router.present(loginViewController)
     }
 
     private func showRegistrationVC() {
 
         let registrationViewController = RegistrationViewController()
 
-        registrationViewController.onGoToLogin = { [unowned self] in
-            self.showLoginVC()
+        registrationViewController.primaryAction = { [unowned self] in
+            router.dismissModule()
+            showLoginVC()
         }
 
-        registrationViewController.didRegister = { [unowned self] in
-            router.popToRootModule(animated: true)
+        registrationViewController.secondaryAction = { [unowned self] in
+            router.dismissModule()
+            showLoginVC()
         }
 
-        if self.router.isInStack(controllerType: RegistrationViewController.self) {
-
-            self.router.popModule()
-        } else {
-
-            self.router.push(registrationViewController)
+        registrationViewController.onClose = { [unowned self] in
+            router.dismissModule()
         }
+
+        self.router.present(registrationViewController)
 
     }
 
