@@ -46,6 +46,12 @@
 		B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6522607E59D00D831A2 /* TopBar.xib */; };
 		B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6532607E59D00D831A2 /* UIView + IBDesignable.swift */; };
 		B941F6612607E59D00D831A2 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6542607E59D00D831A2 /* TopBar.swift */; };
+		B9BA50E1260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BA50DF260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib */; };
+		B9BA50E2260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA50E0260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift */; };
+		B9BA50E7260A4E2400F4E0A8 /* CollectionViewExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA50E4260A4E2300F4E0A8 /* CollectionViewExtencion.swift */; };
+		B9BA50E8260A4E2400F4E0A8 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA50E6260A4E2300F4E0A8 /* FilterCell.swift */; };
+		B9BA50EC260A4EE600F4E0A8 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BA50EA260A4EE600F4E0A8 /* FilterViewController.xib */; };
+		B9BA50ED260A4EE600F4E0A8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA50EB260A4EE600F4E0A8 /* FilterViewController.swift */; };
 		B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170642608AC850099DA82 /* FilterButtonView.swift */; };
 		B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170662608ACD70099DA82 /* FilterButtonView.xib */; };
 		B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170682608AD570099DA82 /* UIViewExtension.swift */; };
@@ -114,6 +120,12 @@
 		B941F6522607E59D00D831A2 /* TopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
 		B941F6532607E59D00D831A2 /* UIView + IBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + IBDesignable.swift"; sourceTree = "<group>"; };
 		B941F6542607E59D00D831A2 /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		B9BA50DF260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		B9BA50E0260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		B9BA50E4260A4E2300F4E0A8 /* CollectionViewExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewExtencion.swift; sourceTree = "<group>"; };
+		B9BA50E6260A4E2300F4E0A8 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		B9BA50EA260A4EE600F4E0A8 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
+		B9BA50EB260A4EE600F4E0A8 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		B9E170642608AC850099DA82 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		B9E170662608ACD70099DA82 /* FilterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterButtonView.xib; sourceTree = "<group>"; };
 		B9E170682608AD570099DA82 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -285,6 +297,7 @@
 		B941F61F2607C69400D831A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B9BA50E9260A4EE600F4E0A8 /* FilterViewController */,
 				79846F76260951BF00DCA87B /* Auth */,
 				B941F6412607CA1200D831A2 /* GameViewController */,
 				B941F6442607CA1200D831A2 /* MainViewController */,
@@ -384,9 +397,44 @@
 			path = TopBar;
 			sourceTree = "<group>";
 		};
+		B9BA50DE260A4DD300F4E0A8 /* CollectionReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				B9BA50DF260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib */,
+				B9BA50E0260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift */,
+			);
+			path = CollectionReusableView;
+			sourceTree = "<group>";
+		};
+		B9BA50E3260A4E2300F4E0A8 /* CollectionView+Extencion */ = {
+			isa = PBXGroup;
+			children = (
+				B9BA50E4260A4E2300F4E0A8 /* CollectionViewExtencion.swift */,
+			);
+			path = "CollectionView+Extencion";
+			sourceTree = "<group>";
+		};
+		B9BA50E5260A4E2300F4E0A8 /* CellProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				B9BA50E6260A4E2300F4E0A8 /* FilterCell.swift */,
+			);
+			path = CellProtocol;
+			sourceTree = "<group>";
+		};
+		B9BA50E9260A4EE600F4E0A8 /* FilterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B9BA50EA260A4EE600F4E0A8 /* FilterViewController.xib */,
+				B9BA50EB260A4EE600F4E0A8 /* FilterViewController.swift */,
+			);
+			path = FilterViewController;
+			sourceTree = "<group>";
+		};
 		B9E170622608AC2E0099DA82 /* ReusableView */ = {
 			isa = PBXGroup;
 			children = (
+				B9BA50DE260A4DD300F4E0A8 /* CollectionReusableView */,
 				B9E1706A2608D2890099DA82 /* Cell */,
 				B9E170632608AC4B0099DA82 /* FilterButton */,
 			);
@@ -406,6 +454,8 @@
 		B9E1706A2608D2890099DA82 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B9BA50E5260A4E2300F4E0A8 /* CellProtocol */,
+				B9BA50E3260A4E2300F4E0A8 /* CollectionView+Extencion */,
 				B9E1706C2608D2A90099DA82 /* CategoryCell */,
 				B9E1706B2608D2980099DA82 /* ProviderCell */,
 			);
@@ -548,6 +598,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BA50E1260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib in Resources */,
 				79043EF1260875DA00119FD9 /* main.json in Resources */,
 				B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */,
 				B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */,
@@ -557,6 +608,7 @@
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
 				B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */,
 				B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */,
+				B9BA50EC260A4EE600F4E0A8 /* FilterViewController.xib in Resources */,
 				79846F81260951BF00DCA87B /* LoginViewController.xib in Resources */,
 				79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
@@ -660,6 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BA50E2260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift in Sources */,
 				B9E1706F2608D3B60099DA82 /* ProviderCollectionViewCell.swift in Sources */,
 				B941F6322607C8A500D831A2 /* BaseViewControllerProvider.swift in Sources */,
 				B941F6612607E59D00D831A2 /* TopBar.swift in Sources */,
@@ -678,14 +731,17 @@
 				79846F80260951BF00DCA87B /* AuthPresentable.swift in Sources */,
 				B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
+				B9BA50E8260A4E2400F4E0A8 /* FilterCell.swift in Sources */,
 				7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */,
 				79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */,
 				79043EF0260875DA00119FD9 /* APIServiceMock.swift in Sources */,
+				B9BA50ED260A4EE600F4E0A8 /* FilterViewController.swift in Sources */,
 				B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */,
 				B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */,
 				B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */,
 				B941F6382607C90500D831A2 /* Presentable.swift in Sources */,
 				B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */,
+				B9BA50E7260A4E2400F4E0A8 /* CollectionViewExtencion.swift in Sources */,
 				B941F6342607C8C300D831A2 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,7 +912,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 9G6JQLYXLM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -877,7 +933,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 9G6JQLYXLM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

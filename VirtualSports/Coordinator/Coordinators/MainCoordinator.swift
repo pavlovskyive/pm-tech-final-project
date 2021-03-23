@@ -30,6 +30,11 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         mainViewController.onGoToGame = { [unowned self] in
             self.showGameVC()
         }
+
+        mainViewController.onGoToFilter = { [unowned self] in
+            self.showFilterVC()
+        }
+
         self.router.setRootModule(mainViewController)
     }
 
@@ -82,6 +87,16 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         self.router.push(gameViewController)
 
+    }
+
+    private func showFilterVC() {
+        let filterViewController = FilterViewController()
+
+        filterViewController.onGoToDismiss = { [unowned self] in
+            self.router.dismissModule()
+        }
+
+        self.router.present(filterViewController)
     }
 
     // MARK: - Coordinator
