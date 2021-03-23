@@ -30,36 +30,30 @@
                     <rect key="frame" x="0.0" y="94" width="414" height="802"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-3A-qly">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="368"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="329"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrw-fg-Z9j" userLabel="Login" customClass="LoginButton" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="198" width="374" height="60"/>
+                                    <rect key="frame" x="20" y="179" width="374" height="50"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="5ms-7b-gtf"/>
+                                        <constraint firstAttribute="height" constant="50" id="5ms-7b-gtf"/>
                                     </constraints>
                                     <state key="normal" title="ВХОД"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xkz-Cl-ZOz" userLabel="Register" customClass="LoginButton" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="278" width="374" height="60"/>
+                                    <rect key="frame" x="20" y="249" width="374" height="50"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="lTo-mE-9ea"/>
+                                        <constraint firstAttribute="height" constant="50" id="lTo-mE-9ea"/>
                                     </constraints>
                                     <state key="normal" title="РЕГИСТРАЦИЯ"/>
                                 </button>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uN0-Zd-pCk" userLabel="Password" customClass="LoginTextField" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="98" width="374" height="60"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="wUL-3W-gwC"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uN0-Zd-pCk" userLabel="Password" customClass="PasswordLoginTextField" customModule="VirtualSports" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="119" width="374" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGc-Ww-kiW" customClass="LoginTextField" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="18" width="374" height="60"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="PY2-l4-umb"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGc-Ww-kiW" customClass="LoginTextField" customModule="VirtualSports" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="48" width="374" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                 </textField>
                             </subviews>
@@ -69,10 +63,10 @@
                                 <constraint firstItem="Jrw-fg-Z9j" firstAttribute="top" secondItem="uN0-Zd-pCk" secondAttribute="bottom" constant="40" id="5vY-jK-0an"/>
                                 <constraint firstItem="rGc-Ww-kiW" firstAttribute="width" secondItem="WG0-3A-qly" secondAttribute="width" constant="-40" id="9d6-jc-PRC"/>
                                 <constraint firstItem="Jrw-fg-Z9j" firstAttribute="leading" secondItem="rGc-Ww-kiW" secondAttribute="leading" id="CnN-bD-Usg"/>
-                                <constraint firstItem="uN0-Zd-pCk" firstAttribute="top" secondItem="rGc-Ww-kiW" secondAttribute="bottom" constant="20" id="PSN-1B-gnN"/>
+                                <constraint firstItem="uN0-Zd-pCk" firstAttribute="top" secondItem="rGc-Ww-kiW" secondAttribute="bottom" constant="50" id="PSN-1B-gnN"/>
                                 <constraint firstItem="Xkz-Cl-ZOz" firstAttribute="top" secondItem="Jrw-fg-Z9j" secondAttribute="bottom" constant="20" id="Ppq-v6-jdF"/>
                                 <constraint firstItem="rGc-Ww-kiW" firstAttribute="centerX" secondItem="WG0-3A-qly" secondAttribute="centerX" id="brO-c8-Hm7"/>
-                                <constraint firstItem="rGc-Ww-kiW" firstAttribute="top" secondItem="WG0-3A-qly" secondAttribute="topMargin" constant="10" id="gmv-1u-i1b"/>
+                                <constraint firstItem="rGc-Ww-kiW" firstAttribute="top" secondItem="WG0-3A-qly" secondAttribute="topMargin" constant="40" id="gmv-1u-i1b"/>
                                 <constraint firstItem="uN0-Zd-pCk" firstAttribute="leading" secondItem="rGc-Ww-kiW" secondAttribute="leading" id="iUF-rX-HIs"/>
                                 <constraint firstItem="uN0-Zd-pCk" firstAttribute="trailing" secondItem="rGc-Ww-kiW" secondAttribute="trailing" id="qXh-Vf-UHP"/>
                                 <constraint firstItem="Jrw-fg-Z9j" firstAttribute="trailing" secondItem="rGc-Ww-kiW" secondAttribute="trailing" id="saj-9l-qcc"/>
@@ -145,10 +139,10 @@
             <size key="intrinsicContentSize" width="118" height="30"/>
         </designable>
         <designable name="rGc-Ww-kiW">
-            <size key="intrinsicContentSize" width="34.5" height="18.5"/>
+            <size key="intrinsicContentSize" width="39" height="21"/>
         </designable>
         <designable name="uN0-Zd-pCk">
-            <size key="intrinsicContentSize" width="50" height="17"/>
+            <size key="intrinsicContentSize" width="86" height="20"/>
         </designable>
     </designables>
     <resources>
