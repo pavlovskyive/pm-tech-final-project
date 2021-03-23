@@ -35,7 +35,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
             self.showFilterVC()
         }
 
-        self.router.setRootModule(mainViewController)
+        self.router.setRootModule(mainViewController, hideBar: true)
     }
 
     private func showLoginVC() {
@@ -84,6 +84,10 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     private func showGameVC() {
 
         let gameViewController = GameViewController()
+
+        gameViewController.onGoToBack = { [unowned self] in
+            router.popModule()
+        }
 
         self.router.push(gameViewController)
 

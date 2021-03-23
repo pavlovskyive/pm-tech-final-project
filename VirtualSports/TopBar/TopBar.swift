@@ -11,6 +11,7 @@ import UIKit
     @objc func signInButtonPressed()
     @objc func logOutButtonPressed()
     @objc func signUpButtonPressed()
+    @objc func backwardButtonPressed()
 }
 /*
  
@@ -50,6 +51,9 @@ class TopBar: UIView {
     @IBOutlet weak var signUp: DesignableButton!
     @IBOutlet weak var signIn: DesignableButton!
     @IBOutlet weak var logOut: DesignableButton!
+    @IBOutlet weak var backwardButton: UIButton!
+    @IBOutlet weak var logoView: UIImageView!
+    @IBOutlet weak var gameNameLabel: UILabel!
 
     weak var delegate: TopBarDelegate?
 
@@ -57,8 +61,31 @@ class TopBar: UIView {
         didSet {
             signIn.isHidden = !oldValue
             signUp.isHidden = !oldValue
+            backwardButton.isHidden = !oldValue
             logOut.isHidden = oldValue
+            logoView.isHidden = oldValue
         }
+    }
+
+    func showNextTopBar(name: String) {
+
+        signIn.isHidden = true
+        signUp.isHidden = true
+        logOut.isHidden = true
+        logoView.isHidden = true
+        backwardButton.isHidden = false
+        gameNameLabel.isHidden = false
+        gameNameLabel.text = name
+    }
+
+    func showMainTopBar() {
+
+        signIn.isHidden = false
+        signUp.isHidden = false
+        logOut.isHidden = true
+        logoView.isHidden = false
+        gameNameLabel.isHidden = true
+        backwardButton.isHidden = true
     }
 
     override init(frame: CGRect) {
@@ -96,6 +123,10 @@ class TopBar: UIView {
 
     @IBAction func registerButtonPressed(_ sender: DesignableButton) {
         delegate?.signUpButtonPressed()
+    }
+
+    @IBAction func backwardButtonPressed(_ sender: Any) {
+        delegate?.backwardButtonPressed()
     }
 
 }
