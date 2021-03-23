@@ -8,17 +8,21 @@
 import UIKit
 
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
+
     var onGoToLogin: (() -> Void)? { get set }
     var onGoToRegistration: (() -> Void)? { get set }
     var onGoToGame: (() -> Void)? { get set }
+    var onGoToFilter: (() -> Void)? { get set }
 }
 
 class MainViewController: UIViewController, MainViewControllerProtocol {
+
     var onGoToLogin: (() -> Void)?
     var onGoToRegistration: (() -> Void)?
     var onGoToGame: (() -> Void)?
+    var onGoToFilter: (() -> Void)?
 
-    @IBOutlet weak var filterButtonView: FilterButtonView!
+    @IBOutlet private weak var filterButtonView: FilterButtonView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +31,15 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     // MARK: Actions
 
-    @IBAction func didTapGame(_ sender: Any) {
+    @IBAction private func didTapGame(_ sender: Any) {
         self.onGoToGame?()
     }
 
-    @IBAction func didTapLoginButton(_ sender: Any) {
+    @IBAction private func didTapLoginButton(_ sender: Any) {
         self.onGoToLogin?()
     }
 
-    @IBAction func didTapRegistrationButton(_ sender: Any) {
+    @IBAction private func didTapRegistrationButton(_ sender: Any) {
         self.onGoToRegistration?()
     }
 
@@ -44,7 +48,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 extension MainViewController: FilterButtonDelegate {
 
     func didTapFilterButton() {
-
+        self.onGoToFilter?()
         print("Filter button pressed")
     }
 

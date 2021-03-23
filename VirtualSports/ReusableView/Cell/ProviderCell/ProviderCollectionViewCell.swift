@@ -13,6 +13,7 @@ class ProviderCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var providerView: UIView!
 
     var image: UIImage? {
+
         get {
             providerImageView.image
         }
@@ -23,17 +24,44 @@ class ProviderCollectionViewCell: UICollectionViewCell {
 
     var identifier: Int?
 
+    private var isActive: Bool = false
+
+    // MARK: Cell lifecircle
+
     override func awakeFromNib() {
+
         super.awakeFromNib()
         providerView.layer.cornerRadius = 5
         providerView.layer.borderWidth = 1
-        providerView.layer.borderColor = #colorLiteral(red: 0.6156154275, green: 0.6157261729, blue: 0.6156166196, alpha: 1)
+        providerView.layer.borderColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        image = nil
+
         identifier = nil
+        isActive = false
+    }
+
+}
+
+// MARK: Filter Cell Protocol
+
+extension ProviderCollectionViewCell: FilterCell {
+
+    func didTap() {
+
+        if isActive {
+
+            isActive = false
+            providerView.layer.backgroundColor = nil
+
+        } else {
+
+            isActive = true
+            providerView.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
+        }
+
     }
 
 }

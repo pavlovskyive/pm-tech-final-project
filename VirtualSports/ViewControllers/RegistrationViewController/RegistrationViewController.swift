@@ -8,11 +8,13 @@
 import UIKit
 
 protocol RegistrationViewControllerProtocol: AnyObject {
+
     var didRegister: (() -> Void)? { get set }
     var onGoToLogin: (() -> Void)? { get set }
 }
 
 class RegistrationViewController: UIViewController, RegistrationViewControllerProtocol {
+
     var onGoToLogin: (() -> Void)?
     var didRegister: (() -> Void)?
 

@@ -31,6 +31,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             }
         }
 
+    private var isActive: Bool = false
+
     // MARK: Cell lifecircle
 
     override func awakeFromNib() {
@@ -39,8 +41,30 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        image = nil
-        categoryName = nil
+
+        categoryName = "Category"
+        isActive = false
+    }
+
+}
+
+// MARK: Filter Cell Protocol
+
+extension CategoryCollectionViewCell: FilterCell {
+
+    func didTap() {
+
+        if isActive {
+
+            isActive = false
+            self.layer.backgroundColor = nil
+
+        } else {
+
+            isActive = true
+            self.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
+        }
+
     }
 
 }
