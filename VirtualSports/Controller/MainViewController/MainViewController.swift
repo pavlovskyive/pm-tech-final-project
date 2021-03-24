@@ -10,48 +10,49 @@ import APIService
 import KeychainWrapper
 
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
-
+    
     var onGoToLogin: (() -> Void)? { get set }
     var onGoToRegistration: (() -> Void)? { get set }
-    var onGoToGame: (() -> Void)? { get set }
-    var onGoToFilter: (() -> Void)? { get set }
-
+    var onGoToGame: ((_ game: Game?) -> Void)? { get set }
+    var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)? { get set }
+    
     func loggedIn()
 }
 
 class MainViewController: UIViewController, MainViewControllerProtocol {
-
+    
     lazy var apiService: APIFetcher = {
         return APIService(config: apiConfig)
     }()
-
+    
     var onGoToLogin: (() -> Void)?
     var onGoToRegistration: (() -> Void)?
-    var onGoToGame: (() -> Void)?
-    var onGoToFilter: (() -> Void)?
-
+    var onGoToGame: ((_ game: Game?) -> Void)?
+    var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)?
+    
     @IBOutlet private weak var topBar: TopBar!
     @IBOutlet private weak var filterButtonView: FilterButtonView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         filterButtonView.delegate = self
         topBar.delegate = self
         topBar.showMainTopBar()
-
+        
         fetchMain()
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
     // MARK: Actions
-
+    
     @IBAction private func didTapGame(_ sender: Any) {
-        self.onGoToGame?()
+        #warning("Game mock - replace for using with actual data.")
+        self.onGoToGame?(Game(id: "123", provider: "123", categories: ["123"], name: "123", tags: ["123"]))
     }
-
+    
     private func fetchMain() {
         apiService.fetchMain { result in
             switch result {
@@ -62,7 +63,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             }
         }
     }
-
+    
     func loggedIn() {
         guard let token = try? KeychainWrapper().get(forKey: "token") else {
             // Handle token somehow not installed
@@ -73,36 +74,37 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         apiService.token = token
         fetchMain()
     }
-
+    
 }
 
 extension MainViewController: FilterButtonDelegate {
-
+    
     func didTapFilterButton() {
-        self.onGoToFilter?()
+        #warning("replace for using with actual data.")
+        self.onGoToFilter?(nil)
         print("Filter button pressed")
     }
-
+    
 }
 
 extension MainViewController: TopBarDelegate {
-
+    
     func backwardButtonPressed() {
-
+        
     }
-
+    
     func signInButtonPressed() {
-
+        
         self.onGoToLogin?()
     }
-
+    
     func logOutButtonPressed() {
-
+        
     }
-
+    
     func signUpButtonPressed() {
-
+        
         self.onGoToRegistration?()
     }
-
+    
 }

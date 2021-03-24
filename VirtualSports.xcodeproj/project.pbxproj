@@ -61,6 +61,7 @@
 		B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E1706E2608D3B60099DA82 /* ProviderCollectionViewCell.xib */; };
 		B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */; };
 		B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */; };
+		E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = E5000E8E260BDF4500ECCE1F /* ImageLoader */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */,
+				E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */,
 				79C32991260BDB03009EC9C1 /* APIService in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
 				79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */,
@@ -527,6 +529,7 @@
 				79C3F18B26076C5F001D2982 /* KeychainWrapper */,
 				79C32990260BDB03009EC9C1 /* APIService */,
 				79C32996260BDB49009EC9C1 /* AuthService */,
+				E5000E8E260BDF4500ECCE1F /* ImageLoader */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -604,6 +607,7 @@
 				79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */,
 				79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
 				79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */,
+				E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */,
 			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
@@ -1130,6 +1134,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexsopilnyak/ImageLoader.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1157,6 +1169,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */;
 			productName = KeychainWrapper;
+		};
+		E5000E8E260BDF4500ECCE1F /* ImageLoader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */;
+			productName = ImageLoader;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -83,6 +83,15 @@
         }
       },
       {
+        "package": "ImageLoader",
+        "repositoryURL": "https://github.com/alexsopilnyak/ImageLoader.git",
+        "state": {
+          "branch": null,
+          "revision": "42a15562b46addbaf7ff633122a8bf086838dd1c",
+          "version": "1.0.1"
+        }
+      },
+      {
         "package": "KeychainWrapper",
         "repositoryURL": "https://github.com/pavlovskyive/keychain-wrapper",
         "state": {
@@ -141,8 +150,8 @@
         "repositoryURL": "https://github.com/pavlovskyive/virtual-sports-api-service",
         "state": {
           "branch": null,
-          "revision": "78a0357589beb012b65bd993690e8e7feb17075f",
-          "version": "0.2.3"
+          "revision": "8cbfb708af19b6728be4effa42a0e47d717a88ba",
+          "version": "0.2.4"
         }
       }
     ]
