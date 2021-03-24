@@ -22,25 +22,24 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var onGoToGame: (() -> Void)?
     var onGoToFilter: (() -> Void)?
 
+    @IBOutlet private weak var topBar: TopBar!
     @IBOutlet private weak var filterButtonView: FilterButtonView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         filterButtonView.delegate = self
+        topBar.delegate = self
+        topBar.showMainTopBar()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     // MARK: Actions
 
     @IBAction private func didTapGame(_ sender: Any) {
         self.onGoToGame?()
-    }
-
-    @IBAction private func didTapLoginButton(_ sender: Any) {
-        self.onGoToLogin?()
-    }
-
-    @IBAction private func didTapRegistrationButton(_ sender: Any) {
-        self.onGoToRegistration?()
     }
 
 }
@@ -50,6 +49,28 @@ extension MainViewController: FilterButtonDelegate {
     func didTapFilterButton() {
         self.onGoToFilter?()
         print("Filter button pressed")
+    }
+
+}
+
+extension MainViewController: TopBarDelegate {
+
+    func backwardButtonPressed() {
+
+    }
+
+    func signInButtonPressed() {
+
+        self.onGoToLogin?()
+    }
+
+    func logOutButtonPressed() {
+
+    }
+
+    func signUpButtonPressed() {
+
+        self.onGoToRegistration?()
     }
 
 }
