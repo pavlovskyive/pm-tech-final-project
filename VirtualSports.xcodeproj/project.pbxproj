@@ -18,7 +18,8 @@
 		79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F7D260951BF00DCA87B /* LoginViewController.swift */; };
 		79846F89260951D200DCA87B /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F87260951D200DCA87B /* LoginButton.swift */; };
 		79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F88260951D200DCA87B /* LoginTextField.swift */; };
-		79C06DF2260BB28D005FC835 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C06DF1260BB28D005FC835 /* APIService */; };
+		79C32991260BDB03009EC9C1 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32990260BDB03009EC9C1 /* APIService */; };
+		79C32997260BDB49009EC9C1 /* AuthService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32996260BDB49009EC9C1 /* AuthService */; };
 		79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D257260489A700ACD5E5 /* AppDelegate.swift */; };
 		79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D259260489A700ACD5E5 /* SceneDelegate.swift */; };
 		79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D260260489B500ACD5E5 /* Assets.xcassets */; };
@@ -28,7 +29,7 @@
 		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
 		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
 		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
-		79D0CD7B260B7DC00075F8BD /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D0CD7A260B7DC00075F8BD /* APIConfig.swift */; };
+		79D0CD7B260B7DC00075F8BD /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D0CD7A260B7DC00075F8BD /* Configs.swift */; };
 		B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */; };
 		B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6242607C77700D831A2 /* MainCoordinator.swift */; };
 		B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */; };
@@ -104,7 +105,7 @@
 		79C3D279260489B800ACD5E5 /* VirtualSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSportsUITests.swift; sourceTree = "<group>"; };
 		79C3D27B260489B800ACD5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		79D0CD7A260B7DC00075F8BD /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		79D0CD7A260B7DC00075F8BD /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B941F6242607C77700D831A2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -143,9 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */,
-				79C06DF2260BB28D005FC835 /* APIService in Frameworks */,
+				79C32991260BDB03009EC9C1 /* APIService in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
 				79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */,
+				79C32997260BDB49009EC9C1 /* AuthService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +249,6 @@
 		79C3D256260489A700ACD5E5 /* VirtualSports */ = {
 			isa = PBXGroup;
 			children = (
-				79D0CD73260B7D240075F8BD /* Services */,
 				B9E170622608AC2E0099DA82 /* ReusableView */,
 				79043EEB260875DA00119FD9 /* Helper */,
 				B941F6512607E59D00D831A2 /* TopBar */,
@@ -282,17 +283,10 @@
 			path = VirtualSportsUITests;
 			sourceTree = "<group>";
 		};
-		79D0CD73260B7D240075F8BD /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		79D0CD79260B7DB50075F8BD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				79D0CD7A260B7DC00075F8BD /* APIConfig.swift */,
+				79D0CD7A260B7DC00075F8BD /* Configs.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -531,7 +525,8 @@
 				79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */,
 				79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */,
 				79C3F18B26076C5F001D2982 /* KeychainWrapper */,
-				79C06DF1260BB28D005FC835 /* APIService */,
+				79C32990260BDB03009EC9C1 /* APIService */,
+				79C32996260BDB49009EC9C1 /* AuthService */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -607,8 +602,8 @@
 			packageReferences = (
 				79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */,
-				795C8197260BA51700E39EC1 /* XCRemoteSwiftPackageReference "auth-service" */,
-				79C06DF0260BB28C005FC835 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
+				79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
+				79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */,
 			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
@@ -742,7 +737,7 @@
 			files = (
 				B9BA50E2260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift in Sources */,
 				B9E1706F2608D3B60099DA82 /* ProviderCollectionViewCell.swift in Sources */,
-				79D0CD7B260B7DC00075F8BD /* APIConfig.swift in Sources */,
+				79D0CD7B260B7DC00075F8BD /* Configs.swift in Sources */,
 				B941F6322607C8A500D831A2 /* BaseViewControllerProvider.swift in Sources */,
 				B941F6612607E59D00D831A2 /* TopBar.swift in Sources */,
 				79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */,
@@ -1103,20 +1098,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		795C8197260BA51700E39EC1 /* XCRemoteSwiftPackageReference "auth-service" */ = {
+		79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pavlovskyive/virtual-sports-api-service";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.3;
+			};
+		};
+		79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pavlovskyive/auth-service";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.1.1;
-			};
-		};
-		79C06DF0260BB28C005FC835 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pavlovskyive/virtual-sports-api-service";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.1;
 			};
 		};
 		79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -1138,10 +1133,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		79C06DF1260BB28D005FC835 /* APIService */ = {
+		79C32990260BDB03009EC9C1 /* APIService */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 79C06DF0260BB28C005FC835 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
+			package = 79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
 			productName = APIService;
+		};
+		79C32996260BDB49009EC9C1 /* AuthService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */;
+			productName = AuthService;
 		};
 		79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

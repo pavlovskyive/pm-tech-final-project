@@ -7,7 +7,7 @@
 
 import UIKit
 import APIService
-import NetworkService
+import KeychainWrapper
 
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
 
@@ -15,6 +15,8 @@ protocol MainViewControllerProtocol: BaseViewControllerProvider {
     var onGoToRegistration: (() -> Void)? { get set }
     var onGoToGame: (() -> Void)? { get set }
     var onGoToFilter: (() -> Void)? { get set }
+
+    func loggedIn()
 }
 
 class MainViewController: UIViewController, MainViewControllerProtocol {
@@ -36,6 +38,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         filterButtonView.delegate = self
         topBar.delegate = self
         topBar.showMainTopBar()
+
+        fetchMain()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -46,6 +50,28 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     @IBAction private func didTapGame(_ sender: Any) {
         self.onGoToGame?()
+    }
+
+    private func fetchMain() {
+        apiService.fetchMain { result in
+            switch result {
+            case .success(let mainResponse):
+                print(mainResponse)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    func loggedIn() {
+        guard let token = try? KeychainWrapper().get(forKey: "token") else {
+            // Handle token somehow not installed
+            print("Something went wrong...")
+            return
+        }
+        
+        apiService.token = token
+        fetchMain()
     }
 
 }

@@ -13,11 +13,16 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     // MARK: - Vars & Lets
     private let router: RouterProtocol
     private let coordinatorFactory: CoordinatorFactoryProtocol
+    private var onLoggedIn: (() -> Void)?
 
     // MARK: - Private methods
     private func showMainVC() {
 
         let mainViewController = MainViewController()
+
+        onLoggedIn = {
+            mainViewController.loggedIn()
+        }
 
         mainViewController.onGoToLogin = { [unowned self] in
             self.showLoginVC()
@@ -42,9 +47,9 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         let loginViewController = LoginViewController()
 
-        loginViewController.primaryAction = { [unowned self] in
+        loginViewController.onComplete = { [unowned self] in
             router.dismissModule()
-            router.popToRootModule(animated: true)
+            onLoggedIn?()
         }
 
         loginViewController.secondaryAction = { [unowned self] in
@@ -63,9 +68,9 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         let registrationViewController = RegistrationViewController()
 
-        registrationViewController.primaryAction = { [unowned self] in
+        registrationViewController.onComplete = { [unowned self] in
             router.dismissModule()
-            showLoginVC()
+            onLoggedIn?()
         }
 
         registrationViewController.secondaryAction = { [unowned self] in

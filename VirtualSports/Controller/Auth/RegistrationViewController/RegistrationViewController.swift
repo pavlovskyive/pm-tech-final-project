@@ -52,6 +52,36 @@ class RegistrationViewController: AuthBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        primaryAction = { [weak self] in
+
+            self?.primaryButton?.setEnabled(false)
+
+            guard let email = self?.emailTextField?.text,
+                  let password = self?.passwordTextField?.text else {
+
+                DispatchQueue.main.async {
+                    self?.primaryButton?.setEnabled(true)
+                }
+
+                return
+            }
+
+            self?.authProvider.register(credentials: ["login": email, "password": password]) { error in
+                guard let error = error else {
+                    DispatchQueue.main.async {
+                        self?.onComplete?()
+                    }
+                    return
+                }
+
+                print(error)
+
+                DispatchQueue.main.async {
+                    self?.primaryButton?.setEnabled(true)
+                }
+            }
+        }
+
         primaryButton?.setEnabled(false)
 
         appendTextFields([

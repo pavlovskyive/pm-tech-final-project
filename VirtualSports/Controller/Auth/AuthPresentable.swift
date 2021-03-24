@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthService
 
 protocol AuthPresentable: UIViewController {
 
@@ -21,6 +22,8 @@ class AuthBaseViewController: UIViewController, AuthPresentable {
 
     // MARK: - Variables
 
+    var authProvider = AuthProvider(config: authConfig)
+    
     // MARK: Outlets
 
     @IBOutlet weak var scrollView: UIScrollView?
@@ -31,6 +34,7 @@ class AuthBaseViewController: UIViewController, AuthPresentable {
 
     // MARK: Completions
 
+    var onComplete: (() -> Void)?
     var primaryAction: (() -> Void)?
     var secondaryAction: (() -> Void)?
     var onClose: (() -> Void)?

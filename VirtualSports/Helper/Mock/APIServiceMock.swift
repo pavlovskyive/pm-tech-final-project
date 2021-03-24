@@ -35,6 +35,8 @@ import NetworkService
  */
 
 public final class APIServiceMock: APIFetcher {
+    
+    public var token: String? = nil
 
     public var networkService: NetworkProvider
 
