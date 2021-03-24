@@ -34,7 +34,7 @@ import NetworkService
  
  */
 
-public final class APIServiceMock: APIProvider {
+public final class APIServiceMock: APIFetcher {
 
     public var networkService: NetworkProvider
 
@@ -43,8 +43,7 @@ public final class APIServiceMock: APIProvider {
     init() {
         config = APIConfig(scheme: "https",
                            host: "mock.com",
-                           mainPath: "/main",
-                           gamePath: "/game")
+                           mainPath: "/main")
         networkService = NetworkService()
     }
 
@@ -54,7 +53,7 @@ extension APIServiceMock {
 
     public func fetchMain(completion: @escaping MainCompletion) {
         guard let path = Bundle.main.path(forResource: "main", ofType: "json") else {
-            completion(.failure(.couldNotParseURL))
+            completion(.failure(.internalError))
             return
         }
 
@@ -62,21 +61,6 @@ extension APIServiceMock {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let main = try JSONDecoder().decode(MainResponse.self, from: data)
             completion(.success(main))
-        } catch {
-            completion(.failure(.networkError(.badData)))
-        }
-    }
-
-    public func fetchGame(with: String, completion: @escaping GameCompletion) {
-        guard let path = Bundle.main.path(forResource: "game", ofType: "json") else {
-            completion(.failure(.couldNotParseURL))
-            return
-        }
-
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let game = try JSONDecoder().decode(GameConfig.self, from: data)
-            completion(.success(game))
         } catch {
             completion(.failure(.networkError(.badData)))
         }

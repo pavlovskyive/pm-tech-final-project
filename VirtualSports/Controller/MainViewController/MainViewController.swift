@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import APIService
+import NetworkService
 
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
 
@@ -16,6 +18,10 @@ protocol MainViewControllerProtocol: BaseViewControllerProvider {
 }
 
 class MainViewController: UIViewController, MainViewControllerProtocol {
+
+    lazy var apiService: APIFetcher = {
+        return APIService(config: apiConfig)
+    }()
 
     var onGoToLogin: (() -> Void)?
     var onGoToRegistration: (() -> Void)?

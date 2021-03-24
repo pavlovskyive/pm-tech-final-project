@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "AuthService",
+        "repositoryURL": "https://github.com/pavlovskyive/auth-service",
+        "state": {
+          "branch": null,
+          "revision": "c111efecf71ab7bea7dd8ad1166540c8f59a127b",
+          "version": "0.1.1"
+        }
+      },
+      {
         "package": "BoringSSL-GRPC",
         "repositoryURL": "https://github.com/firebase/boringssl-SwiftPM.git",
         "state": {
@@ -78,8 +87,8 @@
         "repositoryURL": "https://github.com/pavlovskyive/keychain-wrapper",
         "state": {
           "branch": null,
-          "revision": "15648a6b46114eb0de94755ce630061ca98fbff9",
-          "version": "1.0.0"
+          "revision": "bd4cd4c110b83931943d04d65e5e5a732cd59a99",
+          "version": "1.1.0"
         }
       },
       {
@@ -132,8 +141,8 @@
         "repositoryURL": "https://github.com/pavlovskyive/virtual-sports-api-service",
         "state": {
           "branch": null,
-          "revision": "750a53c048f81088ef2632c892ba8ef82d7c03cb",
-          "version": "0.1.1"
+          "revision": "8b1a18850d8fdf9f0da32a170c35903db2ec5e35",
+          "version": "0.2.1"
         }
       }
     ]
