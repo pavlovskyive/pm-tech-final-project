@@ -18,7 +18,7 @@ class FilterViewController: UIViewController {
     
     let mainResponse: MainResponse
     
-    private lazy var categories: [Category] = {
+    private lazy var categories: [GameCategory] = {
         mainResponse.categories
     }()
     
@@ -54,6 +54,7 @@ class FilterViewController: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
     }
+    
 }
 
 // MARK: Setup methods
@@ -92,11 +93,30 @@ extension FilterViewController: UICollectionViewDelegate {
             guard let cell = cell as? CategoryCollectionViewCell else { return }
             cell.categoryName = "Category"
             
+            let category = categories[indexPath.row]
+            
+            ImageLoader.shared.downloadImage(from: category.imageURL, indexPath: indexPath) { image, idexPath, _ in
+                DispatchQueue.main.async {
+                    if let cell = collectionView.cellForItem(at: idexPath!) as? CategoryCollectionViewCell {
+                        cell.image = image
+                    }
+                }
+            }
+            
         default:
             
             guard let cell = cell as? ProviderCollectionViewCell else { return }
+            
             cell.identifier = 1
             
+            let provider = providers[indexPath.row]
+            ImageLoader.shared.downloadImage(from: provider.imageURL, indexPath: indexPath) { image, idexPath, _ in
+                DispatchQueue.main.async {
+                    if let cell = collectionView.cellForItem(at: idexPath!) as? ProviderCollectionViewCell {
+                        cell.image = image
+                    }
+                }
+            }
         }
     }
     

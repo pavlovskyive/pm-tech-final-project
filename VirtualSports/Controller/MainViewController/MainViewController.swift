@@ -25,6 +25,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         return APIService(config: apiConfig)
     }()
     
+    var mainResponse: MainResponse?
+    
     var onGoToLogin: (() -> Void)?
     var onGoToRegistration: (() -> Void)?
     var onGoToGame: ((_ game: Game?) -> Void)?
@@ -58,6 +60,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             switch result {
             case .success(let mainResponse):
                 print(mainResponse)
+                self.mainResponse = mainResponse
             case .failure(let error):
                 print(error)
             }
@@ -81,7 +84,7 @@ extension MainViewController: FilterButtonDelegate {
     
     func didTapFilterButton() {
         #warning("replace for using with actual data.")
-        self.onGoToFilter?(nil)
+        self.onGoToFilter?(mainResponse)
         print("Filter button pressed")
     }
     
