@@ -49,7 +49,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
     
     // MARK: Actions
-    
+
     @IBAction private func didTapGame(_ sender: Any) {
         #warning("Game mock - replace for using with actual data.")
         self.onGoToGame?(Game(id: "123", provider: "123", categories: ["123"], name: "123", tags: ["123"]))
@@ -73,7 +73,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             print("Something went wrong...")
             return
         }
-        
+
         apiService.token = token
         fetchMain()
     }

@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
+                <outlet property="acceptButton" destination="2RY-Yc-4iJ" id="eJ6-C2-6Gx"/>
+                <outlet property="acceptButtonHeight" destination="bvg-vo-Loy" id="Cd5-P9-Hd0"/>
                 <outlet property="filterCollectionView" destination="kjs-jc-fKD" id="dO7-bC-8zW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -61,6 +63,20 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RY-Yc-4iJ">
+                    <rect key="frame" x="0.0" y="862" width="414" height="0.0"/>
+                    <color key="backgroundColor" red="0.97834879159999999" green="0.99708884949999999" blue="0.34097453950000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="bvg-vo-Loy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <state key="normal" title="ПРИМЕНИТЬ">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapAcceptButton:" destination="-1" eventType="touchUpInside" id="9wG-kE-ohj"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.219604671" green="0.2196061909" blue="0.2196101546" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -68,9 +84,12 @@
                 <constraint firstItem="kjs-jc-fKD" firstAttribute="top" secondItem="IJa-nZ-wXG" secondAttribute="bottom" constant="1" id="Aq0-WR-a4I"/>
                 <constraint firstItem="kjs-jc-fKD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BF6-Z5-WLj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kjs-jc-fKD" secondAttribute="trailing" id="DCt-ye-qJg"/>
+                <constraint firstItem="2RY-Yc-4iJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Eq2-vO-hP4"/>
                 <constraint firstItem="IJa-nZ-wXG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LWc-lz-rlb"/>
                 <constraint firstItem="IJa-nZ-wXG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Wre-uI-mwp"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kjs-jc-fKD" secondAttribute="bottom" id="Ysx-aQ-wyu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2RY-Yc-4iJ" secondAttribute="bottom" id="XoM-rx-jGQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2RY-Yc-4iJ" secondAttribute="trailing" id="k4c-Zm-kkw"/>
+                <constraint firstItem="2RY-Yc-4iJ" firstAttribute="top" secondItem="kjs-jc-fKD" secondAttribute="bottom" id="wdA-G5-ruX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IJa-nZ-wXG" secondAttribute="trailing" id="xzy-ES-DPp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

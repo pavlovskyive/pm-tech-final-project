@@ -24,16 +24,16 @@
                                 <rect key="frame" x="16" y="0.0" width="385" height="91"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="BuV-yp-QrR">
-                                        <rect key="frame" x="0.0" y="0.0" width="385" height="91"/>
+                                        <rect key="frame" x="72.5" y="5.5" width="240" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="rAi-aB-hak"/>
+                                            <constraint firstAttribute="width" constant="240" id="tfL-Pa-hEY"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="BuV-yp-QrR" secondAttribute="bottom" id="NzA-c2-DAe"/>
-                                    <constraint firstItem="BuV-yp-QrR" firstAttribute="centerX" secondItem="ooZ-ux-jDE" secondAttribute="centerX" id="jYE-D0-HP7"/>
-                                    <constraint firstItem="BuV-yp-QrR" firstAttribute="centerY" secondItem="ooZ-ux-jDE" secondAttribute="centerY" id="jm4-Hj-fZM"/>
-                                    <constraint firstItem="BuV-yp-QrR" firstAttribute="leading" secondItem="ooZ-ux-jDE" secondAttribute="leading" id="wYu-o6-EDX"/>
-                                    <constraint firstAttribute="trailing" secondItem="BuV-yp-QrR" secondAttribute="trailing" id="xb4-NX-w08"/>
-                                    <constraint firstItem="BuV-yp-QrR" firstAttribute="top" secondItem="ooZ-ux-jDE" secondAttribute="top" id="y13-54-uOF"/>
+                                    <constraint firstItem="BuV-yp-QrR" firstAttribute="centerX" secondItem="ooZ-ux-jDE" secondAttribute="centerX" id="lCN-R7-pBJ"/>
+                                    <constraint firstItem="BuV-yp-QrR" firstAttribute="centerY" secondItem="ooZ-ux-jDE" secondAttribute="centerY" id="pq3-lA-LGD"/>
                                 </constraints>
                             </view>
                         </subviews>

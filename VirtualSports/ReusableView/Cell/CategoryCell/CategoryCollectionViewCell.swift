@@ -31,7 +31,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             }
         }
 
-    private var isActive: Bool = false
+    var identifier: String = ""
 
     // MARK: Cell lifecircle
 
@@ -42,8 +42,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        categoryName = "Category"
-        isActive = false
+        categoryName = ""
     }
 
 }
@@ -52,19 +51,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
 extension CategoryCollectionViewCell: FilterCell {
 
-    func didTap() {
+    func normal() {
+        self.layer.backgroundColor = nil
+    }
 
-        if isActive {
-
-            isActive = false
-            self.layer.backgroundColor = nil
-
-        } else {
-
-            isActive = true
-            self.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
-        }
-
+    func selected() {
+        self.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
     }
 
 }
