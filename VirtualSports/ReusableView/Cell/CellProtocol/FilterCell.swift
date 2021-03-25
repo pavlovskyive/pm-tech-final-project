@@ -9,5 +9,6 @@ import Foundation
 
 protocol FilterCell {
 
-    func didTap()
+    func normal()
+    func selected()
 }

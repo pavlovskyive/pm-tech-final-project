@@ -47,7 +47,6 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
 
     // MARK: Actions
-
     @IBAction private func didTapGame(_ sender: Any) {
         self.onGoToGame?()
     }
@@ -69,7 +68,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             print("Something went wrong...")
             return
         }
-        
+
         apiService.token = token
         fetchMain()
     }
