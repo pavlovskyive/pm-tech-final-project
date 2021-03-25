@@ -79,10 +79,12 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         acceptButton.isHidden = true
+        acceptButtonEnabling()
     }
     
 }
