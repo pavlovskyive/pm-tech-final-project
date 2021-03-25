@@ -58,24 +58,20 @@ class LoginViewController: AuthBaseViewController {
             guard let email = self?.emailTextField?.text,
                   let password = self?.passwordTextField?.text else {
 
-                DispatchQueue.main.async {
-                    self?.primaryButton?.setEnabled(true)
-                }
+                self?.primaryButton?.setEnabled(true)
 
                 return
             }
 
-            self?.authProvider.login(credentials: ["login": email, "password": password]) { error in
-                guard let error = error else {
-                    DispatchQueue.main.async {
-                        self?.onComplete?()
-                    }
-                    return
-                }
-
-                print(error)
-
+            self?.dependencies?.authProvider.login(credentials: ["login": email, "password": password]) { result in
                 DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        self?.onComplete?()
+                    case .failure(let error):
+                        print(error)
+                    }
+
                     self?.primaryButton?.setEnabled(true)
                 }
             }

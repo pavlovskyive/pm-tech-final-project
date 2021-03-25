@@ -10,6 +10,10 @@ import AuthService
 
 protocol AuthPresentable: UIViewController {
 
+    typealias Dependencies = HasAuthenticator
+
+    var dependencies: Dependencies? { get set }
+
     var scrollView: UIScrollView? { get set }
 
     var primaryAction: (() -> Void)? { get set }
@@ -22,7 +26,7 @@ class AuthBaseViewController: UIViewController, AuthPresentable {
 
     // MARK: - Variables
 
-    var authProvider = AuthProvider(config: authConfig)
+    var dependencies: Dependencies?
 
     // MARK: Outlets
 

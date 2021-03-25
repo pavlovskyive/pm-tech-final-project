@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79043EF0260875DA00119FD9 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79043EED260875DA00119FD9 /* APIServiceMock.swift */; };
-		79043EF1260875DA00119FD9 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 79043EEE260875DA00119FD9 /* main.json */; };
-		79043EF2260875DA00119FD9 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = 79043EEF260875DA00119FD9 /* game.json */; };
 		7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961876E2609D8A20027C117 /* UITextField+Secure.swift */; };
 		79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79846F78260951BF00DCA87B /* RegistrationViewController.xib */; };
 		79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F79260951BF00DCA87B /* RegistrationViewController.swift */; };
@@ -18,6 +15,8 @@
 		79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F7D260951BF00DCA87B /* LoginViewController.swift */; };
 		79846F89260951D200DCA87B /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F87260951D200DCA87B /* LoginButton.swift */; };
 		79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F88260951D200DCA87B /* LoginTextField.swift */; };
+		798A99C1260D196B00D7B1AE /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A99BF260D196B00D7B1AE /* AppDependency.swift */; };
+		798A99C2260D196B00D7B1AE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A99C0260D196B00D7B1AE /* Protocols.swift */; };
 		79C32991260BDB03009EC9C1 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32990260BDB03009EC9C1 /* APIService */; };
 		79C32997260BDB49009EC9C1 /* AuthService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32996260BDB49009EC9C1 /* AuthService */; };
 		79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D257260489A700ACD5E5 /* AppDelegate.swift */; };
@@ -82,9 +81,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		79043EED260875DA00119FD9 /* APIServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
-		79043EEE260875DA00119FD9 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
-		79043EEF260875DA00119FD9 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
 		7961876E2609D8A20027C117 /* UITextField+Secure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Secure.swift"; sourceTree = "<group>"; };
 		79846F78260951BF00DCA87B /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		79846F79260951BF00DCA87B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +89,8 @@
 		79846F7D260951BF00DCA87B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79846F87260951D200DCA87B /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		79846F88260951D200DCA87B /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		798A99BF260D196B00D7B1AE /* AppDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		798A99C0260D196B00D7B1AE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		79C3D254260489A700ACD5E5 /* VirtualSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C3D257260489A700ACD5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C3D259260489A700ACD5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,19 +173,8 @@
 			children = (
 				79D0CD79260B7DB50075F8BD /* Constants */,
 				79E3B2BB2609BF83006E4081 /* Extensions */,
-				79043EEC260875DA00119FD9 /* Mock */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		79043EEC260875DA00119FD9 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				79043EED260875DA00119FD9 /* APIServiceMock.swift */,
-				79043EEE260875DA00119FD9 /* main.json */,
-				79043EEF260875DA00119FD9 /* game.json */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		79846F76260951BF00DCA87B /* Auth */ = {
@@ -227,6 +214,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		798A99BE260D196B00D7B1AE /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				798A99BF260D196B00D7B1AE /* AppDependency.swift */,
+				798A99C0260D196B00D7B1AE /* Protocols.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		79C3D24B260489A700ACD5E5 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +252,7 @@
 				B941F6512607E59D00D831A2 /* TopBar */,
 				79846F86260951D200DCA87B /* View */,
 				B941F61F2607C69400D831A2 /* Controller */,
+				798A99BE260D196B00D7B1AE /* DI */,
 				B941F61E2607C67200D831A2 /* Coordinator */,
 				79C3D257260489A700ACD5E5 /* AppDelegate.swift */,
 				79C3D259260489A700ACD5E5 /* SceneDelegate.swift */,
@@ -626,7 +623,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9BA50E1260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib in Resources */,
-				79043EF1260875DA00119FD9 /* main.json in Resources */,
 				B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */,
 				B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
@@ -639,7 +635,6 @@
 				79846F81260951BF00DCA87B /* LoginViewController.xib in Resources */,
 				79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
-				79043EF2260875DA00119FD9 /* game.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798A99C1260D196B00D7B1AE /* AppDependency.swift in Sources */,
 				B9BA50E2260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift in Sources */,
 				B9E1706F2608D3B60099DA82 /* ProviderCollectionViewCell.swift in Sources */,
 				79D0CD7B260B7DC00075F8BD /* Configs.swift in Sources */,
@@ -753,6 +749,7 @@
 				B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */,
 				B941F63A2607C93C00D831A2 /* Router.swift in Sources */,
 				B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */,
+				798A99C2260D196B00D7B1AE /* Protocols.swift in Sources */,
 				B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */,
 				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
 				79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */,
@@ -762,7 +759,6 @@
 				B9BA50E8260A4E2400F4E0A8 /* FilterCell.swift in Sources */,
 				7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */,
 				79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */,
-				79043EF0260875DA00119FD9 /* APIServiceMock.swift in Sources */,
 				B9BA50ED260A4EE600F4E0A8 /* FilterViewController.swift in Sources */,
 				B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */,
 				B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */,
