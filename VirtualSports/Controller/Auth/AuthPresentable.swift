@@ -23,7 +23,7 @@ class AuthBaseViewController: UIViewController, AuthPresentable {
     // MARK: - Variables
 
     var authProvider = AuthProvider(config: authConfig)
-    
+
     // MARK: Outlets
 
     @IBOutlet weak var scrollView: UIScrollView?

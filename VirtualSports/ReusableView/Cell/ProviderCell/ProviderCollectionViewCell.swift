@@ -22,9 +22,7 @@ class ProviderCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    var identifier: Int?
-
-    private var isActive: Bool = false
+    var identifier: String?
 
     // MARK: Cell lifecircle
 
@@ -40,7 +38,6 @@ class ProviderCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
 
         identifier = nil
-        isActive = false
     }
 
 }
@@ -49,19 +46,12 @@ class ProviderCollectionViewCell: UICollectionViewCell {
 
 extension ProviderCollectionViewCell: FilterCell {
 
-    func didTap() {
+    func normal() {
+        self.providerView.layer.backgroundColor = nil
+    }
 
-        if isActive {
-
-            isActive = false
-            providerView.layer.backgroundColor = nil
-
-        } else {
-
-            isActive = true
-            providerView.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
-        }
-
+    func selected() {
+        self.providerView.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
     }
 
 }
