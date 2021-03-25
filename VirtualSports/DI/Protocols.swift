@@ -9,8 +9,8 @@ import Foundation
 import AuthService
 import APIService
 
-protocol HasAuthenticator {
-    var authProvider: Authenticator { get }
+protocol HasAuthProvider {
+    var authProvider: AuthProvider { get }
 }
 
 protocol HasAPIFetching {

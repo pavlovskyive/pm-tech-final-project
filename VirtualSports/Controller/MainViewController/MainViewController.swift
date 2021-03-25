@@ -7,11 +7,11 @@
 
 import UIKit
 import APIService
-import KeychainWrapper
+import AuthService
 
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
 
-    typealias Dependencies = HasAuthenticator & HasAPIFetching
+    typealias Dependencies = HasAuthProvider & HasAPIFetching
 
     var dependencies: Dependencies? { get set }
 
@@ -42,7 +42,13 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         topBar.delegate = self
         topBar.showMainTopBar()
 
+        dependencies?.authProvider.subscribe(self)
+
         fetchMain()
+    }
+
+    deinit {
+        dependencies?.authProvider.unsubscribe(self)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -52,7 +58,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     // MARK: Actions
 
     @IBAction private func didTapGame(_ sender: Any) {
-        #warning("Game mock - replace for using with actual data.")
+
+        // TODO: Game mock - replace for using with actual data.
         self.onGoToGame?(Game(id: "123", provider: "123", categories: ["123"], name: "123", tags: ["123"]))
     }
 
@@ -68,6 +75,36 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
+    private func logout() {
+        dependencies?.authProvider.logout { error in
+            guard let error = error else {
+                return
+            }
+
+            print(error)
+        }
+    }
+
+}
+
+extension MainViewController: AuthDelegate {
+
+    func onLogin() {
+        DispatchQueue.main.async {
+            self.topBar.showLogOutButton = true
+        }
+
+        fetchMain()
+    }
+
+    func onLogout() {
+        DispatchQueue.main.async {
+            self.topBar.showLogOutButton = false
+            self.topBar.showMainTopBar()
+        }
+
+        fetchMain()
+    }
 }
 
 extension MainViewController: FilterButtonDelegate {
@@ -91,7 +128,7 @@ extension MainViewController: TopBarDelegate {
     }
 
     func logOutButtonPressed() {
-
+        logout()
     }
 
     func signUpButtonPressed() {

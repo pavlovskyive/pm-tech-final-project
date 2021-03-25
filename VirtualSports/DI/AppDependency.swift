@@ -11,9 +11,9 @@ import AuthService
 import NetworkService
 import KeychainWrapper
 
-struct AppDependency: HasAuthenticator, HasAPIFetching {
+struct AppDependency: HasAuthProvider, HasAPIFetching {
 
-    var authProvider: Authenticator
+    var authProvider: AuthProvider
     var apiService: APIFetchable
 
     public init() {

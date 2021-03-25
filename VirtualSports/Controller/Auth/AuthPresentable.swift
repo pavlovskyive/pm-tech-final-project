@@ -10,7 +10,7 @@ import AuthService
 
 protocol AuthPresentable: UIViewController {
 
-    typealias Dependencies = HasAuthenticator
+    typealias Dependencies = HasAuthProvider
 
     var dependencies: Dependencies? { get set }
 

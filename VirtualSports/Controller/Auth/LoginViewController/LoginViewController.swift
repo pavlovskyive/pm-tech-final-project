@@ -51,6 +51,17 @@ class LoginViewController: AuthBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let emailValidation = { [weak self] () -> Bool in
+
+            guard let self = self else {
+                return false
+            }
+
+            return self.checkEmail(emailTextField: self.emailTextField)
+        }
+
+        self.appendValidation(emailValidation)
+
         primaryAction = { [weak self] in
 
             self?.primaryButton?.setEnabled(false)
@@ -91,6 +102,18 @@ class LoginViewController: AuthBaseViewController {
         onInvalid = { [weak self] in
             self?.primaryButton?.setEnabled(false)
         }
+    }
+
+    private func checkEmail(emailTextField: UITextField?) -> Bool {
+
+        guard let email = emailTextField?.text else {
+            return false
+        }
+
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
 
 }

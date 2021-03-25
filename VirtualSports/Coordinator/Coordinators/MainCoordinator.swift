@@ -15,7 +15,6 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     // MARK: - Vars & Lets
     private let router: RouterProtocol
     private let coordinatorFactory: CoordinatorFactoryProtocol
-    private var onLoggedIn: (() -> Void)?
     private var dependencies = AppDependency()
 
     // MARK: - Private methods
@@ -50,7 +49,6 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         loginViewController.onComplete = { [unowned self] in
             router.dismissModule()
-            onLoggedIn?()
         }
 
         loginViewController.secondaryAction = { [unowned self] in
@@ -72,7 +70,6 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         registrationViewController.onComplete = { [unowned self] in
             router.dismissModule()
-            onLoggedIn?()
         }
 
         registrationViewController.secondaryAction = { [unowned self] in

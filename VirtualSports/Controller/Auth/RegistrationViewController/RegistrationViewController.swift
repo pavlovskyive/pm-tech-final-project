@@ -86,12 +86,36 @@ class RegistrationViewController: AuthBaseViewController {
             confirmationTextField
         ])
 
-        let equalityValidation = { [weak self] in
-            (self?.checkEquality(textFields: [self?.passwordTextField,
-                                              self?.confirmationTextField]) ?? false)
+        let equalityValidation = { [weak self] () -> Bool in
+
+            guard let self = self else {
+                return false
+            }
+
+            return self.checkEquality(textFields: [self.passwordTextField, self.confirmationTextField])
+        }
+
+        let emailValidation = { [weak self] () -> Bool in
+
+            guard let self = self else {
+                return false
+            }
+
+            return self.checkEmail(emailTextField: self.emailTextField)
+        }
+
+        let complexityValidation = { [weak self] () -> Bool in
+
+            guard let self = self else {
+                return false
+            }
+
+            return self.checkPasswordRequirements(passwordTextField: self.passwordTextField)
         }
 
         appendValidation(equalityValidation)
+        appendValidation(emailValidation)
+        appendValidation(complexityValidation)
 
         onValid = { [weak self] in
             self?.primaryButton?.setEnabled(true)
@@ -105,6 +129,30 @@ class RegistrationViewController: AuthBaseViewController {
     private func checkEquality(textFields: [UITextField?]) -> Bool {
         let inputs = textFields.compactMap({ $0?.text })
         return inputs.dropFirst().allSatisfy({ $0 == inputs.first })
+    }
+
+    private func checkEmail(emailTextField: UITextField?) -> Bool {
+
+        guard let email = emailTextField?.text else {
+            return false
+        }
+
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+
+        return emailPredicate.evaluate(with: email)
+    }
+
+    private func checkPasswordRequirements(passwordTextField: UITextField?) -> Bool {
+
+        guard let password = passwordTextField?.text else {
+            return false
+        }
+
+        let passwordRegEx = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@ ", passwordRegEx)
+
+        return passwordPredicate.evaluate(with: password)
     }
 
 }
