@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import APIService
-import AuthService
+import APILayer
+import AuthLayer
 
 import Network
 
@@ -30,6 +30,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var dependencies: Dependencies?
 
     var mainResponse: MainResponse?
+    var favouriteGames = [Game]()
+    var recentGames = [Game]()
     var filteredGames = [Game]()
 
     var isFiltered = false
@@ -103,6 +105,30 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
+    private func fetchFavourites() {
+        dependencies?.apiService.fetchFavourites { result in
+            switch result {
+            case .success(let favouriteGames):
+                print("\n\nFavourites: \(favouriteGames)")
+                self.favouriteGames = favouriteGames
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    private func fetchRecent() {
+        dependencies?.apiService.fetchRecent { result in
+            switch result {
+            case .success(let recentGames):
+                print("\n\nRecent: \(recentGames)")
+                self.recentGames = recentGames
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
     private func logout() {
         dependencies?.authProvider.logout { error in
             guard let error = error else {
@@ -119,15 +145,16 @@ extension MainViewController: AuthDelegate {
 
     func onLogin() {
         DispatchQueue.main.async {
-            self.topBar.showLogOutButton = true
+            self.topBar.showLogOutButton()
         }
 
         fetchMain()
+        fetchRecent()
+        fetchFavourites()
     }
 
     func onLogout() {
         DispatchQueue.main.async {
-            self.topBar.showLogOutButton = false
             self.topBar.showMainTopBar()
         }
     }
@@ -156,22 +183,16 @@ extension MainViewController: FilterButtonDelegate {
 
 extension MainViewController: TopBarDelegate {
 
-    func backwardButtonPressed() {
-
+    func signUpButtonPressed() {
+        self.onGoToRegistration?()
     }
 
     func signInButtonPressed() {
-
         self.onGoToLogin?()
     }
 
     func logOutButtonPressed() {
         logout()
-    }
-
-    func signUpButtonPressed() {
-
-        self.onGoToRegistration?()
     }
 
 }

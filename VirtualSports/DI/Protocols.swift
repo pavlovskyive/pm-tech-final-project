@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import AuthService
-import APIService
+import AuthLayer
+import APILayer
 
 protocol HasAuthProvider {
     var authProvider: AuthProvider { get }

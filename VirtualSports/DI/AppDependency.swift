@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import APIService
-import AuthService
+import APILayer
+import AuthLayer
 import NetworkService
 import KeychainWrapper
 
