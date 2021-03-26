@@ -8,91 +8,94 @@
 import APIService
 
 final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
-    
+
     // MARK: - CoordinatorFinishOutput
     var finishFlow: (() -> Void)?
-    
+
     // MARK: - Vars & Lets
     private let router: RouterProtocol
     private let coordinatorFactory: CoordinatorFactoryProtocol
     private var onLoggedIn: (() -> Void)?
-    
+
     // MARK: - Private methods
     private func showMainVC() {
-        
+
         let mainViewController = MainViewController()
-        
+
         onLoggedIn = {
             mainViewController.loggedIn()
         }
-        
+
         mainViewController.onGoToLogin = { [unowned self] in
             self.showLoginVC()
         }
-        
+
         mainViewController.onGoToRegistration = { [unowned self] in
             self.showRegistrationVC()
         }
-        
+
         mainViewController.onGoToGame = { [unowned self] game in
             self.showGameVC(for: game)
         }
-        
+
         mainViewController.onGoToFilter = { [unowned self] mainResponse in
             self.showFilterVC(for: mainResponse)
         }
-        
+
+        mainViewController.onGoToOffline = { [unowned self] in
+            self.showOfflineVC()
+        }
+
         self.router.setRootModule(mainViewController, hideBar: true)
     }
     
     private func showLoginVC() {
-        
-        let loginViewController = LoginViewController()
-        
+
+
         loginViewController.onComplete = { [unowned self] in
             self.router.dismissModule()
             onLoggedIn?()
         }
-        
+
         loginViewController.secondaryAction = { [unowned self] in
             self.router.dismissModule()
             showRegistrationVC()
         }
-        
+
         loginViewController.onClose = { [unowned self] in
             self.router.dismissModule()
         }
-        
+
         router.present(loginViewController)
     }
-    
+
     private func showRegistrationVC() {
-        
+
         let registrationViewController = RegistrationViewController()
-        
+
         registrationViewController.onComplete = { [unowned self] in
             self.router.dismissModule()
             onLoggedIn?()
         }
-        
+
         registrationViewController.secondaryAction = { [unowned self] in
             self.router.dismissModule()
             showLoginVC()
         }
-        
+
         registrationViewController.onClose = { [unowned self] in
             self.router.dismissModule()
         }
-        
+
         self.router.present(registrationViewController)
-        
+
     }
-    
+
     private func showGameVC(for game: Game?) {
         guard let game = game else { return }
-        
+
         let gameViewController = GameViewController(for: game)
-        
+
         gameViewController.onGoToBack = { [unowned self] in
             self.router.popModule()
         }
@@ -111,6 +114,19 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         }
         
         self.router.present(filterViewController)
+    }
+    
+    private func showOfflineVC() {
+        
+        let offlineViewController = OfflineViewController()
+        
+        offlineViewController.onGoToDissmiss = {
+            self.router.popToRootModule(animated: true)
+        }
+        
+        router.push(offlineViewController)
+        
+        
     }
     
     // MARK: - Coordinator

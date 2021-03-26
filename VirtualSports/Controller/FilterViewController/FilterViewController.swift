@@ -28,8 +28,8 @@ class FilterViewController: UIViewController {
     }()
     
     var onGoToDismiss: (() -> Void)?
-    
-    
+
+
     // MARK: API SERVICE
     
     private lazy var apiService: APIFetcher = {

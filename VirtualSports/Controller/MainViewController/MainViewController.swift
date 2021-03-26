@@ -9,12 +9,15 @@ import UIKit
 import APIService
 import KeychainWrapper
 
+import Network
+
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
     
     var onGoToLogin: (() -> Void)? { get set }
     var onGoToRegistration: (() -> Void)? { get set }
     var onGoToGame: ((_ game: Game?) -> Void)? { get set }
     var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)? { get set }
+    var onGoToOffline: (() -> Void)? { get set }
     
     func loggedIn()
 }
@@ -31,6 +34,13 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var onGoToRegistration: (() -> Void)?
     var onGoToGame: ((_ game: Game?) -> Void)?
     var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)?
+    var onGoToOffline: (() -> Void)?
+    
+    var connectionState = NetworkMonitor.shared.connectionState {
+        willSet {
+            checkNetworkConnectionState(newValue)
+        }
+    }
     
     @IBOutlet private weak var topBar: TopBar!
     @IBOutlet private weak var filterButtonView: FilterButtonView!
@@ -41,7 +51,23 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         topBar.delegate = self
         topBar.showMainTopBar()
         
-        fetchMain()
+        checkNetworkConnectionState(connectionState)
+        
+    }
+    private func checkNetworkConnectionState(_ state: ConnectionState) {
+        switch state {
+        case .connected:
+            fetchMain()
+        case .disconnected:
+            DispatchQueue.main.async {
+                self.onGoToOffline?()
+            }
+        }
+        
+        NetworkMonitor.shared.handleConnection = { [weak self] isConnected in
+            guard let self = self else { return }
+            self.connectionState = isConnected
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -49,7 +75,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
     
     // MARK: Actions
-
+    
     @IBAction private func didTapGame(_ sender: Any) {
         #warning("Game mock - replace for using with actual data.")
         self.onGoToGame?(Game(id: "123", provider: "123", categories: ["123"], name: "123", tags: ["123"]))
@@ -73,7 +99,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             print("Something went wrong...")
             return
         }
-
+        
         apiService.token = token
         fetchMain()
     }
@@ -109,5 +135,4 @@ extension MainViewController: TopBarDelegate {
         
         self.onGoToRegistration?()
     }
-    
 }
