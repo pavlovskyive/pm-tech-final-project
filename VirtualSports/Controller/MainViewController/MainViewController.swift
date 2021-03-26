@@ -27,6 +27,10 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var dependencies: Dependencies?
 
     var mainResponse: MainResponse?
+    var filteredGames = [Game]()
+
+    var isFiltered = false
+    var filterScope = FilterScope()
 
     var onGoToLogin: (() -> Void)?
     var onGoToRegistration: (() -> Void)?
@@ -105,6 +109,18 @@ extension MainViewController: AuthDelegate {
 
         fetchMain()
     }
+}
+
+extension MainViewController: FilterDelegate {
+
+    func handleFilter(filteredGames: [Game]) {
+        // TODO: Handle empty filtered
+        // TODO: Implement filter reset
+        isFiltered = true
+        self.filteredGames = filteredGames
+        print(filteredGames)
+    }
+
 }
 
 extension MainViewController: FilterButtonDelegate {
