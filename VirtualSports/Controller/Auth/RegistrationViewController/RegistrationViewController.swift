@@ -45,12 +45,23 @@ class RegistrationViewController: AuthBaseViewController {
         }
     }
 
+
+    @IBOutlet weak var passwordComplexityView: PasswordComplexityView!
+    @IBOutlet weak var matchPasswordsLabel: UILabel!
+    @IBOutlet weak var validPasswordLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: LoginTextField?
     @IBOutlet weak var passwordTextField: LoginTextField?
     @IBOutlet weak var confirmationTextField: LoginTextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        passwordComplexityView.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            self.passwordComplexityView.change()
+        })
 
         primaryAction = { [weak self] in
 
@@ -124,6 +135,8 @@ class RegistrationViewController: AuthBaseViewController {
         onInvalid = { [weak self] in
             self?.primaryButton?.setEnabled(false)
         }
+
+        emailErrorLabel.isHidden = true
     }
 
     private func checkEquality(textFields: [UITextField?]) -> Bool {
@@ -154,5 +167,18 @@ class RegistrationViewController: AuthBaseViewController {
 
         return passwordPredicate.evaluate(with: password)
     }
+
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if checkEmail(emailTextField: emailTextField) {
+         emailErrorLabel.isHidden = true
+         emailTextField?.changeBottomLine = false
+         return true
+        } else {
+         emailErrorLabel.isHidden = false
+         emailTextField?.changeBottomLine = true
+         return false
+        }
+
+   }
 
 }

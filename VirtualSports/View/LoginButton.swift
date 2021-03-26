@@ -12,7 +12,9 @@ final class LoginButton: UIButton {
 
     public func setEnabled(_ isEnabled: Bool) {
         self.isEnabled = isEnabled
-        setup()
+        
+        isEnabled ? setupWhenEnabled() : setup()
+
     }
 
     override init(frame: CGRect) {
@@ -40,9 +42,25 @@ final class LoginButton: UIButton {
 
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = isEnabled ? 1 : 0
+        layer.shadowColor = UIColor.white.cgColor
 
         backgroundColor = isEnabled ? .white : .init(white: 0.7, alpha: 1)
         alpha = isEnabled ? 1 : 0.3
+    }
+
+    internal func setupWhenEnabled() {
+        backgroundColor = .yellow
+        alpha = 1
+
+        setupShadow()
+    }
+
+    internal func setupShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 7.0
+        layer.shadowOffset = .zero
+        layer.shadowOpacity = 0.8
+        layer.masksToBounds = false
     }
 
 }

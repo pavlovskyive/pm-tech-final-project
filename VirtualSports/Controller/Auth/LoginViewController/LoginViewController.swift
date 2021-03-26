@@ -45,11 +45,13 @@ class LoginViewController: AuthBaseViewController {
         }
     }
 
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: LoginTextField?
     @IBOutlet weak var passwordTextField: LoginTextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailErrorLabel.isHidden = true
 
         let emailValidation = { [weak self] () -> Bool in
 
@@ -96,6 +98,7 @@ class LoginViewController: AuthBaseViewController {
         ])
 
         onValid = { [weak self] in
+
             self?.primaryButton?.setEnabled(true)
         }
 
@@ -113,7 +116,21 @@ class LoginViewController: AuthBaseViewController {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
         let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+
         return emailPred.evaluate(with: email)
     }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+       if checkEmail(emailTextField: emailTextField) {
+        emailErrorLabel.isHidden = true
+        emailTextField?.changeBottomLine = false
+        return true
+       } else {
+        emailErrorLabel.isHidden = false
+        emailTextField?.changeBottomLine = true
+        return false
+       }
+        
+   }
 
 }
