@@ -110,14 +110,15 @@
                                 <action selector="logoutButtonPressed:" destination="-1" eventType="touchUpInside" id="1UY-nu-lmf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q9-4I-H6x" userLabel="Backword">
-                            <rect key="frame" x="16" y="20.666666666666664" width="15" height="21.333333333333336"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q9-4I-H6x" userLabel="Backword">
+                            <rect key="frame" x="16" y="16" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="Ts2-qB-cMq"/>
-                                <constraint firstAttribute="width" constant="15" id="ga6-hJ-el6"/>
+                                <constraint firstAttribute="height" constant="30" id="Ts2-qB-cMq"/>
+                                <constraint firstAttribute="width" constant="30" id="ga6-hJ-el6"/>
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" backgroundImage="chevron.backward" catalog="system"/>
+                            <inset key="contentEdgeInsets" minX="8" minY="5" maxX="8" maxY="5"/>
+                            <state key="normal" image="Left"/>
                             <connections>
                                 <action selector="backwardButtonPressed:" destination="-1" eventType="touchUpInside" id="GaF-zg-mfO"/>
                             </connections>
@@ -128,13 +129,14 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="176-kr-22t" userLabel="Favorites">
-                            <rect key="frame" x="364" y="17.666666666666664" width="30" height="27"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="176-kr-22t" userLabel="Favorites">
+                            <rect key="frame" x="356" y="13.666666666666664" width="38" height="35"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="27" id="AQi-tn-yUz"/>
-                                <constraint firstAttribute="width" constant="30" id="Yie-YZ-Mdz"/>
+                                <constraint firstAttribute="height" constant="35" id="AQi-tn-yUz"/>
+                                <constraint firstAttribute="width" constant="38" id="Yie-YZ-Mdz"/>
                             </constraints>
                             <color key="tintColor" name="PMYellow"/>
+                            <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                             <state key="normal" image="Heart"/>
                             <connections>
                                 <action selector="favouritesButtonPressed:" destination="-1" eventType="touchUpInside" id="sKg-ky-3yc"/>
@@ -192,7 +194,7 @@
     </designables>
     <resources>
         <image name="Heart" width="97.333335876464844" height="90"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="Left" width="34.666667938232422" height="61.333332061767578"/>
         <image name="logo" width="230" height="130"/>
         <namedColor name="PMYellow">
             <color red="0.92549019607843142" green="0.9137254901960784" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

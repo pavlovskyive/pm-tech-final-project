@@ -58,7 +58,9 @@ class GameViewController: UIViewController {
         dependencies?.apiService.fetchFavourites { [weak self] result in
             switch result {
             case .success(let favourites):
-                self?.isFavourite = favourites.contains(where: { $0.id == self?.game.id })
+                DispatchQueue.main.async {
+                    self?.isFavourite = favourites.contains(where: { $0.id == self?.game.id })
+                }
             case .failure(let error):
                 print(error)
             }
@@ -84,12 +86,18 @@ private extension GameViewController {
     }
 
     func handleFavouriteChangeResponce(error: APIError?) {
-        guard let error = error else {
-            self.isFavourite.toggle()
-            return
-        }
 
-        print(error)
+        DispatchQueue.main.async { [weak self] in
+
+            self?.topBar?.setEnableFavoritesButton(true)
+
+            guard let error = error else {
+                self?.isFavourite.toggle()
+                return
+            }
+
+            print(error)
+        }
     }
 
 }
@@ -101,6 +109,7 @@ extension GameViewController: TopBarDelegate {
     }
 
     func favoriteButtonPressed() {
+        topBar?.setEnableFavoritesButton(false)
         setFavourite(!isFavourite)
     }
 

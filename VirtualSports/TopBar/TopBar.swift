@@ -112,11 +112,17 @@ class TopBar: UIView {
     }
 
     func setFavoritesButtonHighlighted(_ isHightlighted: Bool) {
-        favoritesButton?.alpha = isHightlighted ? 1 : 0.2
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            self?.favoritesButton?.alpha = isHightlighted ? 1 : 0.2
+        }
     }
 
     func showFavoritesButton(_ show: Bool) {
         favoritesButton?.isHidden = !show
+    }
+
+    func setEnableFavoritesButton(_ isEnabled: Bool) {
+        favoritesButton?.isEnabled = isEnabled
     }
 
     override init(frame: CGRect) {
