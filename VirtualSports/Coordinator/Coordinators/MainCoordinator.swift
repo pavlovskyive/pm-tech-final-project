@@ -15,11 +15,9 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     // MARK: - Vars & Lets
     private let router: RouterProtocol
     private let coordinatorFactory: CoordinatorFactoryProtocol
-    
     private var onLoggedIn: (() -> Void)?
 
     private var dependencies = AppDependency()
-
 
     // MARK: - Private methods
     private func showMainVC() {
@@ -27,7 +25,6 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         let mainViewController = MainViewController()
 
         mainViewController.dependencies = dependencies
-
 
         mainViewController.onGoToLogin = { [unowned self] in
             self.showLoginVC()
@@ -57,7 +54,6 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         let loginViewController = LoginViewController()
         loginViewController.dependencies = dependencies
 
-
         loginViewController.onComplete = { [unowned self] in
             router.dismissModule()
         }
@@ -79,7 +75,6 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         let registrationViewController = RegistrationViewController()
 
         registrationViewController.dependencies = dependencies
-
 
         registrationViewController.onComplete = { [unowned self] in
             router.dismissModule()
@@ -122,20 +117,18 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         self.router.present(filterViewController)
     }
-    
+
     private func showOfflineVC() {
-        
         let offlineViewController = OfflineViewController()
-        
+
         offlineViewController.onGoToDissmiss = {
             self.router.popToRootModule(animated: true)
         }
-        
+
         router.push(offlineViewController)
-        
-        
+
     }
-    
+
     // MARK: - Coordinator
     override func start() {
         self.showMainVC()

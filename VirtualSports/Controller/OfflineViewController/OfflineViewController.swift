@@ -15,17 +15,17 @@ final class OfflineViewController: UIViewController, Dissmissable {
 
     var onGoToDissmiss: (() -> Void)?
 
-    @IBAction private func tryAgainButtonPressed(_ sender: UIButton) {
-        
+    @IBAction private func tryAgainButtonPressed(_ sender: DesignableButton) {
+
         if NetworkMonitor.shared.connectionState == .connected {
                 DispatchQueue.main.async {
                     self.onGoToDissmiss?()
                 }
-                
+
             }
         }
 
-    @IBAction private func offlineModeButtonPressed(_ sender: UIButton) {
+    @IBAction private func offlineModeButtonPressed(_ sender: DesignableButton) {
         onGoToDissmiss?()
     }
 }

@@ -9,23 +9,23 @@ import Network
 
 final public class NetworkMonitor {
     public static let shared = NetworkMonitor()
-    
+
     public var handleConnection: ((ConnectionState) -> Void)?
-    
+
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
-    
+
     private(set) var connetionType: ConnectionType? = .unknown
     private(set) var connectionState: ConnectionState = .disconnected {
         willSet {
             handleConnection?(newValue)
         }
     }
-    
+
     private init() {
         monitor = NWPathMonitor()
     }
-    
+
     public func startMonitoring() {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { path in
@@ -44,7 +44,7 @@ final public class NetworkMonitor {
     public func stopMonitoring() {
         monitor.cancel()
     }
-    
+
     private func getConnectionType(_ path: NWPath) {
         if path.usesInterfaceType(.cellular) {
             connetionType = .cellular
@@ -55,7 +55,6 @@ final public class NetworkMonitor {
         }
     }
 
-   
 }
 
 public enum ConnectionState {

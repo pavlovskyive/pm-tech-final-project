@@ -22,7 +22,7 @@ protocol MainViewControllerProtocol: BaseViewControllerProvider {
     var onGoToGame: ((_ game: Game?) -> Void)? { get set }
     var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)? { get set }
     var onGoToOffline: (() -> Void)? { get set }
-    
+
 }
 
 class MainViewController: UIViewController, MainViewControllerProtocol {
@@ -40,13 +40,13 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var onGoToGame: ((_ game: Game?) -> Void)?
     var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)?
     var onGoToOffline: (() -> Void)?
-    
+
     var connectionState = NetworkMonitor.shared.connectionState {
         willSet {
             checkNetworkConnectionState(newValue)
         }
     }
-    
+
     @IBOutlet private weak var topBar: TopBar!
     @IBOutlet private weak var filterButtonView: FilterButtonView!
 
@@ -56,9 +56,9 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         topBar.delegate = self
         topBar.showMainTopBar()
         checkNetworkConnectionState(connectionState)
-        
+
     }
-    
+
     private func checkNetworkConnectionState(_ state: ConnectionState) {
         switch state {
         case .connected:
@@ -69,7 +69,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
                 self.onGoToOffline?()
             }
         }
-        
+
         NetworkMonitor.shared.handleConnection = { [weak self] isConnected in
             guard let self = self else { return }
             self.connectionState = isConnected
@@ -85,7 +85,6 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
 
     // MARK: Actions
-    
     @IBAction private func didTapGame(_ sender: Any) {
 
         // TODO: Game mock - replace for using with actual data.
@@ -132,7 +131,6 @@ extension MainViewController: AuthDelegate {
             self.topBar.showMainTopBar()
         }
     }
-    
 }
 
 extension MainViewController: FilterDelegate {
@@ -177,4 +175,3 @@ extension MainViewController: TopBarDelegate {
     }
 
 }
-

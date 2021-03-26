@@ -8,7 +8,25 @@
 import UIKit
 
 @IBDesignable
-class DesignableButton: UIButton {}
+class DesignableButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    override func prepareForInterfaceBuilder() {
+        commonInit()
+    }
+
+    private func commonInit() {
+        self.clipsToBounds = true
+    }
+}
 
 @IBDesignable extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
