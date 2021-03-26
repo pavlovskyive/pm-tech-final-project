@@ -15,9 +15,8 @@
 		79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F7D260951BF00DCA87B /* LoginViewController.swift */; };
 		79846F89260951D200DCA87B /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F87260951D200DCA87B /* LoginButton.swift */; };
 		79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F88260951D200DCA87B /* LoginTextField.swift */; };
-		798A99C1260D196B00D7B1AE /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A99BF260D196B00D7B1AE /* AppDependency.swift */; };
-		798A99C2260D196B00D7B1AE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A99C0260D196B00D7B1AE /* Protocols.swift */; };
 		79C32991260BDB03009EC9C1 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32990260BDB03009EC9C1 /* APIService */; };
+		79C32997260BDB49009EC9C1 /* AuthService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32996260BDB49009EC9C1 /* AuthService */; };
 		79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D257260489A700ACD5E5 /* AppDelegate.swift */; };
 		79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D259260489A700ACD5E5 /* SceneDelegate.swift */; };
 		79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D260260489B500ACD5E5 /* Assets.xcassets */; };
@@ -27,7 +26,6 @@
 		79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */; };
 		79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */; };
 		79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D29526048D7E00ACD5E5 /* GoogleService-Info.plist */; };
-		79CA6745260D4378000C7F4E /* AuthService in Frameworks */ = {isa = PBXBuildFile; productRef = 79CA6744260D4378000C7F4E /* AuthService */; };
 		79D0CD7B260B7DC00075F8BD /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D0CD7A260B7DC00075F8BD /* Configs.swift */; };
 		B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */; };
 		B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6242607C77700D831A2 /* MainCoordinator.swift */; };
@@ -61,6 +59,11 @@
 		B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */; };
 		B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */; };
 		E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = E5000E8E260BDF4500ECCE1F /* ImageLoader */; };
+		E5B919BE260D1BB70033E497 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B919BD260D1BB70033E497 /* NetworkMonitor.swift */; };
+		E5B919CA260DDB570033E497 /* OfflineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B919C9260DDB570033E497 /* OfflineViewController.xib */; };
+		E5B919CF260DDB830033E497 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B919CE260DDB830033E497 /* OfflineViewController.swift */; };
+		E5B919DC260E236E0033E497 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B919DA260E236E0033E497 /* AppDependency.swift */; };
+		E5B919DD260E236E0033E497 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B919DB260E236E0033E497 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +92,6 @@
 		79846F7D260951BF00DCA87B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79846F87260951D200DCA87B /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		79846F88260951D200DCA87B /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
-		798A99BF260D196B00D7B1AE /* AppDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
-		798A99C0260D196B00D7B1AE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		79C3D254260489A700ACD5E5 /* VirtualSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C3D257260489A700ACD5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C3D259260489A700ACD5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +136,11 @@
 		B9E1706E2608D3B60099DA82 /* ProviderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5B919BD260D1BB70033E497 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		E5B919C9260DDB570033E497 /* OfflineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfflineViewController.xib; sourceTree = "<group>"; };
+		E5B919CE260DDB830033E497 /* OfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
+		E5B919DA260E236E0033E497 /* AppDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		E5B919DB260E236E0033E497 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,12 +148,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79CA6745260D4378000C7F4E /* AuthService in Frameworks */,
 				B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */,
 				E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */,
 				79C32991260BDB03009EC9C1 /* APIService in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
 				79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */,
+				79C32997260BDB49009EC9C1 /* AuthService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +179,7 @@
 			children = (
 				79D0CD79260B7DB50075F8BD /* Constants */,
 				79E3B2BB2609BF83006E4081 /* Extensions */,
+				E5B919BD260D1BB70033E497 /* NetworkMonitor.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -214,15 +221,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		798A99BE260D196B00D7B1AE /* DI */ = {
-			isa = PBXGroup;
-			children = (
-				798A99BF260D196B00D7B1AE /* AppDependency.swift */,
-				798A99C0260D196B00D7B1AE /* Protocols.swift */,
-			);
-			path = DI;
-			sourceTree = "<group>";
-		};
 		79C3D24B260489A700ACD5E5 = {
 			isa = PBXGroup;
 			children = (
@@ -252,9 +250,9 @@
 				B941F6512607E59D00D831A2 /* TopBar */,
 				79846F86260951D200DCA87B /* View */,
 				B941F61F2607C69400D831A2 /* Controller */,
-				798A99BE260D196B00D7B1AE /* DI */,
 				B941F61E2607C67200D831A2 /* Coordinator */,
 				79C3D257260489A700ACD5E5 /* AppDelegate.swift */,
+				E5B919D9260E236E0033E497 /* DI */,
 				79C3D259260489A700ACD5E5 /* SceneDelegate.swift */,
 				79C3D260260489B500ACD5E5 /* Assets.xcassets */,
 				79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */,
@@ -317,6 +315,7 @@
 		B941F61F2607C69400D831A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E5B919C8260DDB380033E497 /* OfflineViewController */,
 				B9BA50E9260A4EE600F4E0A8 /* FilterViewController */,
 				79846F76260951BF00DCA87B /* Auth */,
 				B941F6412607CA1200D831A2 /* GameViewController */,
@@ -500,6 +499,24 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
+		E5B919C8260DDB380033E497 /* OfflineViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E5B919C9260DDB570033E497 /* OfflineViewController.xib */,
+				E5B919CE260DDB830033E497 /* OfflineViewController.swift */,
+			);
+			path = OfflineViewController;
+			sourceTree = "<group>";
+		};
+		E5B919D9260E236E0033E497 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E5B919DA260E236E0033E497 /* AppDependency.swift */,
+				E5B919DB260E236E0033E497 /* Protocols.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -525,8 +542,8 @@
 				79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */,
 				79C3F18B26076C5F001D2982 /* KeychainWrapper */,
 				79C32990260BDB03009EC9C1 /* APIService */,
+				79C32996260BDB49009EC9C1 /* AuthService */,
 				E5000E8E260BDF4500ECCE1F /* ImageLoader */,
-				79CA6744260D4378000C7F4E /* AuthService */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -603,8 +620,8 @@
 				79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */,
 				79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
+				79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */,
 				E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */,
-				79CA6743260D4378000C7F4E /* XCRemoteSwiftPackageReference "auth-service" */,
 			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
@@ -633,6 +650,7 @@
 				B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */,
 				B9BA50EC260A4EE600F4E0A8 /* FilterViewController.xib in Resources */,
 				79846F81260951BF00DCA87B /* LoginViewController.xib in Resources */,
+				E5B919CA260DDB570033E497 /* OfflineViewController.xib in Resources */,
 				79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
 			);
@@ -734,7 +752,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				798A99C1260D196B00D7B1AE /* AppDependency.swift in Sources */,
 				B9BA50E2260A4DD300F4E0A8 /* HeaderCollectionReusableView.swift in Sources */,
 				B9E1706F2608D3B60099DA82 /* ProviderCollectionViewCell.swift in Sources */,
 				79D0CD7B260B7DC00075F8BD /* Configs.swift in Sources */,
@@ -749,7 +766,6 @@
 				B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */,
 				B941F63A2607C93C00D831A2 /* Router.swift in Sources */,
 				B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */,
-				798A99C2260D196B00D7B1AE /* Protocols.swift in Sources */,
 				B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */,
 				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
 				79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */,
@@ -758,12 +774,16 @@
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
 				B9BA50E8260A4E2400F4E0A8 /* FilterCell.swift in Sources */,
 				7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */,
+				E5B919BE260D1BB70033E497 /* NetworkMonitor.swift in Sources */,
 				79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */,
 				B9BA50ED260A4EE600F4E0A8 /* FilterViewController.swift in Sources */,
 				B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */,
 				B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */,
 				B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */,
 				B941F6382607C90500D831A2 /* Presentable.swift in Sources */,
+				E5B919CF260DDB830033E497 /* OfflineViewController.swift in Sources */,
+				E5B919DD260E236E0033E497 /* Protocols.swift in Sources */,
+				E5B919DC260E236E0033E497 /* AppDependency.swift in Sources */,
 				B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */,
 				B9BA50E7260A4E2400F4E0A8 /* CollectionViewExtencion.swift in Sources */,
 				B941F6342607C8C300D831A2 /* Coordinator.swift in Sources */,
@@ -936,7 +956,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 38TK83T92G;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -944,7 +964,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports12";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -957,7 +977,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 38TK83T92G;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -965,7 +985,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pm-tech-academy.VirtualSports12";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1106,6 +1126,14 @@
 				minimumVersion = 0.2.3;
 			};
 		};
+		79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pavlovskyive/auth-service";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1120,14 +1148,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		79CA6743260D4378000C7F4E /* XCRemoteSwiftPackageReference "auth-service" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pavlovskyive/auth-service";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.1;
 			};
 		};
 		E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */ = {
@@ -1146,6 +1166,11 @@
 			package = 79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
 			productName = APIService;
 		};
+		79C32996260BDB49009EC9C1 /* AuthService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */;
+			productName = AuthService;
+		};
 		79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1160,11 +1185,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */;
 			productName = KeychainWrapper;
-		};
-		79CA6744260D4378000C7F4E /* AuthService */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79CA6743260D4378000C7F4E /* XCRemoteSwiftPackageReference "auth-service" */;
-			productName = AuthService;
 		};
 		E5000E8E260BDF4500ECCE1F /* ImageLoader */ = {
 			isa = XCSwiftPackageProductDependency;
