@@ -51,6 +51,17 @@ class LoginViewController: AuthBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let emailValidation = { [weak self] () -> Bool in
+
+            guard let self = self else {
+                return false
+            }
+
+            return self.checkEmail(emailTextField: self.emailTextField)
+        }
+
+        self.appendValidation(emailValidation)
+
         primaryAction = { [weak self] in
 
             self?.primaryButton?.setEnabled(false)
@@ -58,24 +69,20 @@ class LoginViewController: AuthBaseViewController {
             guard let email = self?.emailTextField?.text,
                   let password = self?.passwordTextField?.text else {
 
-                DispatchQueue.main.async {
-                    self?.primaryButton?.setEnabled(true)
-                }
+                self?.primaryButton?.setEnabled(true)
 
                 return
             }
 
-            self?.authProvider.login(credentials: ["login": email, "password": password]) { error in
-                guard let error = error else {
-                    DispatchQueue.main.async {
-                        self?.onComplete?()
-                    }
-                    return
-                }
-
-                print(error)
-
+            self?.dependencies?.authProvider.login(credentials: ["login": email, "password": password]) { result in
                 DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        self?.onComplete?()
+                    case .failure(let error):
+                        print(error)
+                    }
+
                     self?.primaryButton?.setEnabled(true)
                 }
             }
@@ -95,6 +102,18 @@ class LoginViewController: AuthBaseViewController {
         onInvalid = { [weak self] in
             self?.primaryButton?.setEnabled(false)
         }
+    }
+
+    private func checkEmail(emailTextField: UITextField?) -> Bool {
+
+        guard let email = emailTextField?.text else {
+            return false
+        }
+
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
 
 }
