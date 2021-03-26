@@ -36,7 +36,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         }
 
         mainViewController.onGoToFilter = { [unowned self] mainResponse in
-            self.showFilterVC(for: mainResponse)
+            self.showFilterVC(for: mainResponse, delegate: mainViewController)
         }
 
         self.router.setRootModule(mainViewController, hideBar: true)
@@ -98,10 +98,10 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
     }
 
-    private func showFilterVC(for mainResponse: MainResponse?) {
+    private func showFilterVC(for mainResponse: MainResponse?, delegate: FilterDelegate) {
         guard let mainResponse = mainResponse else { return }
 
-        let filterViewController = FilterViewController(for: mainResponse)
+        let filterViewController = FilterViewController(for: mainResponse, delegate: delegate)
 
         filterViewController.onGoToDismiss = { [unowned self] in
             self.router.dismissModule()

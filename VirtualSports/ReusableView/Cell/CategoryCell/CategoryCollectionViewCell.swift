@@ -10,8 +10,17 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var categoryImageView: UIImageView!
-
     @IBOutlet private weak var categoryLabel: UILabel!
+
+    lazy var tintLayer: CALayer = {
+        let layer = CALayer()
+        layer.opacity = 0
+        layer.backgroundColor = UIColor.white.withAlphaComponent(0.2).cgColor
+
+        contentView.layer.addSublayer(layer)
+
+        return layer
+    }()
 
     var image: UIImage? {
         get {
@@ -45,18 +54,42 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         categoryName = ""
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        tintLayer.frame = contentView.bounds
+    }
+
 }
 
 // MARK: Filter Cell Protocol
 
 extension CategoryCollectionViewCell: FilterCell {
 
-    func normal() {
-        self.layer.backgroundColor = nil
+    func makeNormal() {
+
+        tintLayer.opacity = 0
+
+        let appearAnimation = CABasicAnimation(keyPath: "opacity")
+        appearAnimation.fromValue = 1
+        appearAnimation.toValue = 0
+        appearAnimation.duration = 0.2
+        appearAnimation.fillMode = .forwards
+
+        tintLayer.add(appearAnimation, forKey: "appearAnimation")
     }
 
-    func selected() {
-        self.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
+    func select() {
+
+        tintLayer.opacity = 1
+
+        let appearAnimation = CABasicAnimation(keyPath: "opacity")
+        appearAnimation.fromValue = 0
+        appearAnimation.toValue = 1
+        appearAnimation.duration = 0.2
+        appearAnimation.fillMode = .forwards
+
+        tintLayer.add(appearAnimation, forKey: "appearAnimation")
     }
 
 }
