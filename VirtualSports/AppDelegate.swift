@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        NetworkMonitor.shared.startMonitoring()
 
         if #available(iOS 13, *) {
             // Do nothing, setup is in SceneDelegate

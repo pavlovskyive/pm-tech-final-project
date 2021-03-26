@@ -24,6 +24,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     private func showMainVC() {
 
         let mainViewController = MainViewController()
+
         mainViewController.dependencies = dependencies
 
         mainViewController.onGoToLogin = { [unowned self] in
@@ -40,6 +41,10 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         mainViewController.onGoToFilter = { [unowned self] mainResponse in
             self.showFilterVC(for: mainResponse, delegate: mainViewController)
+        }
+
+        mainViewController.onGoToOffline = { [unowned self] in
+            self.showOfflineVC()
         }
 
         self.router.setRootModule(mainViewController, hideBar: true)
@@ -69,6 +74,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     private func showRegistrationVC() {
 
         let registrationViewController = RegistrationViewController()
+
         registrationViewController.dependencies = dependencies
 
         registrationViewController.onComplete = { [unowned self] in
@@ -114,6 +120,17 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         }
 
         self.router.present(filterViewController)
+    }
+
+    private func showOfflineVC() {
+        let offlineViewController = OfflineViewController()
+
+        offlineViewController.onGoToDissmiss = {
+            self.router.popToRootModule(animated: true)
+        }
+
+        router.push(offlineViewController)
+
     }
 
     // MARK: - Coordinator

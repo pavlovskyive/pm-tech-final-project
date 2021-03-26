@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "AuthService",
+        "package": "AuthLayer",
         "repositoryURL": "https://github.com/pavlovskyive/auth-service",
         "state": {
           "branch": null,
-          "revision": "07dfa46b03f1bd2c0f5d5322cd48918c66085c88",
-          "version": "0.2.1"
+          "revision": "078cf0bd0acd811ab48186147389b867e3b5b768",
+          "version": "0.2.2"
         }
       },
       {
@@ -143,6 +143,15 @@
           "branch": null,
           "revision": "e1904bf5a5f79cb7e0ff68a427a53a93b652fcd1",
           "version": "1.15.0"
+        }
+      },
+      {
+        "package": "APILayer",
+        "repositoryURL": "https://github.com/pavlovskyive/virtual-sports-api-service",
+        "state": {
+          "branch": null,
+          "revision": "34c6b2d14f9a2139ea38643a7b02d170ec45e49c",
+          "version": "0.3.2"
         }
       }
     ]

@@ -9,6 +9,8 @@ import UIKit
 import APILayer
 import AuthLayer
 
+import Network
+
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
 
     typealias Dependencies = HasAuthProvider & HasAPIFetching
@@ -19,6 +21,7 @@ protocol MainViewControllerProtocol: BaseViewControllerProvider {
     var onGoToRegistration: (() -> Void)? { get set }
     var onGoToGame: ((_ game: Game?) -> Void)? { get set }
     var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)? { get set }
+    var onGoToOffline: (() -> Void)? { get set }
 
 }
 
@@ -38,6 +41,13 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var onGoToRegistration: (() -> Void)?
     var onGoToGame: ((_ game: Game?) -> Void)?
     var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)?
+    var onGoToOffline: (() -> Void)?
+
+    var connectionState = NetworkMonitor.shared.connectionState {
+        willSet {
+            checkNetworkConnectionState(newValue)
+        }
+    }
 
     @IBOutlet private weak var topBar: TopBar!
     @IBOutlet private weak var filterButtonView: FilterButtonView!
@@ -47,10 +57,25 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         filterButtonView.delegate = self
         topBar.delegate = self
         topBar.showMainTopBar()
+        checkNetworkConnectionState(connectionState)
 
+    }
+
+    private func checkNetworkConnectionState(_ state: ConnectionState) {
+        switch state {
+        case .connected:
         dependencies?.authProvider.subscribe(self)
+            fetchMain()
+        case .disconnected:
+            DispatchQueue.main.async {
+                self.onGoToOffline?()
+            }
+        }
 
-        fetchMain()
+        NetworkMonitor.shared.handleConnection = { [weak self] isConnected in
+            guard let self = self else { return }
+            self.connectionState = isConnected
+        }
     }
 
     deinit {
@@ -62,7 +87,6 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
 
     // MARK: Actions
-
     @IBAction private func didTapGame(_ sender: Any) {
 
         // TODO: Game mock - replace for using with actual data.
@@ -133,8 +157,6 @@ extension MainViewController: AuthDelegate {
         DispatchQueue.main.async {
             self.topBar.showMainTopBar()
         }
-
-        fetchMain()
     }
 }
 
