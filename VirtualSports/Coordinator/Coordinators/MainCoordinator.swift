@@ -10,14 +10,17 @@ import APILayer
 final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
     // MARK: - CoordinatorFinishOutput
+
     var finishFlow: (() -> Void)?
 
     // MARK: - Vars & Lets
+
+    var dependencies: AppDependency?
     private let router: RouterProtocol
     private let coordinatorFactory: CoordinatorFactoryProtocol
-    private var dependencies = AppDependency()
 
     // MARK: - Private methods
+
     private func showMainVC() {
 
         let mainViewController = MainViewController()
@@ -86,9 +89,12 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     }
 
     private func showGameVC(for game: Game?) {
+
         guard let game = game else { return }
 
         let gameViewController = GameViewController(for: game)
+
+        gameViewController.dependencies = dependencies
 
         gameViewController.onGoToBack = { [unowned self] in
             router.popModule()

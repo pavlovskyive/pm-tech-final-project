@@ -121,7 +121,7 @@ extension MainViewController: AuthDelegate {
 
     func onLogin() {
         DispatchQueue.main.async {
-            self.topBar.showLogOutButton = true
+            self.topBar.showLogOutButton()
         }
 
         fetchMain()
@@ -131,7 +131,6 @@ extension MainViewController: AuthDelegate {
 
     func onLogout() {
         DispatchQueue.main.async {
-            self.topBar.showLogOutButton = false
             self.topBar.showMainTopBar()
         }
 
@@ -162,22 +161,16 @@ extension MainViewController: FilterButtonDelegate {
 
 extension MainViewController: TopBarDelegate {
 
-    func backwardButtonPressed() {
-
+    func signUpButtonPressed() {
+        self.onGoToRegistration?()
     }
 
     func signInButtonPressed() {
-
         self.onGoToLogin?()
     }
 
     func logOutButtonPressed() {
         logout()
-    }
-
-    func signUpButtonPressed() {
-
-        self.onGoToRegistration?()
     }
 
 }

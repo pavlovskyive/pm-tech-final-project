@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +13,7 @@
             <connections>
                 <outlet property="backwardButton" destination="6q9-4I-H6x" id="O1e-Im-EhR"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="2HN-th-apj"/>
+                <outlet property="favoritesButton" destination="176-kr-22t" id="0MC-dm-TQD"/>
                 <outlet property="gameNameLabel" destination="Mhb-or-wBg" id="HUS-XV-uf5"/>
                 <outlet property="logOut" destination="cay-nJ-gTT" id="mkm-XE-mG1"/>
                 <outlet property="logoView" destination="zW5-dH-JIv" id="569-N0-KhQ"/>
@@ -61,7 +63,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuO-6D-Mvz" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
                             <rect key="frame" x="284" y="16" width="120" height="30"/>
-                            <color key="backgroundColor" red="0.98030835390000004" green="0.98852068189999998" blue="0.34288221600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" name="PMYellow"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="FZS-Vf-kGs"/>
                                 <constraint firstAttribute="width" constant="120" id="elx-Kd-7UW"/>
@@ -121,21 +123,35 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-or-wBg">
-                            <rect key="frame" x="182" y="19.666666666666664" width="50" height="23"/>
+                            <rect key="frame" x="178.66666666666666" y="18" width="57" height="26.333333333333329"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="176-kr-22t" userLabel="Favorites">
+                            <rect key="frame" x="364" y="17.666666666666664" width="30" height="27"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="27" id="AQi-tn-yUz"/>
+                                <constraint firstAttribute="width" constant="30" id="Yie-YZ-Mdz"/>
+                            </constraints>
+                            <color key="tintColor" name="PMYellow"/>
+                            <state key="normal" image="Heart"/>
+                            <connections>
+                                <action selector="favouritesButtonPressed:" destination="-1" eventType="touchUpInside" id="sKg-ky-3yc"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="NuO-6D-Mvz" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="6NA-KA-NET"/>
+                        <constraint firstItem="176-kr-22t" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="F0w-4P-Abm"/>
                         <constraint firstItem="Mhb-or-wBg" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="GbI-J8-IeO"/>
                         <constraint firstItem="6q9-4I-H6x" firstAttribute="leading" secondItem="G6I-JI-Q29" secondAttribute="leading" constant="16" id="Kyg-Ou-ftd"/>
                         <constraint firstAttribute="bottom" secondItem="zW5-dH-JIv" secondAttribute="bottom" constant="5" id="QHM-ZY-zAU"/>
                         <constraint firstItem="6q9-4I-H6x" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="Ss6-NP-SLB"/>
                         <constraint firstItem="cay-nJ-gTT" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="T5N-VV-b6i"/>
                         <constraint firstItem="NuO-6D-Mvz" firstAttribute="leading" secondItem="KdJ-3S-Q4h" secondAttribute="trailing" constant="10" id="Xqp-xQ-2Ii"/>
+                        <constraint firstAttribute="trailing" secondItem="176-kr-22t" secondAttribute="trailing" constant="20" id="YIi-MC-EAe"/>
                         <constraint firstAttribute="trailing" secondItem="NuO-6D-Mvz" secondAttribute="trailing" constant="10" id="bdB-A1-mNF"/>
                         <constraint firstItem="zW5-dH-JIv" firstAttribute="leading" secondItem="G6I-JI-Q29" secondAttribute="leading" constant="16" id="cLM-XY-fVN"/>
                         <constraint firstItem="KdJ-3S-Q4h" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="dly-fg-6Dl"/>
@@ -175,7 +191,11 @@
         </designable>
     </designables>
     <resources>
+        <image name="Heart" width="97.333335876464844" height="90"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="logo" width="230" height="130"/>
+        <namedColor name="PMYellow">
+            <color red="0.92549019607843142" green="0.9137254901960784" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
