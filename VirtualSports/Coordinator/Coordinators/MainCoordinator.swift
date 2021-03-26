@@ -5,7 +5,7 @@
 //  Created by Вова Благой on 21.03.2021.
 //
 
-import APIService
+import APILayer
 
 final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 

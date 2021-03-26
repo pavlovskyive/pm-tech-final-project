@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import APIService
-import AuthService
+import APILayer
+import AuthLayer
 
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
 
@@ -27,6 +27,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var dependencies: Dependencies?
 
     var mainResponse: MainResponse?
+    var favouriteGames = [Game]()
+    var recentGames = [Game]()
     var filteredGames = [Game]()
 
     var isFiltered = false
@@ -79,6 +81,30 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
+    private func fetchFavourites() {
+        dependencies?.apiService.fetchFavourites { result in
+            switch result {
+            case .success(let favouriteGames):
+                print("\n\nFavourites: \(favouriteGames)")
+                self.favouriteGames = favouriteGames
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    private func fetchRecent() {
+        dependencies?.apiService.fetchRecent { result in
+            switch result {
+            case .success(let recentGames):
+                print("\n\nRecent: \(recentGames)")
+                self.recentGames = recentGames
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
     private func logout() {
         dependencies?.authProvider.logout { error in
             guard let error = error else {
@@ -99,6 +125,8 @@ extension MainViewController: AuthDelegate {
         }
 
         fetchMain()
+        fetchRecent()
+        fetchFavourites()
     }
 
     func onLogout() {

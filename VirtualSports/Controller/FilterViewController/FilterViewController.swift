@@ -8,7 +8,7 @@
 import UIKit
 
 import ImageLoader
-import APIService
+import APILayer
 
 struct FilterScope {
     var categoryId = ""

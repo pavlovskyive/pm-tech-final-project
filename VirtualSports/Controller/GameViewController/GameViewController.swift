@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import APIService
+import APILayer
 
 protocol GameViewControllerProtocol: AnyObject {
 
