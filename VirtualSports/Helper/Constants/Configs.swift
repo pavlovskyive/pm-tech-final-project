@@ -14,7 +14,9 @@ let apiConfig = APIConfig(scheme: "https",
                           mainPath: "/Games",
                           favouritesPath: "/User/favourites",
                           favouriteGamePath: "/User/favourite",
-                          recentPath: "/User/recent")
+                          recentPath: "/User/recent",
+                          playGamePath: "/Games/play",
+                          gameHistoryPath: "/User/history")
 
 let authConfig = AuthConfig(scheme: "https",
                             host: "virtual-sports-yi3j9.ondigitalocean.app",
