@@ -21,6 +21,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
     // MARK: - Private methods
 
+    @available(iOS 13.0, *)
     private func showMainVC() {
 
         let mainViewController = MainViewController()
@@ -135,7 +136,11 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
     // MARK: - Coordinator
     override func start() {
-        self.showMainVC()
+        if #available(iOS 13.0, *) {
+            self.showMainVC()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
     // MARK: - Init
