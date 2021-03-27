@@ -56,6 +56,8 @@
 		B9BA50E8260A4E2400F4E0A8 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA50E6260A4E2300F4E0A8 /* FilterCell.swift */; };
 		B9BA50EC260A4EE600F4E0A8 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BA50EA260A4EE600F4E0A8 /* FilterViewController.xib */; };
 		B9BA50ED260A4EE600F4E0A8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA50EB260A4EE600F4E0A8 /* FilterViewController.swift */; };
+		B9D6B501260F3348002B1B38 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6B4FF260F3348002B1B38 /* GameCollectionViewCell.swift */; };
+		B9D6B502260F3348002B1B38 /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D6B500260F3348002B1B38 /* GameCollectionViewCell.xib */; };
 		B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170642608AC850099DA82 /* FilterButtonView.swift */; };
 		B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170662608ACD70099DA82 /* FilterButtonView.xib */; };
 		B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170682608AD570099DA82 /* UIViewExtension.swift */; };
@@ -134,6 +136,8 @@
 		B9BA50E6260A4E2300F4E0A8 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		B9BA50EA260A4EE600F4E0A8 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		B9BA50EB260A4EE600F4E0A8 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		B9D6B4FF260F3348002B1B38 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
+		B9D6B500260F3348002B1B38 /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9E170642608AC850099DA82 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		B9E170662608ACD70099DA82 /* FilterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterButtonView.xib; sourceTree = "<group>"; };
 		B9E170682608AD570099DA82 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -468,6 +472,15 @@
 			path = FilterViewController;
 			sourceTree = "<group>";
 		};
+		B9D6B4FE260F3348002B1B38 /* GameCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9D6B4FF260F3348002B1B38 /* GameCollectionViewCell.swift */,
+				B9D6B500260F3348002B1B38 /* GameCollectionViewCell.xib */,
+			);
+			path = GameCell;
+			sourceTree = "<group>";
+		};
 		B9E170622608AC2E0099DA82 /* ReusableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +504,7 @@
 		B9E1706A2608D2890099DA82 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B9D6B4FE260F3348002B1B38 /* GameCell */,
 				B9BA50E5260A4E2300F4E0A8 /* CellProtocol */,
 				B9BA50E3260A4E2300F4E0A8 /* CollectionView+Extencion */,
 				B9E1706C2608D2A90099DA82 /* CategoryCell */,
@@ -650,6 +664,7 @@
 				79E18DEE260E5F3A00250CC9 /* OfflineViewController.xib in Resources */,
 				B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */,
 				B9BA50EC260A4EE600F4E0A8 /* FilterViewController.xib in Resources */,
+				B9D6B502260F3348002B1B38 /* GameCollectionViewCell.xib in Resources */,
 				79846F81260951BF00DCA87B /* LoginViewController.xib in Resources */,
 				79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
@@ -784,6 +799,7 @@
 				79E18DEF260E5F3A00250CC9 /* OfflineViewController.swift in Sources */,
 				B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */,
 				B941F6382607C90500D831A2 /* Presentable.swift in Sources */,
+				B9D6B501260F3348002B1B38 /* GameCollectionViewCell.swift in Sources */,
 				B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */,
 				B9BA50E7260A4E2400F4E0A8 /* CollectionViewExtencion.swift in Sources */,
 				B941F6342607C8C300D831A2 /* Coordinator.swift in Sources */,
@@ -956,7 +972,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 9G6JQLYXLM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -977,7 +993,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G66XPV3HVM;
+				DEVELOPMENT_TEAM = 9G6JQLYXLM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

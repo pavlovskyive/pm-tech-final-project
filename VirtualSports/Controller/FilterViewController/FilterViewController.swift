@@ -259,9 +259,10 @@ extension FilterViewController: UICollectionViewDelegate {
             cell.identifier = category.id
             showIfSelectedCategory(cell)
 
-            ImageLoader.shared.downloadImage(from: category.imageURL, indexPath: indexPath) { image, idexPath, _ in
+            ImageLoader.shared.downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
                 DispatchQueue.main.async {
-                    if let cell = collectionView.cellForItem(at: idexPath!) as? CategoryCollectionViewCell {
+                    guard let indexPath = indexPath else { return }
+                    if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
                         cell.image = image
                     }
                 }
