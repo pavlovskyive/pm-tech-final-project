@@ -45,11 +45,14 @@ class LoginViewController: AuthBaseViewController {
         }
     }
 
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: LoginTextField?
     @IBOutlet weak var passwordTextField: LoginTextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailErrorLabel.isHidden = true
 
         let emailValidation = { [weak self] () -> Bool in
 
@@ -96,12 +99,15 @@ class LoginViewController: AuthBaseViewController {
         ])
 
         onValid = { [weak self] in
+
             self?.primaryButton?.setEnabled(true)
         }
 
         onInvalid = { [weak self] in
             self?.primaryButton?.setEnabled(false)
         }
+
+        emailTextField?.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
     }
 
     private func checkEmail(emailTextField: UITextField?) -> Bool {
@@ -113,7 +119,20 @@ class LoginViewController: AuthBaseViewController {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
         let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+
         return emailPred.evaluate(with: email)
     }
 
-}
+    @objc func emailTextFieldDidChange(_ textField: UITextField) {
+        if checkEmail(emailTextField: emailTextField) {
+            emailErrorLabel.isHidden = true
+            emailTextField?.changeBottomLineColor = .green
+            emailLabel.textColor = UIColor(named: "PMGreen")
+        } else {
+            emailErrorLabel.isHidden = false
+            emailTextField?.changeBottomLineColor = .red
+            emailLabel.textColor = .red
+        }
+    }
+
+   }

@@ -14,11 +14,17 @@
             <connections>
                 <outlet property="closeButton" destination="MFQ-Nv-uzE" id="uSS-y3-Wrf"/>
                 <outlet property="confirmationTextField" destination="6CI-aw-9Sw" id="WKZ-3R-lvE"/>
+                <outlet property="emailErrorLabel" destination="pOB-ul-X8U" id="TH4-QY-Lte"/>
+                <outlet property="emailLabel" destination="PVE-PQ-a9L" id="F40-3q-a65"/>
                 <outlet property="emailTextField" destination="ObE-ky-UDG" id="JLa-T1-qG9"/>
+                <outlet property="matchPasswordsLabel" destination="u7y-OI-3FB" id="wAT-Mb-M6A"/>
+                <outlet property="passwordComplexityView" destination="gF9-5a-YHO" id="3QK-Kr-Iwq"/>
+                <outlet property="passwordLabel" destination="Ojg-zM-KDb" id="7Db-DX-nhh"/>
                 <outlet property="passwordTextField" destination="TkN-7j-9Ty" id="L5a-Zz-M8E"/>
                 <outlet property="primaryButton" destination="8E5-nt-iyK" id="AOQ-Iz-Pqe"/>
                 <outlet property="scrollView" destination="ISo-IM-fdX" id="xqO-Bm-bEC"/>
                 <outlet property="secondaryButton" destination="Xmz-Dj-IgQ" id="uff-ql-mpy"/>
+                <outlet property="validPasswordLabel" destination="SLk-qN-aki" id="fqP-pe-3Yt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,54 +37,125 @@
                     <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QY-ku-MKi">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="399"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="420.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8E5-nt-iyK" userLabel="Login" customClass="LoginButton" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="249" width="374" height="50"/>
+                                    <rect key="frame" x="20" y="270.5" width="374" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="lAB-q7-Kc4"/>
                                     </constraints>
                                     <state key="normal" title="РЕГИСТРАЦИЯ"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-Dj-IgQ" userLabel="Register" customClass="LoginButton" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="319" width="374" height="50"/>
+                                    <rect key="frame" x="20" y="340.5" width="374" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Yzf-pR-BMH"/>
                                     </constraints>
                                     <state key="normal" title="ВХОД"/>
                                 </button>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TkN-7j-9Ty" userLabel="Password" customClass="PasswordLoginTextField" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="119" width="374" height="20"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TkN-7j-9Ty" userLabel="Password" customClass="PasswordLoginTextField" customModule="VirtualSports" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="129" width="374" height="21.5"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObE-ky-UDG" customClass="LoginTextField" customModule="VirtualSports" customModuleProvider="target">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="example@example.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ObE-ky-UDG" customClass="LoginTextField" customModule="VirtualSports" customModuleProvider="target">
                                     <rect key="frame" x="20" y="48" width="374" height="21"/>
+                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="clearButtonColor">
+                                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Повторите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-aw-9Sw" userLabel="Password" customClass="PasswordLoginTextField" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="189" width="374" height="20"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-aw-9Sw" userLabel="Password" customClass="PasswordLoginTextField" customModule="VirtualSports" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="210.5" width="374" height="20"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVE-PQ-a9L">
+                                    <rect key="frame" x="20" y="21" width="35" height="17"/>
+                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojg-zM-KDb">
+                                    <rect key="frame" x="20" y="102" width="50" height="17"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Повторите пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVR-bB-rQN">
+                                    <rect key="frame" x="20" y="183.5" width="123.5" height="17"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите правильный email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOB-ul-X8U">
+                                    <rect key="frame" x="20" y="84" width="134" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Валидный пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLk-qN-aki">
+                                    <rect key="frame" x="20" y="165.5" width="89" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" systemColor="systemGreenColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароли не совпадают" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7y-OI-3FB">
+                                    <rect key="frame" x="20" y="245.5" width="110" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF9-5a-YHO" customClass="PasswordComplexityView" customModule="VirtualSports" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="160.5" width="374" height="130"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Xmz-Dj-IgQ" firstAttribute="top" secondItem="8E5-nt-iyK" secondAttribute="bottom" constant="20" id="4UF-Rj-qsM"/>
+                                <constraint firstItem="xVR-bB-rQN" firstAttribute="leading" secondItem="6CI-aw-9Sw" secondAttribute="leading" id="E3g-DE-g3Y"/>
                                 <constraint firstItem="TkN-7j-9Ty" firstAttribute="trailing" secondItem="ObE-ky-UDG" secondAttribute="trailing" id="FIa-pA-c0G"/>
-                                <constraint firstItem="TkN-7j-9Ty" firstAttribute="top" secondItem="ObE-ky-UDG" secondAttribute="bottom" constant="50" id="JfC-BB-SnT"/>
+                                <constraint firstItem="6CI-aw-9Sw" firstAttribute="top" secondItem="xVR-bB-rQN" secondAttribute="bottom" constant="10" id="G9w-zZ-q7P"/>
+                                <constraint firstItem="SLk-qN-aki" firstAttribute="top" secondItem="TkN-7j-9Ty" secondAttribute="bottom" constant="15" id="Hvk-No-fFT"/>
+                                <constraint firstItem="pOB-ul-X8U" firstAttribute="top" secondItem="ObE-ky-UDG" secondAttribute="bottom" constant="15" id="J6C-To-LiO"/>
+                                <constraint firstItem="TkN-7j-9Ty" firstAttribute="top" secondItem="ObE-ky-UDG" secondAttribute="bottom" constant="60" id="JfC-BB-SnT"/>
                                 <constraint firstItem="ObE-ky-UDG" firstAttribute="width" secondItem="0QY-ku-MKi" secondAttribute="width" constant="-40" id="LXy-Zt-i2X"/>
                                 <constraint firstAttribute="bottom" secondItem="Xmz-Dj-IgQ" secondAttribute="bottom" priority="250" constant="30" id="Ncy-jW-KJR"/>
                                 <constraint firstItem="8E5-nt-iyK" firstAttribute="leading" secondItem="ObE-ky-UDG" secondAttribute="leading" id="Ntt-LU-Waw"/>
+                                <constraint firstItem="TkN-7j-9Ty" firstAttribute="top" secondItem="Ojg-zM-KDb" secondAttribute="bottom" constant="10" id="OLK-mx-M83"/>
+                                <constraint firstItem="PVE-PQ-a9L" firstAttribute="leading" secondItem="ObE-ky-UDG" secondAttribute="leading" id="OYt-fN-5gP"/>
+                                <constraint firstItem="gF9-5a-YHO" firstAttribute="centerX" secondItem="0QY-ku-MKi" secondAttribute="centerX" id="PGV-qT-ZaB"/>
+                                <constraint firstItem="u7y-OI-3FB" firstAttribute="top" secondItem="6CI-aw-9Sw" secondAttribute="bottom" constant="15" id="Qfe-OV-Pn5"/>
+                                <constraint firstItem="gF9-5a-YHO" firstAttribute="width" secondItem="TkN-7j-9Ty" secondAttribute="width" id="SvB-ug-eNz"/>
+                                <constraint firstItem="Ojg-zM-KDb" firstAttribute="leading" secondItem="TkN-7j-9Ty" secondAttribute="leading" id="VH0-jt-OCc"/>
+                                <constraint firstItem="u7y-OI-3FB" firstAttribute="leading" secondItem="6CI-aw-9Sw" secondAttribute="leading" id="Vav-sv-vXJ"/>
+                                <constraint firstItem="ObE-ky-UDG" firstAttribute="top" secondItem="PVE-PQ-a9L" secondAttribute="bottom" constant="10" id="WEb-9m-C9h"/>
                                 <constraint firstItem="Xmz-Dj-IgQ" firstAttribute="leading" secondItem="8E5-nt-iyK" secondAttribute="leading" id="aVB-pV-rch"/>
+                                <constraint firstItem="gF9-5a-YHO" firstAttribute="height" secondItem="TkN-7j-9Ty" secondAttribute="height" multiplier="6" id="bQp-D5-ySb"/>
                                 <constraint firstItem="8E5-nt-iyK" firstAttribute="top" secondItem="6CI-aw-9Sw" secondAttribute="bottom" constant="40" id="gQr-Zd-yOH"/>
                                 <constraint firstItem="6CI-aw-9Sw" firstAttribute="trailing" secondItem="TkN-7j-9Ty" secondAttribute="trailing" id="gXV-4t-9ti"/>
                                 <constraint firstItem="TkN-7j-9Ty" firstAttribute="leading" secondItem="ObE-ky-UDG" secondAttribute="leading" id="kZY-y9-PzG"/>
+                                <constraint firstItem="SLk-qN-aki" firstAttribute="leading" secondItem="TkN-7j-9Ty" secondAttribute="leading" id="l7p-Lx-JBX"/>
+                                <constraint firstItem="gF9-5a-YHO" firstAttribute="top" secondItem="TkN-7j-9Ty" secondAttribute="bottom" constant="10" id="ocm-Qw-FyU"/>
                                 <constraint firstItem="8E5-nt-iyK" firstAttribute="trailing" secondItem="ObE-ky-UDG" secondAttribute="trailing" id="pQk-AH-2B1"/>
                                 <constraint firstItem="ObE-ky-UDG" firstAttribute="centerX" secondItem="0QY-ku-MKi" secondAttribute="centerX" id="rcz-KD-gyt"/>
+                                <constraint firstItem="pOB-ul-X8U" firstAttribute="leading" secondItem="ObE-ky-UDG" secondAttribute="leading" id="tSs-tb-IVW"/>
                                 <constraint firstItem="Xmz-Dj-IgQ" firstAttribute="trailing" secondItem="8E5-nt-iyK" secondAttribute="trailing" id="tzb-ih-NSp"/>
-                                <constraint firstItem="6CI-aw-9Sw" firstAttribute="top" secondItem="TkN-7j-9Ty" secondAttribute="bottom" constant="50" id="w1j-9b-mek"/>
+                                <constraint firstItem="6CI-aw-9Sw" firstAttribute="top" secondItem="TkN-7j-9Ty" secondAttribute="bottom" constant="60" id="w1j-9b-mek"/>
                                 <constraint firstItem="6CI-aw-9Sw" firstAttribute="leading" secondItem="TkN-7j-9Ty" secondAttribute="leading" id="xCA-mA-Eyf"/>
                                 <constraint firstItem="ObE-ky-UDG" firstAttribute="top" secondItem="0QY-ku-MKi" secondAttribute="topMargin" constant="40" id="zXF-gQ-H4m"/>
                             </constraints>
@@ -100,7 +177,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbt-Re-a6n" userLabel="Title">
                             <rect key="frame" x="158" y="61" width="98" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFQ-Nv-uzE" userLabel="Close">
@@ -110,12 +187,12 @@
                                 <constraint firstAttribute="height" constant="15" id="vHL-Gy-qGb"/>
                             </constraints>
                             <state key="normal">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <imageReference key="image" image="Cross" renderingMode="original"/>
                             </state>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="wbt-Re-a6n" firstAttribute="centerX" secondItem="6JP-Ua-HQm" secondAttribute="centerX" id="CJH-8g-DIG"/>
                         <constraint firstItem="MFQ-Nv-uzE" firstAttribute="leading" secondItem="6JP-Ua-HQm" secondAttribute="leading" constant="20" id="Vgy-DJ-N8S"/>
@@ -125,7 +202,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="6JP-Ua-HQm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Vc-4f-Y0E"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="6JP-Ua-HQm" secondAttribute="bottom" constant="-50" id="9Bu-e2-tZ5"/>
@@ -141,16 +218,16 @@
     </objects>
     <designables>
         <designable name="6CI-aw-9Sw">
-            <size key="intrinsicContentSize" width="169" height="20"/>
+            <size key="intrinsicContentSize" width="35" height="20"/>
         </designable>
         <designable name="8E5-nt-iyK">
             <size key="intrinsicContentSize" width="118" height="30"/>
         </designable>
         <designable name="ObE-ky-UDG">
-            <size key="intrinsicContentSize" width="39" height="21"/>
+            <size key="intrinsicContentSize" width="171.5" height="21"/>
         </designable>
         <designable name="TkN-7j-9Ty">
-            <size key="intrinsicContentSize" width="86" height="20"/>
+            <size key="intrinsicContentSize" width="35" height="20"/>
         </designable>
         <designable name="Xmz-Dj-IgQ">
             <size key="intrinsicContentSize" width="45" height="30"/>
@@ -161,8 +238,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

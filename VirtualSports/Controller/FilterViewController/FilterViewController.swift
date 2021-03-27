@@ -261,9 +261,7 @@ extension FilterViewController: UICollectionViewDelegate {
 
             ImageLoader.shared.downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
 
-                guard let indexPath = indexPath else {
-                    return
-                }
+                guard let indexPath = indexPath else { return }
 
                 DispatchQueue.main.async {
                     if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {

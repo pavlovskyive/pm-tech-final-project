@@ -10,6 +10,8 @@
 		7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961876E2609D8A20027C117 /* UITextField+Secure.swift */; };
 		796BF80C260F27090019BB82 /* APILayer in Frameworks */ = {isa = PBXBuildFile; productRef = 796BF80B260F27090019BB82 /* APILayer */; };
 		796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796BF810260F355E0019BB82 /* GenericGameViewController.swift */; };
+		79743ABA260F7484003A031E /* PasswordComplexityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79743AB8260F7484003A031E /* PasswordComplexityView.swift */; };
+		79743ABB260F7484003A031E /* PasswordComplexityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79743AB9260F7484003A031E /* PasswordComplexityView.xib */; };
 		79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79846F78260951BF00DCA87B /* RegistrationViewController.xib */; };
 		79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F79260951BF00DCA87B /* RegistrationViewController.swift */; };
 		79846F80260951BF00DCA87B /* AuthPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F7A260951BF00DCA87B /* AuthPresentable.swift */; };
@@ -89,6 +91,8 @@
 /* Begin PBXFileReference section */
 		7961876E2609D8A20027C117 /* UITextField+Secure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Secure.swift"; sourceTree = "<group>"; };
 		796BF810260F355E0019BB82 /* GenericGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGameViewController.swift; sourceTree = "<group>"; };
+		79743AB8260F7484003A031E /* PasswordComplexityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordComplexityView.swift; sourceTree = "<group>"; };
+		79743AB9260F7484003A031E /* PasswordComplexityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordComplexityView.xib; sourceTree = "<group>"; };
 		79846F78260951BF00DCA87B /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		79846F79260951BF00DCA87B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		79846F7A260951BF00DCA87B /* AuthPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPresentable.swift; sourceTree = "<group>"; };
@@ -190,6 +194,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		79743AB7260F7484003A031E /* PasswordComplexityView */ = {
+			isa = PBXGroup;
+			children = (
+				79743AB8260F7484003A031E /* PasswordComplexityView.swift */,
+				79743AB9260F7484003A031E /* PasswordComplexityView.xib */,
+			);
+			path = PasswordComplexityView;
+			sourceTree = "<group>";
+		};
 		79846F76260951BF00DCA87B /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +216,7 @@
 		79846F77260951BF00DCA87B /* RegistrationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				79743AB7260F7484003A031E /* PasswordComplexityView */,
 				79846F78260951BF00DCA87B /* RegistrationViewController.xib */,
 				79846F79260951BF00DCA87B /* RegistrationViewController.swift */,
 			);
@@ -671,6 +685,7 @@
 				B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */,
 				B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */,
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
+				79743ABB260F7484003A031E /* PasswordComplexityView.xib in Resources */,
 				B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */,
 				79E18DEE260E5F3A00250CC9 /* OfflineViewController.xib in Resources */,
 				B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */,
@@ -785,6 +800,7 @@
 				B941F6322607C8A500D831A2 /* BaseViewControllerProvider.swift in Sources */,
 				B941F6612607E59D00D831A2 /* TopBar.swift in Sources */,
 				79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */,
+				79743ABA260F7484003A031E /* PasswordComplexityView.swift in Sources */,
 				B941F62E2607C84500D831A2 /* ViewController+Coordinator.swift in Sources */,
 				B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */,
 				79846F89260951D200DCA87B /* LoginButton.swift in Sources */,

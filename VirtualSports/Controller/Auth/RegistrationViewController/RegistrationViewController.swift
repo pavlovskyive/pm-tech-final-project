@@ -45,6 +45,12 @@ class RegistrationViewController: AuthBaseViewController {
         }
     }
 
+    @IBOutlet weak var passwordComplexityView: PasswordComplexityView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var matchPasswordsLabel: UILabel!
+    @IBOutlet weak var validPasswordLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: LoginTextField?
     @IBOutlet weak var passwordTextField: LoginTextField?
     @IBOutlet weak var confirmationTextField: LoginTextField?
@@ -124,11 +130,43 @@ class RegistrationViewController: AuthBaseViewController {
         onInvalid = { [weak self] in
             self?.primaryButton?.setEnabled(false)
         }
+
+        setupPasswordComplexityView()
+        setupTextFieldsTarget()
+        setupLabels()
+
     }
+
+    private func setupPasswordComplexityView() {
+        passwordComplexityView.isHidden = true
+    }
+
+    private func setupTextFieldsTarget() {
+        passwordTextField?.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+        emailTextField?.addTarget(self, action: #selector(emailTextFieldDidChange), for: .editingChanged)
+    }
+
+    private func setupLabels() {
+        emailErrorLabel.isHidden = true
+        matchPasswordsLabel.isHidden = true
+        validPasswordLabel.isHidden = true
+    }
+
+    // MARK: Checks
 
     private func checkEquality(textFields: [UITextField?]) -> Bool {
         let inputs = textFields.compactMap({ $0?.text })
-        return inputs.dropFirst().allSatisfy({ $0 == inputs.first })
+        let isSatisfy = inputs.dropFirst().allSatisfy({ $0 == inputs.first })
+
+        if isSatisfy {
+            confirmationTextField?.changeBottomLineColor = .green
+        } else {
+            confirmationTextField?.changeBottomLineColor = .red
+        }
+
+        matchPasswordsLabel.isHidden = isSatisfy
+
+        return isSatisfy
     }
 
     private func checkEmail(emailTextField: UITextField?) -> Bool {
@@ -149,10 +187,104 @@ class RegistrationViewController: AuthBaseViewController {
             return false
         }
 
-        let passwordRegEx = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$"
-        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@ ", passwordRegEx)
+        let lenghtCondition = checkPasswordLenghts(password)
+        let lowercasesCondition = checkPasswordLowercases(password)
+        let uppercasesCondition = checkPasswordUppercases(password)
+        let numbersCondition = checkPasswordNumbersContains(password)
 
-        return passwordPredicate.evaluate(with: password)
+        let isSatisfy = lenghtCondition && lowercasesCondition && uppercasesCondition && numbersCondition
+
+        return isSatisfy
+    }
+
+    private func checkPasswordLenghts(_ password: String) -> Bool {
+        let isSatisfied = password.count >= 8
+
+        passwordComplexityView.passwordLenghtsCondition = isSatisfied
+
+        return isSatisfied
+    }
+
+    private func checkPasswordLowercases(_ password: String) -> Bool {
+
+        let rule = ".*[a-z].*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", rule)
+        let isSatisfied = predicate.evaluate(with: password)
+
+        print(isSatisfied)
+        passwordComplexityView.lowercaseContainsCondition = isSatisfied
+
+        return isSatisfied
+    }
+
+    private func checkPasswordUppercases(_ password: String) -> Bool {
+        let rule = ".*[A-Z].*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", rule)
+        let isSatisfied = predicate.evaluate(with: password)
+
+        print("upper", isSatisfied)
+        passwordComplexityView.uppercaseContainsCondition = isSatisfied
+
+        return isSatisfied
+    }
+
+    private func checkPasswordNumbersContains(_ password: String) -> Bool {
+        let rule = ".*[0-9].*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", rule)
+        let isSatisfied = predicate.evaluate(with: password)
+
+        print("upper", isSatisfied)
+        passwordComplexityView.numberContainsCondition = isSatisfied
+
+        return isSatisfied
+    }
+
+    // MARK: TextFieldDidChange Actions
+
+    @objc func emailTextFieldDidChange(_ textField: UITextField) {
+        if checkEmail(emailTextField: emailTextField) {
+            emailErrorLabel.isHidden = true
+            emailTextField?.changeBottomLineColor = .green
+            emailLabel.textColor = UIColor(named: "PMGreen")
+        } else {
+            emailErrorLabel.isHidden = false
+            emailTextField?.changeBottomLineColor = .red
+            emailLabel.textColor = .red
+        }
+    }
+
+    @objc func passwordTextFieldDidChange(_ textField: UITextField) {
+        guard let password = textField.text else {
+            return
+        }
+
+        guard !password.isEmpty else {
+            passwordComplexityView.resetConditions()
+            passwordComplexityView.isHidden = false
+            return
+        }
+
+        let lenght = checkPasswordLenghts(password)
+        let lowercases = checkPasswordLowercases(password)
+        let uppercases = checkPasswordUppercases(password)
+        let numbers = checkPasswordNumbersContains(password)
+
+        let conditions = lenght && lowercases && uppercases && numbers
+
+        if conditions {
+            validPasswordLabel.isHidden = false
+            passwordLabel.textColor = UIColor(named: "PMGreen")
+            passwordTextField?.changeBottomLineColor = .green
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+                self?.passwordComplexityView.isHidden = true
+            }
+
+        } else {
+            passwordComplexityView.isHidden = false
+            passwordLabel.textColor = .red
+        }
+
     }
 
 }
