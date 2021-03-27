@@ -12,7 +12,7 @@ final class LoginButton: UIButton {
 
     public func setEnabled(_ isEnabled: Bool) {
         self.isEnabled = isEnabled
-        
+
         isEnabled ? setupWhenEnabled() : setup()
 
     }
@@ -59,7 +59,7 @@ final class LoginButton: UIButton {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 7.0
         layer.shadowOffset = .zero
-        layer.shadowOpacity = 0.8
+        layer.shadowOpacity = 0.4
         layer.masksToBounds = false
     }
 

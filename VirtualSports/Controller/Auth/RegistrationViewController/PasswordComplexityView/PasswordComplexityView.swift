@@ -8,13 +8,36 @@
 import UIKit
 
 final class PasswordComplexityView: UIView {
-    
-    @IBOutlet weak var view: UIView!
 
-    @IBOutlet var conditionsLabels: [UILabel]!
-    @IBOutlet var checkmarks: [UIImageView]!
-    
-    
+    @IBOutlet private weak var view: UIView!
+
+    @IBOutlet private var conditionsLabels: [UILabel]!
+    @IBOutlet private var checkmarks: [UIImageView]!
+
+    var passwordLenghtsCondition = false {
+        willSet {
+            checkCondition(newValue, tag: 0)
+        }
+    }
+
+    var lowercaseContainsCondition = false {
+        willSet {
+            checkCondition(newValue, tag: 1)
+        }
+    }
+
+    var uppercaseContainsCondition = false {
+        willSet {
+            checkCondition(newValue, tag: 2)
+        }
+    }
+
+    var numberContainsCondition = false {
+        willSet {
+            checkCondition(newValue, tag: 3)
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -25,19 +48,24 @@ final class PasswordComplexityView: UIView {
         setupView()
     }
 
-    private func setupView() {
-        layer.shadowRadius = 5.0
-        layer.shadowOffset = .zero
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.7
+    // MARK: View setup
 
-        layer.cornerRadius = 5
+    private func setupView() {
 
         view = loadFromNib()
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.cornerRadius = 10
+        setupShadows()
 
         addSubview(view)
+    }
+
+    private func setupShadows() {
+        layer.shadowRadius = 5.0
+        layer.shadowOffset = .zero
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.4
     }
 
     private func loadFromNib() -> UIView {
@@ -49,10 +77,46 @@ final class PasswordComplexityView: UIView {
 
         return view
     }
-    
-    func change() {
+
+    // MARK: Condtitions
+
+    func resetConditions() {
         checkmarks.forEach {
-            $0.tintColor = .red
+            $0.tintColor = .lightGray
+        }
+
+        conditionsLabels.forEach {
+            $0.textColor = .lightGray
         }
     }
+
+    #warning("Refactor this bullshit")
+    private func checkCondition(_ isSatisfied: Bool, tag: Int ) {
+        if isSatisfied {
+            checkmarks.forEach {
+                if  $0.tag == tag {
+                    $0.tintColor = .green
+                }
+            }
+
+            conditionsLabels.forEach {
+                if  $0.tag == tag {
+                    $0.textColor = .green
+                }
+            }
+        } else {
+            checkmarks.forEach {
+                if  $0.tag == tag {
+                    $0.tintColor = .lightGray
+                }
+            }
+
+            conditionsLabels.forEach {
+                if  $0.tag == tag {
+                    $0.textColor = .black
+                }
+            }
+        }
+    }
+
 }

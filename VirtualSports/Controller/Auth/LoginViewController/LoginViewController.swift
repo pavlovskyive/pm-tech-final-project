@@ -119,18 +119,18 @@ class LoginViewController: AuthBaseViewController {
 
         return emailPred.evaluate(with: email)
     }
-    
+
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
        if checkEmail(emailTextField: emailTextField) {
         emailErrorLabel.isHidden = true
-        emailTextField?.changeBottomLine = false
+        emailTextField?.changeBottomLineColor = .gray
         return true
        } else {
         emailErrorLabel.isHidden = false
-        emailTextField?.changeBottomLine = true
+        emailTextField?.changeBottomLineColor = .red
         return false
        }
-        
+
    }
 
 }
