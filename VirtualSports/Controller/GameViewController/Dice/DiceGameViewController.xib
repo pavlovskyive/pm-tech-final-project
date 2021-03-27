@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiceGameViewController" customModule="VirtualSports" customModuleProvider="target">
+            <connections>
+                <outlet property="additionalBetButtons" destination="zL1-SW-wAc" id="noN-9n-J4z"/>
+                <outlet property="chosenBetLabel" destination="XBU-6D-6ZE" id="BAN-LR-yJv"/>
+                <outlet property="confirmationButton" destination="8LY-5H-0ev" id="KX7-rQ-o1S"/>
+                <outlet property="leftStackView" destination="4hx-ol-do8" id="ZIC-On-yNG"/>
+                <outlet property="onUnauthorizedView" destination="qCQ-aA-OlH" id="dp4-0h-1wG"/>
+                <outlet property="resultingDiceImageView" destination="jah-ij-jKt" id="zoB-eM-RBJ"/>
+                <outlet property="rightStackView" destination="WeT-jh-CQp" id="zG4-KO-HpX"/>
+                <outlet property="topBar" destination="8T4-86-onI" id="gKl-yh-uc0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-86-onI" customClass="TopBar" customModule="VirtualSports" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="9KS-eQ-ssT"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice6" translatesAutoresizingMaskIntoConstraints="NO" id="jah-ij-jKt" userLabel="ResultingDice">
+                    <rect key="frame" x="131" y="226.5" width="152" height="152.5"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jah-ij-jKt" secondAttribute="height" multiplier="1:1" id="1TP-fB-4L5"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LY-5H-0ev">
+                    <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                    <color key="backgroundColor" name="PMYellow"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="BwL-fn-PBG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="-25" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="ИГРАТЬ">
+                        <color key="titleColor" name="Background"/>
+                    </state>
+                    <connections>
+                        <action selector="onConfirmButtonTapped:" destination="-1" eventType="touchUpInside" id="f2j-Qj-3mL"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-IG-Z4r">
+                    <rect key="frame" x="20" y="429" width="374" height="283"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-0T-DAn">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="173"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4hx-ol-do8">
+                                    <rect key="frame" x="0.0" y="0.0" width="183" height="173"/>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WeT-jh-CQp">
+                                    <rect key="frame" x="191" y="0.0" width="183" height="173"/>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="173" id="QPl-jQ-54d"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zL1-SW-wAc">
+                            <rect key="frame" x="0.0" y="203" width="374" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="80" id="hWY-5y-V6n"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВЫБРАННЫЙ ИСХОД: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBU-6D-6ZE">
+                    <rect key="frame" x="20" y="170" width="374" height="26.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="qCQ-aA-OlH">
+                    <rect key="frame" x="20" y="737" width="374" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Войдите в систему, чтобы играть" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOb-7u-NJJ" userLabel="Unauthorized Message">
+                            <rect key="frame" x="0.0" y="0.0" width="254" height="49"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8u-7y-Vq3">
+                            <rect key="frame" x="254" y="0.0" width="120" height="49"/>
+                            <color key="backgroundColor" name="PMYellow"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="s8e-ZL-Yk9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <state key="normal" title="Войти">
+                                <color key="titleColor" name="Background"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onLoginButtonTapped:" destination="-1" eventType="touchUpInside" id="LmD-e8-NOX"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Background"/>
+            <constraints>
+                <constraint firstItem="8T4-86-onI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0Sr-Tq-b5M"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lsg-IG-Z4r" secondAttribute="trailing" constant="20" id="3Ap-Bx-9bi"/>
+                <constraint firstItem="jah-ij-jKt" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="BDR-PF-bpH"/>
+                <constraint firstItem="Lsg-IG-Z4r" firstAttribute="top" secondItem="jah-ij-jKt" secondAttribute="bottom" constant="50" id="HRs-r4-aO9"/>
+                <constraint firstItem="Lsg-IG-Z4r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ksp-4u-hiL"/>
+                <constraint firstItem="XBU-6D-6ZE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Sbs-s3-MpQ"/>
+                <constraint firstItem="XBU-6D-6ZE" firstAttribute="top" secondItem="8T4-86-onI" secondAttribute="bottom" constant="30" id="SnQ-Z1-gyY"/>
+                <constraint firstAttribute="trailing" secondItem="qCQ-aA-OlH" secondAttribute="trailing" constant="20" id="UPL-GX-Bdb"/>
+                <constraint firstItem="8LY-5H-0ev" firstAttribute="top" secondItem="qCQ-aA-OlH" secondAttribute="bottom" constant="30" id="Wrk-EC-3u0"/>
+                <constraint firstItem="8T4-86-onI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZTs-rs-eKI"/>
+                <constraint firstItem="jah-ij-jKt" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.17" id="d5f-2b-OWi"/>
+                <constraint firstItem="jah-ij-jKt" firstAttribute="top" secondItem="XBU-6D-6ZE" secondAttribute="bottom" constant="30" id="dMP-o5-DhR"/>
+                <constraint firstItem="8T4-86-onI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="jUR-4D-gPv"/>
+                <constraint firstItem="8LY-5H-0ev" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qfg-cF-VpC"/>
+                <constraint firstAttribute="bottom" secondItem="8LY-5H-0ev" secondAttribute="bottom" id="rpf-sa-jql"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XBU-6D-6ZE" secondAttribute="trailing" constant="20" id="wDL-Q5-DhH"/>
+                <constraint firstItem="8LY-5H-0ev" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="wHc-23-tbn"/>
+                <constraint firstItem="8LY-5H-0ev" firstAttribute="top" secondItem="Lsg-IG-Z4r" secondAttribute="bottom" priority="250" constant="80" id="yDT-AG-92g"/>
+                <constraint firstItem="qCQ-aA-OlH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="zyA-uM-ShK"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dice6" width="1184" height="1184"/>
+        <namedColor name="Background">
+            <color red="0.098039215686274508" green="0.11764705882352941" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PMYellow">
+            <color red="0.92500001192092896" green="0.91399997472763062" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

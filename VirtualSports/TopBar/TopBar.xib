@@ -15,6 +15,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="2HN-th-apj"/>
                 <outlet property="favoritesButton" destination="176-kr-22t" id="0MC-dm-TQD"/>
                 <outlet property="gameNameLabel" destination="Mhb-or-wBg" id="HUS-XV-uf5"/>
+                <outlet property="historyButton" destination="eCs-I8-VYi" id="CCs-hh-IjH"/>
                 <outlet property="logOut" destination="cay-nJ-gTT" id="mkm-XE-mG1"/>
                 <outlet property="logoView" destination="zW5-dH-JIv" id="569-N0-KhQ"/>
                 <outlet property="signIn" destination="KdJ-3S-Q4h" id="Kea-DD-45I"/>
@@ -30,7 +31,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="62"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="zW5-dH-JIv">
-                            <rect key="frame" x="16.000000000000004" y="5" width="62.333333333333343" height="52"/>
+                            <rect key="frame" x="16" y="0.0" width="68.333333333333329" height="57"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="zW5-dH-JIv" secondAttribute="height" multiplier="1.2:1" id="8OS-Bd-vy1"/>
                             </constraints>
@@ -117,7 +118,7 @@
                                 <constraint firstAttribute="width" constant="30" id="ga6-hJ-el6"/>
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <inset key="contentEdgeInsets" minX="8" minY="5" maxX="8" maxY="5"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                             <state key="normal" image="Left"/>
                             <connections>
                                 <action selector="backwardButtonPressed:" destination="-1" eventType="touchUpInside" id="GaF-zg-mfO"/>
@@ -142,12 +143,27 @@
                                 <action selector="favouritesButtonPressed:" destination="-1" eventType="touchUpInside" id="sKg-ky-3yc"/>
                             </connections>
                         </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCs-I8-VYi" userLabel="Favorites">
+                            <rect key="frame" x="313" y="13.666666666666664" width="38" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="38" id="35B-J7-OWD"/>
+                                <constraint firstAttribute="height" constant="35" id="yfV-w2-GqQ"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                            <state key="normal" image="History"/>
+                            <connections>
+                                <action selector="historyButtonPressed:" destination="-1" eventType="touchUpInside" id="PSI-Zd-THE"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="176-kr-22t" firstAttribute="leading" secondItem="eCs-I8-VYi" secondAttribute="trailing" constant="5" id="5dh-Md-M9c"/>
                         <constraint firstItem="NuO-6D-Mvz" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="6NA-KA-NET"/>
                         <constraint firstItem="176-kr-22t" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="F0w-4P-Abm"/>
                         <constraint firstItem="Mhb-or-wBg" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="GbI-J8-IeO"/>
+                        <constraint firstItem="eCs-I8-VYi" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="KUF-42-Q7S"/>
                         <constraint firstItem="6q9-4I-H6x" firstAttribute="leading" secondItem="G6I-JI-Q29" secondAttribute="leading" constant="16" id="Kyg-Ou-ftd"/>
                         <constraint firstAttribute="bottom" secondItem="zW5-dH-JIv" secondAttribute="bottom" constant="5" id="QHM-ZY-zAU"/>
                         <constraint firstItem="6q9-4I-H6x" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="Ss6-NP-SLB"/>
@@ -157,7 +173,7 @@
                         <constraint firstAttribute="trailing" secondItem="NuO-6D-Mvz" secondAttribute="trailing" constant="10" id="bdB-A1-mNF"/>
                         <constraint firstItem="zW5-dH-JIv" firstAttribute="leading" secondItem="G6I-JI-Q29" secondAttribute="leading" constant="16" id="cLM-XY-fVN"/>
                         <constraint firstItem="KdJ-3S-Q4h" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="dly-fg-6Dl"/>
-                        <constraint firstItem="zW5-dH-JIv" firstAttribute="top" secondItem="G6I-JI-Q29" secondAttribute="top" constant="5" id="esx-UF-IdR"/>
+                        <constraint firstItem="zW5-dH-JIv" firstAttribute="top" secondItem="G6I-JI-Q29" secondAttribute="top" id="esx-UF-IdR"/>
                         <constraint firstItem="Mhb-or-wBg" firstAttribute="centerX" secondItem="G6I-JI-Q29" secondAttribute="centerX" id="fYW-o8-2Dc"/>
                         <constraint firstAttribute="trailing" secondItem="cay-nJ-gTT" secondAttribute="trailing" constant="10" id="jWk-Sw-WFE"/>
                     </constraints>
@@ -194,6 +210,7 @@
     </designables>
     <resources>
         <image name="Heart" width="97.333335876464844" height="90"/>
+        <image name="History" width="87.666664123535156" height="80"/>
         <image name="Left" width="34.666667938232422" height="61.333332061767578"/>
         <image name="logo" width="230" height="130"/>
         <namedColor name="PMYellow">

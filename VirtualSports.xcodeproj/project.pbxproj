@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961876E2609D8A20027C117 /* UITextField+Secure.swift */; };
+		796BF80C260F27090019BB82 /* APILayer in Frameworks */ = {isa = PBXBuildFile; productRef = 796BF80B260F27090019BB82 /* APILayer */; };
+		796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796BF810260F355E0019BB82 /* GenericGameViewController.swift */; };
 		79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79846F78260951BF00DCA87B /* RegistrationViewController.xib */; };
 		79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F79260951BF00DCA87B /* RegistrationViewController.swift */; };
 		79846F80260951BF00DCA87B /* AuthPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F7A260951BF00DCA87B /* AuthPresentable.swift */; };
@@ -30,8 +32,9 @@
 		79E18DE7260E5F2500250CC9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E18DE6260E5F2500250CC9 /* NetworkMonitor.swift */; };
 		79E18DEE260E5F3A00250CC9 /* OfflineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E18DEC260E5F3A00250CC9 /* OfflineViewController.xib */; };
 		79E18DEF260E5F3A00250CC9 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E18DED260E5F3A00250CC9 /* OfflineViewController.swift */; };
-		79E18DF8260E61F500250CC9 /* APILayer in Frameworks */ = {isa = PBXBuildFile; productRef = 79E18DF7260E61F500250CC9 /* APILayer */; };
 		79E18E07260E643800250CC9 /* AuthLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 79E18E06260E643800250CC9 /* AuthLayer */; };
+		79E18E20260F039800250CC9 /* DiceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E18E1E260F039800250CC9 /* DiceGameViewController.swift */; };
+		79E18E21260F039800250CC9 /* DiceGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E18E1F260F039800250CC9 /* DiceGameViewController.xib */; };
 		B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */; };
 		B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6242607C77700D831A2 /* MainCoordinator.swift */; };
 		B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */; };
@@ -42,8 +45,8 @@
 		B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6352607C8E200D831A2 /* CoordinatorFinishOutput.swift */; };
 		B941F6382607C90500D831A2 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6372607C90500D831A2 /* Presentable.swift */; };
 		B941F63A2607C93C00D831A2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6392607C93C00D831A2 /* Router.swift */; };
-		B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6422607CA1200D831A2 /* GameViewController.xib */; };
-		B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6432607CA1200D831A2 /* GameViewController.swift */; };
+		B941F64B2607CA1200D831A2 /* BaseGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6422607CA1200D831A2 /* BaseGameViewController.xib */; };
+		B941F64C2607CA1200D831A2 /* BaseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6432607CA1200D831A2 /* BaseGameViewController.swift */; };
 		B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941F6452607CA1200D831A2 /* MainViewController.xib */; };
 		B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6462607CA1200D831A2 /* MainViewController.swift */; };
 		B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 79C3F18B26076C5F001D2982 /* KeychainWrapper */; };
@@ -85,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		7961876E2609D8A20027C117 /* UITextField+Secure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Secure.swift"; sourceTree = "<group>"; };
+		796BF810260F355E0019BB82 /* GenericGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGameViewController.swift; sourceTree = "<group>"; };
 		79846F78260951BF00DCA87B /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		79846F79260951BF00DCA87B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		79846F7A260951BF00DCA87B /* AuthPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPresentable.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		79E18DE6260E5F2500250CC9 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		79E18DEC260E5F3A00250CC9 /* OfflineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfflineViewController.xib; sourceTree = "<group>"; };
 		79E18DED260E5F3A00250CC9 /* OfflineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
+		79E18E1E260F039800250CC9 /* DiceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceGameViewController.swift; sourceTree = "<group>"; };
+		79E18E1F260F039800250CC9 /* DiceGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiceGameViewController.xib; sourceTree = "<group>"; };
 		B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B941F6242607C77700D831A2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B941F6262607C7BD00D831A2 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -121,8 +127,8 @@
 		B941F6352607C8E200D831A2 /* CoordinatorFinishOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFinishOutput.swift; sourceTree = "<group>"; };
 		B941F6372607C90500D831A2 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		B941F6392607C93C00D831A2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		B941F6422607CA1200D831A2 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
-		B941F6432607CA1200D831A2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B941F6422607CA1200D831A2 /* BaseGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseGameViewController.xib; sourceTree = "<group>"; };
+		B941F6432607CA1200D831A2 /* BaseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGameViewController.swift; sourceTree = "<group>"; };
 		B941F6452607CA1200D831A2 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		B941F6462607CA1200D831A2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B941F6522607E59D00D831A2 /* TopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBar.xib; sourceTree = "<group>"; };
@@ -149,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */,
-				79E18DF8260E61F500250CC9 /* APILayer in Frameworks */,
+				796BF80C260F27090019BB82 /* APILayer in Frameworks */,
 				79E18E07260E643800250CC9 /* AuthLayer in Frameworks */,
 				E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
@@ -219,6 +225,24 @@
 				79846F88260951D200DCA87B /* LoginTextField.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		798837FD260F620F000270DC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B941F6422607CA1200D831A2 /* BaseGameViewController.xib */,
+				B941F6432607CA1200D831A2 /* BaseGameViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		79883807260F6239000270DC /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				79E18E1E260F039800250CC9 /* DiceGameViewController.swift */,
+				79E18E1F260F039800250CC9 /* DiceGameViewController.xib */,
+			);
+			path = Dice;
 			sourceTree = "<group>";
 		};
 		798A99BE260D196B00D7B1AE /* DI */ = {
@@ -409,8 +433,9 @@
 		B941F6412607CA1200D831A2 /* GameViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B941F6422607CA1200D831A2 /* GameViewController.xib */,
-				B941F6432607CA1200D831A2 /* GameViewController.swift */,
+				79883807260F6239000270DC /* Dice */,
+				798837FD260F620F000270DC /* Base */,
+				796BF810260F355E0019BB82 /* GenericGameViewController.swift */,
 			);
 			path = GameViewController;
 			sourceTree = "<group>";
@@ -542,8 +567,8 @@
 				79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */,
 				79C3F18B26076C5F001D2982 /* KeychainWrapper */,
 				E5000E8E260BDF4500ECCE1F /* ImageLoader */,
-				79E18DF7260E61F500250CC9 /* APILayer */,
 				79E18E06260E643800250CC9 /* AuthLayer */,
+				796BF80B260F27090019BB82 /* APILayer */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -620,8 +645,8 @@
 				79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */,
 				E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */,
-				79E18DF6260E61F500250CC9 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
 				79E18E05260E643800250CC9 /* XCRemoteSwiftPackageReference "auth-service" */,
+				796BF80A260F27090019BB82 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
 			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
@@ -640,7 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9BA50E1260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib in Resources */,
-				B941F64B2607CA1200D831A2 /* GameViewController.xib in Resources */,
+				B941F64B2607CA1200D831A2 /* BaseGameViewController.xib in Resources */,
 				B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
 				B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */,
@@ -650,6 +675,7 @@
 				79E18DEE260E5F3A00250CC9 /* OfflineViewController.xib in Resources */,
 				B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */,
 				B9BA50EC260A4EE600F4E0A8 /* FilterViewController.xib in Resources */,
+				79E18E21260F039800250CC9 /* DiceGameViewController.xib in Resources */,
 				79846F81260951BF00DCA87B /* LoginViewController.xib in Resources */,
 				79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
@@ -771,16 +797,18 @@
 				B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */,
 				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
 				79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */,
+				796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */,
 				79846F80260951BF00DCA87B /* AuthPresentable.swift in Sources */,
 				B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
 				B9BA50E8260A4E2400F4E0A8 /* FilterCell.swift in Sources */,
 				7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */,
 				79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */,
+				79E18E20260F039800250CC9 /* DiceGameViewController.swift in Sources */,
 				79E18DE7260E5F2500250CC9 /* NetworkMonitor.swift in Sources */,
 				B9BA50ED260A4EE600F4E0A8 /* FilterViewController.swift in Sources */,
 				B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */,
-				B941F64C2607CA1200D831A2 /* GameViewController.swift in Sources */,
+				B941F64C2607CA1200D831A2 /* BaseGameViewController.swift in Sources */,
 				79E18DEF260E5F3A00250CC9 /* OfflineViewController.swift in Sources */,
 				B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */,
 				B941F6382607C90500D831A2 /* Presentable.swift in Sources */,
@@ -1118,6 +1146,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		796BF80A260F27090019BB82 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pavlovskyive/virtual-sports-api-service";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.4;
+			};
+		};
 		79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1132,14 +1168,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		79E18DF6260E61F500250CC9 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pavlovskyive/virtual-sports-api-service";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.2;
 			};
 		};
 		79E18E05260E643800250CC9 /* XCRemoteSwiftPackageReference "auth-service" */ = {
@@ -1161,6 +1189,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		796BF80B260F27090019BB82 /* APILayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 796BF80A260F27090019BB82 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
+			productName = APILayer;
+		};
 		79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1175,11 +1208,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */;
 			productName = KeychainWrapper;
-		};
-		79E18DF7260E61F500250CC9 /* APILayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79E18DF6260E61F500250CC9 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
-			productName = APILayer;
 		};
 		79E18E06260E643800250CC9 /* AuthLayer */ = {
 			isa = XCSwiftPackageProductDependency;

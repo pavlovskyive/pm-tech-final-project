@@ -90,11 +90,11 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBAction private func didTapGame(_ sender: Any) {
 
         // TODO: Game mock - replace for using with actual data.
-        let game = Game(id: "155",
+        let game = Game(id: "dice",
                         provider: "providerId111111",
                         categories: ["categoryId1"],
-                        name: "Game Test 1",
-                        tags: [""])
+                        name: "Dice",
+                        tags: ["all", "top"])
 
         self.onGoToGame?(game)
     }

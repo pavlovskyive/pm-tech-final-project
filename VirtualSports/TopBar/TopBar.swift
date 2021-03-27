@@ -14,6 +14,7 @@ protocol TopBarDelegate: AnyObject {
     func signUpButtonPressed()
     func backwardButtonPressed()
     func favoriteButtonPressed()
+    func historyButtonPressed()
 }
 
 extension TopBarDelegate {
@@ -23,6 +24,7 @@ extension TopBarDelegate {
     func signUpButtonPressed() {}
     func backwardButtonPressed() {}
     func favoriteButtonPressed() {}
+    func historyButtonPressed() {}
 }
 
 /*
@@ -67,6 +69,7 @@ class TopBar: UIView {
     @IBOutlet weak var logoView: UIImageView?
     @IBOutlet weak var gameNameLabel: UILabel?
     @IBOutlet weak var favoritesButton: UIButton?
+    @IBOutlet weak var historyButton: UIButton?
 
     weak var delegate: TopBarDelegate?
 
@@ -90,7 +93,7 @@ class TopBar: UIView {
         showOnly(visibleItems)
     }
 
-    func showNextTopBar(name: String) {
+    func showGameTopBar(name: String) {
 
         let visibleItems = [
             backwardButton,
@@ -121,8 +124,16 @@ class TopBar: UIView {
         favoritesButton?.isHidden = !show
     }
 
+    func showHistoryButton(_ show: Bool) {
+        historyButton?.isHidden = !show
+    }
+
     func setEnableFavoritesButton(_ isEnabled: Bool) {
         favoritesButton?.isEnabled = isEnabled
+    }
+
+    func setGameNameLabel(text: String) {
+        gameNameLabel?.text = text
     }
 
     override init(frame: CGRect) {
@@ -177,6 +188,10 @@ class TopBar: UIView {
 
     @IBAction func favouritesButtonPressed(_ sender: Any) {
         delegate?.favoriteButtonPressed()
+    }
+
+    @IBAction func historyButtonPressed(_ sender: Any) {
+        delegate?.historyButtonPressed()
     }
 
 }

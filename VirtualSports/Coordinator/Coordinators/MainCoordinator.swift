@@ -98,16 +98,24 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         guard let game = game else { return }
 
-        let gameViewController = GameViewController(for: game)
+        let gameViewController: BaseGameViewController
+        switch game.id {
+        case "dice":
+            gameViewController = DiceGameViewController(for: game)
+        default:
+            gameViewController = GenericGameViewController(for: game)
+        }
 
         gameViewController.dependencies = dependencies
+        gameViewController.onGoToLogin = { [unowned self] in
+            showLoginVC()
+        }
 
         gameViewController.onGoToBack = { [unowned self] in
             router.popModule()
         }
 
         self.router.push(gameViewController)
-
     }
 
     private func showFilterVC(for mainResponse: MainResponse?, delegate: FilterDelegate) {

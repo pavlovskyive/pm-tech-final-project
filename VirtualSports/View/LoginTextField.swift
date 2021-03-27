@@ -58,13 +58,19 @@ final class PasswordLoginTextField: LoginTextField {
         setupVisibilityButton()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        button.frame = CGRect(x: frame.width - frame.height - 5,
+                              y: 0,
+                              width: frame.height + 5,
+                              height: frame.height)
+    }
+
     private func setupVisibilityButton() {
 
-        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
         button.imageView?.contentMode = .scaleAspectFit
+        button.contentMode = .scaleAspectFit
 
         button.addTarget(self, action: #selector(didTapVisibilityButton), for: .touchUpInside)
 
