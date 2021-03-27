@@ -17,7 +17,7 @@
                 <outlet property="chosenBetLabel" destination="XBU-6D-6ZE" id="BAN-LR-yJv"/>
                 <outlet property="confirmationButton" destination="8LY-5H-0ev" id="KX7-rQ-o1S"/>
                 <outlet property="leftStackView" destination="4hx-ol-do8" id="ZIC-On-yNG"/>
-                <outlet property="onUnauthorizedView" destination="qCQ-aA-OlH" id="dp4-0h-1wG"/>
+                <outlet property="onUnauthorizedView" destination="qCQ-aA-OlH" id="2pC-aY-xRI"/>
                 <outlet property="resultingDiceImageView" destination="jah-ij-jKt" id="zoB-eM-RBJ"/>
                 <outlet property="rightStackView" destination="WeT-jh-CQp" id="zG4-KO-HpX"/>
                 <outlet property="topBar" destination="8T4-86-onI" id="gKl-yh-uc0"/>

@@ -99,6 +99,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         guard let game = game else { return }
 
         let gameViewController: BaseGameViewController
+
         switch game.id {
         case "dice":
             gameViewController = DiceGameViewController(for: game)
@@ -113,6 +114,10 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         gameViewController.onGoToBack = { [unowned self] in
             router.popModule()
+        }
+
+        gameViewController.onGoToHistory = { [unowned self] bets in
+            showBetsHistory(bets: bets)
         }
 
         self.router.push(gameViewController)
@@ -138,6 +143,18 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         }
 
         router.push(offlineViewController)
+
+    }
+
+    private func showBetsHistory(bets: [Bet]) {
+
+        let betsHistoryViewController = BetsHistoryViewController(bets: bets)
+
+        betsHistoryViewController.onDismiss = {
+            self.router.dismissModule()
+        }
+
+        router.present(betsHistoryViewController)
 
     }
 

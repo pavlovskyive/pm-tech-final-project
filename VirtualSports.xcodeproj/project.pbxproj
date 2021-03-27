@@ -12,6 +12,8 @@
 		796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796BF810260F355E0019BB82 /* GenericGameViewController.swift */; };
 		79743ABA260F7484003A031E /* PasswordComplexityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79743AB8260F7484003A031E /* PasswordComplexityView.swift */; };
 		79743ABB260F7484003A031E /* PasswordComplexityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79743AB9260F7484003A031E /* PasswordComplexityView.xib */; };
+		797DA015260FD04E0018EFE5 /* BetsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DA014260FD04E0018EFE5 /* BetsHistoryViewController.swift */; };
+		797DA01D260FD7BF0018EFE5 /* BetsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797DA01C260FD7BF0018EFE5 /* BetsHistoryViewController.xib */; };
 		79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79846F78260951BF00DCA87B /* RegistrationViewController.xib */; };
 		79846F7F260951BF00DCA87B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F79260951BF00DCA87B /* RegistrationViewController.swift */; };
 		79846F80260951BF00DCA87B /* AuthPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F7A260951BF00DCA87B /* AuthPresentable.swift */; };
@@ -93,6 +95,8 @@
 		796BF810260F355E0019BB82 /* GenericGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGameViewController.swift; sourceTree = "<group>"; };
 		79743AB8260F7484003A031E /* PasswordComplexityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordComplexityView.swift; sourceTree = "<group>"; };
 		79743AB9260F7484003A031E /* PasswordComplexityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordComplexityView.xib; sourceTree = "<group>"; };
+		797DA014260FD04E0018EFE5 /* BetsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsHistoryViewController.swift; sourceTree = "<group>"; };
+		797DA01C260FD7BF0018EFE5 /* BetsHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetsHistoryViewController.xib; sourceTree = "<group>"; };
 		79846F78260951BF00DCA87B /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		79846F79260951BF00DCA87B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		79846F7A260951BF00DCA87B /* AuthPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPresentable.swift; sourceTree = "<group>"; };
@@ -201,6 +205,15 @@
 				79743AB9260F7484003A031E /* PasswordComplexityView.xib */,
 			);
 			path = PasswordComplexityView;
+			sourceTree = "<group>";
+		};
+		797DA013260FD02C0018EFE5 /* BetsHistory */ = {
+			isa = PBXGroup;
+			children = (
+				797DA014260FD04E0018EFE5 /* BetsHistoryViewController.swift */,
+				797DA01C260FD7BF0018EFE5 /* BetsHistoryViewController.xib */,
+			);
+			path = BetsHistory;
 			sourceTree = "<group>";
 		};
 		79846F76260951BF00DCA87B /* Auth */ = {
@@ -371,6 +384,7 @@
 		B941F61F2607C69400D831A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				797DA013260FD02C0018EFE5 /* BetsHistory */,
 				79E18DEB260E5F3A00250CC9 /* OfflineViewController */,
 				B9BA50E9260A4EE600F4E0A8 /* FilterViewController */,
 				79846F76260951BF00DCA87B /* Auth */,
@@ -685,6 +699,7 @@
 				B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */,
 				B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */,
 				79C3D29626048D7E00ACD5E5 /* GoogleService-Info.plist in Resources */,
+				797DA01D260FD7BF0018EFE5 /* BetsHistoryViewController.xib in Resources */,
 				79743ABB260F7484003A031E /* PasswordComplexityView.xib in Resources */,
 				B941F64D2607CA1200D831A2 /* MainViewController.xib in Resources */,
 				79E18DEE260E5F3A00250CC9 /* OfflineViewController.xib in Resources */,
@@ -811,6 +826,7 @@
 				B941F6252607C77700D831A2 /* MainCoordinator.swift in Sources */,
 				798A99C2260D196B00D7B1AE /* Protocols.swift in Sources */,
 				B941F64E2607CA1200D831A2 /* MainViewController.swift in Sources */,
+				797DA015260FD04E0018EFE5 /* BetsHistoryViewController.swift in Sources */,
 				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
 				79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */,
 				796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */,
@@ -1002,7 +1018,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = G66XPV3HVM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1023,7 +1039,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G66XPV3HVM;
 				INFOPLIST_FILE = VirtualSports/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

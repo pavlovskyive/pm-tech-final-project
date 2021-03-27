@@ -105,7 +105,7 @@ extension AuthBaseViewController {
 
         self.textFields = textFields.compactMap { textField in
             textField?.delegate = self
-            textField?.addTarget(self, action: #selector(validate), for: .editingChanged)
+            textField?.addTarget(self, action: #selector(validateTextField), for: .editingChanged)
 
             return textField
         }
@@ -122,7 +122,7 @@ extension AuthBaseViewController {
     }
 
     @objc
-    private func validate() {
+    private func validateTextField() {
 
         guard !textFields.contains(where: { $0.text?.isEmpty == true }) else {
             onInvalid?()

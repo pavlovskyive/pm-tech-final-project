@@ -17,6 +17,7 @@ protocol GameViewControllable: AnyObject {
 
     var onGoToBack: (() -> Void)? { get set }
     var onGoToLogin: (() -> Void)? { get set }
+    var onGoToHistory: (([Bet]) -> Void)? { get set }
 
     func makeBet(bet: Bet)
     func handleBetOutcome(bet: Bet)
@@ -32,6 +33,7 @@ class BaseGameViewController: UIViewController, GameViewControllable {
 
     var onGoToBack: (() -> Void)?
     var onGoToLogin: (() -> Void)?
+    var onGoToHistory: (([Bet]) -> Void)?
 
     var isFavourite: Bool = false {
         didSet {
@@ -99,13 +101,13 @@ class BaseGameViewController: UIViewController, GameViewControllable {
     func handleHistoryResponse(history: [Bet]) {
         // Must override
     }
-    
+
     func handleLogin() {
         topBar?.showHistoryButton(true)
         topBar?.showFavoritesButton(true)
         checkFavourite()
     }
-    
+
     func handleLogout() {
         topBar?.showHistoryButton(false)
         topBar?.showFavoritesButton(false)
@@ -125,7 +127,7 @@ private extension BaseGameViewController {
                 .removeFavorite(gameId: game.id, completion: handleFavouriteChangeResponse(error:))
         }
     }
-    
+
     func checkFavourite() {
         dependencies?.apiService.fetchFavourites { [weak self] result in
             switch result {
@@ -156,18 +158,6 @@ private extension BaseGameViewController {
 
 }
 
-extension BaseGameViewController: AuthDelegate {
-
-    func onLogin() {
-       handleLogin()
-    }
-    
-    func onLogout() {
-        handleLogout()
-    }
-
-}
-
 extension BaseGameViewController: TopBarDelegate {
 
     func backwardButtonPressed() {
@@ -180,20 +170,13 @@ extension BaseGameViewController: TopBarDelegate {
     }
 
     func historyButtonPressed() {
-//        dependencies?.apiService.fetchGameHistory(for: game.id) { [weak self] result in
-//            switch result {
-//            case .success(let bets):
-//                self?.handleHistoryResponse(history: bets)
-//            case .failure(let error):
-//                // TODO: Handle error
-//                print(error)
-//            }
-//        }
 
         dependencies?.apiService.fetchDiceHistory { [weak self] result in
             switch result {
             case .success(let bets):
-                self?.handleHistoryResponse(history: bets)
+                DispatchQueue.main.async {
+                    self?.handleHistoryResponse(history: bets)
+                }
             case .failure(let error):
                 // TODO: Handle error
                 print(error)
