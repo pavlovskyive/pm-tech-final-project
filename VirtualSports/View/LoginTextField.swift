@@ -23,33 +23,50 @@ class LoginTextField: UITextField {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setup()
+
     }
 
     let bottomLine = CALayer()
 
+    var changeBottomLineColor: BottomLineColor = .gray {
+        willSet {
+            switch newValue {
+            case .gray:
+                bottomLine.backgroundColor = BottomLineColor.grayColor
+            case .green:
+                bottomLine.backgroundColor = BottomLineColor.greenColor
+            case .red:
+                bottomLine.backgroundColor = BottomLineColor.redColor
+            }
+        }
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupBorder()
+        setupBorderFrame()
     }
 
     func setup() {
-        setupBorder()
+        setupBorderFrame()
+        setupBorderStyle()
     }
 
-    private func setupBorder() {
-        bottomLine.frame = CGRect(x: 0.0, y: frame.height + 10, width: frame.width, height: 1)
-        bottomLine.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
-
+    private func setupBorderStyle() {
+        bottomLine.backgroundColor = BottomLineColor.grayColor
         borderStyle = .none
+    }
+
+    private func setupBorderFrame() {
+        bottomLine.frame = CGRect(x: 0.0, y: frame.height + 10, width: frame.width, height: 1)
+
         layer.addSublayer(bottomLine)
     }
-
 }
 
 @IBDesignable
 final class PasswordLoginTextField: LoginTextField {
 
-    var button = UIButton(type: .custom)
+    var visibilityButton = UIButton(type: .custom)
 
     override func setup() {
         super.setup()
@@ -60,15 +77,15 @@ final class PasswordLoginTextField: LoginTextField {
 
     private func setupVisibilityButton() {
 
-        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        visibilityButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
 
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
-        button.imageView?.contentMode = .scaleAspectFit
+        visibilityButton.contentHorizontalAlignment = .fill
+        visibilityButton.contentVerticalAlignment = .fill
+        visibilityButton.imageView?.contentMode = .scaleAspectFit
 
-        button.addTarget(self, action: #selector(didTapVisibilityButton), for: .touchUpInside)
+        visibilityButton.addTarget(self, action: #selector(didTapVisibilityButton), for: .touchUpInside)
 
-        rightView = button
+        rightView = visibilityButton
         rightViewMode = .always
         updateVisibilityButton()
     }
@@ -76,11 +93,11 @@ final class PasswordLoginTextField: LoginTextField {
     private func updateVisibilityButton() {
 
         if isSecureTextEntry {
-            button.setImage(UIImage(named: "EyeCrossed"), for: .normal)
-            button.alpha = 0.5
+            visibilityButton.setImage(UIImage(named: "EyeCrossed"), for: .normal)
+            visibilityButton.alpha = 0.5
         } else {
-            button.setImage(UIImage(named: "Eye"), for: .normal)
-            button.alpha = 1
+            visibilityButton.setImage(UIImage(named: "Eye"), for: .normal)
+            visibilityButton.alpha = 1
         }
     }
 
@@ -90,4 +107,14 @@ final class PasswordLoginTextField: LoginTextField {
         updateVisibilityButton()
     }
 
+}
+
+public enum BottomLineColor {
+    case gray
+    case green
+    case red
+
+    static let grayColor = UIColor.black.withAlphaComponent(0.6).cgColor
+    static let greenColor = UIColor.green.withAlphaComponent(0.6).cgColor
+    static let redColor = UIColor.red.withAlphaComponent(0.6).cgColor
 }
