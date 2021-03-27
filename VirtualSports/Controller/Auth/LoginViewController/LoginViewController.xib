@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="closeButton" destination="o7c-QR-xzV" id="biz-2a-VyG"/>
                 <outlet property="emailErrorLabel" destination="SZA-Ic-wGh" id="oPJ-He-Pgb"/>
+                <outlet property="emailLabel" destination="CPA-YK-cSN" id="0Qc-cC-ezs"/>
                 <outlet property="emailTextField" destination="rGc-Ww-kiW" id="zgJ-Q6-aVn"/>
                 <outlet property="passwordTextField" destination="uN0-Zd-pCk" id="Eys-6H-3FS"/>
                 <outlet property="primaryButton" destination="Jrw-fg-Z9j" id="XCC-a9-qN5"/>

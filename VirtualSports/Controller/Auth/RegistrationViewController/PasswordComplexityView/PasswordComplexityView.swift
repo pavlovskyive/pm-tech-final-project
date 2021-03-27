@@ -55,7 +55,9 @@ final class PasswordComplexityView: UIView {
         view = loadFromNib()
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.cornerRadius = 10
+
+        layer.cornerRadius = 10
+
         setupShadows()
 
         addSubview(view)

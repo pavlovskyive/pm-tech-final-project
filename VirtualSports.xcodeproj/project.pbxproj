@@ -15,8 +15,6 @@
 		79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F7D260951BF00DCA87B /* LoginViewController.swift */; };
 		79846F89260951D200DCA87B /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F87260951D200DCA87B /* LoginButton.swift */; };
 		79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F88260951D200DCA87B /* LoginTextField.swift */; };
-		79C32991260BDB03009EC9C1 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32990260BDB03009EC9C1 /* APIService */; };
-		79C32997260BDB49009EC9C1 /* AuthService in Frameworks */ = {isa = PBXBuildFile; productRef = 79C32996260BDB49009EC9C1 /* AuthService */; };
 		79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D257260489A700ACD5E5 /* AppDelegate.swift */; };
 		79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D259260489A700ACD5E5 /* SceneDelegate.swift */; };
 		79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D260260489B500ACD5E5 /* Assets.xcassets */; };
@@ -59,6 +57,8 @@
 		B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */; };
 		B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */; };
 		E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = E5000E8E260BDF4500ECCE1F /* ImageLoader */; };
+		E566F58A260F64DA009EF964 /* APILayer in Frameworks */ = {isa = PBXBuildFile; productRef = E566F589260F64DA009EF964 /* APILayer */; };
+		E566F58C260F64DF009EF964 /* AuthLayer in Frameworks */ = {isa = PBXBuildFile; productRef = E566F58B260F64DF009EF964 /* AuthLayer */; };
 		E58677DF260E8ED100712250 /* PasswordComplexityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58677DE260E8ED100712250 /* PasswordComplexityView.xib */; };
 		E58677E4260E8F8300712250 /* PasswordComplexityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58677E3260E8F8300712250 /* PasswordComplexityView.swift */; };
 		E5B919BE260D1BB70033E497 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B919BD260D1BB70033E497 /* NetworkMonitor.swift */; };
@@ -153,11 +153,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */,
+				E566F58A260F64DA009EF964 /* APILayer in Frameworks */,
+				E566F58C260F64DF009EF964 /* AuthLayer in Frameworks */,
 				E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */,
-				79C32991260BDB03009EC9C1 /* APIService in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
 				79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */,
-				79C32997260BDB49009EC9C1 /* AuthService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,9 +555,9 @@
 				79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */,
 				79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */,
 				79C3F18B26076C5F001D2982 /* KeychainWrapper */,
-				79C32990260BDB03009EC9C1 /* APIService */,
-				79C32996260BDB49009EC9C1 /* AuthService */,
 				E5000E8E260BDF4500ECCE1F /* ImageLoader */,
+				E566F589260F64DA009EF964 /* APILayer */,
+				E566F58B260F64DF009EF964 /* AuthLayer */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -1177,16 +1177,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		79C32990260BDB03009EC9C1 /* APIService */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
-			productName = APIService;
-		};
-		79C32996260BDB49009EC9C1 /* AuthService */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */;
-			productName = AuthService;
-		};
 		79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1206,6 +1196,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */;
 			productName = ImageLoader;
+		};
+		E566F589260F64DA009EF964 /* APILayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C3298F260BDB03009EC9C1 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
+			productName = APILayer;
+		};
+		E566F58B260F64DF009EF964 /* AuthLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C32995260BDB49009EC9C1 /* XCRemoteSwiftPackageReference "auth-service" */;
+			productName = AuthLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
