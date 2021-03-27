@@ -59,6 +59,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setStatusBar(backgroundColor: .black)
         filterButtonView.delegate = self
         topBar.delegate = self
         topBar.showMainTopBar()

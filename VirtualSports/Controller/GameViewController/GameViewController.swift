@@ -49,6 +49,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        navigationController?.setStatusBar(backgroundColor: .black)
         topBar?.delegate = self
         topBar?.showNextTopBar(name: game.name)
 

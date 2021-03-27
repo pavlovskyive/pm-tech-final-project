@@ -22,19 +22,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dD-fo-TeB" customClass="FilterButtonView" customModule="VirtualSports" customModuleProvider="target">
-                    <rect key="frame" x="16" y="156" width="382" height="50"/>
+                    <rect key="frame" x="16" y="140" width="382" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="4LL-kh-PE7"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LZ-77-Pme" customClass="TopBar" customModule="VirtualSports" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="Rhk-hP-J7g"/>
+                        <constraint firstAttribute="height" constant="80" id="Rhk-hP-J7g"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JK8-Hv-ECe">
-                    <rect key="frame" x="0.0" y="222" width="414" height="674"/>
+                    <rect key="frame" x="0.0" y="206" width="414" height="690"/>
                     <color key="backgroundColor" red="0.14901724459999999" green="0.14901834729999999" blue="0.14902132749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qFi-yj-jmK">
                         <size key="itemSize" width="128" height="128"/>
@@ -50,7 +50,7 @@
                 <constraint firstItem="JK8-Hv-ECe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ASH-42-A7u"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Byw-lq-Pad"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CCz-Ik-LBF"/>
-                <constraint firstItem="2LZ-77-Pme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CUd-8L-0sk"/>
+                <constraint firstItem="2LZ-77-Pme" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CUd-8L-0sk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JK8-Hv-ECe" secondAttribute="trailing" id="M8W-Br-TYH"/>
                 <constraint firstItem="3dD-fo-TeB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ee3-u9-74Y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3dD-fo-TeB" secondAttribute="trailing" constant="16" id="lnD-Le-HVU"/>

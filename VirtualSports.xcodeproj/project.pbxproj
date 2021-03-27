@@ -59,6 +59,7 @@
 		B9D6B501260F3348002B1B38 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6B4FF260F3348002B1B38 /* GameCollectionViewCell.swift */; };
 		B9D6B502260F3348002B1B38 /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D6B500260F3348002B1B38 /* GameCollectionViewCell.xib */; };
 		B9D6B505260F3796002B1B38 /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6B504260F3796002B1B38 /* MainSection.swift */; };
+		B9D6B507260F3D9A002B1B38 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6B506260F3D9A002B1B38 /* UINavigationController+Extension.swift */; };
 		B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170642608AC850099DA82 /* FilterButtonView.swift */; };
 		B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170662608ACD70099DA82 /* FilterButtonView.xib */; };
 		B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170682608AD570099DA82 /* UIViewExtension.swift */; };
@@ -140,6 +141,7 @@
 		B9D6B4FF260F3348002B1B38 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9D6B500260F3348002B1B38 /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9D6B504260F3796002B1B38 /* MainSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSection.swift; sourceTree = "<group>"; };
+		B9D6B506260F3D9A002B1B38 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		B9E170642608AC850099DA82 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		B9E170662608ACD70099DA82 /* FilterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterButtonView.xib; sourceTree = "<group>"; };
 		B9E170682608AD570099DA82 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				7961876E2609D8A20027C117 /* UITextField+Secure.swift */,
+				B9D6B506260F3D9A002B1B38 /* UINavigationController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
 				79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */,
 				79846F80260951BF00DCA87B /* AuthPresentable.swift in Sources */,
+				B9D6B507260F3D9A002B1B38 /* UINavigationController+Extension.swift in Sources */,
 				B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */,
 				79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */,
 				B9BA50E8260A4E2400F4E0A8 /* FilterCell.swift in Sources */,
