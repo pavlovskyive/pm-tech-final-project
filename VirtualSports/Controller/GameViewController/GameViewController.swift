@@ -6,20 +6,32 @@
 //
 
 import UIKit
-import APIService
+import APILayer
 
 protocol GameViewControllerProtocol: AnyObject {
+
+    typealias Dependencies = HasAuthProvider & HasAPIFetching
+
+    var dependencies: Dependencies? { get set }
 
     var onGoToBack: (() -> Void)? { get set }
 }
 
 class GameViewController: UIViewController {
 
-    @IBOutlet weak var topBar: TopBar!
+    @IBOutlet weak var topBar: TopBar?
 
+    var dependencies: Dependencies?
     let game: Game
 
     var onGoToBack: (() -> Void)?
+    var isFavourite: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.topBar?.setFavoritesButtonHighlighted(self.isFavourite)
+            }
+        }
+    }
 
     // MARK: Initialization
 
@@ -35,10 +47,24 @@ class GameViewController: UIViewController {
     // MARK: Lifcycle
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        topBar.delegate = self
-        topBar.showNextTopBar(name: game.name)
 
+        super.viewDidLoad()
+        topBar?.delegate = self
+        topBar?.showNextTopBar(name: game.name)
+
+        topBar?.showFavoritesButton(dependencies?.authProvider.loggedIn ?? false)
+        topBar?.setFavoritesButtonHighlighted(false)
+
+        dependencies?.apiService.fetchFavourites { [weak self] result in
+            switch result {
+            case .success(let favourites):
+                DispatchQueue.main.async {
+                    self?.isFavourite = favourites.contains(where: { $0.id == self?.game.id })
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -47,21 +73,44 @@ class GameViewController: UIViewController {
 
 }
 
+private extension GameViewController {
+
+    func setFavourite(_ isFavourite: Bool) {
+        if isFavourite {
+            dependencies?.apiService
+                .addFavorite(gameId: game.id, completion: handleFavouriteChangeResponce(error:))
+        } else {
+            dependencies?.apiService
+                .removeFavorite(gameId: game.id, completion: handleFavouriteChangeResponce(error:))
+        }
+    }
+
+    func handleFavouriteChangeResponce(error: APIError?) {
+
+        DispatchQueue.main.async { [weak self] in
+
+            self?.topBar?.setEnableFavoritesButton(true)
+
+            guard let error = error else {
+                self?.isFavourite.toggle()
+                return
+            }
+
+            print(error)
+        }
+    }
+
+}
+
 extension GameViewController: TopBarDelegate {
-    func signInButtonPressed() {
-
-    }
-
-    func logOutButtonPressed() {
-
-    }
-
-    func signUpButtonPressed() {
-
-    }
 
     func backwardButtonPressed() {
         self.onGoToBack?()
+    }
+
+    func favoriteButtonPressed() {
+        topBar?.setEnableFavoritesButton(false)
+        setFavourite(!isFavourite)
     }
 
 }
