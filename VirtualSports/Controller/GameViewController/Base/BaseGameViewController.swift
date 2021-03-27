@@ -7,6 +7,7 @@
 
 import UIKit
 import APILayer
+import AuthLayer
 
 protocol GameViewControllable: AnyObject {
 
@@ -70,16 +71,7 @@ class BaseGameViewController: UIViewController, GameViewControllable {
         topBar?.showFavoritesButton(true)
         topBar?.setFavoritesButtonHighlighted(false)
 
-        dependencies?.apiService.fetchFavourites { [weak self] result in
-            switch result {
-            case .success(let favourites):
-                DispatchQueue.main.async {
-                    self?.isFavourite = favourites.contains(where: { $0.id == self?.game.id })
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        checkFavourite()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -107,6 +99,18 @@ class BaseGameViewController: UIViewController, GameViewControllable {
     func handleHistoryResponse(history: [Bet]) {
         // Must override
     }
+    
+    func handleLogin() {
+        topBar?.showHistoryButton(true)
+        topBar?.showFavoritesButton(true)
+        checkFavourite()
+    }
+    
+    func handleLogout() {
+        topBar?.showHistoryButton(false)
+        topBar?.showFavoritesButton(false)
+        checkFavourite()
+    }
 
 }
 
@@ -119,6 +123,19 @@ private extension BaseGameViewController {
         } else {
             dependencies?.apiService
                 .removeFavorite(gameId: game.id, completion: handleFavouriteChangeResponse(error:))
+        }
+    }
+    
+    func checkFavourite() {
+        dependencies?.apiService.fetchFavourites { [weak self] result in
+            switch result {
+            case .success(let favourites):
+                DispatchQueue.main.async {
+                    self?.isFavourite = favourites.contains(where: { $0.id == self?.game.id })
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 
@@ -135,6 +152,18 @@ private extension BaseGameViewController {
 
             print(error)
         }
+    }
+
+}
+
+extension BaseGameViewController: AuthDelegate {
+
+    func onLogin() {
+       handleLogin()
+    }
+    
+    func onLogout() {
+        handleLogout()
     }
 
 }

@@ -57,7 +57,6 @@ class DiceGameViewController: BaseGameViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dependencies?.authProvider.subscribe(self)
         setupButtons()
         checkAuth()
 
@@ -70,6 +69,18 @@ class DiceGameViewController: BaseGameViewController {
 
     override func handleHistoryResponse(history: [Bet]) {
         print(history)
+    }
+    
+    override func handleLogin() {
+        super.handleLogin()
+        
+        checkAuth()
+    }
+    
+    override func handleLogout() {
+        super.handleLogout()
+        
+        checkAuth()
     }
 
     @IBAction func onLoginButtonTapped(_ sender: Any) {
@@ -100,22 +111,6 @@ class DiceGameViewController: BaseGameViewController {
             }
         }
     }
-}
-
-extension DiceGameViewController: AuthDelegate {
-
-    func onLogin() {
-        DispatchQueue.main.async {
-            self.checkAuth()
-        }
-    }
-
-    func onLogout() {
-        DispatchQueue.main.async {
-            self.checkAuth()
-        }
-    }
-
 }
 
 private extension DiceGameViewController {
@@ -225,8 +220,6 @@ private extension DiceGameViewController {
             return
         }
 
-        topBar?.showHistoryButton(loggedIn)
-        topBar?.showFavoritesButton(loggedIn)
         onUnauthorizedView?.isHidden = loggedIn
         checkConfirmationButtonEnabled()
     }
