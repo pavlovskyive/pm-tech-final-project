@@ -34,7 +34,18 @@ final class LoginButton: UIButton {
 
     internal func setup() {
 
-        titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
+        guard let customFont = UIFont(name: "Pari-Match-Bold", size: 20) else {
+            fatalError("""
+                Failed to load the "CustomFont-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+
+        }
+
+        titleLabel?.font = customFont
+        titleLabel?.font = UIFontMetrics.default.scaledFont(for: customFont)
+        titleLabel?.adjustsFontForContentSizeCategory = true
 
         setTitleColor(.black, for: .normal)
 

@@ -87,7 +87,7 @@ class DiceGameViewController: BaseGameViewController {
     }
 
     @IBAction func onConfirmButtonTapped(_ sender: Any) {
-        
+
         log.info("Confirm button tapped")
 
         guard let betType = currentBetType else {
@@ -107,7 +107,12 @@ class DiceGameViewController: BaseGameViewController {
                     self?.handleBetResult(bet: bet)
                 }
             case .failure(let error):
-                // TODO: Handle error
+                let alert = Alert.errorAlert(title: "error", message: error.localizedDescription)
+
+                DispatchQueue.main.async {
+                    self?.present(alert, animated: true)
+                }
+
                 log.error(error.localizedDescription)
             }
         }
@@ -210,7 +215,7 @@ private extension DiceGameViewController {
     }
 
     @objc func handleBetButtonTapped(_ sender: BetButton) {
- 
+
         log.info("Bet button tapped")
 
         guard let betType = sender.betType else {

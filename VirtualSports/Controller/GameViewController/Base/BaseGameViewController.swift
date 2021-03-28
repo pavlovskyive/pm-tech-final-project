@@ -65,7 +65,11 @@ class BaseGameViewController: UIViewController, GameViewControllable {
         topBar?.showGameTopBar(name: game.name)
 
         guard dependencies?.authProvider.loggedIn ?? false else {
-            // TODO: Handle user not logged in
+
+            let alert = Alert.errorAlert(title: "Authorization error", message: "Please log in into system.")
+
+            self.present(alert, animated: true)
+
             log.info("User not logged in")
             return
         }
@@ -88,7 +92,12 @@ class BaseGameViewController: UIViewController, GameViewControllable {
                     self?.handleBetOutcome(bet: bet)
                 }
             case .failure(let error):
-                // TODO: Handle error
+                let alert = Alert.errorAlert(title: "Bet alert", message: error.localizedDescription)
+                
+                DispatchQueue.main.async {
+                    self?.present(alert, animated: true)
+                }
+                
                 log.error(error.localizedDescription)
             }
         }
@@ -178,7 +187,12 @@ extension BaseGameViewController: TopBarDelegate {
                     self?.handleHistoryResponse(history: bets)
                 }
             case .failure(let error):
-                // TODO: Handle error
+                let alert = Alert.errorAlert(title: "History error", message: error.localizedDescription)
+
+                DispatchQueue.main.async {
+                    self?.present(alert, animated: true)
+                }
+
                 log.error(error.localizedDescription)
             }
         }
