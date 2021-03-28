@@ -83,7 +83,7 @@ class LoginViewController: AuthBaseViewController {
                     case .success:
                         self?.onComplete?()
                     case .failure(let error):
-                        print(error)
+                        log.error(error.localizedDescription)
                     }
 
                     self?.primaryButton?.setEnabled(true)
@@ -106,7 +106,7 @@ class LoginViewController: AuthBaseViewController {
         onInvalid = { [weak self] in
             self?.primaryButton?.setEnabled(false)
         }
-        
+
         emailTextField?.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
     }
 
@@ -127,7 +127,7 @@ class LoginViewController: AuthBaseViewController {
         if checkEmail(emailTextField: emailTextField) {
             emailErrorLabel.isHidden = true
             emailTextField?.changeBottomLineColor = .green
-            emailLabel.textColor = .green
+            emailLabel.textColor = UIColor(named: "PMGreen")
         } else {
             emailErrorLabel.isHidden = false
             emailTextField?.changeBottomLineColor = .red
@@ -135,4 +135,4 @@ class LoginViewController: AuthBaseViewController {
         }
     }
 
-   }
+}

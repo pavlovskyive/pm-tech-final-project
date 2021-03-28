@@ -72,12 +72,15 @@ final class PasswordLoginTextField: LoginTextField {
         super.setup()
 
         isSecureTextEntry = true
-        setupVisibilityButton()
     }
 
-    private func setupVisibilityButton() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
 
-        visibilityButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        visibilityButton.frame = CGRect(x: frame.width - frame.height - 5,
+                              y: 0,
+                              width: frame.height + 5,
+                              height: frame.height)
 
         visibilityButton.contentHorizontalAlignment = .fill
         visibilityButton.contentVerticalAlignment = .fill
@@ -115,6 +118,6 @@ public enum BottomLineColor {
     case red
 
     static let grayColor = UIColor.black.withAlphaComponent(0.6).cgColor
-    static let greenColor = UIColor.green.withAlphaComponent(0.6).cgColor
+    static let greenColor = UIColor(named: "PMGreen")?.withAlphaComponent(0.6).cgColor
     static let redColor = UIColor.red.withAlphaComponent(0.6).cgColor
 }

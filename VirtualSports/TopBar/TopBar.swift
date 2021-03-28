@@ -14,6 +14,7 @@ protocol TopBarDelegate: AnyObject {
     func signUpButtonPressed()
     func backwardButtonPressed()
     func favoriteButtonPressed()
+    func historyButtonPressed()
 }
 
 extension TopBarDelegate {
@@ -23,6 +24,7 @@ extension TopBarDelegate {
     func signUpButtonPressed() {}
     func backwardButtonPressed() {}
     func favoriteButtonPressed() {}
+    func historyButtonPressed() {}
 }
 
 /*
@@ -67,6 +69,7 @@ class TopBar: UIView {
     @IBOutlet weak var logoView: UIImageView?
     @IBOutlet weak var gameNameLabel: UILabel?
     @IBOutlet weak var favoritesButton: UIButton?
+    @IBOutlet weak var historyButton: UIButton?
 
     weak var delegate: TopBarDelegate?
 
@@ -90,7 +93,7 @@ class TopBar: UIView {
         showOnly(visibleItems)
     }
 
-    func showNextTopBar(name: String) {
+    func showGameTopBar(name: String) {
 
         let visibleItems = [
             backwardButton,
@@ -121,8 +124,16 @@ class TopBar: UIView {
         favoritesButton?.isHidden = !show
     }
 
+    func showHistoryButton(_ show: Bool) {
+        historyButton?.isHidden = !show
+    }
+
     func setEnableFavoritesButton(_ isEnabled: Bool) {
         favoritesButton?.isEnabled = isEnabled
+    }
+
+    func setGameNameLabel(text: String) {
+        gameNameLabel?.text = text
     }
 
     override init(frame: CGRect) {
@@ -160,23 +171,33 @@ class TopBar: UIView {
 
     // MARK: - @IBActions
     @IBAction func logoutButtonPressed(_ sender: DesignableButton) {
+        log.info("Logout button pressed")
         delegate?.logOutButtonPressed()
     }
 
     @IBAction func loginButtonPressed(_ sender: DesignableButton) {
+        log.info("Login button pressed")
         delegate?.signInButtonPressed()
     }
 
     @IBAction func registerButtonPressed(_ sender: DesignableButton) {
+        log.info("Register button pressed")
         delegate?.signUpButtonPressed()
     }
 
     @IBAction func backwardButtonPressed(_ sender: Any) {
+        log.info("Back button pressed")
         delegate?.backwardButtonPressed()
     }
 
     @IBAction func favouritesButtonPressed(_ sender: Any) {
+        log.info("Favourites button pressed")
         delegate?.favoriteButtonPressed()
+    }
+
+    @IBAction func historyButtonPressed(_ sender: Any) {
+        log.info("History button pressed")
+        delegate?.historyButtonPressed()
     }
 
 }

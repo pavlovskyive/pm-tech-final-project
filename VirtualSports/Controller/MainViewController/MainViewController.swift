@@ -53,10 +53,14 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet private weak var filterButtonView: FilterButtonView!
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
+
         filterButtonView.delegate = self
         topBar.delegate = self
+
         topBar.showMainTopBar()
+
         checkNetworkConnectionState(connectionState)
 
     }
@@ -64,7 +68,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     private func checkNetworkConnectionState(_ state: ConnectionState) {
         switch state {
         case .connected:
-        dependencies?.authProvider.subscribe(self)
+            dependencies?.authProvider.subscribe(self)
+            dependencies?.apiService.delegate = self
             fetchMain()
         case .disconnected:
             DispatchQueue.main.async {
@@ -90,11 +95,11 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBAction private func didTapGame(_ sender: Any) {
 
         // TODO: Game mock - replace for using with actual data.
-        let game = Game(id: "155",
-                        provider: "providerId111111",
+        let game = Game(id: "original_dice_game",
+                        provider: "pm-academy1",
                         categories: ["categoryId1"],
-                        name: "Game Test 1",
-                        tags: [""])
+                        name: "Кости",
+                        tags: ["all", "top"])
 
         self.onGoToGame?(game)
     }
@@ -103,46 +108,66 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         dependencies?.apiService.fetchMain { result in
             switch result {
             case .success(let mainResponse):
-                print(mainResponse)
                 self.mainResponse = mainResponse
             case .failure(let error):
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
 
     private func fetchFavourites() {
+
         dependencies?.apiService.fetchFavourites { result in
             switch result {
             case .success(let favouriteGames):
-                print("\n\nFavourites: \(favouriteGames)")
                 self.favouriteGames = favouriteGames
             case .failure(let error):
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
 
     private func fetchRecent() {
+
         dependencies?.apiService.fetchRecent { result in
             switch result {
             case .success(let recentGames):
-                print("\n\nRecent: \(recentGames)")
                 self.recentGames = recentGames
             case .failure(let error):
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
 
+    private func fetchAll() {
+        fetchMain()
+        fetchRecent()
+        fetchFavourites()
+    }
+
     private func logout() {
+        
+        log.info("Logging out...")
+
         dependencies?.authProvider.logout { error in
             guard let error = error else {
                 return
             }
 
-            print(error)
+            log.error(error.localizedDescription)
         }
+    }
+
+}
+
+extension MainViewController: APIDelegate {
+
+    func onFavouritesChanged() {
+        fetchFavourites()
+    }
+
+    func onRecentsChanged() {
+        fetchRecent()
     }
 
 }
@@ -173,7 +198,6 @@ extension MainViewController: FilterDelegate {
         // TODO: Implement filter reset
         isFiltered = true
         self.filteredGames = filteredGames
-        print(filteredGames)
     }
 
 }
@@ -182,7 +206,6 @@ extension MainViewController: FilterButtonDelegate {
 
     func didTapFilterButton() {
         self.onGoToFilter?(mainResponse)
-        print("Filter button pressed")
     }
 
 }

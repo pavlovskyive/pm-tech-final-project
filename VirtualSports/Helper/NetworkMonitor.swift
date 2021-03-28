@@ -32,10 +32,10 @@ final public class NetworkMonitor {
             self.getConnectionType(path)
 
             if path.status == .satisfied {
-                print("Internet Connection - Avaliable")
+                log.info("Network Monitor: Internet Connection - Avaliable")
                 self.connectionState = .connected
             } else {
-                print("Internet Connection - Not Avaliable")
+                log.info("Network Monitor: Internet Connection - Not Avaliable")
                 self.connectionState = .disconnected
             }
         }
@@ -47,10 +47,13 @@ final public class NetworkMonitor {
 
     private func getConnectionType(_ path: NWPath) {
         if path.usesInterfaceType(.cellular) {
+            log.info("Connection: Cellular")
             connetionType = .cellular
         } else if path.usesInterfaceType(.wifi) {
+            log.info("Connection: Wi-Fi")
             connetionType = .wifi
         } else {
+            log.info("Connection: Unknown")
             connetionType = .unknown
         }
     }

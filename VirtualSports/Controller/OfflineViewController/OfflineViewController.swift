@@ -16,6 +16,8 @@ final class OfflineViewController: UIViewController, Dissmissable {
     var onGoToDissmiss: (() -> Void)?
 
     @IBAction private func tryAgainButtonPressed(_ sender: DesignableButton) {
+        
+        log.info("Try again button pressed")
 
         if NetworkMonitor.shared.connectionState == .connected {
                 DispatchQueue.main.async {
@@ -26,6 +28,8 @@ final class OfflineViewController: UIViewController, Dissmissable {
         }
 
     @IBAction private func offlineModeButtonPressed(_ sender: DesignableButton) {
+        
+        log.info("Offline mode button pressed")
         onGoToDissmiss?()
     }
 }

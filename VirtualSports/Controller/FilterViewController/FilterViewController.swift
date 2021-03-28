@@ -24,6 +24,7 @@ fileprivate extension Game {
 
         return categoryCondition && providersCondition
     }
+
 }
 
 fileprivate extension MainResponse {
@@ -31,6 +32,7 @@ fileprivate extension MainResponse {
     func filter(by scope: FilterScope) -> [Game] {
         self.games.filter { $0.isIncluded(in: scope) }
     }
+
 }
 
 protocol FilterViewControllerProtocol: AnyObject {
@@ -75,6 +77,8 @@ class FilterViewController: UIViewController {
     // MARK: Actions
 
     @IBAction private func didTapAcceptButton(_ sender: Any) {
+        
+        log.info("Accept button tapped")
 
         let scope = FilterScope(categoryId: selectedCategoryId, providersIds: selectedProviders)
         delegate?.isFiltered = true
@@ -85,6 +89,8 @@ class FilterViewController: UIViewController {
     }
 
     @IBAction private func didTapCancelButton(_ sender: Any) {
+
+        log.info("Cancel button tapped")
 
         onGoToDismiss?()
     }
@@ -177,6 +183,8 @@ private extension FilterViewController {
     }
 
     func onCategoryCellSelected(_ cell: CategoryCollectionViewCell) {
+        
+        log.info("Category cell tapped")
 
         if selectedCategoryId == cell.identifier {
 
@@ -199,6 +207,8 @@ private extension FilterViewController {
     }
 
     func onProviderCellSelected(_ cell: ProviderCollectionViewCell) {
+        
+        log.info("Provider cell tapped")
 
         guard let identifier = cell.identifier else {
             return
@@ -260,7 +270,9 @@ extension FilterViewController: UICollectionViewDelegate {
             showIfSelectedCategory(cell)
 
             ImageLoader.shared.downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
+
                 guard let indexPath = indexPath else { return }
+
                 DispatchQueue.main.async {
                     if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
                         cell.image = image
@@ -277,9 +289,14 @@ extension FilterViewController: UICollectionViewDelegate {
             cell.identifier = provider.id
             showIfSelectedProvider(cell)
 
-            ImageLoader.shared.downloadImage(from: provider.imageURL, indexPath: indexPath) { image, idexPath, _ in
+            ImageLoader.shared.downloadImage(from: provider.imageURL, indexPath: indexPath) { image, indexPath, _ in
+
+                guard let indexPath = indexPath else {
+                    return
+                }
+
                 DispatchQueue.main.async {
-                    if let cell = collectionView.cellForItem(at: idexPath!) as? ProviderCollectionViewCell {
+                    if let cell = collectionView.cellForItem(at: indexPath) as? ProviderCollectionViewCell {
                         cell.image = image
                     }
                 }

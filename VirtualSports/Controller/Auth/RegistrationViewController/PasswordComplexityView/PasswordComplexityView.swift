@@ -64,10 +64,10 @@ final class PasswordComplexityView: UIView {
     }
 
     private func setupShadows() {
-        layer.shadowRadius = 5.0
+        layer.shadowRadius = 10.0
         layer.shadowOffset = .zero
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.4
+        layer.shadowOpacity = 0.15
     }
 
     private func loadFromNib() -> UIView {
@@ -97,13 +97,13 @@ final class PasswordComplexityView: UIView {
         if isSatisfied {
             checkmarks.forEach {
                 if  $0.tag == tag {
-                    $0.tintColor = .green
+                    $0.tintColor = UIColor(named: "PMGreen")
                 }
             }
 
             conditionsLabels.forEach {
                 if  $0.tag == tag {
-                    $0.textColor = .green
+                    $0.textColor = UIColor(named: "PMGreen")
                 }
             }
         } else {

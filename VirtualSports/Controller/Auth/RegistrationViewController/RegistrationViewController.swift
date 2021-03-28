@@ -70,13 +70,14 @@ class RegistrationViewController: AuthBaseViewController {
                 return
             }
 
+            log.info("Sending registration request")
             self?.dependencies?.authProvider.register(credentials: ["login": email, "password": password]) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success:
                         self?.onComplete?()
                     case .failure(let error):
-                        print(error)
+                        log.error(error.localizedDescription)
                     }
 
                     self?.primaryButton?.setEnabled(true)
@@ -211,7 +212,6 @@ class RegistrationViewController: AuthBaseViewController {
         let predicate = NSPredicate(format: "SELF MATCHES %@", rule)
         let isSatisfied = predicate.evaluate(with: password)
 
-        print(isSatisfied)
         passwordComplexityView.lowercaseContainsCondition = isSatisfied
 
         return isSatisfied
@@ -222,7 +222,6 @@ class RegistrationViewController: AuthBaseViewController {
         let predicate = NSPredicate(format: "SELF MATCHES %@", rule)
         let isSatisfied = predicate.evaluate(with: password)
 
-        print("upper", isSatisfied)
         passwordComplexityView.uppercaseContainsCondition = isSatisfied
 
         return isSatisfied
@@ -233,7 +232,6 @@ class RegistrationViewController: AuthBaseViewController {
         let predicate = NSPredicate(format: "SELF MATCHES %@", rule)
         let isSatisfied = predicate.evaluate(with: password)
 
-        print("upper", isSatisfied)
         passwordComplexityView.numberContainsCondition = isSatisfied
 
         return isSatisfied
@@ -245,7 +243,7 @@ class RegistrationViewController: AuthBaseViewController {
         if checkEmail(emailTextField: emailTextField) {
             emailErrorLabel.isHidden = true
             emailTextField?.changeBottomLineColor = .green
-            emailLabel.textColor = .green
+            emailLabel.textColor = UIColor(named: "PMGreen")
         } else {
             emailErrorLabel.isHidden = false
             emailTextField?.changeBottomLineColor = .red
@@ -273,7 +271,7 @@ class RegistrationViewController: AuthBaseViewController {
 
         if conditions {
             validPasswordLabel.isHidden = false
-            passwordLabel.textColor = .green
+            passwordLabel.textColor = UIColor(named: "PMGreen")
             passwordTextField?.changeBottomLineColor = .green
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in

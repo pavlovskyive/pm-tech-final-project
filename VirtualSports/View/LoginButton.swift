@@ -57,9 +57,9 @@ final class LoginButton: UIButton {
 
     internal func setupShadow() {
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = 7.0
+        layer.shadowRadius = 10.0
         layer.shadowOffset = .zero
-        layer.shadowOpacity = 0.4
+        layer.shadowOpacity = 0.15
         layer.masksToBounds = false
     }
 
