@@ -28,6 +28,8 @@ protocol MainViewControllerProtocol: BaseViewControllerProvider {
 @available(iOS 13.0, *)
 class MainViewController: UIViewController, MainViewControllerProtocol {
 
+    // MARK: Properties
+
     var dataSource: UICollectionViewDiffableDataSource<GameSection, Game>?
     var sections: [GameSection] = []
 
@@ -57,22 +59,72 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet private weak var filterButtonView: FilterButtonView!
     @IBOutlet private weak var gameCollectionView: UICollectionView!
 
+    // MARK: Lifecircle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setStatusBar(backgroundColor: .black)
         filterButtonView.delegate = self
-        topBar.delegate = self
-        topBar.showMainTopBar()
+        setupTopBar()
         checkNetworkConnectionState(connectionState)
 
     }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    deinit {
+        dependencies?.authProvider.unsubscribe(self)
+    }
+
+    // MARK: Setup Metods
+
+    func setupTopBar() {
+        topBar.delegate = self
+        topBar.showMainTopBar()
+    }
+
+    func makeSections() {
+
+        guard let response = mainResponse else { return }
+
+        sections = []
+
+        if filteredGames != [] {
+            let filterSection = GameSection(tag: "filtr", title: "Фильтр", items: filteredGames)
+            sections.append(filterSection)
+            return
+        }
+
+        let topGames = response.games.filter { $0.tags.contains("top") == true }
+        let topSections = GameSection(tag: "top", title: "Top", items: topGames)
+        sections.append(topSections)
+
+        if !favouriteGames.isEmpty {
+                let sectionFavourite = GameSection(tag: "favourite", title: "Favourite", items: favouriteGames)
+                sections.append(sectionFavourite)
+        }
+
+        if !recentGames.isEmpty {
+                let sectionFavourite = GameSection(tag: "recent", title: "Recent", items: recentGames)
+                sections.append(sectionFavourite)
+        }
+
+        let allGames = response.games
+        let allGamesSections = GameSection(tag: "all", title: "All Games", items: allGames)
+        sections.append(allGamesSections)
+
+    }
+
+    // MARK: Network
 
     private func checkNetworkConnectionState(_ state: ConnectionState) {
         switch state {
         case .connected:
         dependencies?.authProvider.subscribe(self)
             fetchMain()
-            configureCollectionView()
+
         case .disconnected:
             DispatchQueue.main.async {
                 self.onGoToOffline?()
@@ -85,104 +137,17 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
-    deinit {
-        dependencies?.authProvider.unsubscribe(self)
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
-    func configureCollectionView() {
-
-        gameCollectionView.collectionViewLayout = createCompositionalLayout()
-        gameCollectionView.delegate = self
-        gameCollectionView.register(type: GameCollectionViewCell.self)
-        gameCollectionView.register(type: HeaderCollectionReusableView.self,
-                                      kind: UICollectionView.elementKindSectionHeader)
-
-    }
-
-    // MARK: - Setup Layout
-
-    func createCompositionalLayout() -> UICollectionViewLayout {
-
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) ->
-            NSCollectionLayoutSection? in
-
-            let section = self.sections[sectionIndex]
-
-            switch section.tag {
-            case "top":
-                return self.createWaitingChatSection()
-            default:
-                return self.createActiveChatSection()
-            }
-        }
-
-        return layout
-    }
-
-    func createWaitingChatSection() -> NSCollectionLayoutSection {
-
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                              heightDimension: .fractionalHeight(1))
-        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        layoutItem.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 8)
-
-        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .estimated(self.view.layer.frame.width/2 - 8),
-                                                     heightDimension: .estimated(self.view.layer.frame.width/2 - 8+20))
-        let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
-
-        let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.orthogonalScrollingBehavior = .continuous
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 20, leading: 8, bottom: 20, trailing: 8)
-
-        let header = createSectionHeader()
-        layoutSection.boundarySupplementaryItems = [header]
-
-        return layoutSection
-    }
-
-    func createActiveChatSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                               heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 8, trailing: 8)
-
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                heightDimension: .estimated(self.view.layer.frame.width/2 - 8+20))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 30, leading: 8, bottom: 0, trailing: 8)
-
-        let header = createSectionHeader()
-        section.boundarySupplementaryItems = [header]
-
-        return section
-    }
-
-    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                             heightDimension: .estimated(20))
-        let layoutSection = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize,
-                                                                        elementKind: UICollectionView.elementKindSectionHeader,
-                                                                        alignment: .top)
-        return layoutSection
-    }
-
     private func fetchMain() {
         dependencies?.apiService.fetchMain { result in
             switch result {
             case .success(let mainResponse):
                 print(mainResponse)
                 self.mainResponse = mainResponse
+                self.makeSections()
 
                 DispatchQueue.main.async {
-                    self.sections = self.makeSections(response: mainResponse)
-                    self.createDataSource()
-                    self.reloadData()
+                    self.configureCollectionView()
+                    self.gameCollectionView.reloadData()
                 }
 
             case .failure(let error):
@@ -195,8 +160,15 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         dependencies?.apiService.fetchFavourites { result in
             switch result {
             case .success(let favouriteGames):
+
                 print("\n\nFavourites: \(favouriteGames)")
                 self.favouriteGames = favouriteGames
+                self.makeSections()
+
+                    DispatchQueue.main.async {
+                        self.gameCollectionView.reloadData()
+                    }
+
             case .failure(let error):
                 print(error)
             }
@@ -209,6 +181,12 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             case .success(let recentGames):
                 print("\n\nRecent: \(recentGames)")
                 self.recentGames = recentGames
+                self.makeSections()
+
+                    DispatchQueue.main.async {
+                        self.gameCollectionView.reloadData()
+                    }
+
             case .failure(let error):
                 print(error)
             }
@@ -225,60 +203,19 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
-    func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<GameSection, Game>(collectionView: gameCollectionView,
-                                cellProvider: { (collectionView, indexPath, game) -> UICollectionViewCell? in
-
-            let cell = collectionView.dequeueReusableCell(with: GameCollectionViewCell.self, for: indexPath)
-            cell.configur(game: game)
-            return cell
-        })
-
-        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
-
-            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                    withReuseIdentifier: "HeaderCollectionReusableView",
-                    for: indexPath) as? HeaderCollectionReusableView else { return nil }
-            guard let firstGame = self.dataSource?.itemIdentifier(for: indexPath) else { return nil }
-            guard let section = self.dataSource?
-                    .snapshot()
-                    .sectionIdentifier(containingItem: firstGame) else { return nil }
-            if section.title.isEmpty { return nil }
-
-            sectionHeader.sectionName = section.title
-            return sectionHeader
-        }
-    }
-
-    func reloadData() {
-        var snapshot = NSDiffableDataSourceSnapshot<GameSection, Game>()
-        snapshot.appendSections(sections)
-
-        for section in sections {
-            snapshot.appendItems(section.items, toSection: section)
-        }
-
-        dataSource?.apply(snapshot)
-    }
-
-    func makeSections(response: MainResponse) -> [GameSection] {
-        var sections: [GameSection] = []
-        for tag in response.tags {
-            let tagId = tag.id
-            let games = response.games.filter { $0.tags.contains(tagId) == true }
-
-            let section = GameSection(tag: tagId, title: tag.name, items: games)
-            sections.append(section)
-        }
-        return sections.reversed()
-    }
-
-    func setupTopBar() {
-        topBar.delegate = self
-        topBar.showMainTopBar()
+    func configureCollectionView() {
+        self.gameCollectionView.collectionViewLayout = LayoutFactory()
+            .makeGameCollectionLayout(with: sections, view: self.view)
+        self.gameCollectionView.dataSource = self
+        self.gameCollectionView.delegate = self
+        self.gameCollectionView.register(type: GameCollectionViewCell.self)
+        self.gameCollectionView.register(type: HeaderCollectionReusableView.self,
+                                      kind: UICollectionView.elementKindSectionHeader)
     }
 
 }
+
+// MARK: Auth Delegate
 
 @available(iOS 13.0, *)
 extension MainViewController: AuthDelegate {
@@ -300,28 +237,33 @@ extension MainViewController: AuthDelegate {
     }
 }
 
+// MARK: Filter Delegate
+
 @available(iOS 13.0, *)
 extension MainViewController: FilterDelegate {
 
     func handleFilter(filteredGames: [Game]) {
-        // TODO: Handle empty filtered
-        // TODO: Implement filter reset
         isFiltered = true
         self.filteredGames = filteredGames
+        self.makeSections()
+        self.gameCollectionView.reloadData()
         print(filteredGames)
     }
 
 }
+
+// MARK: Filter Button Delegate
 
 @available(iOS 13.0, *)
 extension MainViewController: FilterButtonDelegate {
 
     func didTapFilterButton() {
         self.onGoToFilter?(mainResponse)
-        print("Filter button pressed")
     }
 
 }
+
+// MARK: Top Bar Delegate
 
 @available(iOS 13.0, *)
 extension MainViewController: TopBarDelegate {
@@ -350,4 +292,52 @@ extension MainViewController: UICollectionViewDelegate {
 
         self.onGoToGame?(cell.game)
     }
+}
+
+// MARK: Collection View Data Source
+
+@available(iOS 13.0, *)
+extension MainViewController: UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        sections.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sections[section].items.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(with: GameCollectionViewCell.self, for: indexPath)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? GameCollectionViewCell else { return }
+
+        cell.configur(game: sections[indexPath.section].items[indexPath.row])
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+
+        let kindView = UICollectionView.elementKindSectionHeader
+
+        if kind == kindView {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kindView,
+                                                                         with: HeaderCollectionReusableView.self,
+                                                                         for: indexPath)
+
+            header.sectionName = sections[indexPath.section].title
+
+            return header
+        }
+
+        return .init()
+    }
+
 }

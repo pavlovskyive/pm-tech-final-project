@@ -60,6 +60,7 @@
 		B9D6B502260F3348002B1B38 /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D6B500260F3348002B1B38 /* GameCollectionViewCell.xib */; };
 		B9D6B505260F3796002B1B38 /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6B504260F3796002B1B38 /* MainSection.swift */; };
 		B9D6B507260F3D9A002B1B38 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6B506260F3D9A002B1B38 /* UINavigationController+Extension.swift */; };
+		B9D6B509260FE561002B1B38 /* LayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6B508260FE561002B1B38 /* LayoutFactory.swift */; };
 		B9E170652608AC850099DA82 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170642608AC850099DA82 /* FilterButtonView.swift */; };
 		B9E170672608ACD70099DA82 /* FilterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170662608ACD70099DA82 /* FilterButtonView.xib */; };
 		B9E170692608AD570099DA82 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170682608AD570099DA82 /* UIViewExtension.swift */; };
@@ -142,6 +143,7 @@
 		B9D6B500260F3348002B1B38 /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9D6B504260F3796002B1B38 /* MainSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSection.swift; sourceTree = "<group>"; };
 		B9D6B506260F3D9A002B1B38 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		B9D6B508260FE561002B1B38 /* LayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFactory.swift; sourceTree = "<group>"; };
 		B9E170642608AC850099DA82 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		B9E170662608ACD70099DA82 /* FilterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterButtonView.xib; sourceTree = "<group>"; };
 		B9E170682608AD570099DA82 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 			children = (
 				B941F6452607CA1200D831A2 /* MainViewController.xib */,
 				B941F6462607CA1200D831A2 /* MainViewController.swift */,
+				B9D6B508260FE561002B1B38 /* LayoutFactory.swift */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */,
 				B9D6B505260F3796002B1B38 /* MainSection.swift in Sources */,
 				B941F62E2607C84500D831A2 /* ViewController+Coordinator.swift in Sources */,
+				B9D6B509260FE561002B1B38 /* LayoutFactory.swift in Sources */,
 				B941F6602607E59D00D831A2 /* UIView + IBDesignable.swift in Sources */,
 				79846F89260951D200DCA87B /* LoginButton.swift in Sources */,
 				B941F6272607C7BD00D831A2 /* BaseCoordinator.swift in Sources */,
