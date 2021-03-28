@@ -72,6 +72,9 @@
 		B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */; };
 		B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */; };
 		E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = E5000E8E260BDF4500ECCE1F /* ImageLoader */; };
+		E5E555A326108A7600025039 /* Parimatch-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5E555A026108A7600025039 /* Parimatch-Bold.otf */; };
+		E5E555A426108A7600025039 /* Parimatch-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5E555A126108A7600025039 /* Parimatch-Regular.otf */; };
+		E5E555A526108A7600025039 /* Parimatch-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5E555A226108A7600025039 /* Parimatch-Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +159,9 @@
 		B9E1706E2608D3B60099DA82 /* ProviderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5E555A026108A7600025039 /* Parimatch-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parimatch-Bold.otf"; sourceTree = "<group>"; };
+		E5E555A126108A7600025039 /* Parimatch-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parimatch-Regular.otf"; sourceTree = "<group>"; };
+		E5E555A226108A7600025039 /* Parimatch-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parimatch-Thin.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +313,7 @@
 		79C3D256260489A700ACD5E5 /* VirtualSports */ = {
 			isa = PBXGroup;
 			children = (
+				E5E5559E26108A5900025039 /* Resources */,
 				B9E170622608AC2E0099DA82 /* ReusableView */,
 				79043EEB260875DA00119FD9 /* Helper */,
 				B941F6512607E59D00D831A2 /* TopBar */,
@@ -572,6 +579,24 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
+		E5E5559E26108A5900025039 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5E5559F26108A6100025039 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E5E5559F26108A6100025039 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E5E555A026108A7600025039 /* Parimatch-Bold.otf */,
+				E5E555A126108A7600025039 /* Parimatch-Regular.otf */,
+				E5E555A226108A7600025039 /* Parimatch-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -698,6 +723,7 @@
 			files = (
 				B9BA50E1260A4DD300F4E0A8 /* HeaderCollectionReusableView.xib in Resources */,
 				B941F64B2607CA1200D831A2 /* BaseGameViewController.xib in Resources */,
+				E5E555A526108A7600025039 /* Parimatch-Thin.otf in Resources */,
 				B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
 				B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */,
@@ -709,9 +735,11 @@
 				79E18DEE260E5F3A00250CC9 /* OfflineViewController.xib in Resources */,
 				B9E170702608D3B60099DA82 /* ProviderCollectionViewCell.xib in Resources */,
 				B9BA50EC260A4EE600F4E0A8 /* FilterViewController.xib in Resources */,
+				E5E555A426108A7600025039 /* Parimatch-Regular.otf in Resources */,
 				79E18E21260F039800250CC9 /* DiceGameViewController.xib in Resources */,
 				79846F81260951BF00DCA87B /* LoginViewController.xib in Resources */,
 				79846F7E260951BF00DCA87B /* RegistrationViewController.xib in Resources */,
+				E5E555A326108A7600025039 /* Parimatch-Bold.otf in Resources */,
 				79C3D261260489B500ACD5E5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

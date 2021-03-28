@@ -8,6 +8,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Bold.otf">
+            <string>Pari-Match-Bold</string>
+        </array>
+        <array key="Parimatch-Regular.otf">
+            <string>Pari-Match-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopBar" customModule="VirtualSports" customModuleProvider="target">
             <connections>
@@ -44,7 +52,7 @@
                                 <constraint firstAttribute="width" constant="80" id="Xw8-uw-2V7"/>
                                 <constraint firstAttribute="height" constant="30" id="jPT-ZS-C5t"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
                             <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                             <state key="normal" title="Вход">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,7 +77,7 @@
                                 <constraint firstAttribute="height" constant="30" id="FZS-Vf-kGs"/>
                                 <constraint firstAttribute="width" constant="120" id="elx-Kd-7UW"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
                             <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                             <state key="normal" title="Регистрация">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -93,7 +101,7 @@
                                 <constraint firstAttribute="width" constant="80" id="CCM-go-rAT"/>
                                 <constraint firstAttribute="height" constant="30" id="rq5-Cd-OmF"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
                             <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                             <state key="normal" title="Выход">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,8 +133,8 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-or-wBg">
-                            <rect key="frame" x="178.66666666666666" y="18" width="57" height="26.333333333333329"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <rect key="frame" x="186.66666666666666" y="19" width="40.666666666666657" height="24.333333333333329"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -199,13 +207,13 @@
     </objects>
     <designables>
         <designable name="KdJ-3S-Q4h">
-            <size key="intrinsicContentSize" width="36" height="29"/>
+            <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="NuO-6D-Mvz">
-            <size key="intrinsicContentSize" width="93" height="29"/>
+            <size key="intrinsicContentSize" width="76" height="33"/>
         </designable>
         <designable name="cay-nJ-gTT">
-            <size key="intrinsicContentSize" width="47" height="29"/>
+            <size key="intrinsicContentSize" width="39" height="33"/>
         </designable>
     </designables>
     <resources>
@@ -214,7 +222,7 @@
         <image name="Left" width="34.666667938232422" height="61.333332061767578"/>
         <image name="logo" width="230" height="130"/>
         <namedColor name="PMYellow">
-            <color red="0.92549019607843142" green="0.9137254901960784" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.92500001192092896" green="0.91399997472763062" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -10,6 +10,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Bold.otf">
+            <string>Pari-Match-Bold</string>
+        </array>
+        <array key="Parimatch-Regular.otf">
+            <string>Pari-Match-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiceGameViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
@@ -54,7 +62,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="BwL-fn-PBG"/>
                     </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="-25" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="ИГРАТЬ">
                         <color key="titleColor" name="Background"/>
@@ -109,7 +117,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="s8e-ZL-Yk9"/>
                             </constraints>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
                             <state key="normal" title="Войти">
                                 <color key="titleColor" name="Background"/>
                             </state>

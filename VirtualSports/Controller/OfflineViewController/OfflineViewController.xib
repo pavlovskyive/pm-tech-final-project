@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Bold.otf">
+            <string>Pari-Match-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OfflineViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
@@ -28,13 +33,13 @@
                     <rect key="frame" x="10" y="508" width="394" height="324"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Потеряно соединение с интернетом" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7g-Du-bNi">
-                            <rect key="frame" x="0.0" y="0.0" width="394" height="57.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                            <rect key="frame" x="0.0" y="0.0" width="394" height="25.5"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="21"/>
                             <color key="textColor" red="0.98039215690000003" green="0.98823529409999999" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте своё интернет-соединение и нажмите на кнопку &quot;Обновить&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLc-c9-LBW">
-                            <rect key="frame" x="0.0" y="70.5" width="394" height="36"/>
+                            <rect key="frame" x="0.0" y="38.5" width="394" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="0.98039215690000003" green="0.98823529409999999" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -42,10 +47,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="d19-L1-ME4">
-                            <rect key="frame" x="0.0" y="119.5" width="394" height="204.5"/>
+                            <rect key="frame" x="0.0" y="87.5" width="394" height="236.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="ULp-PU-5gy" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="87.5" width="170" height="30"/>
+                                    <rect key="frame" x="0.0" y="103.5" width="170" height="30"/>
                                     <color key="backgroundColor" red="0.98039215690000003" green="0.98823529409999999" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,7 +66,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS1-j1-XM8" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                                    <rect key="frame" x="200" y="88" width="194" height="29"/>
+                                    <rect key="frame" x="200" y="104" width="194" height="29"/>
                                     <color key="backgroundColor" red="0.98039215690000003" green="0.98823529409999999" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
