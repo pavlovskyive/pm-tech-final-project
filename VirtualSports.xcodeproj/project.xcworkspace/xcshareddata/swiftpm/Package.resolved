@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/pavlovskyive/auth-service",
         "state": {
           "branch": null,
-          "revision": "a163aea9891c21711d266efb60b66c6d736880cf",
-          "version": "0.2.3"
+          "revision": "f9732b76c83f1963e83d34c878f6ea4de4cfa88e",
+          "version": "0.2.4"
         }
       },
       {
@@ -150,8 +150,8 @@
         "repositoryURL": "https://github.com/pavlovskyive/virtual-sports-api-service",
         "state": {
           "branch": null,
-          "revision": "3ec566d016e113a2b545690fca059bf25709f289",
-          "version": "0.3.4"
+          "revision": "887ab68cd2fc59ac78b0457c80b6fa45493714f1",
+          "version": "0.3.5"
         }
       }
     ]

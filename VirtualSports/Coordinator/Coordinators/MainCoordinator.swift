@@ -101,7 +101,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         let gameViewController: BaseGameViewController
 
         switch game.id {
-        case "dice":
+        case "original_dice_game":
             gameViewController = DiceGameViewController(for: game)
         default:
             gameViewController = GenericGameViewController(for: game)

@@ -88,7 +88,7 @@ final class BetView: UIView {
 
         switch bet.betType {
         case 0..<6:
-            coloredText = "\(bet.betType)"
+            coloredText = "\(bet.betType + 1)"
         case 6:
             coloredText = "ЧЕТ"
         case 7:

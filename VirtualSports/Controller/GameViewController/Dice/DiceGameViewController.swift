@@ -56,17 +56,13 @@ class DiceGameViewController: BaseGameViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         dependencies?.authProvider.subscribe(self)
 
         setupButtons()
         checkAuth()
 
         topBar?.showHistoryButton(dependencies?.authProvider.loggedIn ?? false)
-    }
-
-    override func handleBetOutcome(bet: Bet) {
-        print(bet)
     }
 
     override func handleHistoryResponse(history: [Bet]) {
@@ -100,7 +96,7 @@ class DiceGameViewController: BaseGameViewController {
 
         let bet = Bet(betType: betType)
 
-        dependencies?.apiService.playGame(gameId: game.id, bet: bet) { [weak self] result in
+        dependencies?.apiService.playGame(gameId: "dice", bet: bet) { [weak self] result in
             switch result {
             case .success(let bet):
                 DispatchQueue.main.async {

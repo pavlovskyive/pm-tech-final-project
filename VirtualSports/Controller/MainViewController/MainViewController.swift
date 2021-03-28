@@ -53,10 +53,14 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet private weak var filterButtonView: FilterButtonView!
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
+
         filterButtonView.delegate = self
         topBar.delegate = self
+
         topBar.showMainTopBar()
+
         checkNetworkConnectionState(connectionState)
 
     }
@@ -64,7 +68,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     private func checkNetworkConnectionState(_ state: ConnectionState) {
         switch state {
         case .connected:
-        dependencies?.authProvider.subscribe(self)
+            dependencies?.authProvider.subscribe(self)
+            dependencies?.apiService.delegate = self
             fetchMain()
         case .disconnected:
             DispatchQueue.main.async {
@@ -90,10 +95,10 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBAction private func didTapGame(_ sender: Any) {
 
         // TODO: Game mock - replace for using with actual data.
-        let game = Game(id: "dice",
-                        provider: "providerId111111",
+        let game = Game(id: "original_dice_game",
+                        provider: "pm-academy1",
                         categories: ["categoryId1"],
-                        name: "Dice",
+                        name: "Кости",
                         tags: ["all", "top"])
 
         self.onGoToGame?(game)
@@ -135,6 +140,12 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
+    private func fetchAll() {
+        fetchMain()
+        fetchRecent()
+        fetchFavourites()
+    }
+
     private func logout() {
         dependencies?.authProvider.logout { error in
             guard let error = error else {
@@ -143,6 +154,18 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
             print(error)
         }
+    }
+
+}
+
+extension MainViewController: APIDelegate {
+
+    func onFavouritesChanged() {
+        fetchFavourites()
+    }
+
+    func onRecentsChanged() {
+        fetchRecent()
     }
 
 }

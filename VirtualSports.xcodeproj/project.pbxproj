@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79024673261012850070B593 /* APILayer in Frameworks */ = {isa = PBXBuildFile; productRef = 79024672261012850070B593 /* APILayer */; };
+		79024679261012E50070B593 /* AuthLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 79024678261012E50070B593 /* AuthLayer */; };
 		7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961876E2609D8A20027C117 /* UITextField+Secure.swift */; };
-		796BF80C260F27090019BB82 /* APILayer in Frameworks */ = {isa = PBXBuildFile; productRef = 796BF80B260F27090019BB82 /* APILayer */; };
 		796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796BF810260F355E0019BB82 /* GenericGameViewController.swift */; };
 		79743ABA260F7484003A031E /* PasswordComplexityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79743AB8260F7484003A031E /* PasswordComplexityView.swift */; };
 		79743ABB260F7484003A031E /* PasswordComplexityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79743AB9260F7484003A031E /* PasswordComplexityView.xib */; };
@@ -36,7 +37,6 @@
 		79E18DE7260E5F2500250CC9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E18DE6260E5F2500250CC9 /* NetworkMonitor.swift */; };
 		79E18DEE260E5F3A00250CC9 /* OfflineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E18DEC260E5F3A00250CC9 /* OfflineViewController.xib */; };
 		79E18DEF260E5F3A00250CC9 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E18DED260E5F3A00250CC9 /* OfflineViewController.swift */; };
-		79E18E07260E643800250CC9 /* AuthLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 79E18E06260E643800250CC9 /* AuthLayer */; };
 		79E18E20260F039800250CC9 /* DiceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E18E1E260F039800250CC9 /* DiceGameViewController.swift */; };
 		79E18E21260F039800250CC9 /* DiceGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E18E1F260F039800250CC9 /* DiceGameViewController.xib */; };
 		B941F6232607C73A00D831A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941F6222607C73A00D831A2 /* ApplicationCoordinator.swift */; };
@@ -163,8 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */,
-				796BF80C260F27090019BB82 /* APILayer in Frameworks */,
-				79E18E07260E643800250CC9 /* AuthLayer in Frameworks */,
+				79024673261012850070B593 /* APILayer in Frameworks */,
+				79024679261012E50070B593 /* AuthLayer in Frameworks */,
 				E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
 				79C3D29126048CE800ACD5E5 /* FirebaseCrashlytics in Frameworks */,
@@ -595,8 +595,8 @@
 				79C3D29026048CE800ACD5E5 /* FirebaseCrashlytics */,
 				79C3F18B26076C5F001D2982 /* KeychainWrapper */,
 				E5000E8E260BDF4500ECCE1F /* ImageLoader */,
-				79E18E06260E643800250CC9 /* AuthLayer */,
-				796BF80B260F27090019BB82 /* APILayer */,
+				79024672261012850070B593 /* APILayer */,
+				79024678261012E50070B593 /* AuthLayer */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -673,8 +673,8 @@
 				79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */,
 				E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */,
-				79E18E05260E643800250CC9 /* XCRemoteSwiftPackageReference "auth-service" */,
-				796BF80A260F27090019BB82 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
+				79024671261012840070B593 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
+				79024677261012E50070B593 /* XCRemoteSwiftPackageReference "auth-service" */,
 			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
@@ -1178,12 +1178,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		796BF80A260F27090019BB82 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */ = {
+		79024671261012840070B593 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pavlovskyive/virtual-sports-api-service";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.4;
+				minimumVersion = 0.3.5;
+			};
+		};
+		79024677261012E50070B593 /* XCRemoteSwiftPackageReference "auth-service" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pavlovskyive/auth-service";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.4;
 			};
 		};
 		79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -1202,14 +1210,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		79E18E05260E643800250CC9 /* XCRemoteSwiftPackageReference "auth-service" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pavlovskyive/auth-service";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.2;
-			};
-		};
 		E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alexsopilnyak/ImageLoader.git";
@@ -1221,10 +1221,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		796BF80B260F27090019BB82 /* APILayer */ = {
+		79024672261012850070B593 /* APILayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 796BF80A260F27090019BB82 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
+			package = 79024671261012840070B593 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */;
 			productName = APILayer;
+		};
+		79024678261012E50070B593 /* AuthLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79024677261012E50070B593 /* XCRemoteSwiftPackageReference "auth-service" */;
+			productName = AuthLayer;
 		};
 		79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1240,11 +1245,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 79C3F18A26076C5F001D2982 /* XCRemoteSwiftPackageReference "keychain-wrapper" */;
 			productName = KeychainWrapper;
-		};
-		79E18E06260E643800250CC9 /* AuthLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79E18E05260E643800250CC9 /* XCRemoteSwiftPackageReference "auth-service" */;
-			productName = AuthLayer;
 		};
 		E5000E8E260BDF4500ECCE1F /* ImageLoader */ = {
 			isa = XCSwiftPackageProductDependency;

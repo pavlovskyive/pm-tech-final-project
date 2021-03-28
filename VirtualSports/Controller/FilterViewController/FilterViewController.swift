@@ -24,6 +24,7 @@ fileprivate extension Game {
 
         return categoryCondition && providersCondition
     }
+
 }
 
 fileprivate extension MainResponse {
@@ -31,6 +32,7 @@ fileprivate extension MainResponse {
     func filter(by scope: FilterScope) -> [Game] {
         self.games.filter { $0.isIncluded(in: scope) }
     }
+
 }
 
 protocol FilterViewControllerProtocol: AnyObject {
