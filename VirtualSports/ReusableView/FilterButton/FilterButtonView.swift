@@ -62,7 +62,6 @@ final class FilterButtonView: UIView {
     }
 
     private func configureCountLabel() {
-        filterCountLabel.layer.cornerRadius = filterCountLabel.frame.height / 2
         filterCountLabel.isHidden = filterCountIsHidden
     }
 
