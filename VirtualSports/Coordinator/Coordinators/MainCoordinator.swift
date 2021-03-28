@@ -117,15 +117,15 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         gameViewController.dependencies = dependencies
         gameViewController.onGoToLogin = { [unowned self] in
-            showLoginVC()
+            self.showLoginVC()
         }
 
         gameViewController.onGoToBack = { [unowned self] in
-            router.popModule()
+            self.router.popModule()
         }
 
         gameViewController.onGoToHistory = { [unowned self] bets in
-            showBetsHistory(bets: bets)
+            self.showBetsHistory(bets: bets)
         }
 
         self.router.push(gameViewController)

@@ -66,7 +66,11 @@ class BaseGameViewController: UIViewController, GameViewControllable {
 
         guard dependencies?.authProvider.loggedIn ?? false else {
 
-            let alert = Alert.errorAlert(title: "Authorization error", message: "Please log in into system.")
+            let alert = Alert.errorAlert(title: "Authorization error", message: "Please log in into system.", needCancelButton: true) {
+                DispatchQueue.main.async {
+                    self.onGoToLogin?()
+                }
+            }
 
             self.present(alert, animated: true)
 
@@ -93,11 +97,11 @@ class BaseGameViewController: UIViewController, GameViewControllable {
                 }
             case .failure(let error):
                 let alert = Alert.errorAlert(title: "Bet alert", message: error.localizedDescription)
-                
+
                 DispatchQueue.main.async {
                     self?.present(alert, animated: true)
                 }
-                
+
                 log.error(error.localizedDescription)
             }
         }

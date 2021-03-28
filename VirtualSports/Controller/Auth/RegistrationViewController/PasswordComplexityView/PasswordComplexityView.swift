@@ -92,7 +92,7 @@ final class PasswordComplexityView: UIView {
         }
     }
 
-    #warning("Refactor this bullshit")
+    // TODO: Need to refactor in future
     private func checkCondition(_ isSatisfied: Bool, tag: Int ) {
         if isSatisfied {
             checkmarks.forEach {
