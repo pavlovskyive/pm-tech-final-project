@@ -40,13 +40,12 @@ final class LoginButton: UIButton {
                 Make sure the font file is included in the project and the font name is spelled correctly.
                 """
             )
-            
+
         }
-        
+
         titleLabel?.font = customFont
         titleLabel?.font = UIFontMetrics.default.scaledFont(for: customFont)
         titleLabel?.adjustsFontForContentSizeCategory = true
-        
 
         setTitleColor(.black, for: .normal)
 

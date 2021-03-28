@@ -53,30 +53,30 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     }
 
     private func showLoginVC() {
-        
+
         log.info("Show LoginViewController")
 
         let loginViewController = LoginViewController()
         loginViewController.dependencies = dependencies
 
         loginViewController.onComplete = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         loginViewController.secondaryAction = { [unowned self] in
-            router.dismissModule()
-            showRegistrationVC()
+            self.router.dismissModule()
+            self.showRegistrationVC()
         }
 
         loginViewController.onClose = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         router.present(loginViewController)
     }
 
     private func showRegistrationVC() {
-        
+
         log.info("Show RegistrationViewController")
 
         let registrationViewController = RegistrationViewController()
@@ -84,16 +84,16 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         registrationViewController.dependencies = dependencies
 
         registrationViewController.onComplete = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         registrationViewController.secondaryAction = { [unowned self] in
-            router.dismissModule()
-            showLoginVC()
+            self.router.dismissModule()
+            self.showLoginVC()
         }
 
         registrationViewController.onClose = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         self.router.present(registrationViewController)
@@ -101,7 +101,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     }
 
     private func showGameVC(for game: Game?) {
-        
+
         log.info("Show GameViewController")
 
         guard let game = game else { return }
@@ -132,9 +132,9 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     }
 
     private func showFilterVC(for mainResponse: MainResponse?, delegate: FilterDelegate) {
-        
+
         log.info("Show FilterViewController")
-        
+
         guard let mainResponse = mainResponse else { return }
 
         let filterViewController = FilterViewController(for: mainResponse, delegate: delegate)
@@ -147,7 +147,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     }
 
     private func showOfflineVC() {
-        
+
         log.info("Show OfflineViewController")
 
         let offlineViewController = OfflineViewController()
@@ -161,7 +161,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     }
 
     private func showBetsHistory(bets: [Bet]) {
-        
+
         log.info("Showing bets history")
 
         let betsHistoryViewController = BetsHistoryViewController(bets: bets)
@@ -176,7 +176,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
     // MARK: - Coordinator
     override func start() {
-        
+
         log.info("Main flow started")
         self.showMainVC()
     }

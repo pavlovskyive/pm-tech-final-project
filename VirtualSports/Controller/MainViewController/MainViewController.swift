@@ -146,7 +146,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
 
     private func logout() {
-        
+
         log.info("Logging out...")
 
         dependencies?.authProvider.logout { error in

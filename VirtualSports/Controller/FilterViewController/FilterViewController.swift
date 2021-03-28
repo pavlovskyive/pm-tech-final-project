@@ -77,7 +77,7 @@ class FilterViewController: UIViewController {
     // MARK: Actions
 
     @IBAction private func didTapAcceptButton(_ sender: Any) {
-        
+
         log.info("Accept button tapped")
 
         let scope = FilterScope(categoryId: selectedCategoryId, providersIds: selectedProviders)
@@ -183,7 +183,7 @@ private extension FilterViewController {
     }
 
     func onCategoryCellSelected(_ cell: CategoryCollectionViewCell) {
-        
+
         log.info("Category cell tapped")
 
         if selectedCategoryId == cell.identifier {
@@ -207,7 +207,7 @@ private extension FilterViewController {
     }
 
     func onProviderCellSelected(_ cell: ProviderCollectionViewCell) {
-        
+
         log.info("Provider cell tapped")
 
         guard let identifier = cell.identifier else {

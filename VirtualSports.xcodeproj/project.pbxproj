@@ -72,6 +72,7 @@
 		B9E170732608DADD0099DA82 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */; };
 		B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */; };
 		E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = E5000E8E260BDF4500ECCE1F /* ImageLoader */; };
+		E5BEA09E261096B800A25596 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BEA09D261096B800A25596 /* Alert.swift */; };
 		E5E555A326108A7600025039 /* Parimatch-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5E555A026108A7600025039 /* Parimatch-Bold.otf */; };
 		E5E555A426108A7600025039 /* Parimatch-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5E555A126108A7600025039 /* Parimatch-Regular.otf */; };
 		E5E555A526108A7600025039 /* Parimatch-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5E555A226108A7600025039 /* Parimatch-Thin.otf */; };
@@ -159,6 +160,7 @@
 		B9E1706E2608D3B60099DA82 /* ProviderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9E170712608DADD0099DA82 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9E170722608DADD0099DA82 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5BEA09D261096B800A25596 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E5E555A026108A7600025039 /* Parimatch-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parimatch-Bold.otf"; sourceTree = "<group>"; };
 		E5E555A126108A7600025039 /* Parimatch-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parimatch-Regular.otf"; sourceTree = "<group>"; };
 		E5E555A226108A7600025039 /* Parimatch-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parimatch-Thin.otf"; sourceTree = "<group>"; };
@@ -199,9 +201,10 @@
 		79043EEB260875DA00119FD9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				79E18DE6260E5F2500250CC9 /* NetworkMonitor.swift */,
 				79D0CD79260B7DB50075F8BD /* Constants */,
 				79E3B2BB2609BF83006E4081 /* Extensions */,
+				E5BEA09D261096B800A25596 /* Alert.swift */,
+				79E18DE6260E5F2500250CC9 /* NetworkMonitor.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				797DA015260FD04E0018EFE5 /* BetsHistoryViewController.swift in Sources */,
 				B941F6302607C86C00D831A2 /* CoordinatorFactoryProtocol.swift in Sources */,
 				79846F82260951BF00DCA87B /* LoginViewController.swift in Sources */,
+				E5BEA09E261096B800A25596 /* Alert.swift in Sources */,
 				796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */,
 				79846F80260951BF00DCA87B /* AuthPresentable.swift in Sources */,
 				B941F6362607C8E200D831A2 /* CoordinatorFinishOutput.swift in Sources */,
