@@ -151,10 +151,9 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             switch result {
             case .success(let mainResponse):
 
-                self.mainResponse = mainResponse
-                self.makeSections()
-
                 DispatchQueue.main.async {
+                    self.mainResponse = mainResponse
+                    self.makeSections()
                     self.configureCollectionView()
                     self.gameCollectionView.reloadData()
                 }
@@ -169,10 +168,9 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         dependencies?.apiService.fetchFavourites { result in
             switch result {
             case .success(let favouriteGames):
-                self.favouriteGames = favouriteGames
-                self.makeSections()
-
                 DispatchQueue.main.async {
+                    self.favouriteGames = favouriteGames
+                    self.makeSections()
                     self.configureCollectionView()
                     self.gameCollectionView.reloadData()
                 }
@@ -187,10 +185,9 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         dependencies?.apiService.fetchRecent { result in
             switch result {
             case .success(let recentGames):
-                self.recentGames = recentGames
-                self.makeSections()
-
                 DispatchQueue.main.async {
+                    self.recentGames = recentGames
+                    self.makeSections()
                     self.configureCollectionView()
                     self.gameCollectionView.reloadData()
                 }
@@ -335,7 +332,7 @@ extension MainViewController: UICollectionViewDataSource {
                         forItemAt indexPath: IndexPath) {
         guard let cell = cell as? GameCollectionViewCell else { return }
 
-        cell.configur(game: sections[indexPath.section].items[indexPath.row])
+        cell.configure(game: sections[indexPath.section].items[indexPath.row])
     }
 
     func collectionView(_ collectionView: UICollectionView,

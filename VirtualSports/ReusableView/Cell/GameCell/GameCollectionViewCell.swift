@@ -47,7 +47,7 @@ class GameCollectionViewCell: UICollectionViewCell {
         gameName = "Game"
     }
 
-    func configur(game: Game) {
+    func configure(game: Game) {
         self.game = game
         gameName = game.name
     }
