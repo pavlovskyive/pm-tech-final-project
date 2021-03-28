@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
+                <outlet property="clearButtonView" destination="qjI-El-hYf" id="Zq8-dS-9aj"/>
                 <outlet property="filterButtonView" destination="3dD-fo-TeB" id="Lbv-Du-yjf"/>
                 <outlet property="gameCollectionView" destination="okw-zV-nTg" id="ruD-pF-paq"/>
                 <outlet property="topBar" destination="2LZ-77-Pme" id="7VI-CW-dun"/>
@@ -21,6 +22,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjI-El-hYf" userLabel="ClearButtonView" customClass="FilterButtonView" customModule="VirtualSports" customModuleProvider="target">
+                    <rect key="frame" x="16" y="156" width="382" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Utr-J7-cUA"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dD-fo-TeB" customClass="FilterButtonView" customModule="VirtualSports" customModuleProvider="target">
                     <rect key="frame" x="16" y="156" width="382" height="50"/>
                     <constraints>
@@ -51,9 +58,12 @@
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CCz-Ik-LBF"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CUd-8L-0sk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="okw-zV-nTg" secondAttribute="trailing" id="J0H-My-t7v"/>
+                <constraint firstItem="qjI-El-hYf" firstAttribute="top" secondItem="2LZ-77-Pme" secondAttribute="bottom" constant="16" id="XsK-lo-062"/>
                 <constraint firstItem="okw-zV-nTg" firstAttribute="top" secondItem="3dD-fo-TeB" secondAttribute="bottom" constant="16" id="eDK-U2-0On"/>
                 <constraint firstItem="3dD-fo-TeB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ee3-u9-74Y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qjI-El-hYf" secondAttribute="trailing" constant="16" id="gq0-cS-zDw"/>
                 <constraint firstItem="okw-zV-nTg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jMS-yl-FCa"/>
+                <constraint firstItem="qjI-El-hYf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="jZH-Wo-lM5"/>
                 <constraint firstAttribute="bottom" secondItem="okw-zV-nTg" secondAttribute="bottom" id="k79-Qu-tnv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3dD-fo-TeB" secondAttribute="trailing" constant="16" id="lnD-Le-HVU"/>
                 <constraint firstItem="3dD-fo-TeB" firstAttribute="top" secondItem="2LZ-77-Pme" secondAttribute="bottom" constant="16" id="lqF-uU-Mnw"/>
