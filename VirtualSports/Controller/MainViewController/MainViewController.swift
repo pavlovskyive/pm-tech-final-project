@@ -29,6 +29,7 @@ protocol MainViewControllerProtocol: BaseViewControllerProvider {
 class MainViewController: UIViewController, MainViewControllerProtocol {
 
     // MARK: Properties
+    var test = Mutex()
 
     var sections: [GameSection] = []
 
@@ -107,21 +108,21 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
 
         let topGames = response.games.filter { $0.tags.contains("top") == true }
-        let topSections = GameSection(tag: "top", title: "Top", items: topGames)
+        let topSections = GameSection(tag: "top", title: "Топ", items: topGames)
         sections.append(topSections)
 
         if !favouriteGames.isEmpty {
-                let sectionFavourite = GameSection(tag: "favourite", title: "Favourite", items: favouriteGames)
-                sections.append(sectionFavourite)
+            let sectionFavourite = GameSection(tag: "favourite", title: "Избранные", items: favouriteGames)
+            sections.append(sectionFavourite)
         }
 
         if !recentGames.isEmpty {
-                let sectionFavourite = GameSection(tag: "recent", title: "Recent", items: recentGames)
-                sections.append(sectionFavourite)
+            let resentFavourite = GameSection(tag: "recent", title: "Недавно запущенные", items: recentGames)
+            sections.append(resentFavourite)
         }
 
         let allGames = response.games
-        let allGamesSections = GameSection(tag: "all", title: "All Games", items: allGames)
+        let allGamesSections = GameSection(tag: "all", title: "Все игры", items: allGames)
         sections.append(allGamesSections)
 
     }
@@ -152,11 +153,17 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             case .success(let mainResponse):
 
                 self.mainResponse = mainResponse
-                self.makeSections()
+
+                self.test.run {
+                    self.makeSections()
+                }
 
                 DispatchQueue.main.async {
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
+                     self.test.run {
+                        self.configureCollectionView()
+                        self.gameCollectionView.reloadData()
+                    }
+
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -170,11 +177,17 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             switch result {
             case .success(let favouriteGames):
                 self.favouriteGames = favouriteGames
-                self.makeSections()
+
+                self.test.run {
+                    self.makeSections()
+                }
 
                 DispatchQueue.main.async {
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
+                    self.test.run {
+                        self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                            .makeGameCollectionLayout(with: self.sections, view: self.view)
+                        self.gameCollectionView.reloadData()
+                    }
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -188,12 +201,17 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             switch result {
             case .success(let recentGames):
                 self.recentGames = recentGames
-                self.makeSections()
+
+                self.test.run {
+                    self.makeSections()
+                }
 
                 DispatchQueue.main.async {
-                    self.gameCollectionView.collectionViewLayout = LayoutFactory()
-                        .makeGameCollectionLayout(with: self.sections, view: self.view)
-                    self.gameCollectionView.reloadData()
+                    self.test.run {
+                        self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                            .makeGameCollectionLayout(with: self.sections, view: self.view)
+                        self.gameCollectionView.reloadData()
+                    }
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -203,8 +221,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     private func fetchAll() {
         fetchMain()
-        fetchRecent()
         fetchFavourites()
+        fetchRecent()
     }
 
     private func logout() {
@@ -245,19 +263,23 @@ extension MainViewController: AuthDelegate {
             self.topBar.showLogOutButton()
         }
 
-        fetchMain()
-        fetchRecent()
-        fetchFavourites()
+        fetchAll()
     }
 
     func onLogout() {
         favouriteGames = []
         recentGames = []
-        makeSections()
+
+        self.test.run {
+            makeSections()
+        }
+
         DispatchQueue.main.async {
-            self.gameCollectionView.collectionViewLayout = LayoutFactory()
-                .makeGameCollectionLayout(with: self.sections, view: self.view)
-            self.gameCollectionView.reloadData()
+            self.test.run {
+                self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                    .makeGameCollectionLayout(with: self.sections, view: self.view)
+                self.gameCollectionView.reloadData()
+            }
             self.topBar.showMainTopBar()
         }
     }
@@ -368,4 +390,18 @@ extension MainViewController: UICollectionViewDataSource {
         return .init()
     }
 
+}
+
+class Mutex {
+    private var mutex = pthread_mutex_t()
+
+    init() {
+        pthread_mutex_init(&mutex, nil)
+    }
+
+    func run(completion: () -> ()) {
+        pthread_mutex_lock(&mutex)
+        completion()
+        pthread_mutex_unlock(&mutex)
+    }
 }
