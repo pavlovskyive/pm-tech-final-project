@@ -45,9 +45,10 @@ class GameCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
 
         gameName = "Game"
+        image = UIImage(named: "logo")
     }
 
-    func configur(game: Game) {
+    func configure(game: Game) {
         self.game = game
         gameName = game.name
     }

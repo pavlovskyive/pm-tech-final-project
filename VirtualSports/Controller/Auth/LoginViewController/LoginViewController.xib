@@ -173,10 +173,10 @@
     </objects>
     <designables>
         <designable name="Jrw-fg-Z9j">
-            <size key="intrinsicContentSize" width="45" height="30"/>
+            <size key="intrinsicContentSize" width="40" height="37"/>
         </designable>
         <designable name="Xkz-Cl-ZOz">
-            <size key="intrinsicContentSize" width="118" height="30"/>
+            <size key="intrinsicContentSize" width="103" height="37"/>
         </designable>
         <designable name="rGc-Ww-kiW">
             <size key="intrinsicContentSize" width="171.5" height="21"/>

@@ -139,6 +139,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         let filterViewController = FilterViewController(for: mainResponse, delegate: delegate)
 
+        filterViewController.dependency = dependencies
         filterViewController.onGoToDismiss = { [unowned self] in
             self.router.dismissModule()
         }

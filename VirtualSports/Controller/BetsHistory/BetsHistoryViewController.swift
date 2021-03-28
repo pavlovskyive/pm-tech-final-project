@@ -64,7 +64,7 @@ final class BetView: UIView {
         label.font = .preferredFont(forTextStyle: .caption1)
         label.text = bet.dateTime
         label.textColor = .white
-        
+
         return label
     }()
 

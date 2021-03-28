@@ -13,25 +13,43 @@ import UIKit
 
 @IBDesignable
 final class FilterButtonView: UIView {
-    
+    @IBOutlet private weak var filterCountLabel: UILabel!
     @IBOutlet private weak var filterButton: UIButton!
-    
-    @IBAction func didTapFilterButton(_ sender: Any) {
+
+    @IBAction func didTapFilterButton(_ sender: UIButton) {
         delegate?.didTapFilterButton()
     }
-    
+
+    var filterCount: Int? {
+        get {
+            Int(filterCountLabel.text ?? "0")
+        }
+        set {
+            newValue == 0 ? (filterCountLabel.isHidden = true) : (filterCountLabel.isHidden = false)
+            filterCountLabel.text = newValue?.description
+        }
+    }
+
+    var filterCountIsHidden = true {
+        willSet {
+            newValue ? (filterCountLabel.isHidden = true) : (filterCountLabel.isHidden = false)
+        }
+    }
+
     weak var delegate: FilterButtonDelegate?
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureView()
+        self.configureCountLabel()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.configureView()
+        self.configureCountLabel()
     }
-    
+
     private func configureView() {
         guard let view = self.loadViewFromNib(nibName: "FilterButtonView") else {
             return
@@ -40,14 +58,12 @@ final class FilterButtonView: UIView {
         filterButton.layer.borderWidth = 1
         filterButton.layer.borderColor = #colorLiteral(red: 0.6156154275, green: 0.6157261729, blue: 0.6156166196, alpha: 1)
         self.addSubview(view)
-    }
-    
-}
 
-extension FilterButtonView {
-    func setConfigurationForClearButton() {
-        self.isHidden = true
-        filterButton.setTitle("Сбросить фильтр", for: .normal)
-        filterButton.setImage(UIImage(systemName: "clear"), for: .normal)
     }
+
+    private func configureCountLabel() {
+        filterCountLabel.layer.cornerRadius = filterCountLabel.frame.height / 2
+        filterCountLabel.isHidden = filterCountIsHidden
+    }
+
 }

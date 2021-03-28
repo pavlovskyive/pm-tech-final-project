@@ -67,7 +67,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 extension CategoryCollectionViewCell: FilterCell {
 
     func makeNormal() {
-
         tintLayer.opacity = 0
 
         let appearAnimation = CABasicAnimation(keyPath: "opacity")
@@ -80,7 +79,6 @@ extension CategoryCollectionViewCell: FilterCell {
     }
 
     func select() {
-
         tintLayer.opacity = 1
 
         let appearAnimation = CABasicAnimation(keyPath: "opacity")

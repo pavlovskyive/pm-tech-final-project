@@ -228,7 +228,7 @@
             <size key="intrinsicContentSize" width="35" height="20"/>
         </designable>
         <designable name="8E5-nt-iyK">
-            <size key="intrinsicContentSize" width="118" height="30"/>
+            <size key="intrinsicContentSize" width="103" height="37"/>
         </designable>
         <designable name="ObE-ky-UDG">
             <size key="intrinsicContentSize" width="171.5" height="21"/>
@@ -237,7 +237,7 @@
             <size key="intrinsicContentSize" width="35" height="20"/>
         </designable>
         <designable name="Xmz-Dj-IgQ">
-            <size key="intrinsicContentSize" width="45" height="30"/>
+            <size key="intrinsicContentSize" width="40" height="37"/>
         </designable>
     </designables>
     <resources>
