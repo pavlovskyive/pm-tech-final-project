@@ -26,7 +26,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-1E-QYL">
-                        <rect key="frame" x="0.0" y="252" width="45" height="21"/>
+                        <rect key="frame" x="0.0" y="252" width="244" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -40,6 +40,7 @@
                 <constraint firstItem="OWe-1E-QYL" firstAttribute="top" secondItem="4v3-Lh-agJ" secondAttribute="bottom" constant="8" id="slg-pr-nvI"/>
                 <constraint firstItem="4v3-Lh-agJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tD7-XR-I5u"/>
                 <constraint firstAttribute="trailing" secondItem="4v3-Lh-agJ" secondAttribute="trailing" id="v5U-D7-exq"/>
+                <constraint firstAttribute="trailing" secondItem="OWe-1E-QYL" secondAttribute="trailing" id="ysf-zg-HLS"/>
             </constraints>
             <size key="customSize" width="244" height="284"/>
             <connections>

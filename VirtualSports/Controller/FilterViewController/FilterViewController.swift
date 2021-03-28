@@ -77,7 +77,7 @@ class FilterViewController: UIViewController {
     // MARK: Actions
 
     @IBAction private func didTapAcceptButton(_ sender: Any) {
-        
+
         log.info("Accept button tapped")
 
         let scope = FilterScope(categoryId: selectedCategoryId, providersIds: selectedProviders)

@@ -100,7 +100,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
         sections = []
 
-        if filteredGames != [] {
+        if isFiltered == true {
             let filterSection = GameSection(tag: "filter", title: "Фильтр", items: filteredGames)
             sections.append(filterSection)
             return
@@ -191,7 +191,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
                 self.makeSections()
 
                 DispatchQueue.main.async {
-                    self.configureCollectionView()
+                    self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                        .makeGameCollectionLayout(with: self.sections, view: self.view)
                     self.gameCollectionView.reloadData()
                 }
             case .failure(let error):
@@ -254,6 +255,8 @@ extension MainViewController: AuthDelegate {
         recentGames = []
         makeSections()
         DispatchQueue.main.async {
+            self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                .makeGameCollectionLayout(with: self.sections, view: self.view)
             self.gameCollectionView.reloadData()
             self.topBar.showMainTopBar()
         }
@@ -268,6 +271,8 @@ extension MainViewController: FilterDelegate {
         isFiltered = true
         self.filteredGames = filteredGames
         self.makeSections()
+        self.gameCollectionView.collectionViewLayout = LayoutFactory()
+            .makeGameCollectionLayout(with: sections, view: self.view)
         self.gameCollectionView.reloadData()
     }
 
@@ -349,9 +354,15 @@ extension MainViewController: UICollectionViewDataSource {
                                                                          with: HeaderCollectionReusableView.self,
                                                                          for: indexPath)
 
-            header.sectionName = sections[indexPath.section].title
+            if sections[indexPath.section].items.isEmpty == false {
 
-            return header
+                header.sectionName = sections[indexPath.section].title
+                return header
+            } else {
+
+                header.sectionName = ""
+                return header
+            }
         }
 
         return .init()
