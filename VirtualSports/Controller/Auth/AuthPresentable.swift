@@ -84,14 +84,18 @@ private extension AuthBaseViewController {
     // MARK: - Actions
 
     @objc func didTapPrimaryButton(_ sender: Any) {
+        
+        log.info("Primary button tapped")
         primaryAction?()
     }
 
     @objc func didTapSecondaryButton(_ sender: Any) {
+        log.info("Secondary button tapped")
         secondaryAction?()
     }
 
     @objc func didTapCloseButton(_ sender: Any) {
+        log.info("Close button tapped")
         onClose?()
     }
 

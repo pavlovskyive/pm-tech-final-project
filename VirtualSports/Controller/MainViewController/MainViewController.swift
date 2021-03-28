@@ -108,34 +108,33 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         dependencies?.apiService.fetchMain { result in
             switch result {
             case .success(let mainResponse):
-                print(mainResponse)
                 self.mainResponse = mainResponse
             case .failure(let error):
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
 
     private func fetchFavourites() {
+
         dependencies?.apiService.fetchFavourites { result in
             switch result {
             case .success(let favouriteGames):
-                print("\n\nFavourites: \(favouriteGames)")
                 self.favouriteGames = favouriteGames
             case .failure(let error):
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
 
     private func fetchRecent() {
+
         dependencies?.apiService.fetchRecent { result in
             switch result {
             case .success(let recentGames):
-                print("\n\nRecent: \(recentGames)")
                 self.recentGames = recentGames
             case .failure(let error):
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
@@ -147,12 +146,15 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
 
     private func logout() {
+        
+        log.info("Logging out...")
+
         dependencies?.authProvider.logout { error in
             guard let error = error else {
                 return
             }
 
-            print(error)
+            log.error(error.localizedDescription)
         }
     }
 
@@ -196,7 +198,6 @@ extension MainViewController: FilterDelegate {
         // TODO: Implement filter reset
         isFiltered = true
         self.filteredGames = filteredGames
-        print(filteredGames)
     }
 
 }
@@ -205,7 +206,6 @@ extension MainViewController: FilterButtonDelegate {
 
     func didTapFilterButton() {
         self.onGoToFilter?(mainResponse)
-        print("Filter button pressed")
     }
 
 }

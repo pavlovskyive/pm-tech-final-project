@@ -16,12 +16,4 @@ class GenericGameViewController: BaseGameViewController {
         topBar?.showHistoryButton(dependencies?.authProvider.loggedIn ?? false)
     }
 
-    override func handleBetOutcome(bet: Bet) {
-        print(bet)
-    }
-
-    override func handleHistoryResponse(history: [Bet]) {
-        print(history)
-    }
-
 }

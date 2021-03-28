@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		79024673261012850070B593 /* APILayer in Frameworks */ = {isa = PBXBuildFile; productRef = 79024672261012850070B593 /* APILayer */; };
 		79024679261012E50070B593 /* AuthLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 79024678261012E50070B593 /* AuthLayer */; };
+		7902467F26101A140070B593 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 7902467E26101A140070B593 /* SwiftyBeaver */; };
 		7961876F2609D8A20027C117 /* UITextField+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961876E2609D8A20027C117 /* UITextField+Secure.swift */; };
 		796BF811260F355E0019BB82 /* GenericGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796BF810260F355E0019BB82 /* GenericGameViewController.swift */; };
 		79743ABA260F7484003A031E /* PasswordComplexityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79743AB8260F7484003A031E /* PasswordComplexityView.swift */; };
@@ -164,6 +165,7 @@
 			files = (
 				B941F6502607E4AD00D831A2 /* KeychainWrapper in Frameworks */,
 				79024673261012850070B593 /* APILayer in Frameworks */,
+				7902467F26101A140070B593 /* SwiftyBeaver in Frameworks */,
 				79024679261012E50070B593 /* AuthLayer in Frameworks */,
 				E5000E8F260BDF4500ECCE1F /* ImageLoader in Frameworks */,
 				79C3D28F26048CE800ACD5E5 /* FirebaseAnalytics in Frameworks */,
@@ -597,6 +599,7 @@
 				E5000E8E260BDF4500ECCE1F /* ImageLoader */,
 				79024672261012850070B593 /* APILayer */,
 				79024678261012E50070B593 /* AuthLayer */,
+				7902467E26101A140070B593 /* SwiftyBeaver */,
 			);
 			productName = VirtualSports;
 			productReference = 79C3D254260489A700ACD5E5 /* VirtualSports.app */;
@@ -675,6 +678,7 @@
 				E5000E8D260BDF4500ECCE1F /* XCRemoteSwiftPackageReference "ImageLoader" */,
 				79024671261012840070B593 /* XCRemoteSwiftPackageReference "virtual-sports-api-service" */,
 				79024677261012E50070B593 /* XCRemoteSwiftPackageReference "auth-service" */,
+				7902467D26101A130070B593 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 			);
 			productRefGroup = 79C3D255260489A700ACD5E5 /* Products */;
 			projectDirPath = "";
@@ -1194,6 +1198,14 @@
 				minimumVersion = 0.2.4;
 			};
 		};
+		7902467D26101A130070B593 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.3;
+			};
+		};
 		79C3D28D26048CE800ACD5E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1230,6 +1242,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 79024677261012E50070B593 /* XCRemoteSwiftPackageReference "auth-service" */;
 			productName = AuthLayer;
+		};
+		7902467E26101A140070B593 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7902467D26101A130070B593 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
 		};
 		79C3D28E26048CE800ACD5E5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

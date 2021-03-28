@@ -66,7 +66,7 @@ class BaseGameViewController: UIViewController, GameViewControllable {
 
         guard dependencies?.authProvider.loggedIn ?? false else {
             // TODO: Handle user not logged in
-            print("Log in first")
+            log.info("User not logged in")
             return
         }
 
@@ -89,7 +89,7 @@ class BaseGameViewController: UIViewController, GameViewControllable {
                 }
             case .failure(let error):
                 // TODO: Handle error
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
@@ -136,7 +136,7 @@ private extension BaseGameViewController {
                     self?.isFavourite = favourites.contains(where: { $0.id == self?.game.id })
                 }
             case .failure(let error):
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
@@ -152,7 +152,7 @@ private extension BaseGameViewController {
                 return
             }
 
-            print(error)
+            log.error(error.localizedDescription)
         }
     }
 
@@ -179,7 +179,7 @@ extension BaseGameViewController: TopBarDelegate {
                 }
             case .failure(let error):
                 // TODO: Handle error
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }

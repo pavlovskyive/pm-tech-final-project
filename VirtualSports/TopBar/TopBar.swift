@@ -171,26 +171,32 @@ class TopBar: UIView {
 
     // MARK: - @IBActions
     @IBAction func logoutButtonPressed(_ sender: DesignableButton) {
+        log.info("Logout button pressed")
         delegate?.logOutButtonPressed()
     }
 
     @IBAction func loginButtonPressed(_ sender: DesignableButton) {
+        log.info("Login button pressed")
         delegate?.signInButtonPressed()
     }
 
     @IBAction func registerButtonPressed(_ sender: DesignableButton) {
+        log.info("Register button pressed")
         delegate?.signUpButtonPressed()
     }
 
     @IBAction func backwardButtonPressed(_ sender: Any) {
+        log.info("Back button pressed")
         delegate?.backwardButtonPressed()
     }
 
     @IBAction func favouritesButtonPressed(_ sender: Any) {
+        log.info("Favourites button pressed")
         delegate?.favoriteButtonPressed()
     }
 
     @IBAction func historyButtonPressed(_ sender: Any) {
+        log.info("History button pressed")
         delegate?.historyButtonPressed()
     }
 

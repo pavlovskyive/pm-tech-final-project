@@ -82,10 +82,13 @@ class DiceGameViewController: BaseGameViewController {
     }
 
     @IBAction func onLoginButtonTapped(_ sender: Any) {
+        log.info("Login button tapped")
         onGoToLogin?()
     }
 
     @IBAction func onConfirmButtonTapped(_ sender: Any) {
+        
+        log.info("Confirm button tapped")
 
         guard let betType = currentBetType else {
             return
@@ -105,7 +108,7 @@ class DiceGameViewController: BaseGameViewController {
                 }
             case .failure(let error):
                 // TODO: Handle error
-                print(error)
+                log.error(error.localizedDescription)
             }
         }
     }
@@ -207,6 +210,9 @@ private extension DiceGameViewController {
     }
 
     @objc func handleBetButtonTapped(_ sender: BetButton) {
+ 
+        log.info("Bet button tapped")
+
         guard let betType = sender.betType else {
             return
         }

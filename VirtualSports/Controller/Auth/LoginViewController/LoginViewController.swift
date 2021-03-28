@@ -83,7 +83,7 @@ class LoginViewController: AuthBaseViewController {
                     case .success:
                         self?.onComplete?()
                     case .failure(let error):
-                        print(error)
+                        log.error(error.localizedDescription)
                     }
 
                     self?.primaryButton?.setEnabled(true)

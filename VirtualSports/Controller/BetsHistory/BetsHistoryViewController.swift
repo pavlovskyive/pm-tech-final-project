@@ -40,6 +40,7 @@ final class BetsHistoryViewController: UIViewController, BetsShowing {
     }
 
     @IBAction func closeButtonTapped(_ sender: Any) {
+        log.info("Close button tapped")
         onDismiss?()
     }
 }
