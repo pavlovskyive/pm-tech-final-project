@@ -49,8 +49,6 @@ class ProviderCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         identifier = nil
-        ImageLoader.shared.cancellAllDownloads()
-
     }
 
     override func layoutSubviews() {

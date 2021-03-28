@@ -13,11 +13,27 @@ import UIKit
 
 @IBDesignable
 final class FilterButtonView: UIView {
+    @IBOutlet private weak var filterCountLabel: UILabel!
+    @IBOutlet private weak var filterButton: UIButton!
 
-    @IBOutlet weak var filterButton: UIButton!
-
-    @IBAction func didTapFilterButton(_ sender: Any) {
+    @IBAction func didTapFilterButton(_ sender: UIButton) {
         delegate?.didTapFilterButton()
+    }
+
+    var filterCount: Int? {
+        get {
+            Int(filterCountLabel.text ?? "0")
+        }
+        set {
+            newValue == 0 ? (filterCountLabel.isHidden = true) : (filterCountLabel.isHidden = false)
+            filterCountLabel.text = newValue?.description
+        }
+    }
+
+    var filterCountIsHidden = true {
+        willSet {
+            newValue ? (filterCountLabel.isHidden = true) : (filterCountLabel.isHidden = false)
+        }
     }
 
     weak var delegate: FilterButtonDelegate?
@@ -25,11 +41,13 @@ final class FilterButtonView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureView()
+        self.configureCountLabel()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.configureView()
+        self.configureCountLabel()
     }
 
     private func configureView() {
@@ -40,6 +58,11 @@ final class FilterButtonView: UIView {
         filterButton.layer.borderWidth = 1
         filterButton.layer.borderColor = #colorLiteral(red: 0.6156154275, green: 0.6157261729, blue: 0.6156166196, alpha: 1)
         self.addSubview(view)
+
+    }
+
+    private func configureCountLabel() {
+        filterCountLabel.isHidden = filterCountIsHidden
     }
 
 }

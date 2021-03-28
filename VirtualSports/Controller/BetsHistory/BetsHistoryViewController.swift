@@ -63,6 +63,7 @@ final class BetView: UIView {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .caption1)
         label.text = bet.dateTime
+        label.textColor = .white
 
         return label
     }()
@@ -176,8 +177,10 @@ private extension BetView {
 extension NSMutableAttributedString {
 
     func setColor(color: UIColor, forText stringValue: String) {
-        let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
-        self.addAttribute(.foregroundColor, value: color, range: range)
-    }
+            let allRange = self.mutableString.range(of: self.string, options: .caseInsensitive)
+            let yellowRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
+            self.addAttribute(.foregroundColor, value: UIColor.white, range: allRange)
+            self.addAttribute(.foregroundColor, value: color, range: yellowRange)
+        }
 
 }

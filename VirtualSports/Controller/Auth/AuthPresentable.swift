@@ -84,7 +84,7 @@ private extension AuthBaseViewController {
     // MARK: - Actions
 
     @objc func didTapPrimaryButton(_ sender: Any) {
-        
+
         log.info("Primary button tapped")
         primaryAction?()
     }

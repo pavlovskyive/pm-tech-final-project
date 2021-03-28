@@ -60,16 +60,16 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         loginViewController.dependencies = dependencies
 
         loginViewController.onComplete = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         loginViewController.secondaryAction = { [unowned self] in
-            router.dismissModule()
-            showRegistrationVC()
+            self.router.dismissModule()
+            self.showRegistrationVC()
         }
 
         loginViewController.onClose = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         router.present(loginViewController)
@@ -84,16 +84,16 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         registrationViewController.dependencies = dependencies
 
         registrationViewController.onComplete = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         registrationViewController.secondaryAction = { [unowned self] in
-            router.dismissModule()
-            showLoginVC()
+            self.router.dismissModule()
+            self.showLoginVC()
         }
 
         registrationViewController.onClose = { [unowned self] in
-            router.dismissModule()
+            self.router.dismissModule()
         }
 
         self.router.present(registrationViewController)
@@ -117,15 +117,15 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         gameViewController.dependencies = dependencies
         gameViewController.onGoToLogin = { [unowned self] in
-            showLoginVC()
+            self.showLoginVC()
         }
 
         gameViewController.onGoToBack = { [unowned self] in
-            router.popModule()
+            self.router.popModule()
         }
 
         gameViewController.onGoToHistory = { [unowned self] bets in
-            showBetsHistory(bets: bets)
+            self.showBetsHistory(bets: bets)
         }
 
         self.router.push(gameViewController)
@@ -139,6 +139,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
         let filterViewController = FilterViewController(for: mainResponse, delegate: delegate)
 
+        filterViewController.dependency = dependencies
         filterViewController.onGoToDismiss = { [unowned self] in
             self.router.dismissModule()
         }

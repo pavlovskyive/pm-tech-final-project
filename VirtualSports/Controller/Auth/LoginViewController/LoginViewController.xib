@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Bold.otf">
+            <string>Pari-Match-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
@@ -123,13 +128,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВХОД" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odS-xc-Z6c" userLabel="Title">
-                            <rect key="frame" x="183" y="58.5" width="48.5" height="20.5"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <rect key="frame" x="187.5" y="54.5" width="39.5" height="24.5"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7c-QR-xzV" userLabel="Close">
-                            <rect key="frame" x="20" y="61.5" width="15" height="15"/>
+                            <rect key="frame" x="20" y="59.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="GVa-H7-0Ni"/>
                                 <constraint firstAttribute="height" constant="15" id="LRf-aO-27P"/>
@@ -168,10 +173,10 @@
     </objects>
     <designables>
         <designable name="Jrw-fg-Z9j">
-            <size key="intrinsicContentSize" width="45" height="30"/>
+            <size key="intrinsicContentSize" width="40" height="37"/>
         </designable>
         <designable name="Xkz-Cl-ZOz">
-            <size key="intrinsicContentSize" width="118" height="30"/>
+            <size key="intrinsicContentSize" width="103" height="37"/>
         </designable>
         <designable name="rGc-Ww-kiW">
             <size key="intrinsicContentSize" width="171.5" height="21"/>

@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Bold.otf">
+            <string>Pari-Match-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
@@ -44,6 +49,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="lAB-q7-Kc4"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                                     <state key="normal" title="РЕГИСТРАЦИЯ"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-Dj-IgQ" userLabel="Register" customClass="LoginButton" customModule="VirtualSports" customModuleProvider="target">
@@ -175,13 +181,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="РЕГИСТРАЦИЯ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbt-Re-a6n" userLabel="Title">
-                            <rect key="frame" x="144.5" y="58.5" width="125.5" height="20.5"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <rect key="frame" x="155.5" y="54.5" width="103" height="24.5"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFQ-Nv-uzE" userLabel="Close">
-                            <rect key="frame" x="20" y="61.5" width="15" height="15"/>
+                            <rect key="frame" x="20" y="59.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="8g9-4c-iwt"/>
                                 <constraint firstAttribute="height" constant="15" id="vHL-Gy-qGb"/>
@@ -222,7 +228,7 @@
             <size key="intrinsicContentSize" width="35" height="20"/>
         </designable>
         <designable name="8E5-nt-iyK">
-            <size key="intrinsicContentSize" width="118" height="30"/>
+            <size key="intrinsicContentSize" width="103" height="37"/>
         </designable>
         <designable name="ObE-ky-UDG">
             <size key="intrinsicContentSize" width="171.5" height="21"/>
@@ -231,7 +237,7 @@
             <size key="intrinsicContentSize" width="35" height="20"/>
         </designable>
         <designable name="Xmz-Dj-IgQ">
-            <size key="intrinsicContentSize" width="45" height="30"/>
+            <size key="intrinsicContentSize" width="40" height="37"/>
         </designable>
     </designables>
     <resources>

@@ -9,6 +9,7 @@ import UIKit
 
 import ImageLoader
 import APILayer
+import NetworkService
 
 struct FilterScope {
     var categoryId = ""
@@ -37,13 +38,15 @@ fileprivate extension MainResponse {
 
 protocol FilterViewControllerProtocol: AnyObject {
 
+    typealias Dependency = HasImageLoader
+    var dependency: Dependency? { get set }
     var onGoToDismiss: (() -> Void)? { get set }
 }
 
 protocol FilterDelegate: AnyObject {
     var isFiltered: Bool { get set }
     var filterScope: FilterScope { get set }
-    func handleFilter(filteredGames: [Game])
+    func handleFilter(filteredGames: [Game], _ filterCount: Int)
 }
 
 class FilterViewController: UIViewController {
@@ -63,6 +66,8 @@ class FilterViewController: UIViewController {
     }()
 
     var onGoToDismiss: (() -> Void)?
+    var dependency: Dependency?
+    var filterCount = 0
 
     // MARK: Properties
 
@@ -77,13 +82,17 @@ class FilterViewController: UIViewController {
     // MARK: Actions
 
     @IBAction private func didTapAcceptButton(_ sender: Any) {
-        
+
         log.info("Accept button tapped")
 
         let scope = FilterScope(categoryId: selectedCategoryId, providersIds: selectedProviders)
         delegate?.isFiltered = true
         delegate?.filterScope = scope
-        delegate?.handleFilter(filteredGames: mainResponse.filter(by: scope))
+
+        filterCount = selectedProviders.count
+        if !selectedCategoryId.isEmpty { filterCount += 1 }
+        
+        delegate?.handleFilter(filteredGames: mainResponse.filter(by: scope), filterCount )
 
         onGoToDismiss?()
     }
@@ -91,7 +100,6 @@ class FilterViewController: UIViewController {
     @IBAction private func didTapCancelButton(_ sender: Any) {
 
         log.info("Cancel button tapped")
-
         onGoToDismiss?()
     }
 
@@ -183,7 +191,7 @@ private extension FilterViewController {
     }
 
     func onCategoryCellSelected(_ cell: CategoryCollectionViewCell) {
-        
+
         log.info("Category cell tapped")
 
         if selectedCategoryId == cell.identifier {
@@ -207,9 +215,8 @@ private extension FilterViewController {
     }
 
     func onProviderCellSelected(_ cell: ProviderCollectionViewCell) {
-        
-        log.info("Provider cell tapped")
 
+        log.info("Provider cell tapped")
         guard let identifier = cell.identifier else {
             return
         }
@@ -227,6 +234,7 @@ private extension FilterViewController {
         }
 
         acceptButtonEnabling()
+
     }
 
     func scrollToCell(_ cell: UICollectionViewCell) {
@@ -247,7 +255,6 @@ private extension FilterViewController {
 // MARK: FilterViewControllerProtocol
 
 extension FilterViewController: FilterViewControllerProtocol {
-
 }
 
 // MARK: Collection View Delegate
@@ -269,7 +276,7 @@ extension FilterViewController: UICollectionViewDelegate {
             cell.identifier = category.id
             showIfSelectedCategory(cell)
 
-            ImageLoader.shared.downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
+            dependency?.imageLoader.downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
 
                 guard let indexPath = indexPath else { return }
 
@@ -289,7 +296,7 @@ extension FilterViewController: UICollectionViewDelegate {
             cell.identifier = provider.id
             showIfSelectedProvider(cell)
 
-            ImageLoader.shared.downloadImage(from: provider.imageURL, indexPath: indexPath) { image, indexPath, _ in
+            dependency?.imageLoader.downloadImage(from: provider.imageURL, indexPath: indexPath) { image, indexPath, _ in
 
                 guard let indexPath = indexPath else {
                     return
@@ -310,7 +317,6 @@ extension FilterViewController: UICollectionViewDelegate {
         switch indexPath.section {
         case 0:
             guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
-
             onCategoryCellSelected(cell)
 
         case 1:

@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Bold.otf">
+            <string>Pari-Match-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
+                <outlet property="clearButton" destination="r9x-kJ-TbV" id="35r-x2-rWK"/>
+                <outlet property="emptyResultsView" destination="Tqd-HW-vt2" id="U3V-qL-2IQ"/>
                 <outlet property="filterButtonView" destination="3dD-fo-TeB" id="Lbv-Du-yjf"/>
                 <outlet property="gameCollectionView" destination="okw-zV-nTg" id="ruD-pF-paq"/>
                 <outlet property="topBar" destination="2LZ-77-Pme" id="7VI-CW-dun"/>
@@ -33,6 +42,22 @@
                         <constraint firstAttribute="height" constant="140" id="Rhk-hP-J7g"/>
                     </constraints>
                 </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9x-kJ-TbV" userLabel="ClearButton">
+                    <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                    <color key="backgroundColor" name="PMYellow"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="yue-X3-pWW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
+                    <color key="tintColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Сбросить фильтр" image="clear" catalog="system">
+                        <color key="titleColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                    <connections>
+                        <action selector="clearButtonPressed:" destination="-1" eventType="touchUpInside" id="cZR-HC-Zv4"/>
+                    </connections>
+                </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="okw-zV-nTg">
                     <rect key="frame" x="0.0" y="222" width="414" height="674"/>
                     <color key="backgroundColor" red="0.14901724459999999" green="0.14901834729999999" blue="0.14902132749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -43,22 +68,42 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-HW-vt2" customClass="EmptyResultsView" customModule="VirtualSports" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="206" width="414" height="690"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.14901724459999999" green="0.14901834729999999" blue="0.14902132749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="r9x-kJ-TbV" secondAttribute="trailing" id="1Qt-RM-VNI"/>
+                <constraint firstAttribute="bottom" secondItem="r9x-kJ-TbV" secondAttribute="bottom" id="A14-W4-15v"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Byw-lq-Pad"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CCz-Ik-LBF"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CUd-8L-0sk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="okw-zV-nTg" secondAttribute="trailing" id="J0H-My-t7v"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tqd-HW-vt2" secondAttribute="trailing" id="Lmd-3b-8T7"/>
+                <constraint firstAttribute="bottom" secondItem="Tqd-HW-vt2" secondAttribute="bottom" id="Udv-7Q-26z"/>
+                <constraint firstItem="Tqd-HW-vt2" firstAttribute="top" secondItem="3dD-fo-TeB" secondAttribute="bottom" id="a2B-iQ-MVA"/>
                 <constraint firstItem="okw-zV-nTg" firstAttribute="top" secondItem="3dD-fo-TeB" secondAttribute="bottom" constant="16" id="eDK-U2-0On"/>
                 <constraint firstItem="3dD-fo-TeB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ee3-u9-74Y"/>
+                <constraint firstItem="Tqd-HW-vt2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="flu-GV-D84"/>
                 <constraint firstItem="okw-zV-nTg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jMS-yl-FCa"/>
-                <constraint firstAttribute="bottom" secondItem="okw-zV-nTg" secondAttribute="bottom" id="k79-Qu-tnv"/>
+                <constraint firstItem="Tqd-HW-vt2" firstAttribute="bottom" secondItem="okw-zV-nTg" secondAttribute="bottom" id="k79-Qu-tnv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3dD-fo-TeB" secondAttribute="trailing" constant="16" id="lnD-Le-HVU"/>
                 <constraint firstItem="3dD-fo-TeB" firstAttribute="top" secondItem="2LZ-77-Pme" secondAttribute="bottom" constant="16" id="lqF-uU-Mnw"/>
+                <constraint firstItem="r9x-kJ-TbV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="r4y-jB-dW1"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>
+    <resources>
+        <image name="clear" catalog="system" width="128" height="114"/>
+        <namedColor name="PMYellow">
+            <color red="0.92500001192092896" green="0.91399997472763062" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

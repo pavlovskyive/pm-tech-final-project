@@ -8,12 +8,13 @@
 import UIKit
 import APILayer
 import AuthLayer
+import ImageLoader
 
 import Network
 
 protocol MainViewControllerProtocol: BaseViewControllerProvider {
 
-    typealias Dependencies = HasAuthProvider & HasAPIFetching
+    typealias Dependencies = HasAuthProvider & HasAPIFetching & HasImageLoader
 
     var dependencies: Dependencies? { get set }
 
@@ -39,7 +40,15 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var recentGames = [Game]()
     var filteredGames = [Game]()
 
-    var isFiltered = false
+    var isFiltered = false {
+        willSet {
+            if newValue {
+                clearButton.isHidden = false
+            } else {
+                clearButton.isHidden = true
+            }
+        }
+    }
     var filterScope = FilterScope()
 
     var onGoToLogin: (() -> Void)?
@@ -54,8 +63,10 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
+    @IBOutlet private weak var clearButton: UIButton!
     @IBOutlet private weak var topBar: TopBar!
     @IBOutlet private weak var filterButtonView: FilterButtonView!
+    @IBOutlet private weak var emptyResultsView: EmptyResultsView!
     @IBOutlet weak var gameCollectionView: UICollectionView!
 
     // MARK: Lifecircle
@@ -63,10 +74,11 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        view.bringSubviewToFront(clearButton)
+
         filterButtonView.delegate = self
         setupTopBar()
         checkNetworkConnectionState(connectionState)
-
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -91,7 +103,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         self.gameCollectionView.delegate = self
         self.gameCollectionView.register(type: GameCollectionViewCell.self)
         self.gameCollectionView.register(type: HeaderCollectionReusableView.self,
-                                      kind: UICollectionView.elementKindSectionHeader)
+                                         kind: UICollectionView.elementKindSectionHeader)
     }
 
     func makeSections() {
@@ -111,13 +123,13 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         sections.append(topSections)
 
         if !favouriteGames.isEmpty {
-                let sectionFavourite = GameSection(tag: "favourite", title: "Favourite", items: favouriteGames)
-                sections.append(sectionFavourite)
+            let sectionFavourite = GameSection(tag: "favourite", title: "Favourite", items: favouriteGames)
+            sections.append(sectionFavourite)
         }
 
         if !recentGames.isEmpty {
-                let sectionFavourite = GameSection(tag: "recent", title: "Recent", items: recentGames)
-                sections.append(sectionFavourite)
+            let sectionFavourite = GameSection(tag: "recent", title: "Recent", items: recentGames)
+            sections.append(sectionFavourite)
         }
 
         let allGames = response.games
@@ -216,6 +228,12 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
+    // MARK: IBAction
+    @IBAction private func clearButtonPressed(_ sender: UIButton) {
+        clearFilter()
+        filterButtonView.filterCount = 0
+    }
+
 }
 
 // MARK: API Delegate
@@ -261,9 +279,13 @@ extension MainViewController: AuthDelegate {
 @available(iOS 13.0, *)
 extension MainViewController: FilterDelegate {
 
-    func handleFilter(filteredGames: [Game]) {
+    func handleFilter(filteredGames: [Game], _ filterCount: Int) {
         isFiltered = true
+        filterButtonView.filterCount = filterCount
         self.filteredGames = filteredGames
+        if filteredGames.isEmpty {
+            emptyResultsView.isHidden = false
+        }
         self.makeSections()
         self.gameCollectionView.reloadData()
     }
@@ -277,7 +299,6 @@ extension MainViewController: FilterButtonDelegate {
     func didTapFilterButton() {
         self.onGoToFilter?(mainResponse)
     }
-
 }
 
 // MARK: Top Bar Delegate
@@ -332,7 +353,16 @@ extension MainViewController: UICollectionViewDataSource {
                         forItemAt indexPath: IndexPath) {
         guard let cell = cell as? GameCollectionViewCell else { return }
 
-        cell.configure(game: sections[indexPath.section].items[indexPath.row])
+
+        let game = sections[indexPath.section].items[indexPath.row]
+        dependencies?.imageLoader.downloadImage(from: game.imageURL, indexPath: indexPath, completion: { (image, _, _) in
+            DispatchQueue.main.async {
+                cell.image = image
+            }
+
+        })
+        cell.configure(game: game)
+
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -354,4 +384,20 @@ extension MainViewController: UICollectionViewDataSource {
         return .init()
     }
 
+}
+
+// MARK: Clear Filter
+
+private extension MainViewController {
+    func clearFilter() {
+        isFiltered = false
+
+        filteredGames = [Game]()
+        filterScope = FilterScope()
+
+        emptyResultsView.isHidden = true
+
+        self.makeSections()
+        self.gameCollectionView.reloadData()
+    }
 }

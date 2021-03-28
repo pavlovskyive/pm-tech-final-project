@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Regular.otf">
+            <string>Pari-Match-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyResultsView" customModule="VirtualSports" customModuleProvider="target">
+            <connections>
+                <outlet property="content" destination="6rb-BN-XPU" id="L1r-Ke-gsq"/>
+                <outlet property="descriptionLabel" destination="7fl-zk-ia7" id="tlG-li-hdO"/>
+                <outlet property="imageView" destination="Y1l-Ow-xIk" id="qxA-n7-dod"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-BN-XPU">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pm-sorry" translatesAutoresizingMaskIntoConstraints="NO" id="Y1l-Ow-xIk">
+                            <rect key="frame" x="40" y="50" width="334" height="373"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Тут ничего нет... Попробуйте поискать в другом месте" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-zk-ia7">
+                            <rect key="frame" x="50" y="473.00000000000006" width="314" height="158.66666666666669"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="34"/>
+                            <color key="textColor" name="PMYellow"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="SecondaryBackground"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="7fl-zk-ia7" secondAttribute="trailing" constant="50" id="0Bn-gf-z35"/>
+                        <constraint firstAttribute="trailing" secondItem="Y1l-Ow-xIk" secondAttribute="trailing" constant="40" id="38i-os-ZWr"/>
+                        <constraint firstItem="7fl-zk-ia7" firstAttribute="leading" secondItem="6rb-BN-XPU" secondAttribute="leading" constant="50" id="3Ql-o6-FDf"/>
+                        <constraint firstItem="7fl-zk-ia7" firstAttribute="centerX" secondItem="6rb-BN-XPU" secondAttribute="centerX" id="672-qh-dFw"/>
+                        <constraint firstItem="Y1l-Ow-xIk" firstAttribute="centerX" secondItem="6rb-BN-XPU" secondAttribute="centerX" id="Dir-Vd-0os"/>
+                        <constraint firstItem="Y1l-Ow-xIk" firstAttribute="top" secondItem="6rb-BN-XPU" secondAttribute="top" constant="50" id="Eej-ZK-5mV"/>
+                        <constraint firstItem="Y1l-Ow-xIk" firstAttribute="leading" secondItem="6rb-BN-XPU" secondAttribute="leading" constant="40" id="q0z-4J-5Yq"/>
+                        <constraint firstItem="7fl-zk-ia7" firstAttribute="top" secondItem="Y1l-Ow-xIk" secondAttribute="bottom" constant="50" id="zNh-Yy-IDz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="6rb-BN-XPU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="63T-3Z-uMW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6rb-BN-XPU" secondAttribute="trailing" id="AmI-Ox-9zU"/>
+                <constraint firstItem="6rb-BN-XPU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FoH-w7-oVa"/>
+                <constraint firstAttribute="bottom" secondItem="6rb-BN-XPU" secondAttribute="bottom" id="hMg-D8-1Qq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-285" y="75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pm-sorry" width="438" height="373"/>
+        <namedColor name="PMYellow">
+            <color red="0.92500001192092896" green="0.91399997472763062" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryBackground">
+            <color red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

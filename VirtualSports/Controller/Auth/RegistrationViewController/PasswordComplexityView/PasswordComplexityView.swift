@@ -92,7 +92,7 @@ final class PasswordComplexityView: UIView {
         }
     }
 
-    #warning("Refactor this bullshit")
+    // TODO: Need to refactor in future
     private func checkCondition(_ isSatisfied: Bool, tag: Int ) {
         if isSatisfied {
             checkmarks.forEach {
@@ -115,7 +115,7 @@ final class PasswordComplexityView: UIView {
 
             conditionsLabels.forEach {
                 if  $0.tag == tag {
-                    $0.textColor = .black
+                    $0.textColor = .lightGray
                 }
             }
         }
