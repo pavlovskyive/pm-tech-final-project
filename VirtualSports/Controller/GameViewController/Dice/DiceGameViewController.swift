@@ -112,7 +112,7 @@ class DiceGameViewController: BaseGameViewController {
                     self?.handleBetResult(bet: bet)
                 }
             case .failure(let error):
-                let alert = Alert.errorAlert(title: "Game error", message: error.localizedDescription)
+                let alert = Alert.errorAlert(title: "Ошибка игры", message: "Ой.... Что-то пошло не так.")
 
                 DispatchQueue.main.async {
                     self?.present(alert, animated: true)
