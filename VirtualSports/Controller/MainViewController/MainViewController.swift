@@ -317,6 +317,7 @@ extension MainViewController: FilterDelegate {
             emptyResultsView.isHidden = false
         }
         self.makeSections()
+        self.configureCollectionView()
         self.gameCollectionView.reloadData()
     }
 
