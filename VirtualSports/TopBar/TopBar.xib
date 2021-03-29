@@ -133,7 +133,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-or-wBg">
-                            <rect key="frame" x="180" y="19" width="54" height="24.333333333333329"/>
+                            <rect key="frame" x="186.66666666666666" y="19" width="40.666666666666657" height="24.333333333333329"/>
                             <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -207,13 +207,13 @@
     </objects>
     <designables>
         <designable name="KdJ-3S-Q4h">
-            <size key="intrinsicContentSize" width="41" height="32"/>
+            <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="NuO-6D-Mvz">
-            <size key="intrinsicContentSize" width="102" height="32"/>
+            <size key="intrinsicContentSize" width="76" height="33"/>
         </designable>
         <designable name="cay-nJ-gTT">
-            <size key="intrinsicContentSize" width="53" height="32"/>
+            <size key="intrinsicContentSize" width="39" height="33"/>
         </designable>
     </designables>
     <resources>

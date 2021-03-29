@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,14 +22,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQg-bv-TNR" customClass="TopBar" customModule="VirtualSports" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="1Fo-Y1-HaB"/>
+                        <constraint firstAttribute="height" constant="80" id="1Fo-Y1-HaB"/>
                     </constraints>
                 </view>
                 <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjI-na-vvv">
-                    <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                    <rect key="frame" x="0.0" y="124" width="414" height="772"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -46,7 +46,7 @@
                 <constraint firstItem="fjI-na-vvv" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="kIz-S5-HLz"/>
                 <constraint firstItem="CQg-bv-TNR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="kvx-8b-3ob"/>
                 <constraint firstItem="fjI-na-vvv" firstAttribute="top" secondItem="CQg-bv-TNR" secondAttribute="bottom" id="r0t-bX-M1B"/>
-                <constraint firstItem="CQg-bv-TNR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ssm-WJ-py8"/>
+                <constraint firstItem="CQg-bv-TNR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ssm-WJ-py8"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="76.339285714285708"/>
         </view>

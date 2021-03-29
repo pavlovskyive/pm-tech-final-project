@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -31,19 +31,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dD-fo-TeB" customClass="FilterButtonView" customModule="VirtualSports" customModuleProvider="target">
-                    <rect key="frame" x="16" y="156" width="382" height="50"/>
+                    <rect key="frame" x="16" y="140" width="382" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="4LL-kh-PE7"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LZ-77-Pme" customClass="TopBar" customModule="VirtualSports" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="Rhk-hP-J7g"/>
+                        <constraint firstAttribute="height" constant="80" id="Rhk-hP-J7g"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="okw-zV-nTg">
-                    <rect key="frame" x="0.0" y="222" width="414" height="674"/>
+                    <rect key="frame" x="0.0" y="206" width="414" height="690"/>
                     <color key="backgroundColor" red="0.14901724459999999" green="0.14901834729999999" blue="0.14902132749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ETt-iX-K9l">
                         <size key="itemSize" width="128" height="128"/>
@@ -69,7 +69,7 @@
                     </connections>
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-HW-vt2" customClass="EmptyResultsView" customModule="VirtualSports" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="206" width="414" height="690"/>
+                    <rect key="frame" x="0.0" y="190" width="414" height="706"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
@@ -80,7 +80,7 @@
                 <constraint firstAttribute="bottom" secondItem="r9x-kJ-TbV" secondAttribute="bottom" id="A14-W4-15v"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Byw-lq-Pad"/>
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CCz-Ik-LBF"/>
-                <constraint firstItem="2LZ-77-Pme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CUd-8L-0sk"/>
+                <constraint firstItem="2LZ-77-Pme" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CUd-8L-0sk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="okw-zV-nTg" secondAttribute="trailing" id="J0H-My-t7v"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tqd-HW-vt2" secondAttribute="trailing" id="Lmd-3b-8T7"/>
                 <constraint firstAttribute="bottom" secondItem="Tqd-HW-vt2" secondAttribute="bottom" id="Udv-7Q-26z"/>

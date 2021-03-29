@@ -85,6 +85,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
         super.viewDidLoad()
         view.bringSubviewToFront(clearButton)
+        self.navigationController?.setStatusBar(backgroundColor: .black)
 
         filterButtonView.delegate = self
         setupTopBar()
@@ -436,6 +437,22 @@ private extension MainViewController {
         self.makeSections()
         self.configureCollectionView()
         self.gameCollectionView.reloadData()
+    }
+
+}
+
+extension UINavigationController {
+
+    func setStatusBar(backgroundColor: UIColor) {
+        let statusBarFrame: CGRect
+        if #available(iOS 13.0, *) {
+            statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
+        } else {
+            statusBarFrame = UIApplication.shared.statusBarFrame
+        }
+        let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.backgroundColor = backgroundColor
+        view.addSubview(statusBarView)
     }
 
 }
