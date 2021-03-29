@@ -276,7 +276,8 @@ extension FilterViewController: UICollectionViewDelegate {
             cell.identifier = category.id
             showIfSelectedCategory(cell)
 
-            dependency?.imageLoader.downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
+            dependency?.imageLoader
+                .downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
 
                 guard let indexPath = indexPath else { return }
 

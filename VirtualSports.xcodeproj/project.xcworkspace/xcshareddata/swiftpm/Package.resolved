@@ -159,8 +159,8 @@
         "repositoryURL": "https://github.com/pavlovskyive/virtual-sports-api-service",
         "state": {
           "branch": null,
-          "revision": "504496ae1f2e28b541ed87532fd161e3cf25f211",
-          "version": "1.0.0"
+          "revision": "b8235eeb8b119c4d84a8eeded1d523cb95ff3368",
+          "version": "1.0.4"
         }
       }
     ]

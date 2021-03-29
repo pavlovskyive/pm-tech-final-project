@@ -25,6 +25,7 @@
 		79846F8A260951D200DCA87B /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79846F88260951D200DCA87B /* LoginTextField.swift */; };
 		798A99C1260D196B00D7B1AE /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A99BF260D196B00D7B1AE /* AppDependency.swift */; };
 		798A99C2260D196B00D7B1AE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A99C0260D196B00D7B1AE /* Protocols.swift */; };
+		7996D0442611465D00BE49F5 /* GenericGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7996D0432611465D00BE49F5 /* GenericGameViewController.xib */; };
 		79C3D258260489A700ACD5E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D257260489A700ACD5E5 /* AppDelegate.swift */; };
 		79C3D25A260489A700ACD5E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C3D259260489A700ACD5E5 /* SceneDelegate.swift */; };
 		79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C3D262260489B500ACD5E5 /* LaunchScreen.storyboard */; };
@@ -117,6 +118,7 @@
 		79846F88260951D200DCA87B /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		798A99BF260D196B00D7B1AE /* AppDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		798A99C0260D196B00D7B1AE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		7996D0432611465D00BE49F5 /* GenericGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericGameViewController.xib; sourceTree = "<group>"; };
 		79C3D254260489A700ACD5E5 /* VirtualSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C3D257260489A700ACD5E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C3D259260489A700ACD5E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -304,6 +306,15 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		7996D0422611464300BE49F5 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				796BF810260F355E0019BB82 /* GenericGameViewController.swift */,
+				7996D0432611465D00BE49F5 /* GenericGameViewController.xib */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
 		79C3D24B260489A700ACD5E5 = {
 			isa = PBXGroup;
 			children = (
@@ -486,9 +497,9 @@
 		B941F6412607CA1200D831A2 /* GameViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7996D0422611464300BE49F5 /* Generic */,
 				79883807260F6239000270DC /* Dice */,
 				798837FD260F620F000270DC /* Base */,
-				796BF810260F355E0019BB82 /* GenericGameViewController.swift */,
 			);
 			path = GameViewController;
 			sourceTree = "<group>";
@@ -772,6 +783,7 @@
 				B941F64B2607CA1200D831A2 /* BaseGameViewController.xib in Resources */,
 				B9D6B50E26108F06002B1B38 /* GameCollectionViewCell.xib in Resources */,
 				E5BEA0D42610B0F600A25596 /* Assets.xcassets in Resources */,
+				7996D0442611465D00BE49F5 /* GenericGameViewController.xib in Resources */,
 				B941F65F2607E59D00D831A2 /* TopBar.xib in Resources */,
 				79C3D264260489B500ACD5E5 /* LaunchScreen.storyboard in Resources */,
 				B9E170742608DADD0099DA82 /* CategoryCollectionViewCell.xib in Resources */,
@@ -1276,7 +1288,7 @@
 			repositoryURL = "https://github.com/pavlovskyive/auth-service";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.4;
+				minimumVersion = 1.0.0;
 			};
 		};
 		7902467D26101A130070B593 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
