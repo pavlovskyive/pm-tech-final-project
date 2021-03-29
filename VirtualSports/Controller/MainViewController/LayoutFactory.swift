@@ -37,12 +37,12 @@ class LayoutFactory {
         layoutItem.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 8)
 
         let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .estimated(view.layer.frame.width/2 - 8),
-                                                     heightDimension: .estimated(view.layer.frame.width/2 - 8+20))
+                                                     heightDimension: .estimated(view.layer.frame.width/2 - 8+40))
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
 
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.orthogonalScrollingBehavior = .continuous
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 20, leading: 8, bottom: 20, trailing: 8)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 8, bottom: 0, trailing: 8)
 
         let header = createSectionHeader()
         layoutSection.boundarySupplementaryItems = [header]
@@ -57,11 +57,11 @@ class LayoutFactory {
         item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 8, trailing: 8)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                heightDimension: .estimated(view.layer.frame.width/2 - 8+20))
+                                               heightDimension: .estimated(view.layer.frame.width/2 - 8+40))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
 
         let layoutSection = NSCollectionLayoutSection(group: group)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 30, leading: 8, bottom: 16, trailing: 8)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 8, bottom: 8, trailing: 8)
 
         let header = createSectionHeader()
         layoutSection.boundarySupplementaryItems = [header]
@@ -71,10 +71,11 @@ class LayoutFactory {
 
     func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
         let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                             heightDimension: .estimated(20))
+                                                             heightDimension: .estimated(50))
         let layoutSection = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize,
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: -8, bottom: 0, trailing: 0)
         return layoutSection
     }
 }

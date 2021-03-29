@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,7 +46,7 @@
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="KdJ-3S-Q4h" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                            <rect key="frame" x="194" y="16" width="80" height="30"/>
+                            <rect key="frame" x="188" y="16" width="80" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="Xw8-uw-2V7"/>
@@ -71,7 +71,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuO-6D-Mvz" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                            <rect key="frame" x="284" y="16" width="120" height="30"/>
+                            <rect key="frame" x="278" y="16" width="120" height="30"/>
                             <color key="backgroundColor" name="PMYellow"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="FZS-Vf-kGs"/>
@@ -95,7 +95,7 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="cay-nJ-gTT" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                            <rect key="frame" x="324" y="16" width="80" height="30"/>
+                            <rect key="frame" x="318" y="16" width="80" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="CCM-go-rAT"/>
@@ -133,7 +133,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-or-wBg">
-                            <rect key="frame" x="186.66666666666666" y="19" width="40.666666666666657" height="24.333333333333329"/>
+                            <rect key="frame" x="180" y="19" width="54" height="24.333333333333329"/>
                             <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -178,12 +178,12 @@
                         <constraint firstItem="cay-nJ-gTT" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="T5N-VV-b6i"/>
                         <constraint firstItem="NuO-6D-Mvz" firstAttribute="leading" secondItem="KdJ-3S-Q4h" secondAttribute="trailing" constant="10" id="Xqp-xQ-2Ii"/>
                         <constraint firstAttribute="trailing" secondItem="176-kr-22t" secondAttribute="trailing" constant="20" id="YIi-MC-EAe"/>
-                        <constraint firstAttribute="trailing" secondItem="NuO-6D-Mvz" secondAttribute="trailing" constant="10" id="bdB-A1-mNF"/>
+                        <constraint firstAttribute="trailing" secondItem="NuO-6D-Mvz" secondAttribute="trailing" constant="16" id="bdB-A1-mNF"/>
                         <constraint firstItem="zW5-dH-JIv" firstAttribute="leading" secondItem="G6I-JI-Q29" secondAttribute="leading" constant="16" id="cLM-XY-fVN"/>
                         <constraint firstItem="KdJ-3S-Q4h" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="dly-fg-6Dl"/>
                         <constraint firstItem="zW5-dH-JIv" firstAttribute="top" secondItem="G6I-JI-Q29" secondAttribute="top" id="esx-UF-IdR"/>
                         <constraint firstItem="Mhb-or-wBg" firstAttribute="centerX" secondItem="G6I-JI-Q29" secondAttribute="centerX" id="fYW-o8-2Dc"/>
-                        <constraint firstAttribute="trailing" secondItem="cay-nJ-gTT" secondAttribute="trailing" constant="10" id="jWk-Sw-WFE"/>
+                        <constraint firstAttribute="trailing" secondItem="cay-nJ-gTT" secondAttribute="trailing" constant="16" id="jWk-Sw-WFE"/>
                     </constraints>
                 </view>
             </subviews>
@@ -207,13 +207,13 @@
     </objects>
     <designables>
         <designable name="KdJ-3S-Q4h">
-            <size key="intrinsicContentSize" width="30" height="33"/>
+            <size key="intrinsicContentSize" width="41" height="32"/>
         </designable>
         <designable name="NuO-6D-Mvz">
-            <size key="intrinsicContentSize" width="76" height="33"/>
+            <size key="intrinsicContentSize" width="102" height="32"/>
         </designable>
         <designable name="cay-nJ-gTT">
-            <size key="intrinsicContentSize" width="39" height="33"/>
+            <size key="intrinsicContentSize" width="53" height="32"/>
         </designable>
     </designables>
     <resources>
