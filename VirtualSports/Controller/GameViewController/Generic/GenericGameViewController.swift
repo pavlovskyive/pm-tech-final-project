@@ -27,7 +27,7 @@ class GenericGameViewController: BaseGameViewController {
 
         webView?.load(URLRequest(url: url))
 
-        topBar?.showHistoryButton(dependencies?.authProvider.loggedIn ?? false)
+        topBar?.showHistoryButton(false)
     }
 
 }
