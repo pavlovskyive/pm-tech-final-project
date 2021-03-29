@@ -105,7 +105,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     func setupTopBar() {
         topBar.delegate = self
-        topBar.showMainTopBar()
+        topBar.showStartTopBar()
     }
 
     func setupCollectionView() {

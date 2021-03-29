@@ -93,6 +93,16 @@ class TopBar: UIView {
         showOnly(visibleItems)
     }
 
+    func showStartTopBar() {
+
+        let visibleItems = [
+
+            logoView
+        ]
+
+        showOnly(visibleItems)
+    }
+
     func showGameTopBar(name: String) {
 
         let visibleItems = [
