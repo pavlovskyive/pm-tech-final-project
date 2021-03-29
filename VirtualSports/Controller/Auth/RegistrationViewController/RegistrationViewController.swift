@@ -144,7 +144,7 @@ class RegistrationViewController: AuthBaseViewController {
 
     private func setupTextFieldsTarget() {
         passwordTextField?.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
-        emailTextField?.addTarget(self, action: #selector(emailTextFieldDidChange), for: .editingChanged)
+        emailTextField?.addTarget(self, action: #selector(emailTextFieldEndEditing), for: .editingDidEnd)
     }
 
     private func setupLabels() {
@@ -239,7 +239,7 @@ class RegistrationViewController: AuthBaseViewController {
 
     // MARK: TextFieldDidChange Actions
 
-    @objc func emailTextFieldDidChange(_ textField: UITextField) {
+    @objc func emailTextFieldEndEditing(_ textField: UITextField) {
         if checkEmail(emailTextField: emailTextField) {
             emailErrorLabel.isHidden = true
             emailTextField?.changeBottomLineColor = .green

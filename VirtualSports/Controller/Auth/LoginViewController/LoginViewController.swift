@@ -107,7 +107,7 @@ class LoginViewController: AuthBaseViewController {
             self?.primaryButton?.setEnabled(false)
         }
 
-        emailTextField?.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
+        emailTextField?.addTarget(self, action: #selector(emailTextFieldEndEditing(_:)), for: .editingDidEnd)
     }
 
     private func checkEmail(emailTextField: UITextField?) -> Bool {
@@ -123,7 +123,7 @@ class LoginViewController: AuthBaseViewController {
         return emailPred.evaluate(with: email)
     }
 
-    @objc func emailTextFieldDidChange(_ textField: UITextField) {
+    @objc func emailTextFieldEndEditing(_ textField: UITextField) {
         if checkEmail(emailTextField: emailTextField) {
             emailErrorLabel.isHidden = true
             emailTextField?.changeBottomLineColor = .green
