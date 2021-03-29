@@ -4,15 +4,26 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Parimatch-Bold.otf">
+            <string>Pari-Match-Bold</string>
+        </array>
+        <array key="Parimatch-Regular.otf">
+            <string>Pari-Match-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopBar" customModule="VirtualSports" customModuleProvider="target">
             <connections>
                 <outlet property="backwardButton" destination="6q9-4I-H6x" id="O1e-Im-EhR"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="2HN-th-apj"/>
+                <outlet property="favoritesButton" destination="176-kr-22t" id="0MC-dm-TQD"/>
                 <outlet property="gameNameLabel" destination="Mhb-or-wBg" id="HUS-XV-uf5"/>
+                <outlet property="historyButton" destination="eCs-I8-VYi" id="CCs-hh-IjH"/>
                 <outlet property="logOut" destination="cay-nJ-gTT" id="mkm-XE-mG1"/>
                 <outlet property="logoView" destination="zW5-dH-JIv" id="569-N0-KhQ"/>
                 <outlet property="signIn" destination="KdJ-3S-Q4h" id="Kea-DD-45I"/>
@@ -28,21 +39,21 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="62"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="zW5-dH-JIv">
-                            <rect key="frame" x="16.000000000000004" y="5" width="62.333333333333343" height="52"/>
+                            <rect key="frame" x="16" y="0.0" width="68.333333333333329" height="57"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="zW5-dH-JIv" secondAttribute="height" multiplier="1.2:1" id="8OS-Bd-vy1"/>
                             </constraints>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="KdJ-3S-Q4h" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                            <rect key="frame" x="194" y="16" width="80" height="30"/>
+                            <rect key="frame" x="188" y="16" width="80" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="Xw8-uw-2V7"/>
                                 <constraint firstAttribute="height" constant="30" id="jPT-ZS-C5t"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                            <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                             <state key="normal" title="Вход">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
@@ -60,14 +71,14 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuO-6D-Mvz" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                            <rect key="frame" x="284" y="16" width="120" height="30"/>
-                            <color key="backgroundColor" red="0.98030835390000004" green="0.98852068189999998" blue="0.34288221600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="278" y="16" width="120" height="30"/>
+                            <color key="backgroundColor" name="PMYellow"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="FZS-Vf-kGs"/>
                                 <constraint firstAttribute="width" constant="120" id="elx-Kd-7UW"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                            <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                             <state key="normal" title="Регистрация">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -84,14 +95,14 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="cay-nJ-gTT" customClass="DesignableButton" customModule="VirtualSports" customModuleProvider="target">
-                            <rect key="frame" x="324" y="16" width="80" height="30"/>
+                            <rect key="frame" x="318" y="16" width="80" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="CCM-go-rAT"/>
                                 <constraint firstAttribute="height" constant="30" id="rq5-Cd-OmF"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                            <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                             <state key="normal" title="Выход">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
@@ -108,40 +119,71 @@
                                 <action selector="logoutButtonPressed:" destination="-1" eventType="touchUpInside" id="1UY-nu-lmf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q9-4I-H6x" userLabel="Backword">
-                            <rect key="frame" x="16" y="20.666666666666664" width="15" height="21.333333333333336"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q9-4I-H6x" userLabel="Backword">
+                            <rect key="frame" x="16" y="16" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="Ts2-qB-cMq"/>
-                                <constraint firstAttribute="width" constant="15" id="ga6-hJ-el6"/>
+                                <constraint firstAttribute="height" constant="30" id="Ts2-qB-cMq"/>
+                                <constraint firstAttribute="width" constant="30" id="ga6-hJ-el6"/>
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" backgroundImage="chevron.backward" catalog="system"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                            <state key="normal" image="Left"/>
                             <connections>
                                 <action selector="backwardButtonPressed:" destination="-1" eventType="touchUpInside" id="GaF-zg-mfO"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-or-wBg">
-                            <rect key="frame" x="182" y="19.666666666666664" width="50" height="23"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <rect key="frame" x="186.66666666666666" y="19" width="40.666666666666657" height="24.333333333333329"/>
+                            <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="176-kr-22t" userLabel="Favorites">
+                            <rect key="frame" x="356" y="13.666666666666664" width="38" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="AQi-tn-yUz"/>
+                                <constraint firstAttribute="width" constant="38" id="Yie-YZ-Mdz"/>
+                            </constraints>
+                            <color key="tintColor" name="PMYellow"/>
+                            <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                            <state key="normal" image="Heart"/>
+                            <connections>
+                                <action selector="favouritesButtonPressed:" destination="-1" eventType="touchUpInside" id="sKg-ky-3yc"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCs-I8-VYi" userLabel="Favorites">
+                            <rect key="frame" x="313" y="13.666666666666664" width="38" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="38" id="35B-J7-OWD"/>
+                                <constraint firstAttribute="height" constant="35" id="yfV-w2-GqQ"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                            <state key="normal" image="History"/>
+                            <connections>
+                                <action selector="historyButtonPressed:" destination="-1" eventType="touchUpInside" id="PSI-Zd-THE"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="176-kr-22t" firstAttribute="leading" secondItem="eCs-I8-VYi" secondAttribute="trailing" constant="5" id="5dh-Md-M9c"/>
                         <constraint firstItem="NuO-6D-Mvz" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="6NA-KA-NET"/>
+                        <constraint firstItem="176-kr-22t" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="F0w-4P-Abm"/>
                         <constraint firstItem="Mhb-or-wBg" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="GbI-J8-IeO"/>
+                        <constraint firstItem="eCs-I8-VYi" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="KUF-42-Q7S"/>
                         <constraint firstItem="6q9-4I-H6x" firstAttribute="leading" secondItem="G6I-JI-Q29" secondAttribute="leading" constant="16" id="Kyg-Ou-ftd"/>
                         <constraint firstAttribute="bottom" secondItem="zW5-dH-JIv" secondAttribute="bottom" constant="5" id="QHM-ZY-zAU"/>
                         <constraint firstItem="6q9-4I-H6x" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="Ss6-NP-SLB"/>
                         <constraint firstItem="cay-nJ-gTT" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="T5N-VV-b6i"/>
                         <constraint firstItem="NuO-6D-Mvz" firstAttribute="leading" secondItem="KdJ-3S-Q4h" secondAttribute="trailing" constant="10" id="Xqp-xQ-2Ii"/>
-                        <constraint firstAttribute="trailing" secondItem="NuO-6D-Mvz" secondAttribute="trailing" constant="10" id="bdB-A1-mNF"/>
+                        <constraint firstAttribute="trailing" secondItem="176-kr-22t" secondAttribute="trailing" constant="20" id="YIi-MC-EAe"/>
+                        <constraint firstAttribute="trailing" secondItem="NuO-6D-Mvz" secondAttribute="trailing" constant="16" id="bdB-A1-mNF"/>
                         <constraint firstItem="zW5-dH-JIv" firstAttribute="leading" secondItem="G6I-JI-Q29" secondAttribute="leading" constant="16" id="cLM-XY-fVN"/>
                         <constraint firstItem="KdJ-3S-Q4h" firstAttribute="centerY" secondItem="G6I-JI-Q29" secondAttribute="centerY" id="dly-fg-6Dl"/>
-                        <constraint firstItem="zW5-dH-JIv" firstAttribute="top" secondItem="G6I-JI-Q29" secondAttribute="top" constant="5" id="esx-UF-IdR"/>
+                        <constraint firstItem="zW5-dH-JIv" firstAttribute="top" secondItem="G6I-JI-Q29" secondAttribute="top" id="esx-UF-IdR"/>
                         <constraint firstItem="Mhb-or-wBg" firstAttribute="centerX" secondItem="G6I-JI-Q29" secondAttribute="centerX" id="fYW-o8-2Dc"/>
-                        <constraint firstAttribute="trailing" secondItem="cay-nJ-gTT" secondAttribute="trailing" constant="10" id="jWk-Sw-WFE"/>
+                        <constraint firstAttribute="trailing" secondItem="cay-nJ-gTT" secondAttribute="trailing" constant="16" id="jWk-Sw-WFE"/>
                     </constraints>
                 </view>
             </subviews>
@@ -165,17 +207,22 @@
     </objects>
     <designables>
         <designable name="KdJ-3S-Q4h">
-            <size key="intrinsicContentSize" width="36" height="29"/>
+            <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="NuO-6D-Mvz">
-            <size key="intrinsicContentSize" width="93" height="29"/>
+            <size key="intrinsicContentSize" width="76" height="33"/>
         </designable>
         <designable name="cay-nJ-gTT">
-            <size key="intrinsicContentSize" width="47" height="29"/>
+            <size key="intrinsicContentSize" width="39" height="33"/>
         </designable>
     </designables>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="Heart" width="97.333335876464844" height="90"/>
+        <image name="History" width="87.666664123535156" height="80"/>
+        <image name="Left" width="34.666667938232422" height="61.333332061767578"/>
         <image name="logo" width="230" height="130"/>
+        <namedColor name="PMYellow">
+            <color red="0.92500001192092896" green="0.91399997472763062" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

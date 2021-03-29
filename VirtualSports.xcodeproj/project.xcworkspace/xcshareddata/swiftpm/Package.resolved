@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "AuthService",
+        "package": "AuthLayer",
         "repositoryURL": "https://github.com/pavlovskyive/auth-service",
         "state": {
           "branch": null,
-          "revision": "ab6ee0634a3d665939b89f88a5e2c645c413f97b",
-          "version": "0.2.0"
+          "revision": "a196efcfdd0c6f01922a685c5444638faddf205d",
+          "version": "1.0.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/google/GoogleDataTransport.git",
         "state": {
           "branch": null,
-          "revision": "34bd15a31149e42eadd6c75bd67aaea002e23bf4",
-          "version": "8.3.0"
+          "revision": "3615a4ca10961d82ed2b5459cd9a5cb5ebc03ff2",
+          "version": "8.3.1"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/alexsopilnyak/ImageLoader.git",
         "state": {
           "branch": null,
-          "revision": "1a33b9fb1c1a2bd6ac9bd6c7c8e66b2e37dae411",
-          "version": "1.2.1"
+          "revision": "ce19db6a59b024b56611b75e0fc71375cf367580",
+          "version": "1.5.1"
         }
       },
       {
@@ -123,8 +123,8 @@
         "repositoryURL": "https://github.com/pavlovskyive/network-service",
         "state": {
           "branch": null,
-          "revision": "09222260ebdad848cb8d6f474333be1ac8c277f8",
-          "version": "1.2.1"
+          "revision": "885f62b519a7645fe56e0579a035c18b9764c539",
+          "version": "1.3.2"
         }
       },
       {
@@ -146,12 +146,21 @@
         }
       },
       {
-        "package": "APIService",
+        "package": "SwiftyBeaver",
+        "repositoryURL": "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "2c513a2e8fbfbd6495afc4a05941d8e3fdba68e9",
+          "version": "1.9.3"
+        }
+      },
+      {
+        "package": "APILayer",
         "repositoryURL": "https://github.com/pavlovskyive/virtual-sports-api-service",
         "state": {
           "branch": null,
-          "revision": "e49e0e25478751c823018d88996bc14cebb4cc35",
-          "version": "0.3.1"
+          "revision": "b8235eeb8b119c4d84a8eeded1d523cb95ff3368",
+          "version": "1.0.4"
         }
       }
     ]

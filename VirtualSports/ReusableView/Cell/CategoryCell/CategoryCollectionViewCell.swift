@@ -9,25 +9,43 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var categoryImageView: UIImageView!
+    @IBOutlet private weak var categoryImageView: UIImageView?
+    @IBOutlet private weak var categoryLabel: UILabel?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
 
-    @IBOutlet private weak var categoryLabel: UILabel!
+    lazy var tintLayer: CALayer = {
+        let layer = CALayer()
+        layer.opacity = 0
+        layer.backgroundColor = UIColor.white.withAlphaComponent(0.2).cgColor
+
+        contentView.layer.addSublayer(layer)
+
+        return layer
+    }()
 
     var image: UIImage? {
         get {
-            categoryImageView.image
+            categoryImageView?.image
         }
         set {
-            categoryImageView.image = newValue
+            categoryImageView?.image = newValue
+            activityIndicator?.stopAnimating()
+            UIView.animate(withDuration: 0.4,
+                           delay: 0, usingSpringWithDamping: 0.7,
+                           initialSpringVelocity: 0.3,
+                           options: .curveEaseInOut) {
+                self.categoryImageView?.alpha = 1
+                self.categoryImageView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
         }
     }
 
     var categoryName: String? {
             get {
-                categoryLabel.text
+                categoryLabel?.text
             }
             set {
-                categoryLabel.text = newValue
+                categoryLabel?.text = newValue
             }
         }
 
@@ -37,12 +55,26 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        activityIndicator?.startAnimating()
+        categoryImageView?.alpha = 0
+        categoryImageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
 
         categoryName = ""
+        image = nil
+        activityIndicator?.startAnimating()
+        categoryImageView?.alpha = 0
+        categoryImageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        tintLayer.frame = contentView.bounds
     }
 
 }
@@ -51,12 +83,28 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
 extension CategoryCollectionViewCell: FilterCell {
 
-    func normal() {
-        self.layer.backgroundColor = nil
+    func makeNormal() {
+        tintLayer.opacity = 0
+
+        let appearAnimation = CABasicAnimation(keyPath: "opacity")
+        appearAnimation.fromValue = 1
+        appearAnimation.toValue = 0
+        appearAnimation.duration = 0.2
+        appearAnimation.fillMode = .forwards
+
+        tintLayer.add(appearAnimation, forKey: "appearAnimation")
     }
 
-    func selected() {
-        self.layer.backgroundColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
+    func select() {
+        tintLayer.opacity = 1
+
+        let appearAnimation = CABasicAnimation(keyPath: "opacity")
+        appearAnimation.fromValue = 0
+        appearAnimation.toValue = 1
+        appearAnimation.duration = 0.2
+        appearAnimation.fillMode = .forwards
+
+        tintLayer.add(appearAnimation, forKey: "appearAnimation")
     }
 
 }

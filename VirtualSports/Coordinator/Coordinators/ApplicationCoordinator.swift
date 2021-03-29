@@ -10,20 +10,25 @@ import Foundation
 final class ApplicationCoordinator: BaseCoordinator {
 
     // MARK: - Vars & Lets
+
     private let coordinatorFactory: CoordinatorFactoryProtocol
     private let router: RouterProtocol
+    private var dependencies = AppDependency()
 
     // MARK: - Coordinator
+
     override func start() {
 
         runMainFlow()
     }
 
     // MARK: - Private methods
+
     private func runMainFlow() {
 
         let coordinator = self.coordinatorFactory.makeMainCoordinatorBox(router: self.router,
                                                                          coordinatorFactory: CoordinatorFactory())
+        coordinator.dependencies = dependencies
         coordinator.finishFlow = { [unowned self, unowned coordinator] in
             self.removeDependency(coordinator)
             self.start()
@@ -33,6 +38,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
 
     // MARK: - Init
+
     init(router: Router, coordinatorFactory: CoordinatorFactory) {
         self.router = router
         self.coordinatorFactory = coordinatorFactory

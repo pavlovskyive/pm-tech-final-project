@@ -6,12 +6,18 @@
 //
 
 import Foundation
-import APIService
-import AuthService
+import APILayer
+import AuthLayer
 
 let apiConfig = APIConfig(scheme: "https",
                           host: "virtual-sports-yi3j9.ondigitalocean.app",
-                          mainPath: "/Games")
+                          mainPath: "/Games",
+                          favouritesPath: "/User/favourites",
+                          favouriteGamePath: "/User/favourite",
+                          recentPath: "/User/recent",
+                          playGamePath: "/Games/play",
+                          gameHistoryPath: "/User/history",
+                          recommendedPath: "/User/recommended")
 
 let authConfig = AuthConfig(scheme: "https",
                             host: "virtual-sports-yi3j9.ondigitalocean.app",

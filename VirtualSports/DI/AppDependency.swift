@@ -6,14 +6,16 @@
 //
 
 import Foundation
-import APIService
-import AuthService
+import APILayer
+import AuthLayer
 import NetworkService
 import KeychainWrapper
+import ImageLoader
 
-struct AppDependency: HasAuthenticator, HasAPIFetching {
+struct AppDependency: HasAuthProvider, HasAPIFetching, HasImageLoader {
 
-    var authProvider: Authenticator
+    var imageLoader: ImageLoader
+    var authProvider: AuthProvider
     var apiService: APIFetchable
 
     public init() {
@@ -26,8 +28,10 @@ struct AppDependency: HasAuthenticator, HasAPIFetching {
 
         let apiService = APIService(networkProvider: networkProvider,
                                     config: apiConfig)
+        let imageLoader = ImageLoader(networkProvider: NetworkService())
 
         self.authProvider = authProvider
         self.apiService = apiService
+        self.imageLoader = imageLoader
     }
 }

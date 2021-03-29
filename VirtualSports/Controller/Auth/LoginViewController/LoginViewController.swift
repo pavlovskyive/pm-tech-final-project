@@ -45,11 +45,25 @@ class LoginViewController: AuthBaseViewController {
         }
     }
 
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: LoginTextField?
     @IBOutlet weak var passwordTextField: LoginTextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailErrorLabel.isHidden = true
+
+        let emailValidation = { [weak self] () -> Bool in
+
+            guard let self = self else {
+                return false
+            }
+
+            return self.checkEmail(emailTextField: self.emailTextField)
+        }
+
+        self.appendValidation(emailValidation)
 
         primaryAction = { [weak self] in
 
@@ -69,7 +83,12 @@ class LoginViewController: AuthBaseViewController {
                     case .success:
                         self?.onComplete?()
                     case .failure(let error):
-                        print(error)
+                        let alert = Alert.errorAlert(title: "Ошибка авторизации", message: "Пользователь не найден или пароль не совпадает.")
+                        DispatchQueue.main.async {
+                            self?.present(alert, animated: true)
+                        }
+                        
+                        log.error(error.localizedDescription)
                     }
 
                     self?.primaryButton?.setEnabled(true)
@@ -85,11 +104,39 @@ class LoginViewController: AuthBaseViewController {
         ])
 
         onValid = { [weak self] in
+
             self?.primaryButton?.setEnabled(true)
         }
 
         onInvalid = { [weak self] in
             self?.primaryButton?.setEnabled(false)
+        }
+
+        emailTextField?.addTarget(self, action: #selector(emailTextFieldEndEditing(_:)), for: .editingDidEnd)
+    }
+
+    private func checkEmail(emailTextField: UITextField?) -> Bool {
+
+        guard let email = emailTextField?.text else {
+            return false
+        }
+
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+
+        return emailPred.evaluate(with: email)
+    }
+
+    @objc func emailTextFieldEndEditing(_ textField: UITextField) {
+        if checkEmail(emailTextField: emailTextField) {
+            emailErrorLabel.isHidden = true
+            emailTextField?.changeBottomLineColor = .green
+            emailLabel.textColor = UIColor(named: "PMGreen")
+        } else {
+            emailErrorLabel.isHidden = false
+            emailTextField?.changeBottomLineColor = .red
+            emailLabel.textColor = .red
         }
     }
 

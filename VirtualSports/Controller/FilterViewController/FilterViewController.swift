@@ -8,16 +8,54 @@
 import UIKit
 
 import ImageLoader
-import APIService
+import APILayer
+import NetworkService
+
+struct FilterScope {
+    var categoryId = ""
+    var providersIds = [String]()
+}
+
+fileprivate extension Game {
+
+    func isIncluded(in scope: FilterScope) -> Bool {
+        let categoryCondition = scope.categoryId.isEmpty || self.categories.contains(scope.categoryId)
+
+        let providersCondition = scope.providersIds.isEmpty || scope.providersIds.contains(self.provider)
+
+        return categoryCondition && providersCondition
+    }
+
+}
+
+fileprivate extension MainResponse {
+
+    func filter(by scope: FilterScope) -> [Game] {
+        self.games.filter { $0.isIncluded(in: scope) }
+    }
+
+}
 
 protocol FilterViewControllerProtocol: AnyObject {
 
+    typealias Dependency = HasImageLoader
+    var dependency: Dependency? { get set }
     var onGoToDismiss: (() -> Void)? { get set }
+}
+
+protocol FilterDelegate: AnyObject {
+    var isFiltered: Bool { get set }
+    var filterScope: FilterScope { get set }
+    func handleFilter(filteredGames: [Game], _ filterCount: Int)
 }
 
 class FilterViewController: UIViewController {
 
+    // MARK: Vars
+
     let mainResponse: MainResponse
+
+    weak private var delegate: FilterDelegate?
 
     private lazy var categories: [GameCategory] = {
         mainResponse.categories
@@ -28,6 +66,8 @@ class FilterViewController: UIViewController {
     }()
 
     var onGoToDismiss: (() -> Void)?
+    var dependency: Dependency?
+    var filterCount = 0
 
     // MARK: Properties
 
@@ -35,7 +75,6 @@ class FilterViewController: UIViewController {
     @IBOutlet private weak var acceptButton: UIButton!
     @IBOutlet private weak var acceptButtonHeight: NSLayoutConstraint!
 
-    // TODO: NAMING + TYPES
     private var selectedCategoryId: String = ""
     private var selectedProviders: [String] = []
     private var selectedCategoryCell: CategoryCollectionViewCell?
@@ -43,19 +82,38 @@ class FilterViewController: UIViewController {
     // MARK: Actions
 
     @IBAction private func didTapAcceptButton(_ sender: Any) {
-        print(selectedCategoryId)
-        print(selectedProviders)
+
+        log.info("Accept button tapped")
+
+        let scope = FilterScope(categoryId: selectedCategoryId, providersIds: selectedProviders)
+        delegate?.isFiltered = true
+        delegate?.filterScope = scope
+
+        filterCount = selectedProviders.count
+        if !selectedCategoryId.isEmpty { filterCount += 1 }
+
+        delegate?.handleFilter(filteredGames: mainResponse.filter(by: scope), filterCount )
+
+        onGoToDismiss?()
     }
 
     @IBAction private func didTapCancelButton(_ sender: Any) {
 
-        self.onGoToDismiss?()
+        log.info("Cancel button tapped")
+        onGoToDismiss?()
     }
 
     // MARK: Initialization
 
-    init(for mainResponse: MainResponse) {
+    init(for mainResponse: MainResponse,
+         delegate: FilterDelegate) {
+
         self.mainResponse = mainResponse
+        self.delegate = delegate
+
+        selectedCategoryId = delegate.filterScope.categoryId
+        selectedProviders = delegate.filterScope.providersIds
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -68,7 +126,6 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -96,53 +153,101 @@ private extension FilterViewController {
 
         if selectedProviders == [] && selectedCategoryId == "" {
 
-            acceptButton.isHidden = true
             acceptButtonHeight.constant = 0
-        } else {
 
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                self?.view.layoutIfNeeded()
+            }, completion: {[weak self] _ in
+                self?.acceptButton.isHidden = true
+            })
+
+        } else {
             acceptButton.isHidden = false
             acceptButtonHeight.constant = 80
+
+            UIView.animate(withDuration: 0.2) { [weak self] in
+                self?.view.layoutIfNeeded()
+            }
         }
     }
 
-    func selectCategoryCell(_ cell: CategoryCollectionViewCell) {
+    func showIfSelectedCategory(_ cell: CategoryCollectionViewCell) {
 
-        if selectedCategoryId == "" {
-            selectedCategoryId = cell.identifier
+        if selectedCategoryId == cell.identifier {
             selectedCategoryCell = cell
-            cell.selected()
+            cell.select()
+        }
+    }
+
+    func showIfSelectedProvider(_ cell: ProviderCollectionViewCell) {
+
+        guard let identifier = cell.identifier else {
+            return
+        }
+
+        if selectedProviders.contains(identifier) {
+            cell.select()
+        }
+    }
+
+    func onCategoryCellSelected(_ cell: CategoryCollectionViewCell) {
+
+        log.info("Category cell tapped")
+
+        if selectedCategoryId == cell.identifier {
+
+            selectedCategoryId = ""
+            selectedCategoryCell = nil
+
+            cell.makeNormal()
         } else {
-            if selectedCategoryId == cell.identifier {
-                selectedCategoryId = ""
-                selectedCategoryCell = nil
-                cell.normal()
-            } else {
-                selectedCategoryCell?.normal()
-                selectedCategoryId = cell.identifier
-                selectedCategoryCell = cell
-                cell.selected()
-            }
+            selectedCategoryCell?.makeNormal()
+
+            selectedCategoryId = cell.identifier
+
+            cell.select()
+            selectedCategoryCell = cell
+
+            scrollToCell(cell)
         }
 
         acceptButtonEnabling()
     }
 
-    func selectProviderCell(_ cell: ProviderCollectionViewCell) {
+    func onProviderCellSelected(_ cell: ProviderCollectionViewCell) {
 
-        if let identifier = cell.identifier {
+        log.info("Provider cell tapped")
+        guard let identifier = cell.identifier else {
+            return
+        }
 
-            if selectedProviders.contains(identifier) {
+        if selectedProviders.contains(identifier) {
 
-                selectedProviders = selectedProviders.filter { $0 != identifier }
-                cell.normal()
-            } else {
+            selectedProviders = selectedProviders.filter { $0 != identifier }
+            cell.makeNormal()
+        } else {
 
-                selectedProviders.append(identifier)
-                cell.selected()
-            }
+            selectedProviders.append(identifier)
+            cell.select()
+
+            scrollToCell(cell)
         }
 
         acceptButtonEnabling()
+
+    }
+
+    func scrollToCell(_ cell: UICollectionViewCell) {
+
+        DispatchQueue.main.async { [weak self] in
+            // Scroll to next cell + spacing
+            let rect = CGRect(x: cell.frame.origin.x,
+                              y: cell.frame.maxY - 10,
+                              width: cell.frame.width,
+                              height: cell.frame.height + 30)
+
+            self?.filterCollectionView.scrollRectToVisible(rect, animated: true)
+        }
     }
 
 }
@@ -150,7 +255,6 @@ private extension FilterViewController {
 // MARK: FilterViewControllerProtocol
 
 extension FilterViewController: FilterViewControllerProtocol {
-
 }
 
 // MARK: Collection View Delegate
@@ -170,10 +274,15 @@ extension FilterViewController: UICollectionViewDelegate {
 
             cell.categoryName = category.name
             cell.identifier = category.id
+            showIfSelectedCategory(cell)
 
-            ImageLoader.shared.downloadImage(from: category.imageURL, indexPath: indexPath) { image, idexPath, _ in
+            dependency?.imageLoader
+                .downloadImage(from: category.imageURL, indexPath: indexPath) { image, indexPath, _ in
+
+                guard let indexPath = indexPath else { return }
+
                 DispatchQueue.main.async {
-                    if let cell = collectionView.cellForItem(at: idexPath!) as? CategoryCollectionViewCell {
+                    if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
                         cell.image = image
                     }
                 }
@@ -186,10 +295,17 @@ extension FilterViewController: UICollectionViewDelegate {
             let provider = providers[indexPath.row]
 
             cell.identifier = provider.id
+            showIfSelectedProvider(cell)
 
-            ImageLoader.shared.downloadImage(from: provider.imageURL, indexPath: indexPath) { image, idexPath, _ in
+            dependency?.imageLoader
+                .downloadImage(from: provider.imageURL, indexPath: indexPath) { image, indexPath, _ in
+
+                guard let indexPath = indexPath else {
+                    return
+                }
+
                 DispatchQueue.main.async {
-                    if let cell = collectionView.cellForItem(at: idexPath!) as? ProviderCollectionViewCell {
+                    if let cell = collectionView.cellForItem(at: indexPath) as? ProviderCollectionViewCell {
                         cell.image = image
                     }
                 }
@@ -203,14 +319,13 @@ extension FilterViewController: UICollectionViewDelegate {
         switch indexPath.section {
         case 0:
             guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
-
-            selectCategoryCell(cell)
+            onCategoryCellSelected(cell)
 
         case 1:
 
             guard let cell = collectionView.cellForItem(at: indexPath) as? ProviderCollectionViewCell else { return }
 
-            selectProviderCell(cell)
+            onProviderCellSelected(cell)
 
         default:
             return
@@ -261,8 +376,11 @@ extension FilterViewController: UICollectionViewDataSource {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kindView,
                                                                          with: HeaderCollectionReusableView.self,
                                                                          for: indexPath)
-            if indexPath.section == 1 {
+            switch indexPath.section {
+            case 1:
                 header.sectionName = "Провайдеры"
+            default:
+                header.sectionName = ""
             }
 
             return header
@@ -300,9 +418,8 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout {
         case 1:
             return CGSize(width: self.view.frame.width, height: 80)
         default:
-            return CGSize()
+            return CGSize(width: self.view.frame.width, height: 25)
         }
-
     }
 
 }

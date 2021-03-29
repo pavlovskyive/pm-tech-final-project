@@ -7,12 +7,26 @@
 
 import UIKit
 
-@objc protocol TopBarDelegate: AnyObject {
-    @objc func signInButtonPressed()
-    @objc func logOutButtonPressed()
-    @objc func signUpButtonPressed()
-    @objc func backwardButtonPressed()
+protocol TopBarDelegate: AnyObject {
+
+    func signInButtonPressed()
+    func logOutButtonPressed()
+    func signUpButtonPressed()
+    func backwardButtonPressed()
+    func favoriteButtonPressed()
+    func historyButtonPressed()
 }
+
+extension TopBarDelegate {
+
+    func signInButtonPressed() {}
+    func logOutButtonPressed() {}
+    func signUpButtonPressed() {}
+    func backwardButtonPressed() {}
+    func favoriteButtonPressed() {}
+    func historyButtonPressed() {}
+}
+
 /*
  
  First: Setup your RootVC:
@@ -48,44 +62,78 @@ import UIKit
 class TopBar: UIView {
 
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var signUp: DesignableButton!
-    @IBOutlet weak var signIn: DesignableButton!
-    @IBOutlet weak var logOut: DesignableButton!
-    @IBOutlet weak var backwardButton: UIButton!
-    @IBOutlet weak var logoView: UIImageView!
-    @IBOutlet weak var gameNameLabel: UILabel!
+    @IBOutlet weak var signUp: DesignableButton?
+    @IBOutlet weak var signIn: DesignableButton?
+    @IBOutlet weak var logOut: DesignableButton?
+    @IBOutlet weak var backwardButton: UIButton?
+    @IBOutlet weak var logoView: UIImageView?
+    @IBOutlet weak var gameNameLabel: UILabel?
+    @IBOutlet weak var favoritesButton: UIButton?
+    @IBOutlet weak var historyButton: UIButton?
 
     weak var delegate: TopBarDelegate?
 
-    var showLogOutButton = false {
-        didSet {
-            signIn.isHidden = !oldValue
-            signUp.isHidden = !oldValue
-            backwardButton.isHidden = !oldValue
-            logOut.isHidden = oldValue
-            logoView.isHidden = oldValue
-        }
+    private lazy var allItems = [
+        signIn,
+        signUp,
+        logOut,
+        backwardButton,
+        logoView,
+        gameNameLabel,
+        favoritesButton
+    ]
+
+    func showLogOutButton() {
+
+        let visibleItems = [
+            logOut,
+            logoView
+        ]
+
+        showOnly(visibleItems)
     }
 
-    func showNextTopBar(name: String) {
+    func showGameTopBar(name: String) {
 
-        signIn.isHidden = true
-        signUp.isHidden = true
-        logOut.isHidden = true
-        logoView.isHidden = true
-        backwardButton.isHidden = false
-        gameNameLabel.isHidden = false
-        gameNameLabel.text = name
+        let visibleItems = [
+            backwardButton,
+            gameNameLabel
+        ]
+
+        showOnly(visibleItems)
     }
 
     func showMainTopBar() {
 
-        signIn.isHidden = false
-        signUp.isHidden = false
-        logOut.isHidden = true
-        logoView.isHidden = false
-        gameNameLabel.isHidden = true
-        backwardButton.isHidden = true
+        let visibleItems = [
+            signIn,
+            signUp,
+            logoView
+        ]
+
+        showOnly(visibleItems)
+    }
+
+    func setFavoritesButtonHighlighted(_ isHightlighted: Bool) {
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            self?.favoritesButton?.alpha = isHightlighted ? 1 : 0.2
+        }
+    }
+
+    func showFavoritesButton(_ show: Bool) {
+        favoritesButton?.isHidden = !show
+    }
+
+    func showHistoryButton(_ show: Bool) {
+        historyButton?.isHidden = !show
+    }
+
+    func setEnableFavoritesButton(_ isEnabled: Bool) {
+        favoritesButton?.isEnabled = isEnabled
+    }
+
+    func setGameNameLabel(text: String) {
+        gameNameLabel?.text = text
     }
 
     override init(frame: CGRect) {
@@ -112,21 +160,44 @@ class TopBar: UIView {
         bundle.loadNibNamed("TopBar", owner: self, options: nil)
     }
 
+    private func showOnly(_ visible: [UIView?]) {
+
+        visible.forEach({ $0?.isHidden = false })
+
+        allItems
+            .filter({ !visible.contains($0) })
+            .forEach({ $0?.isHidden = true })
+    }
+
     // MARK: - @IBActions
     @IBAction func logoutButtonPressed(_ sender: DesignableButton) {
+        log.info("Logout button pressed")
         delegate?.logOutButtonPressed()
     }
 
     @IBAction func loginButtonPressed(_ sender: DesignableButton) {
+        log.info("Login button pressed")
         delegate?.signInButtonPressed()
     }
 
     @IBAction func registerButtonPressed(_ sender: DesignableButton) {
+        log.info("Register button pressed")
         delegate?.signUpButtonPressed()
     }
 
     @IBAction func backwardButtonPressed(_ sender: Any) {
+        log.info("Back button pressed")
         delegate?.backwardButtonPressed()
+    }
+
+    @IBAction func favouritesButtonPressed(_ sender: Any) {
+        log.info("Favourites button pressed")
+        delegate?.favoriteButtonPressed()
+    }
+
+    @IBAction func historyButtonPressed(_ sender: Any) {
+        log.info("History button pressed")
+        delegate?.historyButtonPressed()
     }
 
 }

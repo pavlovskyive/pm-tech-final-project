@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import AuthService
+import AuthLayer
 
 protocol AuthPresentable: UIViewController {
 
-    typealias Dependencies = HasAuthenticator
+    typealias Dependencies = HasAuthProvider
 
     var dependencies: Dependencies? { get set }
 
@@ -84,14 +84,18 @@ private extension AuthBaseViewController {
     // MARK: - Actions
 
     @objc func didTapPrimaryButton(_ sender: Any) {
+
+        log.info("Primary button tapped")
         primaryAction?()
     }
 
     @objc func didTapSecondaryButton(_ sender: Any) {
+        log.info("Secondary button tapped")
         secondaryAction?()
     }
 
     @objc func didTapCloseButton(_ sender: Any) {
+        log.info("Close button tapped")
         onClose?()
     }
 
@@ -105,7 +109,7 @@ extension AuthBaseViewController {
 
         self.textFields = textFields.compactMap { textField in
             textField?.delegate = self
-            textField?.addTarget(self, action: #selector(validate), for: .editingChanged)
+            textField?.addTarget(self, action: #selector(validateTextField), for: .editingChanged)
 
             return textField
         }
@@ -122,7 +126,7 @@ extension AuthBaseViewController {
     }
 
     @objc
-    private func validate() {
+    private func validateTextField() {
 
         guard !textFields.contains(where: { $0.text?.isEmpty == true }) else {
             onInvalid?()

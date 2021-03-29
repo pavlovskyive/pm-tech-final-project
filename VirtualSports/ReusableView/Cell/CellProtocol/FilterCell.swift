@@ -9,6 +9,6 @@ import Foundation
 
 protocol FilterCell {
 
-    func normal()
-    func selected()
+    func makeNormal()
+    func select()
 }
