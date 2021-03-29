@@ -99,6 +99,11 @@ class DiceGameViewController: BaseGameViewController {
 
         let bet = Bet(betType: betType)
 
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            self.resultingDiceImageView?.transform = CGAffineTransform(rotationAngle: .pi)
+            self.resultingDiceImageView?.transform = CGAffineTransform(rotationAngle: 0)
+        }
+
         dependencies?.apiService.playGame(gameId: "dice", bet: bet) { [weak self] result in
             switch result {
             case .success(let bet):
@@ -228,10 +233,12 @@ private extension DiceGameViewController {
 
     func setChosenBetLabel(outcome: String) {
         chosenBetLabel?.text = "ВЫБРАННЫЙ ИСХОД: " + outcome
+        chosenBetLabel?.textColor = .white
     }
 
     func setResultBetLabel(didWin: Bool) {
         chosenBetLabel?.text = "РЕЗУЛЬТАТ: " + (didWin ? "ПОБЕДА" : "ПОРАЖЕНИЕ")
+        chosenBetLabel?.textColor = didWin ? UIColor(named: "PMGreen") : .systemRed
     }
 
     func checkConfirmationButtonEnabled() {
