@@ -66,8 +66,8 @@ class BaseGameViewController: UIViewController, GameViewControllable {
 
         guard dependencies?.authProvider.loggedIn ?? false else {
 
-            let alert = Alert.errorAlert(title: "Authorization error",
-                                         message: "Please log in into system.", needCancelButton: true) {
+            let alert = Alert.errorAlert(title: "Ошибка авторизации",
+                                         message: "Пожалуйста ввойдите в систему!", needCancelButton: true) {
                 DispatchQueue.main.async {
                     self.onGoToLogin?()
                 }
@@ -97,7 +97,7 @@ class BaseGameViewController: UIViewController, GameViewControllable {
                     self?.handleBetOutcome(bet: bet)
                 }
             case .failure(let error):
-                let alert = Alert.errorAlert(title: "Bet alert", message: error.localizedDescription)
+                let alert = Alert.errorAlert(title: "Ошибка ставки", message: "Ой... Что-то пошло не так.")
 
                 DispatchQueue.main.async {
                     self?.present(alert, animated: true)
@@ -192,7 +192,7 @@ extension BaseGameViewController: TopBarDelegate {
                     self?.handleHistoryResponse(history: bets)
                 }
             case .failure(let error):
-                let alert = Alert.errorAlert(title: "History error", message: error.localizedDescription)
+                let alert = Alert.errorAlert(title: "Ошибка истории", message: "При загрузке истории что-то пошло не так.")
 
                 DispatchQueue.main.async {
                     self?.present(alert, animated: true)
