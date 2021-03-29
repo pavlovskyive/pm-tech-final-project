@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -38,14 +38,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-86-onI" customClass="TopBar" customModule="VirtualSports" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="9KS-eQ-ssT"/>
+                        <constraint firstAttribute="height" constant="80" id="9KS-eQ-ssT"/>
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice6" translatesAutoresizingMaskIntoConstraints="NO" id="jah-ij-jKt" userLabel="ResultingDice">
-                    <rect key="frame" x="131" y="226.5" width="152" height="152.5"/>
+                    <rect key="frame" x="131" y="207" width="152" height="152.5"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="jah-ij-jKt" secondAttribute="height" multiplier="1:1" id="1TP-fB-4L5"/>
@@ -72,7 +72,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-IG-Z4r">
-                    <rect key="frame" x="20" y="429" width="374" height="283"/>
+                    <rect key="frame" x="20" y="409.5" width="374" height="283"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-0T-DAn">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="173"/>
@@ -97,22 +97,22 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВЫБРАННЫЙ ИСХОД: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBU-6D-6ZE">
-                    <rect key="frame" x="20" y="170" width="374" height="26.5"/>
+                    <rect key="frame" x="20" y="154" width="374" height="23"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="qCQ-aA-OlH">
-                    <rect key="frame" x="20" y="737" width="374" height="49"/>
+                    <rect key="frame" x="20" y="743.5" width="374" height="42.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Войдите в систему, чтобы играть" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOb-7u-NJJ" userLabel="Unauthorized Message">
-                            <rect key="frame" x="0.0" y="0.0" width="254" height="49"/>
+                            <rect key="frame" x="0.0" y="0.0" width="254" height="42.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8u-7y-Vq3">
-                            <rect key="frame" x="254" y="0.0" width="120" height="49"/>
+                            <rect key="frame" x="254" y="0.0" width="120" height="42.5"/>
                             <color key="backgroundColor" name="PMYellow"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="s8e-ZL-Yk9"/>
@@ -145,7 +145,7 @@
                 <constraint firstItem="XBU-6D-6ZE" firstAttribute="top" secondItem="8T4-86-onI" secondAttribute="bottom" constant="30" id="SnQ-Z1-gyY"/>
                 <constraint firstAttribute="trailing" secondItem="qCQ-aA-OlH" secondAttribute="trailing" constant="20" id="UPL-GX-Bdb"/>
                 <constraint firstItem="8LY-5H-0ev" firstAttribute="top" secondItem="qCQ-aA-OlH" secondAttribute="bottom" constant="30" id="Wrk-EC-3u0"/>
-                <constraint firstItem="8T4-86-onI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZTs-rs-eKI"/>
+                <constraint firstItem="8T4-86-onI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZTs-rs-eKI"/>
                 <constraint firstItem="jah-ij-jKt" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.17" id="d5f-2b-OWi"/>
                 <constraint firstItem="jah-ij-jKt" firstAttribute="top" secondItem="XBU-6D-6ZE" secondAttribute="bottom" constant="30" id="dMP-o5-DhR"/>
                 <constraint firstItem="8T4-86-onI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="jUR-4D-gPv"/>
