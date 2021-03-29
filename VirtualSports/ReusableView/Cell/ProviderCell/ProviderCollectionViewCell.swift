@@ -31,6 +31,13 @@ class ProviderCollectionViewCell: UICollectionViewCell {
         set {
             providerImageView?.image = newValue
             activityIndicator?.stopAnimating()
+            UIView.animate(withDuration: 0.4,
+                           delay: 0, usingSpringWithDamping: 0.7,
+                           initialSpringVelocity: 0.3,
+                           options: .curveEaseInOut) {
+                self.providerImageView?.alpha = 1
+                self.providerImageView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
         }
     }
 
@@ -48,6 +55,8 @@ class ProviderCollectionViewCell: UICollectionViewCell {
         providerImageView?.contentMode = .scaleAspectFit
 
         activityIndicator?.startAnimating()
+        self.providerImageView?.alpha = 0
+        self.providerImageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     override func prepareForReuse() {
@@ -56,6 +65,8 @@ class ProviderCollectionViewCell: UICollectionViewCell {
         image = nil
 
         activityIndicator?.startAnimating()
+        self.providerImageView?.alpha = 0
+        self.providerImageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     override func layoutSubviews() {

@@ -30,6 +30,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         set {
             categoryImageView?.image = newValue
             activityIndicator?.stopAnimating()
+            UIView.animate(withDuration: 0.4,
+                           delay: 0, usingSpringWithDamping: 0.7,
+                           initialSpringVelocity: 0.3,
+                           options: .curveEaseInOut) {
+                self.categoryImageView?.alpha = 1
+                self.categoryImageView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
         }
     }
 
@@ -50,6 +57,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         activityIndicator?.startAnimating()
+        categoryImageView?.alpha = 0
+        categoryImageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     override func prepareForReuse() {
@@ -58,6 +67,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         categoryName = ""
         image = nil
         activityIndicator?.startAnimating()
+        categoryImageView?.alpha = 0
+        categoryImageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     override func layoutSubviews() {

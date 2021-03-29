@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/google/GoogleDataTransport.git",
         "state": {
           "branch": null,
-          "revision": "34bd15a31149e42eadd6c75bd67aaea002e23bf4",
-          "version": "8.3.0"
+          "revision": "3615a4ca10961d82ed2b5459cd9a5cb5ebc03ff2",
+          "version": "8.3.1"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/alexsopilnyak/ImageLoader.git",
         "state": {
           "branch": null,
-          "revision": "b50f529030f066bb069a3b4a44ae725689163a17",
-          "version": "1.4.0"
+          "revision": "ce19db6a59b024b56611b75e0fc71375cf367580",
+          "version": "1.5.1"
         }
       },
       {

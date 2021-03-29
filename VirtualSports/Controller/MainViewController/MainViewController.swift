@@ -108,7 +108,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     func setupTopBar() {
         topBar.delegate = self
-        topBar.showStartTopBar()
+        topBar.showMainTopBar()
     }
 
     func setupCollectionView() {
@@ -387,7 +387,10 @@ extension MainViewController: UICollectionViewDataSource {
                         willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
         guard let cell = cell as? GameCollectionViewCell else { return }
-
+        guard sections.count > indexPath.section,
+              sections[indexPath.section].items.count > indexPath.row else {
+            return
+        }
         let game = sections[indexPath.section].items[indexPath.row]
         dependencies?.imageLoader.downloadImage(from: game.imageURL,
                                                 indexPath: indexPath, completion: { (image, indexPath, _) in
