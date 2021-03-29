@@ -67,7 +67,7 @@ class BaseGameViewController: UIViewController, GameViewControllable {
         guard dependencies?.authProvider.loggedIn ?? false else {
 
             let alert = Alert.errorAlert(title: "Ошибка авторизации",
-                                         message: "Пожалуйста ввойдите в систему!", needCancelButton: true) {
+                                         message: "Пожалуйста войдите в систему!", needCancelButton: true) {
                 DispatchQueue.main.async {
                     self.onGoToLogin?()
                 }
