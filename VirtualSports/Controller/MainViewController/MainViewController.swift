@@ -70,6 +70,14 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet private weak var filterButtonView: FilterButtonView!
     @IBOutlet private weak var emptyResultsView: EmptyResultsView!
     @IBOutlet weak var gameCollectionView: UICollectionView!
+    lazy var refreshControl: UIRefreshControl = {
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+
+        return refreshControl
+    }()
 
     // MARK: Lifecircle
 
@@ -80,6 +88,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
         filterButtonView.delegate = self
         setupTopBar()
+        setupCollectionView()
         checkNetworkConnectionState(connectionState)
     }
 
@@ -96,6 +105,11 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     func setupTopBar() {
         topBar.delegate = self
         topBar.showMainTopBar()
+    }
+
+    func setupCollectionView() {
+        gameCollectionView.alwaysBounceVertical = true
+        gameCollectionView.addSubview(refreshControl)
     }
 
     func configureCollectionView() {
@@ -148,12 +162,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             dependencies?.authProvider.subscribe(self)
             dependencies?.apiService.delegate = self
 
-            fetchMain()
-            group.notify(queue: .main) {
-                self.makeSections()
-                self.configureCollectionView()
-                self.gameCollectionView.reloadData()
-            }
+            loadData()
+            refreshControl.beginRefreshing()
         case .disconnected:
             DispatchQueue.main.async {
                 self.onGoToOffline?()
@@ -224,6 +234,25 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         filterButtonView.filterCount = 0
     }
 
+    @objc
+    private func loadData() {
+
+        fetchMain()
+
+        if dependencies?.authProvider.loggedIn ?? false {
+            fetchRecent()
+            fetchFavourites()
+        }
+
+        group.notify(queue: .main) {
+            self.refreshControl.endRefreshing()
+            self.makeSections()
+            self.configureCollectionView()
+            self.gameCollectionView.reloadData()
+            self.gameCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        }
+    }
+
 }
 
 // MARK: API Delegate
@@ -261,16 +290,7 @@ extension MainViewController: AuthDelegate {
             self.topBar.showLogOutButton()
         }
 
-        fetchMain()
-        fetchRecent()
-        fetchFavourites()
-
-        group.notify(queue: .main) {
-            self.makeSections()
-            self.configureCollectionView()
-            self.gameCollectionView.reloadData()
-            self.gameCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        }
+        loadData()
 
     }
 
@@ -416,4 +436,5 @@ private extension MainViewController {
         self.configureCollectionView()
         self.gameCollectionView.reloadData()
     }
+
 }
