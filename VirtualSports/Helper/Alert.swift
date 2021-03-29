@@ -9,7 +9,9 @@ import UIKit
 
 public struct Alert {
 
-    static func errorAlert(title: String, message: String, needCancelButton: Bool = false, completion: (() -> Void)? = nil) -> UIAlertController {
+    static func errorAlert(title: String, message: String,
+                           needCancelButton: Bool = false,
+                           completion: (() -> Void)? = nil) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

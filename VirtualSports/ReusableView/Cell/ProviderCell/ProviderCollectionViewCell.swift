@@ -9,15 +9,16 @@ import UIKit
 
 class ProviderCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var providerImageView: UIImageView!
-    @IBOutlet private weak var providerView: UIView!
-
+    @IBOutlet private weak var providerImageView: UIImageView?
+    @IBOutlet private weak var providerView: UIView?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
+    
     lazy var tintLayer: CALayer = {
         let layer = CALayer()
         layer.opacity = 0
         layer.backgroundColor = UIColor.white.withAlphaComponent(0.4).cgColor
 
-        providerView.layer.addSublayer(layer)
+        providerView?.layer.addSublayer(layer)
 
         return layer
     }()
@@ -25,10 +26,11 @@ class ProviderCollectionViewCell: UICollectionViewCell {
     var image: UIImage? {
 
         get {
-            providerImageView.image
+            providerImageView?.image
         }
         set {
-            providerImageView.image = newValue
+            providerImageView?.image = newValue
+            activityIndicator?.stopAnimating()
         }
     }
 
@@ -39,22 +41,27 @@ class ProviderCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
 
         super.awakeFromNib()
-        providerView.layer.cornerRadius = 5
-        providerView.layer.masksToBounds = true
-        providerView.layer.borderWidth = 1
-        providerView.layer.borderColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
-        providerImageView.contentMode = .scaleAspectFit
+        providerView?.layer.cornerRadius = 5
+        providerView?.layer.masksToBounds = true
+        providerView?.layer.borderWidth = 1
+        providerView?.layer.borderColor = #colorLiteral(red: 0.2901595235, green: 0.2902165651, blue: 0.2901602089, alpha: 1)
+        providerImageView?.contentMode = .scaleAspectFit
+
+        activityIndicator?.startAnimating()
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         identifier = nil
+        image = nil
+
+        activityIndicator?.startAnimating()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        tintLayer.frame = providerView.bounds
+        tintLayer.frame = providerView?.bounds ?? .zero
     }
 
 }

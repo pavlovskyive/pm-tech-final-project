@@ -21,8 +21,9 @@ class GenericGameViewController: BaseGameViewController {
             return
         }
 
-        dependencies?.apiService.playMockedGame(gameId: game.id)
-        
+        if dependencies?.authProvider.loggedIn ?? false {
+            dependencies?.apiService.playMockedGame(gameId: game.id)
+        }
 
         webView?.load(URLRequest(url: url))
 

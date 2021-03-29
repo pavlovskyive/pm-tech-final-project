@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,14 +23,17 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sportscourt" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-Ce-kxX">
-                        <rect key="frame" x="16" y="22.5" width="40" height="37.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-Ce-kxX">
+                        <rect key="frame" x="16" y="21.5" width="40" height="40"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="dig-ma-ooa"/>
                             <constraint firstAttribute="width" constant="40" id="dl8-iR-d0G"/>
                         </constraints>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="cST-7w-ox7">
+                        <rect key="frame" x="26" y="31.5" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -39,16 +42,16 @@
                 <constraint firstItem="N6H-Ce-kxX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="8gN-mQ-cxk"/>
                 <constraint firstItem="N6H-Ce-kxX" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="9g3-Nd-d0g"/>
                 <constraint firstItem="nZf-9S-yCA" firstAttribute="leading" secondItem="N6H-Ce-kxX" secondAttribute="trailing" constant="16" id="JzT-yb-ora"/>
+                <constraint firstItem="cST-7w-ox7" firstAttribute="centerX" secondItem="N6H-Ce-kxX" secondAttribute="centerX" id="Ojq-Gx-pIy"/>
+                <constraint firstItem="cST-7w-ox7" firstAttribute="centerY" secondItem="N6H-Ce-kxX" secondAttribute="centerY" id="Qfp-O8-nrZ"/>
             </constraints>
             <size key="customSize" width="393" height="83"/>
             <connections>
+                <outlet property="activityIndicator" destination="cST-7w-ox7" id="8vm-03-T2c"/>
                 <outlet property="categoryImageView" destination="N6H-Ce-kxX" id="RFu-aN-qUA"/>
                 <outlet property="categoryLabel" destination="nZf-9S-yCA" id="Ufc-ye-xJq"/>
             </connections>
             <point key="canvasLocation" x="386.23188405797106" y="74.665178571428569"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="sportscourt" catalog="system" width="128" height="84"/>
-    </resources>
 </document>

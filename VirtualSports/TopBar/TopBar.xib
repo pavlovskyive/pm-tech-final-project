@@ -53,7 +53,7 @@
                                 <constraint firstAttribute="height" constant="30" id="jPT-ZS-C5t"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
-                            <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                             <state key="normal" title="Вход">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
@@ -78,7 +78,7 @@
                                 <constraint firstAttribute="width" constant="120" id="elx-Kd-7UW"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
-                            <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                             <state key="normal" title="Регистрация">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -102,7 +102,7 @@
                                 <constraint firstAttribute="height" constant="30" id="rq5-Cd-OmF"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Pari-Match-Regular" family="Pari-Match" pointSize="17"/>
-                            <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                             <state key="normal" title="Выход">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>

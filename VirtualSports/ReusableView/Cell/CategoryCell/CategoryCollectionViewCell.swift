@@ -9,8 +9,9 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var categoryImageView: UIImageView!
-    @IBOutlet private weak var categoryLabel: UILabel!
+    @IBOutlet private weak var categoryImageView: UIImageView?
+    @IBOutlet private weak var categoryLabel: UILabel?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
 
     lazy var tintLayer: CALayer = {
         let layer = CALayer()
@@ -24,19 +25,20 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     var image: UIImage? {
         get {
-            categoryImageView.image
+            categoryImageView?.image
         }
         set {
-            categoryImageView.image = newValue
+            categoryImageView?.image = newValue
+            activityIndicator?.stopAnimating()
         }
     }
 
     var categoryName: String? {
             get {
-                categoryLabel.text
+                categoryLabel?.text
             }
             set {
-                categoryLabel.text = newValue
+                categoryLabel?.text = newValue
             }
         }
 
@@ -46,12 +48,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        activityIndicator?.startAnimating()
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
 
         categoryName = ""
+        image = nil
+        activityIndicator?.startAnimating()
     }
 
     override func layoutSubviews() {

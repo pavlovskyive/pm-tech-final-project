@@ -42,22 +42,6 @@
                         <constraint firstAttribute="height" constant="140" id="Rhk-hP-J7g"/>
                     </constraints>
                 </view>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9x-kJ-TbV" userLabel="ClearButton">
-                    <rect key="frame" x="0.0" y="826" width="414" height="70"/>
-                    <color key="backgroundColor" name="PMYellow"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="70" id="yue-X3-pWW"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
-                    <color key="tintColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Сбросить фильтр" image="clear" catalog="system">
-                        <color key="titleColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </state>
-                    <connections>
-                        <action selector="clearButtonPressed:" destination="-1" eventType="touchUpInside" id="cZR-HC-Zv4"/>
-                    </connections>
-                </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="okw-zV-nTg">
                     <rect key="frame" x="0.0" y="222" width="414" height="674"/>
                     <color key="backgroundColor" red="0.14901724459999999" green="0.14901834729999999" blue="0.14902132749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -68,6 +52,22 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9x-kJ-TbV" userLabel="ClearButton">
+                    <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                    <color key="backgroundColor" name="PMYellow"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="yue-X3-pWW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
+                    <color key="tintColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <inset key="titleEdgeInsets" minX="10" minY="-3" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Сбросить фильтр" image="clear" catalog="system">
+                        <color key="titleColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                    <connections>
+                        <action selector="clearButtonPressed:" destination="-1" eventType="touchUpInside" id="cZR-HC-Zv4"/>
+                    </connections>
+                </button>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-HW-vt2" customClass="EmptyResultsView" customModule="VirtualSports" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="206" width="414" height="690"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

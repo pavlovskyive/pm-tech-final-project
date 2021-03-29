@@ -91,7 +91,7 @@ class FilterViewController: UIViewController {
 
         filterCount = selectedProviders.count
         if !selectedCategoryId.isEmpty { filterCount += 1 }
-        
+
         delegate?.handleFilter(filteredGames: mainResponse.filter(by: scope), filterCount )
 
         onGoToDismiss?()
@@ -297,7 +297,8 @@ extension FilterViewController: UICollectionViewDelegate {
             cell.identifier = provider.id
             showIfSelectedProvider(cell)
 
-            dependency?.imageLoader.downloadImage(from: provider.imageURL, indexPath: indexPath) { image, indexPath, _ in
+            dependency?.imageLoader
+                .downloadImage(from: provider.imageURL, indexPath: indexPath) { image, indexPath, _ in
 
                 guard let indexPath = indexPath else {
                     return
@@ -375,8 +376,11 @@ extension FilterViewController: UICollectionViewDataSource {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kindView,
                                                                          with: HeaderCollectionReusableView.self,
                                                                          for: indexPath)
-            if indexPath.section == 1 {
+            switch indexPath.section {
+            case 1:
                 header.sectionName = "Провайдеры"
+            default:
+                header.sectionName = ""
             }
 
             return header
@@ -414,9 +418,8 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout {
         case 1:
             return CGSize(width: self.view.frame.width, height: 80)
         default:
-            return CGSize()
+            return CGSize(width: self.view.frame.width, height: 25)
         }
-
     }
 
 }

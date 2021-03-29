@@ -57,6 +57,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     var onGoToFilter: ((_ mainResponse: MainResponse?) -> Void)?
     var onGoToOffline: (() -> Void)?
 
+    let group = DispatchGroup()
+
     var connectionState = NetworkMonitor.shared.connectionState {
         willSet {
             checkNetworkConnectionState(newValue)
@@ -119,21 +121,21 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
 
         let topGames = response.games.filter { $0.tags.contains("top") == true }
-        let topSections = GameSection(tag: "top", title: "Top", items: topGames)
+        let topSections = GameSection(tag: "top", title: "Топ", items: topGames)
         sections.append(topSections)
 
         if !favouriteGames.isEmpty {
-            let sectionFavourite = GameSection(tag: "favourite", title: "Favourite", items: favouriteGames)
+            let sectionFavourite = GameSection(tag: "favourite", title: "Избранные", items: favouriteGames)
             sections.append(sectionFavourite)
         }
 
         if !recentGames.isEmpty {
-            let sectionFavourite = GameSection(tag: "recent", title: "Recent", items: recentGames)
+            let sectionFavourite = GameSection(tag: "recent", title: "Недавно запущенные", items: recentGames)
             sections.append(sectionFavourite)
         }
 
         let allGames = response.games
-        let allGamesSections = GameSection(tag: "all", title: "All Games", items: allGames)
+        let allGamesSections = GameSection(tag: "all", title: "Все игры", items: allGames)
         sections.append(allGamesSections)
 
     }
@@ -145,7 +147,13 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         case .connected:
             dependencies?.authProvider.subscribe(self)
             dependencies?.apiService.delegate = self
+
             fetchMain()
+            group.notify(queue: .main) {
+                self.makeSections()
+                self.configureCollectionView()
+                self.gameCollectionView.reloadData()
+            }
         case .disconnected:
             DispatchQueue.main.async {
                 self.onGoToOffline?()
@@ -159,60 +167,42 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
 
     private func fetchMain() {
+        group.enter()
         dependencies?.apiService.fetchMain { result in
             switch result {
             case .success(let mainResponse):
-
-                DispatchQueue.main.async {
-                    self.mainResponse = mainResponse
-                    self.makeSections()
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
-                }
+                self.mainResponse = mainResponse
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
+            self.group.leave()
         }
     }
 
     private func fetchFavourites() {
-
+        group.enter()
         dependencies?.apiService.fetchFavourites { result in
             switch result {
             case .success(let favouriteGames):
-                DispatchQueue.main.async {
-                    self.favouriteGames = favouriteGames
-                    self.makeSections()
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
-                }
+                self.favouriteGames = favouriteGames
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
+            self.group.leave()
         }
     }
 
     private func fetchRecent() {
-
+        group.enter()
         dependencies?.apiService.fetchRecent { result in
             switch result {
             case .success(let recentGames):
-                DispatchQueue.main.async {
-                    self.recentGames = recentGames
-                    self.makeSections()
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
-                }
+                self.recentGames = recentGames
             case .failure(let error):
                 log.error(error.localizedDescription)
             }
+            self.group.leave()
         }
-    }
-
-    private func fetchAll() {
-        fetchMain()
-        fetchRecent()
-        fetchFavourites()
     }
 
     private func logout() {
@@ -242,10 +232,22 @@ extension MainViewController: APIDelegate {
 
     func onFavouritesChanged() {
         fetchFavourites()
+
+        group.notify(queue: .main) {
+            self.makeSections()
+            self.configureCollectionView()
+            self.gameCollectionView.reloadData()
+        }
     }
 
     func onRecentsChanged() {
         fetchRecent()
+
+        group.notify(queue: .main) {
+            self.makeSections()
+            self.configureCollectionView()
+            self.gameCollectionView.reloadData()
+        }
     }
 
 }
@@ -262,6 +264,14 @@ extension MainViewController: AuthDelegate {
         fetchMain()
         fetchRecent()
         fetchFavourites()
+
+        group.notify(queue: .main) {
+            self.makeSections()
+            self.configureCollectionView()
+            self.gameCollectionView.reloadData()
+            self.gameCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        }
+
     }
 
     func onLogout() {
@@ -353,11 +363,16 @@ extension MainViewController: UICollectionViewDataSource {
                         forItemAt indexPath: IndexPath) {
         guard let cell = cell as? GameCollectionViewCell else { return }
 
-
         let game = sections[indexPath.section].items[indexPath.row]
-        dependencies?.imageLoader.downloadImage(from: game.imageURL, indexPath: indexPath, completion: { (image, _, _) in
+        dependencies?.imageLoader.downloadImage(from: game.imageURL,
+                                                indexPath: indexPath, completion: { (image, indexPath, _) in
+
+            guard let indexPath = indexPath else { return }
+
             DispatchQueue.main.async {
-                cell.image = image
+                if let cell = collectionView.cellForItem(at: indexPath) as? GameCollectionViewCell {
+                    cell.image = image
+                }
             }
 
         })
@@ -398,6 +413,7 @@ private extension MainViewController {
         emptyResultsView.isHidden = true
 
         self.makeSections()
+        self.configureCollectionView()
         self.gameCollectionView.reloadData()
     }
 }
