@@ -118,7 +118,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     func configureCollectionView() {
         self.gameCollectionView.collectionViewLayout = LayoutFactory()
-            .makeGameCollectionLayout(with: sections, view: self.view)
+            .makeGameCollectionLayout(with: sections)
         self.gameCollectionView.dataSource = self
         self.gameCollectionView.delegate = self
         self.gameCollectionView.register(type: GameCollectionViewCell.self)

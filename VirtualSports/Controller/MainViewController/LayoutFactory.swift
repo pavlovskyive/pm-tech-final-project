@@ -7,75 +7,85 @@
 
 import UIKit
 
+enum SectionType {
+    case top
+    case common
+}
+
 @available(iOS 13.0, *)
 class LayoutFactory {
-    func makeGameCollectionLayout(with dataSourse: [GameSection], view: UIView) -> UICollectionViewLayout {
 
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _ ) ->
+    func makeGameCollectionLayout(with dataSourse: [GameSection]) -> UICollectionViewLayout {
+
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, enviroment ) ->
             NSCollectionLayoutSection? in
 
             let data = dataSourse[sectionIndex]
+            let width = enviroment.container.contentSize.width
 
             switch data.tag {
             case "top":
-                return self.createTopSection(view: view)
-            case "filter":
-                return self.createCommonSection(view: view)
+                return self.createTopSection(width: width)
             default:
-                return self.createCommonSection(view: view)
+                return self.createCommonSection(width: width)
             }
         }
 
         return layout
     }
 
-    func createTopSection(view: UIView) -> NSCollectionLayoutSection {
+    private func createTopSection(width: CGFloat) -> NSCollectionLayoutSection {
 
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                              heightDimension: .fractionalHeight(1))
-        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        layoutItem.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 8)
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 8)
 
-        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .estimated(view.layer.frame.width/2 - 8),
-                                                     heightDimension: .estimated(view.layer.frame.width/2 - 8+40))
-        let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(width/2 - 8),
+                                                     heightDimension: .estimated(width / 2 + 30))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
-        let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.orthogonalScrollingBehavior = .continuous
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 8, bottom: 0, trailing: 8)
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 8, bottom: 0, trailing: 8)
 
         let header = createSectionHeader()
-        layoutSection.boundarySupplementaryItems = [header]
+        section.boundarySupplementaryItems = [header]
 
-        return layoutSection
+        return section
     }
 
-    func createCommonSection(view: UIView) -> NSCollectionLayoutSection {
+    private func createCommonSection(width: CGFloat) -> NSCollectionLayoutSection {
+
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                                heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 8, trailing: 8)
+        item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 8)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .estimated(view.layer.frame.width/2 - 8+40))
+                                               heightDimension: .estimated(width / 2 + 30))
+
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
 
-        let layoutSection = NSCollectionLayoutSection(group: group)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 8, bottom: 8, trailing: 8)
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 8, bottom: 8, trailing: 8)
 
         let header = createSectionHeader()
-        layoutSection.boundarySupplementaryItems = [header]
+        section.boundarySupplementaryItems = [header]
 
-        return layoutSection
+        return section
     }
 
-    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                             heightDimension: .estimated(50))
-        let layoutSection = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize,
+    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: -8, bottom: 0, trailing: 0)
-        return layoutSection
+        header.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: -8, bottom: 0, trailing: 0)
+
+        return header
     }
+
 }
