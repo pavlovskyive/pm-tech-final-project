@@ -12,7 +12,7 @@ class ProviderCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var providerImageView: UIImageView?
     @IBOutlet private weak var providerView: UIView?
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
-    
+
     lazy var tintLayer: CALayer = {
         let layer = CALayer()
         layer.opacity = 0
