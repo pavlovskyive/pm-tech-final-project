@@ -21,6 +21,13 @@ class GameCollectionViewCell: UICollectionViewCell {
         set {
             gameImageView.image = newValue
             activityIndicator?.stopAnimating()
+            UIView.animate(withDuration: 0.4,
+                           delay: 0, usingSpringWithDamping: 0.7,
+                           initialSpringVelocity: 0.3,
+                           options: .curveEaseInOut) {
+                self.gameImageView.alpha = 1
+                self.gameImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
         }
     }
 
@@ -43,6 +50,8 @@ class GameCollectionViewCell: UICollectionViewCell {
         gameImageView.layer.cornerRadius = 5
 
         activityIndicator?.startAnimating()
+        gameImageView.alpha = 0
+        gameImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     override func prepareForReuse() {
@@ -52,6 +61,8 @@ class GameCollectionViewCell: UICollectionViewCell {
         image = nil
 
         activityIndicator?.startAnimating()
+        gameImageView.alpha = 0
+        gameImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
 
     func configure(game: Game) {

@@ -22,7 +22,7 @@ class GenericGameViewController: BaseGameViewController {
         }
 
         webView.alpha = 0
-        
+
         webView.navigationDelegate = self
         webView.uiDelegate = self
 
