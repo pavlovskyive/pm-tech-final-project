@@ -31,6 +31,8 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
     // MARK: Properties
 
+    var mutex = Mutex()
+
     var sections: [GameSection] = []
 
     var dependencies: Dependencies?
@@ -112,28 +114,28 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
         sections = []
 
-        if filteredGames != [] {
+        if isFiltered == true {
             let filterSection = GameSection(tag: "filter", title: "Фильтр", items: filteredGames)
             sections.append(filterSection)
             return
         }
 
         let topGames = response.games.filter { $0.tags.contains("top") == true }
-        let topSections = GameSection(tag: "top", title: "Top", items: topGames)
+        let topSections = GameSection(tag: "top", title: "Топ", items: topGames)
         sections.append(topSections)
 
         if !favouriteGames.isEmpty {
-            let sectionFavourite = GameSection(tag: "favourite", title: "Favourite", items: favouriteGames)
+            let sectionFavourite = GameSection(tag: "favourite", title: "Избранные", items: favouriteGames)
             sections.append(sectionFavourite)
         }
 
         if !recentGames.isEmpty {
-            let sectionFavourite = GameSection(tag: "recent", title: "Recent", items: recentGames)
-            sections.append(sectionFavourite)
+            let resentFavourite = GameSection(tag: "recent", title: "Недавно запущенные", items: recentGames)
+            sections.append(resentFavourite)
         }
 
         let allGames = response.games
-        let allGamesSections = GameSection(tag: "all", title: "All Games", items: allGames)
+        let allGamesSections = GameSection(tag: "all", title: "Все игры", items: allGames)
         sections.append(allGamesSections)
 
     }
@@ -165,9 +167,18 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
 
                 DispatchQueue.main.async {
                     self.mainResponse = mainResponse
-                    self.makeSections()
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
+
+                    self.mutex.run {
+                        self.makeSections()
+                    }
+
+                    DispatchQueue.main.async {
+                        self.mutex.run {
+                            self.configureCollectionView()
+                            self.gameCollectionView.reloadData()
+                        }
+
+                    }
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -180,11 +191,17 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         dependencies?.apiService.fetchFavourites { result in
             switch result {
             case .success(let favouriteGames):
-                DispatchQueue.main.async {
-                    self.favouriteGames = favouriteGames
+                self.favouriteGames = favouriteGames
+                self.mutex.run {
                     self.makeSections()
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
+                }
+
+                DispatchQueue.main.async {
+                    self.mutex.run {
+                        self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                            .makeGameCollectionLayout(with: self.sections, view: self.view)
+                        self.gameCollectionView.reloadData()
+                    }
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -197,11 +214,16 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         dependencies?.apiService.fetchRecent { result in
             switch result {
             case .success(let recentGames):
-                DispatchQueue.main.async {
-                    self.recentGames = recentGames
+                self.mutex.run {
                     self.makeSections()
-                    self.configureCollectionView()
-                    self.gameCollectionView.reloadData()
+                }
+
+                DispatchQueue.main.async {
+                    self.mutex.run {
+                        self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                            .makeGameCollectionLayout(with: self.sections, view: self.view)
+                        self.gameCollectionView.reloadData()
+                    }
                 }
             case .failure(let error):
                 log.error(error.localizedDescription)
@@ -259,17 +281,22 @@ extension MainViewController: AuthDelegate {
             self.topBar.showLogOutButton()
         }
 
-        fetchMain()
-        fetchRecent()
-        fetchFavourites()
+        fetchAll()
     }
 
     func onLogout() {
         favouriteGames = []
         recentGames = []
-        makeSections()
+        self.mutex.run {
+            makeSections()
+        }
+
         DispatchQueue.main.async {
-            self.gameCollectionView.reloadData()
+            self.mutex.run {
+                self.gameCollectionView.collectionViewLayout = LayoutFactory()
+                    .makeGameCollectionLayout(with: self.sections, view: self.view)
+                self.gameCollectionView.reloadData()
+            }
             self.topBar.showMainTopBar()
         }
     }
@@ -283,10 +310,12 @@ extension MainViewController: FilterDelegate {
         isFiltered = true
         filterButtonView.filterCount = filterCount
         self.filteredGames = filteredGames
+        self.makeSections()
         if filteredGames.isEmpty {
             emptyResultsView.isHidden = false
         }
-        self.makeSections()
+        self.gameCollectionView.collectionViewLayout = LayoutFactory()
+            .makeGameCollectionLayout(with: sections, view: self.view)
         self.gameCollectionView.reloadData()
     }
 
@@ -353,9 +382,10 @@ extension MainViewController: UICollectionViewDataSource {
                         forItemAt indexPath: IndexPath) {
         guard let cell = cell as? GameCollectionViewCell else { return }
 
-
         let game = sections[indexPath.section].items[indexPath.row]
-        dependencies?.imageLoader.downloadImage(from: game.imageURL, indexPath: indexPath, completion: { (image, _, _) in
+        dependencies?.imageLoader.downloadImage(from: game.imageURL,
+                                                indexPath: indexPath,
+                                                completion: { (image, _, _) in
             DispatchQueue.main.async {
                 cell.image = image
             }
@@ -397,7 +427,30 @@ private extension MainViewController {
 
         emptyResultsView.isHidden = true
 
-        self.makeSections()
-        self.gameCollectionView.reloadData()
+        self.mutex.run {
+            self.makeSections()
+        }
+
+        DispatchQueue.main.async {
+            self.mutex.run {
+                self.configureCollectionView()
+                self.gameCollectionView.reloadData()
+            }
+
+        }
+    }
+}
+
+class Mutex {
+    private var mutex = pthread_mutex_t()
+
+    init() {
+        pthread_mutex_init(&mutex, nil)
+    }
+
+    func run(completion: () -> ()) {
+        pthread_mutex_lock(&mutex)
+        completion()
+        pthread_mutex_unlock(&mutex)
     }
 }
