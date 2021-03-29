@@ -271,6 +271,9 @@ class RegistrationViewController: AuthBaseViewController {
 
         if conditions {
             validPasswordLabel.isHidden = false
+            validPasswordLabel.text = "Валидный пароль"
+            validPasswordLabel.textColor = UIColor(named: "PMGreen")
+            
             passwordLabel.textColor = UIColor(named: "PMGreen")
             passwordTextField?.changeBottomLineColor = .green
 
@@ -281,8 +284,22 @@ class RegistrationViewController: AuthBaseViewController {
         } else {
             passwordComplexityView.isHidden = false
             passwordLabel.textColor = .red
+            passwordTextField?.changeBottomLineColor = .red
+           
+            validPasswordLabel.isHidden = false
+            validPasswordLabel.text = "Невалидный пароль"
+            validPasswordLabel.textColor = .red
+            
         }
 
+    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        _ = super.textFieldShouldReturn(textField)
+        
+        passwordComplexityView.isHidden = true
+        
+        return false
     }
 
 }

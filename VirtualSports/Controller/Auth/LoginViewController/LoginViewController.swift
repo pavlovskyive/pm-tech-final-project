@@ -83,6 +83,11 @@ class LoginViewController: AuthBaseViewController {
                     case .success:
                         self?.onComplete?()
                     case .failure(let error):
+                        let alert = Alert.errorAlert(title: "Ошибка авторизации", message: "Пользователь не найден или пароль не совпадает.")
+                        DispatchQueue.main.async {
+                            self?.present(alert, animated: true)
+                        }
+                        
                         log.error(error.localizedDescription)
                     }
 
