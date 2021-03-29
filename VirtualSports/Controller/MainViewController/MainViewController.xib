@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="VirtualSports" customModuleProvider="target">
             <connections>
                 <outlet property="clearButton" destination="r9x-kJ-TbV" id="35r-x2-rWK"/>
+                <outlet property="clearButtonHeight" destination="yue-X3-pWW" id="vag-g6-Lek"/>
                 <outlet property="emptyResultsView" destination="Tqd-HW-vt2" id="U3V-qL-2IQ"/>
                 <outlet property="filterButtonView" destination="3dD-fo-TeB" id="Lbv-Du-yjf"/>
                 <outlet property="gameCollectionView" destination="okw-zV-nTg" id="ruD-pF-paq"/>
@@ -53,10 +54,10 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9x-kJ-TbV" userLabel="ClearButton">
-                    <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                    <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
                     <color key="backgroundColor" name="PMYellow"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="yue-X3-pWW"/>
+                        <constraint firstAttribute="height" id="yue-X3-pWW"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Pari-Match-Bold" family="Pari-Match" pointSize="20"/>
                     <color key="tintColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -83,7 +84,6 @@
                 <constraint firstItem="2LZ-77-Pme" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CUd-8L-0sk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="okw-zV-nTg" secondAttribute="trailing" id="J0H-My-t7v"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tqd-HW-vt2" secondAttribute="trailing" id="Lmd-3b-8T7"/>
-                <constraint firstAttribute="bottom" secondItem="Tqd-HW-vt2" secondAttribute="bottom" id="Udv-7Q-26z"/>
                 <constraint firstItem="Tqd-HW-vt2" firstAttribute="top" secondItem="3dD-fo-TeB" secondAttribute="bottom" id="a2B-iQ-MVA"/>
                 <constraint firstItem="okw-zV-nTg" firstAttribute="top" secondItem="3dD-fo-TeB" secondAttribute="bottom" constant="16" id="eDK-U2-0On"/>
                 <constraint firstItem="3dD-fo-TeB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ee3-u9-74Y"/>
@@ -93,6 +93,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3dD-fo-TeB" secondAttribute="trailing" constant="16" id="lnD-Le-HVU"/>
                 <constraint firstItem="3dD-fo-TeB" firstAttribute="top" secondItem="2LZ-77-Pme" secondAttribute="bottom" constant="16" id="lqF-uU-Mnw"/>
                 <constraint firstItem="r9x-kJ-TbV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="r4y-jB-dW1"/>
+                <constraint firstItem="r9x-kJ-TbV" firstAttribute="top" secondItem="Tqd-HW-vt2" secondAttribute="bottom" id="tTk-dK-8L5"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
