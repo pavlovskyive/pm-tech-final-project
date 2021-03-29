@@ -44,8 +44,10 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         willSet {
             if newValue {
                 clearButton.isHidden = false
+                clearButtonHeight.constant = 70
             } else {
                 clearButton.isHidden = true
+                clearButtonHeight.constant = 0
             }
         }
     }
@@ -65,6 +67,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         }
     }
 
+    @IBOutlet private weak var clearButtonHeight: NSLayoutConstraint!
     @IBOutlet private weak var clearButton: UIButton!
     @IBOutlet private weak var topBar: TopBar!
     @IBOutlet private weak var filterButtonView: FilterButtonView!
