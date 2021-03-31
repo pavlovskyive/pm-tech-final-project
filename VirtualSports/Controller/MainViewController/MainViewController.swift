@@ -167,7 +167,11 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
             dependencies?.apiService.delegate = self
 
             loadData()
-            refreshControl.beginRefreshing()
+
+            DispatchQueue.main.async {
+                self.refreshControl.beginRefreshing()
+            }
+
         case .disconnected:
             DispatchQueue.main.async {
                 self.onGoToOffline?()
@@ -395,15 +399,15 @@ extension MainViewController: UICollectionViewDataSource {
         dependencies?.imageLoader.downloadImage(from: game.imageURL,
                                                 indexPath: indexPath, completion: { (image, indexPath, _) in
 
-            guard let indexPath = indexPath else { return }
+                                                    guard let indexPath = indexPath else { return }
 
-            DispatchQueue.main.async {
-                if let cell = collectionView.cellForItem(at: indexPath) as? GameCollectionViewCell {
-                    cell.image = image
-                }
-            }
+                                                    DispatchQueue.main.async {
+                                                        if let cell = collectionView.cellForItem(at: indexPath) as? GameCollectionViewCell {
+                                                            cell.image = image
+                                                        }
+                                                    }
 
-        })
+                                                })
         cell.configure(game: game)
 
     }

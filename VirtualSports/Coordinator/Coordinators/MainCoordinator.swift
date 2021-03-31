@@ -46,6 +46,7 @@ final class MainCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         }
 
         mainViewController.onGoToOffline = { [unowned self] in
+            guard !router.isInStack(controllerType: OfflineViewController.self) else { return }
             self.showOfflineVC()
         }
 
